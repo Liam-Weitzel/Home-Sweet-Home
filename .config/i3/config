@@ -189,3 +189,6 @@ exec xinput set-prop "Apple Inc. Magic Trackpad 2" "libinput Tapping Enabled" 1
 
 #start libinput-gestures
 exec libinput-gestures-setup start
+
+bindsym XF86MonBrightnessUp exec sudo brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec sudo brightnessctl set 5%-
