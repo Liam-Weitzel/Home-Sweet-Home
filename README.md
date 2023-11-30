@@ -12,5 +12,4 @@ stack:
 [encfs](https://github.com/vgough/encfs)
 
 to-do:  
-easy way to add items to dmenu  
 launch gnome-terminal with random --window-with-profile= param
