@@ -1,0 +1,58 @@
+{
+   "classOrMethodMenuOptionDescription": {
+      "description": "Label for the class/method menu configuration.",
+      "message": "When the top search result is a class or method:"
+   },
+   "extDescription": {
+      "description": "Extension description.",
+      "message": "Javadoc incremental search for packages and classes."
+   },
+   "extName": {
+      "description": "Extension name.",
+      "message": "Javadoc Search Frame"
+   },
+   "helpAnchor": {
+      "description": "Label used for the help anchor.",
+      "message": "Help"
+   },
+   "menuOptionTitle": {
+      "description": "Title of the options page section used to configure the menus.",
+      "message": "Menu displayed by pressing the @ key"
+   },
+   "mergeFramesOptionOff": {
+      "description": "Label displayed next to the button to turn off the merge frames option.",
+      "message": "Use separate frames for packages and classes"
+   },
+   "mergeFramesOptionOn": {
+      "description": "Label displayed next to the button to turn on the merge frames option.",
+      "message": "Merge the package list and class list"
+   },
+   "mergeFramesOptionTitle": {
+      "description": "Title of the options page section used to configure the merge frames option.",
+      "message": "Page layout"
+   },
+   "optionsAnchor": {
+      "description": "Label used for the options page anchor.",
+      "message": "Options"
+   },
+   "optionsReadOnly": {
+      "description": "Error message displayed when the options cannot be configured.",
+      "message": "This browser does not support changing the options."
+   },
+   "optionsTitle": {
+      "description": "Title of the options page.",
+      "message": "Options: Javadoc Search Frame"
+   },
+   "packageMenuOptionDescription": {
+      "description": "Label for the package menu configuration.",
+      "message": "When the top search result is a package:"
+   },
+   "restoreDefault": {
+      "description": "Label displayed on the buttons that reset a menu option to the default value.",
+      "message": "Restore Default"
+   },
+   "saveChanges": {
+      "description": "Label displayed on the buttons that save a new value for an option.",
+      "message": "Save Changes"
+   }
+}

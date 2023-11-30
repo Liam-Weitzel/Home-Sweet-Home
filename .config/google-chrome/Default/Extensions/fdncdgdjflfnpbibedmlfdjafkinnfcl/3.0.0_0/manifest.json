@@ -1,0 +1,20 @@
+{
+   "background": {
+      "scripts": [ "index.js", "String.js", "background.js" ]
+   },
+   "description": "Adds support to the omnibox to search the JavaEE API.",
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCemawRmikvMo/PlHs+FhfM/38nCrGiffIDz48SvNgIcg4zIwhuE6QpFVoWSiW63X3m1DntLI0Rznz5VnUPI8ShbKSwbeXeoPNE3HdJtTrnEOYsrxCyZTDdEL9kJFpuKFWJCBkBK9KnxcprjF3FloJOAhRC1QIspRGGfbDCzj8ztwIDAQAB",
+   "manifest_version": 2,
+   "name": "JavaEE API Search",
+   "omnibox": {
+      "keyword": "jee"
+   },
+   "permissions": [ "tabs", "http://docs.oracle.com/", "https://docs.oracle.com/" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "3.0.0"
+}

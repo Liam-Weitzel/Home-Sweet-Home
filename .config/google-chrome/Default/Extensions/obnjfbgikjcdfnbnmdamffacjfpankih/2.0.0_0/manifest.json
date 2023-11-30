@@ -1,0 +1,42 @@
+{
+   "action": {
+      "default_popup": "popup.html",
+      "default_title": "Excalisave"
+   },
+   "author": "atharvakadlag",
+   "background": {
+      "service_worker": "js/background.bundle.js"
+   },
+   "commands": {
+      "_execute_action": {
+         "suggested_key": {
+            "default": "Ctrl+Shift+E",
+            "mac": "Command+Shift+E"
+         }
+      }
+   },
+   "content_scripts": [ {
+      "js": [ "libs/react.production.min.js", "libs/react-dom.production.min.js", "libs/excalidraw.production.min.js", "js/content-scripts/listenDrawingUpdates.bundle.js" ],
+      "matches": [ "https://excalidraw.com/*" ]
+   } ],
+   "description": "Save your excalidraw drawings.",
+   "homepage_url": "https://github.com/atharvakadlag/excalisave",
+   "host_permissions": [ "https://excalidraw.com/*" ],
+   "icons": {
+      "128": "assets/icons/128.png",
+      "16": "assets/icons/16.png",
+      "48": "assets/icons/48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuskf74mt7MAUGoZTkk2EISYq6FbjYRam0+mfwpKvKs0xg6q+STQtmPszLTKCIrcvPwNTlZED0WuS39gkU9rsaW5SexPDr6XnHDWkaPzWor/EkK3XwcxI4tQXYCwq5DS/jvV5eSXMDneHzwMPFbhu2ifxDeYNWalb4RIBYaXxphpENv1D/ZyBY9WQd0OvqKwCpBvLBuPGH7W40io0bl0UR7J7F2hHzYGK/TZST4fWFqJjNsJ96jRdHFxzS34NwvlU9lb0vQXezBT6wxsebu/I9mszLmNVL7HWgTSxkOXCXBeox5wmY2G1tkwod1fTyR/bD/mTqHiBM1rAD6ZBG/HrswIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "88",
+   "name": "Excalisave",
+   "permissions": [ "activeTab", "tabs", "storage", "scripting", "unlimitedStorage" ],
+   "short_name": "Excalisave",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.0.0",
+   "web_accessible_resources": [ {
+      "matches": [ "https://excalidraw.com/*" ],
+      "resources": [ "assets/*" ]
+   } ]
+}

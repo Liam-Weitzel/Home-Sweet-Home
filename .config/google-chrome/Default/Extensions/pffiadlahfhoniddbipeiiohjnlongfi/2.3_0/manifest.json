@@ -1,0 +1,36 @@
+{
+   "action": {
+      "default_popup": "options/options.html"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "content/prep.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "content/handlers.js", "content/configure.js", "content/iframe.js", "content/scale.js", "content/absolute.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_end"
+   } ],
+   "description": "Zoom in on a specific part of the website, like you would with a touchpad gesture!",
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlnB4+DRH8yXTg4/H/gieNFVtcSA3CI5N0R0g9HRKLD1Yb75EjgfkCxAKusCJmXDlo/MS96Dsfsfr/FTX17fJSMZnDsvwcS0j3mlY2F7vJMULhCU/kyvG6BhV591IYWOGPK1cmOBpfGQ1eZs6BS+Tcr66/WRWYyBEwMSKd/Js1Q8pjGbom66ZUdZ2tnLLW97TDHJy/Qw/No5zIfuX7VyVjTIdjiEQ7qDMyu1ViFVrNeVUTRn+HZFBXAmJtWEVYRi2Tg5Gbmq0jvSDzctkLkTlpCGAH+l/w2xYgDQqmJOFIyglVFyQH0fX8xfbjqws5dSrEqQ9Gz2h/T6fy6Csua403QIDAQAB",
+   "manifest_version": 3,
+   "name": "Mouse Pinch-To-Zoom",
+   "options_ui": {
+      "open_in_tab": false,
+      "page": "options/options.html"
+   },
+   "permissions": [ "storage", "notifications" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.3"
+}

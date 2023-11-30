@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<title>Grepper</title>
+<link rel="stylesheet" href="popup.css">
+<link href="semantic/tays_semantic.css" rel="stylesheet">
+</head>
+<body>
+<div id="grepper_option_buttons"></div>
+<div id="logo_holder">
+    <div id="grepper_logo">Grepper</div>
+    <img src="img/icon128_hand.png">
+</div>
+
+<div id="grepper_account_data" style="display:block">
+
+<div id="grepper_profile_data">
+
+    <div id="grepper_profile_notices_holder" style="text-align:center;display:none;">
+        <a id="grepper_profile_notices" href="https://www.grepper.com/app/notifications.php" target="_blank">
+        <div id="grepper_profile_notices_amount"></div>
+        <i class="icon bell"></i>
+        <span id="grepper_profile_notices_text"></span>
+        </a>
+    </div>
+   <a id="grepper_profile_data_image_url" target="_blank" title="Edit Profile" src=""><img id="grepper_profile_data_image" src=""></a>
+   <div id="grepper_profile_data_helped"> You helped <span id="devs_helped"></span> Devs solve <span id="problems_helped">10</span> problems</div>
+    <!-- start belt sytem-->
+    <div id="belt_system_holder">
+        <div class="box"> <li id="overallbelt" class="belt overall">
+            <div id="overall_rank">Your Dev Ranking (<span id='overall_belt_color'>White</span> Belt) </div>
+        </li> </div>
+
+        <div id="rank_privacy"> </div>
+        <div id="next_belt_holder">
+            <div id="next_rank">Next Belt (<span id='overall_next_belt_color'></span>)&nbsp; </div>
+            <div class="belt reallysmall">
+                <div id="percent_till_next"></div>
+                <div id="next_belt_progress_bar" class="progress_bar" style="top:0px;opacity:.8;"></div>
+             </div>
+        </div>
+
+
+
+        <!--
+        <h2>Language Rankings</h2>
+        <div id="language_rankings"></div>
+        -->
+    </div> 
+
+    <!-- end belt system holder -->
+    <div style="clear:both"></div>
+        <div style="clear:both"></div>
+         <a target="_blank" href="https://www.grepper.com/app/my_earnings.php">
+            <div id="earnings_are_available" style="display:none;"> 
+                <i class="icon dollar sign"></i> You Now Qualify to Earn. Start Earning <i class="icon chevron circle right"></i>.
+            </div>
+
+            <div id="earnings_are_enabled" style="display:none;"> 
+                <i class="icon dollar sign"></i> 
+                Total Earnings:<span id="total_earnings"></span>
+                Unpaid:<span id="total_unpaid"></span>
+                Paid:<span id="total_paid"></span>
+                
+                <i class="icon chevron circle right"></i>
+            </div>
+        </a>
+        <div id="your_earnings"> </div>
+        <!--grepcc-->
+          <a target="_blank" href="https://www.grepper.com/app/my_grepper_contributor_coin.php">
+            <div id="gearnings_are_available" style="display:none;">
+                <img src="https://www.grepper.com/images/grepper_coin_30.png" style="width:20px;top:5px;position:relative;margin-right:2px;"> You Can Earn Contributor Coins! Claim Earning <strong style="font-size:20px;">&#187</strong>
+            </div>
+            <div id="gearnings_are_enabled" style="display:none;">
+                Total GREPCC Earned: <img src="https://www.grepper.com/images/grepper_coin_30.png" style="width:14px;"><span id="total_gearnings"></span>
+            </div>
+            <div id="gearnings_wallet_sync_required" style="display:none;">
+                Connect your Phantom Wallet to claim GREPCC &#187;
+            </div>
+        </a>
+        <!--end grepp_cc-->
+
+
+
+        <div id="subscription_notice" style="display:none;"> 
+            <span style="font-weight:bold">Account Type:</span>
+            <span id="subscription_account_type"></span><span style="display:none" class='brand_red' id="not_eligible_to_earn">
+            <span style="font-size:10px;">(Ineligible to Earn)</span></span> 
+            <a target="_blank" style="font-size:11px;" href="https://www.grepper.com/app/settings-subscription.php"class="grepper_button2">Upgrade Account 
+            <i class="icon chevron circle right"></i>
+            </a>
+        </div>
+
+</div>
+
+<div id="grepper_test_user_notice" style="padding:10px;display:none;">
+    <i class="icon exclamation triangle"></i>
+    You are currently using a shared test account! <br/>
+    <a class="grepper_button1" style="font-weight:normal;"target="_blank" href="https://www.grepper.com/app/register.php?uts=plugin">Create My Own Account </a>
+</div>
+
+<div id="grepper_add_answer_plugin" style="text-align:center;">
+    <a href="https://www.grepper.com/app/my_answers.php?add_answer=1" target="_blank" style="font-weight:normal" class="grepper_button1">Add Code Answer </a> 
+</div>
+
+<div id="options_menu">
+
+     <!--<li class="border-bottom light"> Grepper </li>-->
+    <a target="_blank" href="https://www.grepper.com/app/docs.php">
+    <li class="on_hover">
+    <i class="icon file alternate outline brand_red"></i>
+        Usage Docs 
+    </li>
+    </a>
+    <a target="_blank" id="profile_link" href="https://www.grepper.com/app/profile.php">
+    <li class="on_hover">
+        <i class="icon user circle outline  brand_green"></i>
+       My Account/Profile 
+    </li>
+    </a>
+
+
+    <a target="_blank" href="https://www.grepper.com/app/teams.php">
+        <li class="on_hover">
+        <i class="icon users brand_purple"></i>
+            My Teams 
+        </li>
+    </a>
+  
+    <a target="_blank" href="https://www.grepper.com/app/my_answers.php">
+        <li class="on_hover">
+        <i class="icon code brand_yellow"></i>
+            My Code Answers 
+        </li>
+    </a>
+   <a target="_blank" href="https://www.grepper.com/app/index.php">
+        <li class="on_hover">
+            <i class="icon handshake brand_purple"></i>
+            Grepper Community
+        </li>
+    </a>
+   <a target="_blank" id="profile_link" href="https://www.grepper.com/app/settings-code-languages.php">
+    <li class="on_hover">
+        <i class="icon cog brand_green"></i>
+       My Settings 
+    </li>
+    </a>
+    <div id="recent_answers">
+        <span id="recent_answers_header"> Recent Answers </span>
+        <div id="recent_answers_holder"></div>
+    </div>
+ 
+    <!--
+     <a id="logout">
+        <li class="on_hover">
+        Logout
+        </li>
+    </a>
+    -->
+
+</div>
+
+</div>
+
+<div id="login_menu" style="display:none">
+<br/> <br/> 
+    <h1>Log in or Join</h1>
+    <a class="grepper_button1" id="join_with_email"> Login/Join with Email </a>
+</div>
+
+<div id="activate_menu" style="display:none">
+<br/> <br/> 
+    <h1>Grepper Activation</h1>
+    <a class="grepper_button1" id="activate_grepper"> Activate Grepper </a>
+<div>
+
+</body>
+</html>
+<script src="popup.js"></script>
+
+
+

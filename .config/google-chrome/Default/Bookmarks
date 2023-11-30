@@ -1,0 +1,415 @@
+{
+   "checksum": "9feeeb9346696ddb3d336579ce0168f3",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13344959169024950",
+            "date_last_used": "0",
+            "guid": "39e0fc67-ef56-4982-a34c-49232dee8537",
+            "id": "5",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Excalidraw",
+            "type": "url",
+            "url": "https://excalidraw.com/"
+         }, {
+            "date_added": "13342665042264676",
+            "date_last_used": "13344961742826959",
+            "guid": "3fe21e48-c63f-47ee-bfed-069b4e322b5c",
+            "id": "6",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "LeetCode",
+            "type": "url",
+            "url": "https://leetcode.com/problemset/all/"
+         }, {
+            "date_added": "13342664836205381",
+            "date_last_used": "0",
+            "guid": "266a4a33-0ef0-44e0-8a2b-0c35b5aeccd2",
+            "id": "7",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "My Library | Audible.com",
+            "type": "url",
+            "url": "https://www.audible.com/library/titles?ref_pageloadid=not_applicable&ref=a_hp_t1_navTop_pl0&pf_rd_p=54825ff4-5661-45e7-b976-88d3d6bc120b&pf_rd_r=YWGBM8793B9CMRTEJTTB&pageLoadId=vcQSJbwOPxjHg8lC&ref_plink=not_applicable&creativeId=c7d0ba7e-5c7f-4790-b9be-f35dbccf721c"
+         }, {
+            "date_added": "13342664852651290",
+            "date_last_used": "13343823747047277",
+            "guid": "7b7854fd-fcbf-4f47-9cc4-fb903f1d5677",
+            "id": "8",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Job huntiing",
+            "type": "url",
+            "url": "https://docs.google.com/spreadsheets/d/1r03_oYTvHs_ug1A3sqeWIttYxKMx7EYkgTzjcKX90Fc/edit#gid=0"
+         }, {
+            "date_added": "13342664906470467",
+            "date_last_used": "13344967037927631",
+            "guid": "414bb087-7410-4979-962a-8d2fc4c91636",
+            "id": "9",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "gmail",
+            "type": "url",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
+         }, {
+            "date_added": "13342664893869058",
+            "date_last_used": "0",
+            "guid": "c4fd34d6-f4e3-4d87-9b1b-518902b35bf3",
+            "id": "10",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "GitHub",
+            "type": "url",
+            "url": "https://github.com/"
+         }, {
+            "children": [ {
+               "date_added": "13344539200337467",
+               "date_last_used": "13344720799472680",
+               "guid": "46770159-1813-4221-9aa3-29a66eca5552",
+               "id": "18",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Monkeytype",
+               "type": "url",
+               "url": "https://monkeytype.com/"
+            }, {
+               "date_added": "13344539202383461",
+               "date_last_used": "13344649582373005",
+               "guid": "174ac369-0b6a-4633-a664-6598c544c272",
+               "id": "19",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Ngram",
+               "type": "url",
+               "url": "https://ranelpadon.github.io/ngram-type/"
+            }, {
+               "date_added": "13344539217046355",
+               "date_last_used": "13344650695157852",
+               "guid": "01822eee-66fe-4baf-9bae-49fb950c4e99",
+               "id": "20",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Keybr",
+               "type": "url",
+               "url": "https://www.keybr.com/"
+            }, {
+               "date_added": "13344632317295225",
+               "date_last_used": "13344687679452643",
+               "guid": "6c44b5de-b62c-4bb5-b1fb-36015162a320",
+               "id": "21",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Keymap Editor",
+               "type": "url",
+               "url": "https://nickcoutsos.github.io/keymap-editor/"
+            }, {
+               "date_added": "13344687283642538",
+               "date_last_used": "0",
+               "guid": "f26496c9-ac7b-4847-9f17-991ab7bf936e",
+               "id": "22",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "crkbd/trackpoint at master · manna-harbour/crkbd",
+               "type": "url",
+               "url": "https://github.com/manna-harbour/crkbd/tree/master/trackpoint#trackpoint-module"
+            }, {
+               "date_added": "13344688759578167",
+               "date_last_used": "0",
+               "guid": "a16b2ba9-57c9-491d-85af-33d6e1ff9496",
+               "id": "23",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "typing.io",
+               "type": "url",
+               "url": "https://typing.io/"
+            }, {
+               "date_added": "13344710511636004",
+               "date_last_used": "0",
+               "guid": "bbe6a23c-1e3d-493d-8087-16977828e9ff",
+               "id": "24",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Notes - home row mods (except shift)",
+               "type": "url",
+               "url": "https://notes.io/wwx9F"
+            }, {
+               "date_added": "13345427540090761",
+               "date_last_used": "0",
+               "guid": "ed610fa0-a516-4696-babe-c65f2868a997",
+               "id": "25",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Colemak club",
+               "type": "url",
+               "url": "https://gnusenpai.net/colemakclub/"
+            } ],
+            "date_added": "13344688773400984",
+            "date_last_used": "0",
+            "date_modified": "13345427540090761",
+            "guid": "67bed945-f5c0-46c3-b96d-dd6a425b4ce2",
+            "id": "17",
+            "name": "keyb",
+            "type": "folder"
+         }, {
+            "date_added": "13343053300942831",
+            "date_last_used": "13345061089907712",
+            "guid": "55f45605-1c6e-46b1-a1b4-b25a196cfb7f",
+            "id": "26",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "MarioFPV - YouTube",
+            "type": "url",
+            "url": "https://www.youtube.com/@mariofpv/videos"
+         }, {
+            "children": [ {
+               "date_added": "13345672347456604",
+               "date_last_used": "0",
+               "guid": "cc914042-a17d-4750-a0ab-1d1f9c68c713",
+               "id": "34",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "C++20’s [[likely]] Attribute - Optimizations, Pessimizations, and [[unlikely]] Consequences - CppCon - YouTube",
+               "type": "url",
+               "url": "https://www.youtube.com/watch?v=RjPK3HKcouA"
+            }, {
+               "date_added": "13345673219879001",
+               "date_last_used": "0",
+               "guid": "2effeee0-1138-4ca4-965c-00cf254aaaf1",
+               "id": "35",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "C++ attribute: likely, unlikely (since C++20) - cppreference.com",
+               "type": "url",
+               "url": "https://en.cppreference.com/w/cpp/language/attributes/likely"
+            }, {
+               "date_added": "13345673222347188",
+               "date_last_used": "0",
+               "guid": "7c8dac60-5097-4a1d-ad86-56c3b55f2754",
+               "id": "36",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "C++ attribute: fallthrough (since C++17) - cppreference.com",
+               "type": "url",
+               "url": "https://en.cppreference.com/w/cpp/language/attributes/fallthrough"
+            }, {
+               "date_added": "13345673235358825",
+               "date_last_used": "0",
+               "guid": "e9f9abdc-33ec-4959-9c1d-c6d38d163d93",
+               "id": "37",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Compiler Explorer",
+               "type": "url",
+               "url": "https://godbolt.org/"
+            }, {
+               "date_added": "13345673254006852",
+               "date_last_used": "0",
+               "guid": "fdeb3c98-4789-42df-a3e0-a7f526778875",
+               "id": "38",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "List of common C++ Optimization Techniques - Stack Overflow",
+               "type": "url",
+               "url": "https://stackoverflow.com/questions/653980/list-of-common-c-optimization-techniques"
+            }, {
+               "date_added": "13345673265333294",
+               "date_last_used": "0",
+               "guid": "d1e5570b-3e87-4170-a466-3ebdcf11c6da",
+               "id": "39",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Optimizing C and C++ code",
+               "type": "url",
+               "url": "https://www.eventhelix.com/embedded/optimizing-c-and-cpp-code/"
+            }, {
+               "date_added": "13345673427395415",
+               "date_last_used": "0",
+               "guid": "4251fa67-1938-4611-8cd2-f54d6e2d99fc",
+               "id": "40",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Other Builtins (Using the GNU Compiler Collection (GCC))",
+               "type": "url",
+               "url": "https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html"
+            }, {
+               "date_added": "13345673549476893",
+               "date_last_used": "0",
+               "guid": "11f6041f-32f5-49ae-8a7c-613a4a1b1cd8",
+               "id": "41",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "c++ - Is there a compiler hint for GCC to force branch prediction to always go a certain way? - Stack Overflow",
+               "type": "url",
+               "url": "https://stackoverflow.com/questions/30130930/is-there-a-compiler-hint-for-gcc-to-force-branch-prediction-to-always-go-a-certa"
+            }, {
+               "date_added": "13345673690194506",
+               "date_last_used": "0",
+               "guid": "b7761b0f-dc08-4f79-826d-9c565c8d4f88",
+               "id": "42",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "c++ - Are there any performance test results for usage of likely/unlikely hints? - Stack Overflow",
+               "type": "url",
+               "url": "https://stackoverflow.com/questions/7607980/are-there-any-performance-test-results-for-usage-of-likely-unlikely-hints"
+            }, {
+               "date_added": "13345673756716696",
+               "date_last_used": "0",
+               "guid": "80ea7efe-203f-4ebe-8fa9-38e3f0d4c034",
+               "id": "43",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Optimizing subroutines in assembly language",
+               "type": "url",
+               "url": "https://www.agner.org/optimize/optimizing_assembly.pdf"
+            }, {
+               "date_added": "13345674072343995",
+               "date_last_used": "0",
+               "guid": "18268c89-9835-4237-b4ef-fe930f204347",
+               "id": "44",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Profile-guided optimization - Wikipedia",
+               "type": "url",
+               "url": "https://en.wikipedia.org/wiki/Profile-guided_optimization"
+            }, {
+               "date_added": "13345674815090693",
+               "date_last_used": "0",
+               "guid": "7c77f1a5-dc5e-483c-8ebb-ebb086b5d75e",
+               "id": "45",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "The Basics of Profiling - Mathieu Ropert - CppCon 2021 - YouTube",
+               "type": "url",
+               "url": "https://www.youtube.com/watch?v=dToaepIXW4s"
+            }, {
+               "date_added": "13345675900139331",
+               "date_last_used": "0",
+               "guid": "a19ecd64-3f64-474f-928c-85a9a6c8472d",
+               "id": "46",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "VISUAL BENCHMARKING in C++ (how to measure performance visually) - YouTube",
+               "type": "url",
+               "url": "https://www.youtube.com/watch?v=xlAH4dbMVnU"
+            }, {
+               "date_added": "13345677462988936",
+               "date_last_used": "0",
+               "guid": "0cb8726a-a0c8-493a-96f3-5038bfbb7c87",
+               "id": "47",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Notes - collect data from regular use",
+               "type": "url",
+               "url": "https://notes.io/we1j7"
+            }, {
+               "date_added": "13345748367029932",
+               "date_last_used": "0",
+               "guid": "0936b57f-d917-4267-9974-c3937712e0b7",
+               "id": "48",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "graphviz - How can I dump an abstract syntax tree generated by gcc into a .dot file? - Stack Overflow",
+               "type": "url",
+               "url": "https://stackoverflow.com/questions/15800230/how-can-i-dump-an-abstract-syntax-tree-generated-by-gcc-into-a-dot-file"
+            } ],
+            "date_added": "13345673216520339",
+            "date_last_used": "0",
+            "date_modified": "13345748367029932",
+            "guid": "a2fba75d-98b8-47e6-98ce-1da6cbcdaf1f",
+            "id": "33",
+            "name": "dissertation",
+            "type": "folder"
+         }, {
+            "date_added": "13345761284687799",
+            "date_last_used": "0",
+            "guid": "5ccfdd96-b407-4629-95cd-c9e94377bb8a",
+            "id": "49",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Welcome to C++ - YouTube",
+            "type": "url",
+            "url": "https://www.youtube.com/watch?v=18c3MTX0PK0&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb"
+         } ],
+         "date_added": "13345842761035655",
+         "date_last_used": "0",
+         "date_modified": "13345761284687799",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13345842761035658",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [ {
+            "date_added": "13291841486899709",
+            "date_last_used": "0",
+            "guid": "56cfdd88-4906-438c-a191-ad7d365222d7",
+            "id": "50",
+            "name": "AWS cloud practitioner — A study guide | by Hayati Zainal | Adventures in Consumer Technology | Medium",
+            "type": "url",
+            "url": "https://medium.com/adventures-in-consumer-technology/aws-cloud-practitioner-a-study-guide-86f4c143c5ef"
+         }, {
+            "date_added": "13336903515999908",
+            "date_last_used": "0",
+            "guid": "ae8c772a-1e2b-42c8-aedd-5b3929c9961b",
+            "id": "51",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "RadioMaster Pocket Upgraded Removable Sticks - YouTube",
+            "type": "url",
+            "url": "https://m.youtube.com/watch?v=_suaNFOvguE"
+         } ],
+         "date_added": "13345842761035660",
+         "date_last_used": "0",
+         "date_modified": "13336903515999908",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CuMBCsIBCIiBAhK7ASAAkgGwAQpnCg5jaHJvbWVfc3luY19ibRIFNTEhYm0aEgk8brwQYwsGABE8brwQYwsGACIxCQZcSBBjCwYAEA0Z9gjY9K2cUtAgASoZNTEhYm06ODQ1MTE0ODQ5MjAxMDMxODYzMylxkLwQYwsGAApFChZhbm5vdGF0aW9uX2Nocm9tZV9zeW5jEgU1MSFiZBoSCYCfuwpjCwYAEYCfuwpjCwYAKY9pvBBjCwYAMIC/7tWw7IIDugECCAESACoYRVY2QlgvYXU2T1BVQkxSa21NTU1sZz09SAMSwwEIAhK+AQocWWNTVG9udkVTUHdxQ3M0TDJjclZodjY4TDk4PRJmWjpBRHF0QVp5UU4wSk4zSG9TT2M5MTg0N0xkODRhNGdrSE5FaUh3S1NJbThudnhMNTVtS3NYS1gvS1VTUkVnbjUrYWtMUEs1dTYyVkNvaFdHRXQ2c1dsSTNzUnlCUTZ5ZEVxQT09GAAgACgAMKey3fCv7IIDOABAAEocb1BWa2h3QlJiVjY1S0NXUjIrSU9OSFdvT3U4PVoAZQAAAAAS6wEIMxLmAQocUlVlTzJJQ3ZwMCs5VFhkZElXZXZWZ2QwTlJRPRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5bm9ZekVWRGxjM3N5VmVFTXBRbE9xcHNOcDhXSjNlR1FzUUJmM1NMSVFDWEpNWDFQNU5FWElNVDk3L0gwcEVickg5dC96UT09GAAgACgAMIfHjuGY6IADOOKuvOWgMUDirrzloDFKHGVkNVAxZ0h4Yk0zMHQvdEVJWGI2bWtMZDdpWT1aHiIcWXlIdXE4VWM0anRnS3QwQjAvUHZ5Q1VxV0Y0PWXY1mr0EsMBCAMSvgEKHG5qZ0R1ODhlQ3J2WHA4NnBEN2ZIR2NxRnA4OD0SZlo6QURxdEFaeFMraEtOaHdieVF2d0dJRkJkT0NHNWtyR0dVajdEM0pCRTY2aGFaMjhOVTJkOUZ6ZUhZcks3UElxOFplTzlWVi95bzJMc2V4VUxwUjZaZ1VGMDhUSTNOYVppRXc9PRgAIAAoADCnst3wr+yCAzgAQABKHHl6TkIwMWNuNTRBN2NSVTB1VCsvUGdtVHRVbz1aAGUAAAAAEu0BCC8S6AEKHHVEWE10M1NSY1FwOXpmcm9RNmJGNE9ZbUE3MD0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OS9RSG5qZ2pnc0ZQRnlsbUF1WXlISzhnUjRIZDBiZm4xMmlXU21UMzZKek1NQkFrYVdmVnB4Vnh4eGdWMzQ1Q1lPYVZkSWc9PRgAIAAoADDmuMqgxueCAzjNy5u9wTFAzcubvcExShxMWGNBS3JSV3dxZ05WRGJNZXFvWWtOTHc0c2s9WiAiHv/9cWxES2U5T3czWWd1WnpubVFrMkFPWE9ZcjhJPWWzVGkyEu0BCCsS6AEKHGc3N2g3R1paT1lVMWZCeFFhS2EwT0twRzdyST0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OWs2SVVQQ2hkN2E5TmswWG0zR2RaR0FoODJReEFrd3I4YmpRMDZkOXUrSDgzbGxwb3NpNWJlRVJzUk9yRHQ5SjljcXBLL0E9PRgAIAAoADCV6aG5uOeCAzissLm7wTFArLC5u8ExShx2Z2t0ajFiaDN4Vjl4VFlZd1ZnZ2VLV1ZwSzg9WiAiHv+0QWFmSytEeDJiUDkzL1pOYjYxUFVhZzlYVC80PWXJdo+SEu0BCC0S6AEKHEZZK1d5ODNuZlJWUDFNTW0vbUlSMThIZ210QT0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OUlTbUIwZm9mdXgrLzRSVVJmb2dZaE9VbHJwRTExbEpnZVBsQ0FMbFVYSTlwdDBrUWNsUDZrZVJRYzlVZmRFTnBjcWw1Wmc9PRgAIAAoADDd7fqxvOeCAzjy/Pm7wTFA8vz5u8ExShxndUJTcis1T2o2UXM2QW1jNWk5S3huTzJPZFk9WiAiHv/tUnpZS2s3NCt3dS9MOWdKVEl4dU5vaTBRZEtZPWU4+TkzEuwBCCoS5wEKHFVybzFuYnpvODJYUmFQTW1PMWp4WDl6ZlZndz0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OVFwUFQ3ZTB5TTdlM3RSY1ZnSUFTdUJEVzd0aHErRnBmVTl0MVVFOGRuZFhuRHRKL0JkVzhqa2NPQ1d0VzM1bk54WnppeEE9PRgAIAAoADCF78SZuOeCAzjSqLW7wTFA0qi1u8ExShx3RWZKQjYreUdhWlljenRyRGhZWS9GQncwYzQ9Wh8iHf9obnZNMFFEMGUwSWZzQTk3ZXdnYUJ1eVhRcHM9ZQ/MNBQSqwEIARKmAQoceXhKLzZmdmtlY3I3a3A1RVF6QjR0V0xwZGJFPRJOWjpBRHF0QVp5U0pFQ0l2Q0dkdUo3enllbHZBVmwxUS96S3p4eG1FZGtKa0VZOTNua2EvYWpMQTV6Ylc1VnNvVDErRU1wWFMvaGg4SS82GAAgACgAMKey3fCv7IIDOABAAEocYVJDV0xnaEY5YjVJbnFLSUR2dUovanZRa0ZjPVoAZQAAAAAS7AEIKBLnAQocWG9Ud3RYV0taTjdjdjIrT09BRnIvMzJCTDZjPRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5L2NlWHV5em1kQVRVRlE1eFd1YjN3UTJ1dXFMUjZLOVpTRVBHMkZ6NTJUVkFuckZXRitoZlY4eEtxU2N0aHhWKzFNWitydz09GAAgACgAMP6AnZy354IDOMOjpbvBMUDDo6W7wTFKHFVqWGZXMGJXWHREcmR2b1FqSzNkVWFoakZ1bz1aHyId/XluUlJSMC9TdmFLOG96THRoQmJNQ3MrcVlwbz1lMJ0XsxLsAQgnEucBChwyRUY5YTFkSTgrYi9EWG1IUWdCQVhMcWJQMmM9EmZaOkFEcXRBWng4bDkwSzlzTW1wKzc5dVhDYzYzeDl5SWNoRm1xcTdhQ2ttNUU0T2VPNkhiUDliR0xTVElwWFBFQ2VObWhjemRIb1JWaFZpdWNIUXAvZ0NlUVNOcTA0WlZkK0tRPT0YACAAKAAwzL35zrbnggM4tbGbu8ExQLWxm7vBMUocL2FqZTAvbDNLc1krN29tSHlDSWVoZm13TG1nPVofIh36STRlaWR1Uy9SU2JnMDVPMkQ5L0J3azBSbDFFPWV//zerEuwBCCQS5wEKHHJ2TUpkejZKb2VtaHJTcFhrNzA3WlpSc0loQT0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OWZXQTRodEFGTjV4YTAzeTJrc2UwdFJDUG5ybWNiREVjajk3dERFTncvd1RMaXdjZ1Z3VW83Vk41Nkd0QUxTMncyK0sybXc9PRgAIAAoADCpz7m6tueCAzjL4Zi7wTFAy+GYu8ExShx6T3pJSExSVXVxd0hSL01DZE5FeERpbVlrTDg9Wh8iHdI2WFRzeXNGZVZxWnF1cXE0QklHdFJwblFIL3c9ZSoTUOsS6wEIIhLmAQocVHRqMWFCdGlWTzhTQXQyLzQ1eHl4cnlVRTR3PRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5S2MwL0E0aENqQzdqdlNzTmNyV1JTbGxhOTNVODdyWDFKYTRqelZqaUJHSzRLQmoxZEVGVTRrcVk1VTJaOUtOc0hSOURDUT09GAAgACgAMOKa2Le254IDOMCu47rBMUDAruO6wTFKHHpiSHJYL0pYTjUwRU1lbTBlbnJwbXA5SU9kND1aHiIcSFRGNzhuSG5vL2FlMzhFVGdhUzNXMkZKN0VNPWU4+TkzEu4BCCES6QEKHFRlOWd0eWUrWTh5UU9sUkJ6NEN1R29wZk55bz0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OTVLQitGcVNPb2dIanJUQnBYMVp6MGZ5QWF6NSt4VGhNem04ZWl0dDNaSnFGMThWaEZlQzlpWmkyakZZakFCTzhHc2NEU1E9PRgAIAAoADDimti3tueCAziItJi7wTFAiLSYu8ExShxzK24wTHdMVU1sVzRBVDBrOWpNZHZ6azZwUk09WiEiH////k9rV3ltV2lqa2QvRmdpclhSVkNDNzVzZXYvOD1lAAAAABLuAQgaEukBChx6MUc3dS9VN25aL0tFR0lid2plampTTzAyRzQ9EmZaOkFEcXRBWng4bDkwSzlzTW1wKzc5dVhDYzYzeDlGaGJwT1FXS0tib0hKL1Q1bDROTGRabmthcmZNYXFwbC9pSW51akZTSmpuTGhIRFpOQTAycW9lQXBualZGVUZQUTVya0pnPT0YACAAKAAwkM2zt+bVggM4z7n12bcxQM+59dm3MUocblNlOEFEU1NwMXJxVGMvNUVKVEZSNnVXZURJPVohIh///9xRZkh2SmdHcVUxUFZDYmhMVDZjTXV2THNyZGc9ZTj5OTMS6wEIExLmAQocMWMyY01uQnBRYlNOR25lLzNqTWdONEpCbFR3PRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5VUpVclZESjNydSttTmZBdVlvdSs4MmdacDd3bnp6bzZFVUZBMk1lUU5rckdjbDZsTWNhcjdwdWo5TUQveHlFZG1PWmR2UT09GAAgACgAMMqhjI/jyoIDOM/WuZ69MUDP1rmevTFKHEVaSUVrQStuL1lXZG9KaWFXTmR6Uko0ZWFNZz1aHiIcdFphVndsakxjSWx2Tm83WFdSOUJzdkhxdG5nPWV4JPcpEusBCDIS5gEKHDlnSnZaYU5YMHpITW1MQ2l3OFdQaFRDSmpCVT0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OXZPbWtlSzVwWnErN1doK0hQVXl2NjdDOEJQM09WckowV2wzamxVbUlyZ2JGWkhvRm5qdjR0cUJnQ1hYR0FmMXlyRFdxZ2c9PRgAIAAoADCLub3P28j2Aji2sJz2+C9AtrCc9vgvShxnZzZmeHQ0SlUzckc2RStxb0ZxUHpvc3JzdHM9Wh4iHDl5cjYvaVFHZjZFZ2ZlMlU1MmJJVTAyZkp5WT1lAAAAABLsAQgYEucBChxGYjF1RzV3SnVoV1BBTkw0K1VKUFNoN0ExNlU9EmZaOkFEcXRBWng4bDkwSzlzTW1wKzc5dVhDYzYzeDlmWndHTFRIVVdEWm1Obi8wSXFkMFppR1YrK3lyb2tya0JtYjlXOW5Md0FzMnEweWVDb2FPY3ZXZEE2VWJXd0Z0c0JuWGd3PT0YACAAKAAwxpXwibTLggM4lMiR8L0xQJTIkfC9MUocWmFDdEwrK3hpclJJQVozQjhUYVhaUGRLa1U0PVofIh37em12VVJoczlZT2xseDZZaHBSQnFGVlcvSlZjPWWzVGkyEuwBCCYS5wEKHDg0S2pMUzNvNi9la3ZxNW5DSXVJL2NIenk1dz0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OWJ1bGwwdnFKdkFJZExOTHJ5M0E0bDJZOWJFYzI3UHVGbXBZRitPZnVmaGJXaHg0VU5EYTFqUXVpTGNHcW1zS1JSRW04TXc9PRgAIAAoADDw3MbJtueCAzj32Jq7wTFA99iau8ExShwxOU5scWFxZExYWDZVeGVINWZQNjhXdVJPdWc9Wh8iHfR4dUkvQUpRTVdLSjRYK3hlVUdTaWVtZmNXd2c9ZQ/MNBQS7AEICBLnAQocRTlUNUtla0VjaXdWc2ZBUUVsL2xXTGJQd2NrPRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5TENySVV3Y3dsV1VPQS83YU5LQnJKUmgrbVovQkJWQ0dRdHNxNUZYdnBkclJzZE1zNktodGhFU2lyZWY5bXgxYkcrck1RUT09GAAgAigCMOantYiw7IIDOKy52KC2MUC7i6OMwjFKHC9YbkFXeEwrRDNPbHFqZnZwOVl6RlhRckZBcz1aHyIduzVQRXF6Rnd5UVhIZjRUVE9heG5qUVhySzVITT1l+0TXXBLsAQgVEucBChxPWSs3YVRqMWxUeU9ob3ZUU1AyUFVYdDF1Y1U9EmZaOkFEcXRBWng4bDkwSzlzTW1wKzc5dVhDYzYzeDlpb3d4NmVkbUhjQnhGUnZ6Rkt5RmFGSEdsNXZkcjlabUhPS2pwOXZXclV4cGFWNXpqV0twZEpmTkUveUtxRUNLOVBCOTFnPT0YACAAKAAwzf/mkePKggM47/rsyr0xQO/67Mq9MUocRlVTaEM5TDZLUklPN3VlTEVXRjM1Ny9UTzZJPVofIh3dTHIvdTNMZHZMRHYxYnQ0akoxS2l6a2FuSHdzPWUOwGN3EusBCBIS5gEKHHU0U2dpYVVPb1Ivd0RDdUxiQ2FzMFR5Sk9rOD0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OTFneE9FeG41MWQ0d0ZUM3VVUm8xT1ZDWWI0eXh2Z1NiZTJQOTRCMlgyTkozY2lUVit4Z2xIRm8yV0ZmUXJXSHZ6MDdxdHc9PRgAIAAoADDvyqmDteWCAzjRxrmevTFA0ca5nr0xShxrV0RKdHRXT2VObytXQjdhUU1XZjJ5REtJT2c9Wh4iHGJianZhaEZVci8wRjVuMkttS0RldTkzTGd2MD1lU2yhXRLsAQgXEucBChxuLy8vdVBaY0pqZHdwM25jZzROOTg1RjkrcHM9EmZaOkFEcXRBWng4bDkwSzlzTW1wKzc5dVhDYzYzeDkzYTZPQ2s5UmVvc2hHNUxEa1BxbW9OamprZksrdW9oY0pjVXErU1Zkaktra3NQL0pxRXA3YUx0Mkw0WndsMzFQcnJuVitRPT0YACAAKAAw0q2OlOPKggM4m/bh5b0xQJv24eW9MUoceTZ5dEFLcVRsZWo0R1QveDFOSytuOUtWWk9VPVofIh33RVhLZ2pzRWFkSEFBU0Vaa3ZzMFhWLzMxcVFRPWWkl6QEEuwBCCUS5wEKHEFQY1pWR2xmTUZRb0l6SEd4bjlHcWd1SXRHQT0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OVR5NXFpMFpONlRzSzQ2Wk9Qendua3pENWx4cTVvMWRlbWhsRXZCTXpMS2JpdkZSaExqMXJITVN2OTQ3eVJqeExUcDk4VVE9PRgAIAAoADDGptTAtueCAziex5m7wTFAnseZu8ExShxjQ0h5VGF6TUVaTEZHczFEc3dzVWMrNjZKUTA9Wh8iHel3SzBVMFZlblE1dFpjSjBicVJyNGJtM01jdDg9ZfbXFsIS7QEIERLoAQocekVRNG96UVVKWjNRV21wdXRQVGVEK0krVE40PRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5NHk3WVA0dVFRNXNvQUlzdkI2TDZ0RWtFR1ZST3JXbGhFTWJBQUdOZTh6MkpyY2NrRGNLbjZrQ0Q3Vm91Q1JyZTc1MnluQT09GAAgASgBMIa4oYKx7IIDOJni4uW9MUCTnbWMwjFKHEpDeXR2RXBReTVEMHZxL0lRdWNDWmdCOG5ZMD1aICIe//9ycHpSdmp4WTgvcE11dFpRMERCd2VFdk1NbW89ZQAAAAAS7AEIGRLnAQoccnpjWVd4K3FsTUExVDRhWmtMV1phWklvajhRPRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5cENiU1luZkd4dU9yTUQrZlFyYndxUjAvbkk5ZFZ0WHpUVWJQc2dLekFrZ1JPc3UvZ1pTeTc4Yk5lZUF6Wmt0OWRyRWtZQT09GAAgACgAMKvwoaCj4IIDOPvAhcbAMUD7wIXGwDFKHE1mTWhhRHErQlpodWtwb213UHdTQ1NVazdIRT1aHyId/WJ4R0dzNTAwWjZJZm9oL3FTbm9OWGRFbmdLRT1luizY4BLsAQgWEucBChxoNjZlK3BDNHkwM2tOWnhocFZhK0Vma3hBV3M9EmZaOkFEcXRBWng4bDkwSzlzTW1wKzc5dVhDYzYzeDlyL2ZIeWYwTmU1eEVqeE5HSysxcmxQZm40Q0wxaXZvcVE3cjg4ZDZWUUsxbEZNOHdJUkhWZWdXNjh3VDRhMkVVU1lnbTNBPT0YACAAKAAwzf/mkePKggM4u+uH5b0xQLvrh+W9MUocTWRoeDBCczZHcWV0MjZYOGxOSUFLYnA5U1k0PVofIh3ucGhBRHUvbURVYXptZ2Y4SGE1aWxKZ20yWTQ0PWXUTOjQEusBCAcS5gEKHDAvMXhGaXdtQ1lNbUpJd2dHV2NwNERUWklJbz0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OWVUNVpBQllhSGlLOVVLaVFkcUt6cWpRVWwxODVPQTA4ZThFakMxVm9xem5wRVpOOWd3aC8xRjJ5aGpRVVpIMjBHeDk5L2c9PRgAIAIoAjDmp7WIsOyCAzjtuNegtjFAu4ujjMIxShxTSDY4cjVzc2hwR0ZHWnlvL1YzL0xLVU9kMDg9Wh4iHHZmMDhna01EUGwrN1ZrQmg0M1pkbWc0dlIyOD1l508cIBLuAQgxEukBChx4NnlYYnZoaHMwZWppQnVTOHV5djI0KzFBK1k9EmZaOkFEcXRBWng4bDkwSzlzTW1wKzc5dVhDYzYzeDlPNzRGZ3BYNUo0WXJ1dHJnT1dNZHBJZ0MrNVZ3YlBQdWhIZndvQmovQ2w2bVFLMzQ5aVJmeUMvSlZ2TFViWWI1d0VHT0R3PT0YACAAKAAw3+OaxP7pggM40NSX5cExQNDUl+XBMUocYnlaajZDR3hIZkdJZUh5a0dvOWwwclpFOHlFPVohIh////9FYkVmUlZEK1JOQ0FZemdydWJaRWt1eEMxbm89ZTj5OTMS7QEILBLoAQocclBpVndLaCtrWUo0WXRzYlBKNURmWVIwUUpzPRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5a252NTMxTHBLM3UvWUgwWlVkeHVHaERoRlBjRGU4d3I1NFNyOGgrZUJQYWdaR1Y0WjRKUnkyeWVvTFF2RGo5ZU0wUFNRdz09GAAgACgAMOHI4c+554IDOJjSzLvBMUCY0sy7wTFKHDRuRC9QSk1xdmNkQTZMU2F2T3FRVHJTOVliaz1aICIe/9ptSTkvd01zM1p2anZsVkdEQ1lFaHZLdWtkdDQ9ZeEuWRAS7AEIChLnAQocMG45RUxIOFBVQTl4ZkNRdHdBTXV1dHZGckZnPRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5QitEb3BLTnRNb0Zna0RwbHVraTA4QUx4Uk5DaGpqcXVvVFlPb1Jwd0xEQUFaVU5UcnlMOWhkbDAyUERLZnN6WnpPYkxOZz09GAAgAigCMOantYiw7IIDOK372qC2MUC8i6OMwjFKHHQ5b1ZGbGdicDJNQ0dGQjgrT2V2STE5bUIrQT1aHyId+0ozMGVEMlNhemh1VGdQNDlucFB2QnR5U3FVZz1l1Ezo0BLsAQgJEucBChxoZWttSFlZamFUVkRIQkV4SEFzQXJPNVcwTDA9EmZaOkFEcXRBWng4bDkwSzlzTW1wKzc5dVhDYzYzeDlENDQ2eGJRL0N6Sm1QKzRmWXA3emRxMlJlMFdvMGVSQVdTbzlFYS84TkNTTEYwNDFqK3JrUC84ZWx0aXNMQ0I3bjQwM2dnPT0YACACKAIw5qe1iLDsggM45t3boLYxQLyLo4zCMUoccEt2cnduM29PdkdFVWt1LzhoRnJwRGpiS3ljPVofIh3MQWI0QlQ0dm0yM09CQ1k4azdNVUpqcjdkOXRnPWWLoIzREusBCBQS5gEKHCs0VFZEVHBhNldraXlpblI3cEpveklOQ1FHaz0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OUpVbHZHS2E0aDY0WUI2cjR3UTd4RlQ0RUVYMVlBK2M4SjhDR2RkR0hneDZQb1VsdU5nM1hoamVnMUhBVllRMXNqaitoaWc9PRgAIAAoADCX4ZCQ48qCAziWybqevTFAlsm6nr0xShxkMWE1TG9WaWl3Y0Jtd3ljVmtyVndBcG45UVk9Wh4iHHdWU3ZoWGJOTGRPOG43c1dzTUkwemlxZzkwcz1lfZ9ydhLrAQgGEuYBChw4bHVxeXZUb3R6dUpIWldkL2R1REZsMWJ3VUE9EmZaOkFEcXRBWng4bDkwSzlzTW1wKzc5dVhDYzYzeDlmU3ZabStueWZGR0lFd3JXUXREUzU5MTBwSjkrbEZ1bnh6cFFmQUMvV3dxa2EzdUVua3krdkN0clI4Q1R2MWxDWWJMMzdRPT0YACACKAIw5qe1iLDsggM42ILkoLYxQLuLo4zCMUocSlVUSVJxZE5OZVJUTGkzMEFGTnlDanVQc1g0PVoeIhxwaTlra1Uzby9hRzNkWVJmdFNWWXZQUGV3Y0E9ZaYnPdsS7QEIMBLoAQocd3FXcDlwTnJYMm5GcFhLVjJBemg0Uy9nOW5JPRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5cGxqaWlOQmRTUjcrcXBFb05UYWp4UWdmeTdQM3dUbDN3OVVENzY2ZUlqbVRxWFhkZmVad0wvdHl5cC9IczgrTXdlMHFoUT09GAAgACgAMIbKrbLO6YIDOLadg9/BMUC2nYPfwTFKHEJycE0rQnFMWWV6bVVpOW5jWSt4OGlQL0Fiaz1aICIe//5aQVdOb0JSNXptWXdmTUNDVWQxUnEvalR0T2s9ZQ/MNBQS6wEIBRLmAQocejBQeDhTMm1sS0tOcm1FMkxBYUlXaSs3aTFBPRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5dU1yU2xyZGduSmFocXhKWEVVeTB2aWwxN2tGRmh2dnJsVWRjU0JXU1BsN1pWREVkRjF3eDhtUWtpbkJZMGNYNzAybnlIQT09GAAgACgAMPDuirXS0oIDOIG02ua+MUCBtNrmvjFKHFZ4bUErcHVFK09JaDkrRzBFaWtNNHE4Yk1OYz1aHiIcWTBvN0RoelZWN21icm44SmFpa0ZZMW9XQ05RPWU3R/HIEuwBCCkS5wEKHDhQUUQyajBsZkIwNkZvRGtVTTZHTDFCSUxyZz0SZlo6QURxdEFaeDhsOTBLOXNNbXArNzl1WENjNjN4OUVsSlo4SjZTS2tYdlR4Wm44SWM0akpGZ3RRamRoSDdwU2t6cVFNbjkyT3JydlZqQUJxV0dSeFRwYW0vL2wxVUhpbURlTGc9PRgAIAAoADDmhrjWt+eCAzil3ay7wTFApd2su8ExShwwZnhYNmNGbmlidXZrd1pWY0ozd0xDM1E5RVE9Wh8iHf5ieFBRWW1sSEowNFdNUC8wMTFCSVk3ejdwd2c9ZQ/MNBQS7QEILhLoAQocSndnOCtCWlgwYkZGN3JESmIvc2h3YXNDRHlFPRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5ck1BaUNNdS8vU08vUWZSNVV3ZGIvNVM1QlJvdEJmMHFXS284R3Ixcm9uUFNrUHlYb2hqRzFIWmpVMlJ5QW5iMDFqZ3M4Zz09GAAgACgAMLL2rbfA54IDOOuZvLzBMUDrmby8wTFKHGtLWitFWHFEWlVGOGtPODlkYlhQdExhMnZxVT1aICIe//Z0ZlR3bE5UVCt6bmxxUk93TlVxOVo1ekVjU0U9ZTj5OTMS7AEIIxLnAQocRVVDTzJjYUdKWkFjUGxOUTkrRnNXY0FLazMwPRJmWjpBRHF0QVp4OGw5MEs5c01tcCs3OXVYQ2M2M3g5SVJ3eVI3OUJxUzVOazREY0JGMEF3Mmh1bU91MHFoNkpVTDhoRGpxLzhTc2c3RkV0enVHOXZMSXVrQTFwNlI0a0laZDdPdz09GAAgACgAMKrko7m254IDOKfOmLvBMUCnzpi7wTFKHDlOK3Y5b3ZXM3FJT0xXZUszdW1mZ3JROThUbz1aHyIdpEg4U0FuMlYzMHAzZ3AvNjRnRUlNMWs1MG96Yz1lKhNQ6zABOAA=",
+   "version": 1
+}

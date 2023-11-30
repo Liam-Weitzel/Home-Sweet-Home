@@ -1,0 +1,126 @@
+/* PrismJS 1.16.0
+https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+apacheconf+apl+applescript+c+arff+asciidoc+asm6502+csharp+autohotkey+autoit+bash+basic+batch+bison+bnf+brainfuck+bro+cpp+aspnet+arduino+cil+coffeescript+cmake+clojure+ruby+csp+css-extras+d+dart+diff+markup-templating+docker+ebnf+eiffel+ejs+elixir+elm+erb+erlang+fsharp+flow+fortran+gcode+gedcom+gherkin+git+glsl+gml+go+graphql+groovy+less+handlebars+haskell+haxe+hcl+http+hpkp+hsts+ichigojam+icon+inform7+ini+io+j+java+scala+php+javastacktrace+jolie+jq+javadoclike+n4js+json+jsonp+json5+julia+keyman+kotlin+latex+markdown+liquid+lisp+livescript+lolcode+lua+makefile+crystal+django+matlab+mel+mizar+monkey+n1ql+typescript+nand2tetris-hdl+nasm+nginx+nim+nix+nsis+objectivec+ocaml+opencl+oz+parigp+parser+pascal+perl+jsdoc+phpdoc+php-extras+sql+powershell+processing+prolog+properties+protobuf+scss+puppet+pure+python+q+qore+r+js-extras+jsx+renpy+reason+vala+rest+rip+roboconf+textile+rust+sas+sass+stylus+javadoc+scheme+shell-session+smalltalk+smarty+plsql+soy+twig+swift+yaml+tcl+haml+toml+tt2+pug+tsx+t4-templating+visual-basic+t4-cs+regex+vbnet+velocity+verilog+vhdl+vim+t4-vb+wasm+wiki+xeora+xojo+xquery+tap */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+.commando_code_block_outer code[class*="language-"],
+.commando_code_block_outer pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+ .commando_code_block_outer pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+ .commando_code_block_outer :not(pre) > code[class*="language-"],
+ .commando_code_block_outer pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+.commando_code_block_outer :not(pre) > code[class*="language-"] {
+padding: .1em;
+border-radius: .3em;
+white-space: normal;
+}
+
+.commando_code_block_outer .token.comment,
+.commando_code_block_outer .token.prolog,
+.commando_code_block_outer .token.doctype,
+.commando_code_block_outer .token.cdata {
+color: slategray;
+}
+
+.commando_code_block_outer .token.punctuation {
+color: #f8f8f2;
+}
+
+.commando_code_block_outer .namespace {
+opacity: .7;
+}
+
+.commando_code_block_outer .token.property,
+.commando_code_block_outer .token.tag,
+.commando_code_block_outer .token.constant,
+.commando_code_block_outer .token.symbol,
+.commando_code_block_outer .token.deleted {
+color: #f92672;
+}
+
+.commando_code_block_outer .token.boolean,
+.commando_code_block_outer .token.number {
+color: #ae81ff;
+}
+
+.commando_code_block_outer .token.selector,
+.commando_code_block_outer .token.attr-name,
+.commando_code_block_outer .token.string,
+.commando_code_block_outer .token.char,
+.commando_code_block_outer .token.builtin,
+.commando_code_block_outer .token.inserted {
+color: #a6e22e;
+}
+
+.commando_code_block_outer .token.operator,
+.commando_code_block_outer .token.entity,
+.commando_code_block_outer .token.url,
+.commando_code_block_outer .language-css .token.string,
+.commando_code_block_outer .style .token.string,
+.commando_code_block_outer .token.variable {
+color: #f8f8f2;
+}
+
+.commando_code_block_outer .token.atrule,
+.commando_code_block_outer .token.attr-value,
+.commando_code_block_outer .token.function,
+.commando_code_block_outer .token.class-name {
+color: #e6db74;
+}
+
+.commando_code_block_outer .token.keyword {
+color: #66d9ef;
+}
+
+.commando_code_block_outer .token.regex,
+.commando_code_block_outer .token.important {
+color: #fd971f;
+}
+
+.commando_code_block_outer .token.important,
+.commando_code_block_outer .token.bold {
+font-weight: bold;
+}
+.commando_code_block_outer .token.italic {
+	font-style: italic;
+}
+
+.commando_code_block_outer .token.entity {
+	cursor: help;
+}
+
