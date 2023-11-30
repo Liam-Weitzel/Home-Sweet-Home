@@ -190,5 +190,9 @@ exec xinput set-prop "Apple Inc. Magic Trackpad 2" "libinput Tapping Enabled" 1
 #start libinput-gestures
 exec libinput-gestures-setup start
 
+#brightness keys using brightnessctl
 bindsym XF86MonBrightnessUp exec sudo brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec sudo brightnessctl set 5%-
+
+#start custom dmenu
+bindsym $mod+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh 
