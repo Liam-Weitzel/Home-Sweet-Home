@@ -13,5 +13,6 @@ if [ "x$script" == "x" ] || [ "$script" == "dmenu_custom.sh" ]; then
   exit 1
 fi
 
-sudo ./"$script"
+sessionName="${script//.}"
+gnome-terminal --working-directory=$HOME/.bash_scripts/ -- bash -c "tmux new -A -s $sessionName 'sudo -E bash \"$script\"'; exec bash"
 exit $?
