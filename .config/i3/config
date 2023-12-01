@@ -195,4 +195,7 @@ bindsym XF86MonBrightnessUp exec sudo brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec sudo brightnessctl set 5%-
 
 #start custom dmenu
-bindsym $mod+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh 
+bindsym $mod+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh
+
+#setting trackpad acceleration & sens
+exec xset m 26/10 4
