@@ -10,6 +10,3 @@ stack:
 [libinput-gestures](https://github.com/bulletmark/libinput-gestures)  
 [neovim](https://github.com/neovim/neovim) [kickstart](https://github.com/nvim-lua/kickstart.nvim)  
 [encfs](https://github.com/vgough/encfs)
-
-to-do:  
-launch gnome-terminal with random --window-with-profile= param
