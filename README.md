@@ -10,3 +10,4 @@ stack:
 [libinput-gestures](https://github.com/bulletmark/libinput-gestures)  
 [neovim](https://github.com/neovim/neovim) [kickstart](https://github.com/nvim-lua/kickstart.nvim)  
 [encfs](https://github.com/vgough/encfs)
+[gromit](https://github.com/bk138/gromit-mpx)
