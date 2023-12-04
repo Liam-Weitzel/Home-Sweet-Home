@@ -177,8 +177,9 @@ bar {
 default_border none
 default_floating_border none
 
-#tap to click touchpad
+#tap to click touchpad & set sens
 exec xinput set-prop "Apple Inc. Magic Trackpad 2" "libinput Tapping Enabled" 1
+exec xinput set-prop "Apple Inc. Magic Trackpad 2" "Coordinate Transformation Matrix" 1.2, 0.0, 0.0, 0.0, 1.2, 0.0, 0.0, 0.0, 1.0
 
 #start libinput-gestures
 exec libinput-gestures-setup start
