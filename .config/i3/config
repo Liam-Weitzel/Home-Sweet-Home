@@ -173,7 +173,7 @@ bar {
         status_command i3status
 }
 
-#set default border to 1px
+#set default border to none
 default_border none
 default_floating_border none
 
@@ -183,6 +183,10 @@ exec xinput set-prop "Apple Inc. Magic Trackpad 2" "Coordinate Transformation Ma
 
 #start libinput-gestures
 exec libinput-gestures-setup start
+
+#start up apps
+exec blueman-manager
+exec gromit-mpx
 
 #restart libinput-gestures
 bindsym $mod+Shift+t exec bash ~/.bash_scripts/libinput_gestures_restart.sh
