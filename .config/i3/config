@@ -187,6 +187,7 @@ exec libinput-gestures-setup start
 #start up apps
 exec blueman-manager
 exec gromit-mpx
+exec_always bash ~/.bash_scripts/battery_warning.sh
 
 #restart libinput-gestures
 bindsym $mod+Shift+t exec bash ~/.bash_scripts/libinput_gestures_restart.sh
