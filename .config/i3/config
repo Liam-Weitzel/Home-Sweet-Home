@@ -187,7 +187,7 @@ exec libinput-gestures-setup start
 #start up apps
 exec blueman-manager
 exec gromit-mpx
-exec_always bash ~/.bash_scripts/battery_warning.sh
+exec bash ~/.bash_scripts/battery_warning.sh
 
 #restart libinput-gestures
 bindsym $mod+Shift+t exec bash ~/.bash_scripts/libinput_gestures_restart.sh
@@ -198,8 +198,8 @@ bindsym XF86MonBrightnessDown exec sudo brightnessctl set 5%-
 
 #volume keys using pactl bash script
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec bash ~/.bash_scripts/pactl_volume.sh +20% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec bash ~/.bash_scripts/pactl_volume.sh -20% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec bash ~/.bash_scripts/pactl_volume.sh +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec bash ~/.bash_scripts/pactl_volume.sh -5% && $refresh_i3status
 bindsym XF86AudioMute exec bash ~/.bash_scripts/pactl_volume.sh M && $refresh_i3status
 
 #start custom dmenu
