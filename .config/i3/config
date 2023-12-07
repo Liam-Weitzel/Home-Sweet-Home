@@ -202,6 +202,12 @@ bindsym XF86AudioRaiseVolume exec bash ~/.bash_scripts/pactl_volume.sh +5% && $r
 bindsym XF86AudioLowerVolume exec bash ~/.bash_scripts/pactl_volume.sh -5% && $refresh_i3status
 bindsym XF86AudioMute exec bash ~/.bash_scripts/pactl_volume.sh M && $refresh_i3status
 
+#play-pause-next-previous buttons
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 #start custom dmenu
 bindsym $mod+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh
 
