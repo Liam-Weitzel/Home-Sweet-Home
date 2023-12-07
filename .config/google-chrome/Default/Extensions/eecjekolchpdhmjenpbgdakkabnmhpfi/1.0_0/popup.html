@@ -1,0 +1,23 @@
+<HTML>
+    <head>
+        <title>Popup</title>
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet" href = "popup.css">
+    </head>
+
+    <body>
+        <a href = "landing_page.html" target= "_blank"><div id = "goToLandingPage">Settings</div></a>
+        <a href = "#"><div id = "break">Enable break</div></a>
+        <div id = "timeSettings">
+            <div id = "timeText"> Time duration (minutes): </div>
+            <input id = "timeInput"><img id = "submitTime" src = "reading-time_images/enter_button.png">
+            <div id = "currentTime">Settings will be disabled / changed for: 10 min</div>
+        </div>
+
+        <div id = "quitYt">
+            <div id = "quitText"> Quit YouTube afterwards</div>
+            <input type = "checkbox" id = "quitInput">
+        </div>
+        <script type = "module" src="popup.js"></script>
+    </body>
+</HTML>

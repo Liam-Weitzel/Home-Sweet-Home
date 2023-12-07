@@ -1,0 +1,27 @@
+{
+   "action": {
+      "default_popup": "popup.html"
+   },
+   "background": {
+      "service_worker": "background.js",
+      "type": "module"
+   },
+   "content_scripts": [ {
+      "js": [ "content.js" ],
+      "matches": [ "https://www.youtube.com/*" ]
+   } ],
+   "description": "Chrome extension that tries to curb YouTube addiction without blocking YouTube completely",
+   "host_permissions": [ "*://*.youtube.com/*" ],
+   "icons": {
+      "128": "reading-time_images/icon-128.png",
+      "16": "reading-time_images/icon-16.png",
+      "32": "reading-time_images/icon-32.png",
+      "48": "reading-time_images/icon-48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoRG1Mrv7urMCb8SBYvLbaRe1DpoH04283adKec/8pJYhxGbY/LmLvU1e5Ae6cend5aToQ0mmnsMYeZfr/Ax1m5RclbMPQL/5AD2KCV4n9IZau/XkUcsxJJS10qBvLSKzly/OqJjKEgJM5v33f7Srl2UMaMGGmciXCKga2gPS3n++qyrR+2C4n/83resUZwErzNFI5rD83brZIzjipm+3JQywI/b8k8DvCchaSPginAl3DtgMmFTAnFOnClOg40vGTE6LGpt/BQ3o8Gf2Hgvv0nRuiVteO5sPO/NhCKpsVhYz9iUWj7c8KehdYV7ogSCd3uAjsvc20pqQgQ695RullwIDAQAB",
+   "manifest_version": 3,
+   "name": "Distraction Blocker",
+   "permissions": [ "tabs", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0"
+}
