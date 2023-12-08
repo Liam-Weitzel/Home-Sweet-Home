@@ -108,6 +108,17 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
+
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -120,6 +131,17 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+bindsym $mod+Control+1 workspace number $ws11
+bindsym $mod+Control+2 workspace number $ws12
+bindsym $mod+Control+3 workspace number $ws13
+bindsym $mod+Control+4 workspace number $ws14
+bindsym $mod+Control+5 workspace number $ws15
+bindsym $mod+Control+6 workspace number $ws16
+bindsym $mod+Control+7 workspace number $ws17
+bindsym $mod+Control+8 workspace number $ws18
+bindsym $mod+Control+9 workspace number $ws19
+bindsym $mod+Control+0 workspace number $ws20
+
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -132,6 +154,16 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+Control+1 move container to workspace number $ws11
+bindsym $mod+Shift+Control+2 move container to workspace number $ws12
+bindsym $mod+Shift+Control+3 move container to workspace number $ws13
+bindsym $mod+Shift+Control+4 move container to workspace number $ws14
+bindsym $mod+Shift+Control+5 move container to workspace number $ws15
+bindsym $mod+Shift+Control+6 move container to workspace number $ws16
+bindsym $mod+Shift+Control+7 move container to workspace number $ws17
+bindsym $mod+Shift+Control+8 move container to workspace number $ws18
+bindsym $mod+Shift+Control+9 move container to workspace number $ws19
+bindsym $mod+Shift+Control+0 move container to workspace number $ws20
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -180,6 +212,7 @@ default_floating_border none
 #tap to click touchpad & set sens
 exec xinput set-prop "Apple Inc. Magic Trackpad 2" "libinput Tapping Enabled" 1
 exec xinput set-prop "Apple Inc. Magic Trackpad 2" "Coordinate Transformation Matrix" 1.2, 0.0, 0.0, 0.0, 1.2, 0.0, 0.0, 0.0, 1.0
+exec xset m 26/10 4
 
 #start libinput-gestures
 exec libinput-gestures-setup start
@@ -211,9 +244,6 @@ bindsym XF86AudioPrev exec playerctl previous
 #start custom dmenu
 bindsym $mod+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh
 
-#setting trackpad acceleration & sens
-exec xset m 26/10 4
-
 #grab window dmenu
 bindsym $mod+Shift+g exec bash ~/.bash_scripts/grab_window_dmenu.sh
-bindsym $mod+Shift+h exec bash ~/.bash_scripts/grab_window.sh 9
+bindsym $mod+Shift+h exec bash ~/.bash_scripts/grab_window.sh 20
