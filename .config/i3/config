@@ -212,7 +212,6 @@ default_floating_border none
 #tap to click touchpad & set sens
 exec xinput set-prop "Apple Inc. Magic Trackpad 2" "libinput Tapping Enabled" 1
 exec xinput set-prop "Apple Inc. Magic Trackpad 2" "Coordinate Transformation Matrix" 1.2, 0.0, 0.0, 0.0, 1.2, 0.0, 0.0, 0.0, 1.0
-exec xset m 26/10 4
 
 #start libinput-gestures
 exec libinput-gestures-setup start
@@ -224,6 +223,9 @@ exec bash ~/.bash_scripts/battery_warning.sh
 
 #restart libinput-gestures
 bindsym $mod+Shift+t exec bash ~/.bash_scripts/libinput_gestures_restart.sh
+
+#start audio stack
+bindsym $mod+Shift+XF86AudioPlay exec systemctl --user restart wireplumber pipewire pipewire-pulse
 
 #brightness keys using brightnessctl
 bindsym XF86MonBrightnessUp exec sudo brightnessctl set +5%
