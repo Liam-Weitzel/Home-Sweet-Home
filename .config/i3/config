@@ -247,3 +247,23 @@ bindsym $mod+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh
 #grab window dmenu
 bindsym $mod+Shift+g exec bash ~/.bash_scripts/grab_window_dmenu.sh
 bindsym $mod+Shift+h exec bash ~/.bash_scripts/grab_window.sh 20
+
+#always apps open in floating mode
+for_window [class="feh" instance="feh"] floating enable
+
+#open preview of current layer active on keyboard (f19 - f24)
+bindcode $mod+Shift+197 exec feh ~/layout/layer1.png &
+bindcode --release $mod+Shift+197 exec pidof feh && pkill feh
+bindcode $mod+Shift+198 exec feh ~/layout/layer2.png &
+bindcode --release $mod+Shift+198 exec pidof feh && pkill feh
+bindcode $mod+Shift+199 exec feh ~/layout/layer3.png &
+bindcode --release $mod+Shift+199 exec pidof feh && pkill feh
+bindcode $mod+Shift+200 exec feh ~/layout/layer4.png &
+bindcode --release $mod+Shift+200 exec pidof feh && pkill feh
+bindcode $mod+Shift+201 exec feh ~/layout/layer5.png &
+bindcode --release $mod+Shift+201 exec pidof feh && pkill feh
+bindcode $mod+Shift+202 exec feh ~/layout/layer6.png &
+bindcode --release $mod+Shift+202 exec pidof feh && pkill feh
+
+#printscreen
+bindsym Print exec gnome-screenshot -i
