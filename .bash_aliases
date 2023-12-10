@@ -1,5 +1,9 @@
 alias nvim='sudo -E -s ~/nvim'
 
+alias saveBackupGnomeTerminal='dconf dump /org/gnome/terminal/legacy/profiles:/ > ~/gnome-terminal-profiles.dconf'
+
+alias loadBackupGnomeTerminal='dconf load /org/gnome/terminal/legacy/profiles:/ < ~/gnome-terminal-profiles.dconf'
+
 # enable color support for commands
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
