@@ -384,7 +384,7 @@ vim.defer_fn(function()
     auto_install = false,
 
     highlight = { enable = true },
-    indent = { enable = true },
+    -- indent = { enable = true },
     incremental_selection = {
       enable = true,
       keymaps = {
@@ -605,8 +605,8 @@ cmp.setup {
 }
 
 vim.opt.expandtab = true
+vim.opt.autoindent = true
 vim.opt.shiftwidth = 2
-vim.opt.smartindent = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 
