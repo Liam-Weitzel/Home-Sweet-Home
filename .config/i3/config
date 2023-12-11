@@ -85,10 +85,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+a focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -248,7 +248,7 @@ bindsym $mod+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh
 
 #grab window dmenu
 bindsym $mod+Shift+g exec bash ~/.bash_scripts/grab_window_dmenu.sh
-bindsym $mod+Shift+h exec bash ~/.bash_scripts/grab_window.sh 20
+bindsym $mod+Shift+m exec bash ~/.bash_scripts/grab_window.sh 20
 
 #always apps open in floating mode
 for_window [class="feh" instance="feh"] floating enable
@@ -269,3 +269,9 @@ bindcode --release $mod+Shift+202 exec pidof feh && pkill feh
 
 #printscreen
 bindsym Print exec gnome-screenshot -i
+
+#open file explorer
+bindsym $mod+n exec nemo
+
+#open google
+bindsym $mod+g exec google-chrome
