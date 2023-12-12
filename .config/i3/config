@@ -206,8 +206,9 @@ bar {
 }
 
 #set default border to none
-default_border none
-default_floating_border none
+default_border pixel 1
+default_floating_border pixel 1
+bindsym $mod+o border toggle
 
 #tap to click touchpad & set sens
 exec xinput set-prop "Apple Inc. Magic Trackpad 2" "libinput Tapping Enabled" 1
@@ -266,6 +267,12 @@ bindcode $mod+Shift+201 exec feh ~/layout/layer5.png &
 bindcode --release $mod+Shift+201 exec pidof feh && pkill feh
 bindcode $mod+Shift+202 exec feh ~/layout/layer6.png &
 bindcode --release $mod+Shift+202 exec pidof feh && pkill feh
+
+#prev next workspace using f24 and arrow keys
+bindcode $mod+195 workspace prev
+bindcode $mod+196 workspace next
+bindcode $mod+Shift+195 move workspace prev; workspace prev
+bindcode $mod+Shift+196 move workspace next; workspace next
 
 #printscreen
 bindsym Print exec gnome-screenshot -i
