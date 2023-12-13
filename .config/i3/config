@@ -255,17 +255,17 @@ bindsym $mod+Shift+m exec bash ~/.bash_scripts/grab_window.sh 20
 for_window [class="feh" instance="feh"] floating enable
 
 #open preview of current layer active on keyboard (f19 - f24)
-bindcode $mod+Shift+197 exec feh ~/layout/layer1.png &
+bindcode $mod+Shift+197 exec bash ~/.bash_scripts/open_layer_png.sh 1
 bindcode --release $mod+Shift+197 exec pidof feh && pkill feh
-bindcode $mod+Shift+198 exec feh ~/layout/layer2.png &
+bindcode $mod+Shift+198 exec bash ~/.bash_scripts/open_layer_png.sh 2
 bindcode --release $mod+Shift+198 exec pidof feh && pkill feh
-bindcode $mod+Shift+199 exec feh ~/layout/layer3.png &
+bindcode $mod+Shift+199 exec bash ~/.bash_scripts/open_layer_png.sh 3
 bindcode --release $mod+Shift+199 exec pidof feh && pkill feh
-bindcode $mod+Shift+200 exec feh ~/layout/layer4.png &
+bindcode $mod+Shift+200 exec bash ~/.bash_scripts/open_layer_png.sh 4
 bindcode --release $mod+Shift+200 exec pidof feh && pkill feh
-bindcode $mod+Shift+201 exec feh ~/layout/layer5.png &
+bindcode $mod+Shift+201 exec bash ~/.bash_scripts/open_layer_png.sh 5
 bindcode --release $mod+Shift+201 exec pidof feh && pkill feh
-bindcode $mod+Shift+202 exec feh ~/layout/layer6.png &
+bindcode $mod+Shift+202 exec bash ~/.bash_scripts/open_layer_png.sh 6
 bindcode --release $mod+Shift+202 exec pidof feh && pkill feh
 
 #prev next workspace using f24 and arrow keys
