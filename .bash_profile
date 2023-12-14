@@ -1,0 +1,1 @@
+export CM_SELECTIONS=clipboard
