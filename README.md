@@ -12,3 +12,5 @@ stack:
 [encfs](https://github.com/vgough/encfs)
 [gromit](https://github.com/bk138/gromit-mpx)  
 [pipewire](https://github.com/PipeWire/pipewire) [wireplumber](https://github.com/PipeWire/wireplumber) [blueman](https://github.com/blueman-project/blueman)
+[xpad](https://launchpad.net/ubuntu/+source/xpad)  
+[clipmenu](https://github.com/cdown/clipmenu/tree/develop)  
