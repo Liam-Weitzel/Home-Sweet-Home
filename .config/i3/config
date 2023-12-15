@@ -165,10 +165,6 @@ bindsym $mod+Shift+Control+8 move container to workspace number $ws18
 bindsym $mod+Shift+Control+9 move container to workspace number $ws19
 bindsym $mod+Shift+Control+0 move container to workspace number $ws20
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -221,11 +217,8 @@ exec gromit-mpx
 exec bash ~/.bash_scripts/battery_warning.sh
 exec CM_SELECTIONS=clipboard clipmenud
 
-#restart libinput-gestures
-bindsym $mod+Shift+t exec bash ~/.bash_scripts/libinput_gestures_restart.sh
-
-#start audio stack
-bindsym $mod+Shift+XF86AudioPlay exec systemctl --user restart wireplumber pipewire pipewire-pulse
+# restart audio stack & i3
+bindsym $mod+Shift+XF86AudioPlay restart; exec systemctl --user restart wireplumber pipewire pipewire-pulse
 
 #brightness keys using brightnessctl
 bindsym XF86MonBrightnessUp exec sudo brightnessctl set +5%
