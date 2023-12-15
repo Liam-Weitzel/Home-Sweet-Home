@@ -1,12 +1,12 @@
-width 120
+width 260
 height 50
-x 577
-y 13
-follow_font 0
+x 31
+y 139
+follow_font 1
 follow_color 1
 sticky 1
 hidden 0
 back rgb(255,238,153)
 text rgb(0,0,0)
-fontname Sans Bold 21
-content content-ODHZF2
+fontname Sans 11
+content content-BF0ZF2
