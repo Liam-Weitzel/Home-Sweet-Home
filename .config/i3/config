@@ -219,7 +219,7 @@ exec libinput-gestures-setup start
 exec blueman-manager
 exec gromit-mpx
 exec bash ~/.bash_scripts/battery_warning.sh
-exec clipmenud
+exec CM_SELECTIONS=clipboard clipmenud
 
 #restart libinput-gestures
 bindsym $mod+Shift+t exec bash ~/.bash_scripts/libinput_gestures_restart.sh
