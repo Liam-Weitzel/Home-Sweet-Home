@@ -280,4 +280,34 @@ bindsym $mod+g exec google-chrome
 bindsym $mod+Control+r exec clipmenu -i
 
 #open/close xpad
-bindsym $mod+Shift+i exec bash ~/.bash_scripts/open_xpad.sh
+bindsym $mod+i exec bash ~/.bash_scripts/open_xpad.sh
+
+#switch xpad project
+bindsym $mod+Shift+i mode "xpad_project_switching"
+mode "xpad_project_switching" {
+        bindsym $mod+1 exec bash ~/.bash_scripts/switch_xpad_project.sh 1
+        bindsym $mod+2 exec bash ~/.bash_scripts/switch_xpad_project.sh 2
+        bindsym $mod+3 exec bash ~/.bash_scripts/switch_xpad_project.sh 3
+        bindsym $mod+4 exec bash ~/.bash_scripts/switch_xpad_project.sh 4
+        bindsym $mod+5 exec bash ~/.bash_scripts/switch_xpad_project.sh 5
+        bindsym $mod+6 exec bash ~/.bash_scripts/switch_xpad_project.sh 6
+        bindsym $mod+7 exec bash ~/.bash_scripts/switch_xpad_project.sh 7
+        bindsym $mod+8 exec bash ~/.bash_scripts/switch_xpad_project.sh 8
+        bindsym $mod+9 exec bash ~/.bash_scripts/switch_xpad_project.sh 9
+        bindsym $mod+0 exec bash ~/.bash_scripts/switch_xpad_project.sh 10
+        bindsym $mod+Control+1 exec bash ~/.bash_scripts/switch_xpad_project.sh 11
+        bindsym $mod+Control+2 exec bash ~/.bash_scripts/switch_xpad_project.sh 12
+        bindsym $mod+Control+3 exec bash ~/.bash_scripts/switch_xpad_project.sh 13
+        bindsym $mod+Control+4 exec bash ~/.bash_scripts/switch_xpad_project.sh 14
+        bindsym $mod+Control+5 exec bash ~/.bash_scripts/switch_xpad_project.sh 15
+        bindsym $mod+Control+6 exec bash ~/.bash_scripts/switch_xpad_project.sh 16
+        bindsym $mod+Control+7 exec bash ~/.bash_scripts/switch_xpad_project.sh 17
+        bindsym $mod+Control+8 exec bash ~/.bash_scripts/switch_xpad_project.sh 18
+        bindsym $mod+Control+9 exec bash ~/.bash_scripts/switch_xpad_project.sh 19
+        bindsym $mod+Control+0 exec bash ~/.bash_scripts/switch_xpad_project.sh 20
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+Shift+i mode "default"
+}
