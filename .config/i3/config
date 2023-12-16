@@ -242,6 +242,7 @@ bindsym $mod+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh
 #grab window dmenu
 bindsym $mod+Shift+g exec bash ~/.bash_scripts/grab_window_dmenu.sh
 bindsym $mod+Shift+m exec bash ~/.bash_scripts/grab_window.sh 20
+bindsym $mod+Shift+h move container to workspace number $ws20
 
 #always apps open in floating mode
 for_window [class="feh" instance="feh"] floating enable
