@@ -1,43 +1,3 @@
---[[
-
-=====================================================================
-==================== READ THIS BEFORE CONTINUING ====================
-=====================================================================
-
-Kickstart.nvim is *not* a distribution.
-
-Kickstart.nvim is a template for your own configuration.
-  The goal is that you can read every line of code, top-to-bottom, understand
-  what your configuration is doing, and modify it to suit your needs.
-
-  Once you've done that, you should start exploring, configuring and tinkering to
-  explore Neovim!
-
-  If you don't know anything about Lua, I recommend taking some time to read through
-  a guide. One possible example:
-  - https://learnxinyminutes.com/docs/lua/
-
-
-  And then you can explore or search through `:help lua-guide`
-  - https://neovim.io/doc/user/lua-guide.html
-
-
-Kickstart Guide:
-
-I have left several `:help X` comments throughout the init.lua
-You should run that command and read that help section for more information.
-
-In addition, I have some `NOTE:` items throughout the file.
-These are for you, the reader to help understand what is happening. Feel free to delete
-them once you know what you're doing, but they should serve as a guide for when you
-are first encountering a few different constructs in your nvim config.
-
-I hope you enjoy your Neovim journey,
-- TJ
-
-P.S. You can delete this when you're done too. It's your config now :)
---]]
-
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -217,6 +177,24 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  {
+    -- Manipulate window size with animation
+    'anuvyklack/windows.nvim',
+    dependencies = {
+      'anuvyklack/middleclass',
+      'anuvyklack/animation.nvim'
+    },
+    config = function()
+      vim.o.winwidth = 10
+      vim.o.winminwidth = 10
+      vim.o.equalalways = false
+      require('windows').setup({
+        autowidth = {
+          enable = false
+        }
+      })
+    end
+  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -289,6 +267,24 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- windows.nvim keymaps
+local function cmd(command)
+  return table.concat({ '<Cmd>', command, '<CR>' })
+end
+
+vim.keymap.set('n', '<C-w>f', cmd 'WindowsMaximize')
+vim.keymap.set('n', '<C-w>_', cmd 'WindowsMaximizeVertically')
+vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
+vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
+vim.keymap.set('n', '<A-Left>', '<C-w>h', { silent = true })
+vim.keymap.set('n', '<A-Right>', '<C-w>l', { silent = true })
+vim.keymap.set('n', '<A-Up>', '<C-w>k', { silent = true })
+vim.keymap.set('n', '<A-Down>', '<C-w>j', { silent = true })
+vim.keymap.set('n', '<A-C-Left>', '3<C-w>>')
+vim.keymap.set('n', '<A-C-Right>', '3<C-w><')
+vim.keymap.set('n', '<A-C-Up>', '3<C-w>+')
+vim.keymap.set('n', '<A-C-Down>', '3<C-w>-')
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -299,6 +295,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- terminal mode keymaps
+vim.keymap.set('t', '<A-esc>', '<C-\\><C-N>', { silent = true })
+vim.keymap.set('t', '<A-Left>', '<C-\\><C-N><C-w>h', { silent = true })
+vim.keymap.set('t', '<A-Right>', '<C-\\><C-N><C-w>l', { silent = true })
+vim.keymap.set('t', '<A-Up>', '<C-\\><C-N><C-w>k', { silent = true })
+vim.keymap.set('t', '<A-Down>', '<C-\\><C-N><C-w>j', { silent = true })
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -604,8 +607,4 @@ cmp.setup {
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-
--- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
