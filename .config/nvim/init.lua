@@ -284,10 +284,10 @@ vim.keymap.set('n', '<A-Left>', '<C-w>h', { silent = true })
 vim.keymap.set('n', '<A-Right>', '<C-w>l', { silent = true })
 vim.keymap.set('n', '<A-Up>', '<C-w>k', { silent = true })
 vim.keymap.set('n', '<A-Down>', '<C-w>j', { silent = true })
-vim.keymap.set('n', '<A-C-Left>', '3<C-w>>')
-vim.keymap.set('n', '<A-C-Right>', '3<C-w><')
-vim.keymap.set('n', '<A-C-Up>', '3<C-w>+')
-vim.keymap.set('n', '<A-C-Down>', '3<C-w>-')
+vim.keymap.set('n', '<A-C-Left>', '3<C-w>>', { silent = true })
+vim.keymap.set('n', '<A-C-Right>', '3<C-w><', { silent = true })
+vim.keymap.set('n', '<A-C-Up>', '3<C-w>+', { silent = true })
+vim.keymap.set('n', '<A-C-Down>', '3<C-w>-', { silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -301,7 +301,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- terminal mode keymaps
-vim.keymap.set('t', '<A-esc>', '<C-\\><C-N>', { silent = true })
+vim.keymap.set('t', '<A-Esc>', '<C-\\><C-N>', { silent = true }) -- in tmux this is interpreted as esc esc for some reason
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-N>', { silent = true }) -- in any other terminal
 vim.keymap.set('t', '<A-Left>', '<C-\\><C-N><C-w>h', { silent = true })
 vim.keymap.set('t', '<A-Right>', '<C-\\><C-N><C-w>l', { silent = true })
 vim.keymap.set('t', '<A-Up>', '<C-\\><C-N><C-w>k', { silent = true })
