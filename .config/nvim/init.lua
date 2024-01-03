@@ -97,7 +97,7 @@ require('lazy').setup({
           vim.schedule(function()
             gs.next_hunk()
           end)
-          return '<Ignore>'
+        return '<Ignore>'
         end, { expr = true, buffer = bufnr, desc = 'Jump to next hunk' })
         vim.keymap.set({ 'n', 'v' }, '[c', function()
           if vim.wo.diff then
@@ -217,9 +217,6 @@ require('lazy').setup({
 -- Set highlight on search
 vim.o.hlsearch = false
 
--- Make line numbers default
-vim.wo.number = true
-
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
@@ -240,6 +237,13 @@ vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
+
+-- Enable relative and static line numbers
+vim.wo.number = true
+vim.wo.relativenumber = true
+
+--Display both relative and static line numbers in two seperate columns in the statuscolumn
+vim.wo.statuscolumn = ' %#NonText#%{&nu?v:lnum:""}%=%{&rnu&&(v:lnum%2)?" ".v:relnum:""}%#LineNr#%{&rnu&&!(v:lnum%2)?" ".v:relnum:""} '
 
 -- Decrease update time
 vim.o.updatetime = 250
