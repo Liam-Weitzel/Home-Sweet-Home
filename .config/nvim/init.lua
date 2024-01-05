@@ -337,7 +337,7 @@ require('lazy').setup({
             ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
             ["q"] = "close_window",
             ["R"] = "refresh",
-            ["?"] = "show_help",
+           ["?"] = "show_help",
             ["<"] = "prev_source",
             [">"] = "next_source",
             ["i"] = "show_file_details",
@@ -576,7 +576,13 @@ require('telescope').setup {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
+        ['<C-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
+        ['<M-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
       },
+      n = {
+        ['<C-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
+        ['<M-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
+      }
     },
   },
 }
