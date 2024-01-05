@@ -298,15 +298,9 @@ require('lazy').setup({
           mappings = {
             ["<cr>"] = {
                 "toggle_node",
-                nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
             },
             ["<2-LeftMouse>"] = {
                 "toggle_node",
-                nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
-            },
-            ["<leader>"] = {
-                "toggle_node",
-                nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
             },
             ["<esc>"] = "cancel", -- close preview or floating neo-tree window
             ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
@@ -319,10 +313,6 @@ require('lazy').setup({
             ["t"] = "open_tabnew",
             -- ["<cr>"] = "open_drop",
             -- ["t"] = "open_tab_drop",
-            ["C"] = "close_node",
-            -- ['C'] = 'close_all_subnodes',
-            ["z"] = "close_all_nodes",
-            --["Z"] = "expand_all_nodes",
             ["a"] = {
               "add",
               -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
@@ -357,9 +347,9 @@ require('lazy').setup({
         filesystem = {
           filtered_items = {
             visible = false, -- when true, they will just be displayed differently than normal items
-            hide_dotfiles = true,
-            hide_gitignored = true,
-            hide_hidden = true, -- only works on Windows for hidden files/directories
+            hide_dotfiles = false,
+            hide_gitignored = false,
+            hide_hidden = false, -- only works on Windows for hidden files/directories
             hide_by_name = {
               --"node_modules"
             },
@@ -426,7 +416,6 @@ require('lazy').setup({
         buffers = {
           follow_current_file = {
             enabled = true, -- This will find and focus the file in the active buffer every time
-            --              -- the current file is changed while the tree is open.
             leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
           },
           group_empty_dirs = true, -- when true, empty folders will be grouped together
