@@ -435,9 +435,13 @@ require('lazy').setup({
     end,
   },
 
-   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
+  -- trouble
+  {
+    'folke/trouble.nvim',
+    opts = {
+      icons = false,
+    },
+  }
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
@@ -536,6 +540,14 @@ vim.keymap.set('n', '<leader>t', cmd 'Neotree toggle')
 
 -- open DBUI
 vim.keymap.set('n', '<leader>n', cmd 'DBUIToggle')
+
+-- trouble keymaps
+vim.keymap.set("n", "<leader>xx", cmd 'TroubleToggle')
+vim.keymap.set("n", "<leader>xw", cmd 'TroubleToggle workspace_diagnostics')
+vim.keymap.set("n", "<leader>xd", cmd 'TroubleToggle document_diagnostics')
+vim.keymap.set("n", "<leader>xq", cmd 'TroubleToggle quickfix')
+vim.keymap.set("n", "<leader>xl", cmd 'TroubleToggle loclist')
+vim.keymap.set("n", "gR", cmd 'TroubleToggle lsp_references')
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
