@@ -413,49 +413,6 @@ require('lazy').setup({
 
           commands = {} -- Add a custom command or override a global one using the same function name
         },
-        buffers = {
-          follow_current_file = {
-            enabled = true, -- This will find and focus the file in the active buffer every time
-            leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
-          },
-          group_empty_dirs = true, -- when true, empty folders will be grouped together
-          show_unloaded = true,
-          window = {
-            mappings = {
-              ["bd"] = "buffer_delete",
-              ["<bs>"] = "navigate_up",
-              ["."] = "set_root",
-              ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
-              ["oc"] = { "order_by_created", nowait = false },
-              ["od"] = { "order_by_diagnostics", nowait = false },
-              ["om"] = { "order_by_modified", nowait = false },
-              ["on"] = { "order_by_name", nowait = false },
-              ["os"] = { "order_by_size", nowait = false },
-              ["ot"] = { "order_by_type", nowait = false },
-            }
-          },
-        },
-        git_status = {
-          window = {
-            position = "float",
-            mappings = {
-              ["A"]  = "git_add_all",
-              ["gu"] = "git_unstage_file",
-              ["ga"] = "git_add_file",
-              ["gr"] = "git_revert_file",
-              ["gc"] = "git_commit",
-              ["gp"] = "git_push",
-              ["gg"] = "git_commit_and_push",
-              ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
-              ["oc"] = { "order_by_created", nowait = false },
-              ["od"] = { "order_by_diagnostics", nowait = false },
-              ["om"] = { "order_by_modified", nowait = false },
-              ["on"] = { "order_by_name", nowait = false },
-              ["os"] = { "order_by_size", nowait = false },
-              ["ot"] = { "order_by_type", nowait = false },
-            }
-          }
-        }
       })
 
     end
@@ -563,7 +520,7 @@ vim.keymap.set('n', '<C-w>f', cmd 'WindowsMaximize')
 vim.keymap.set('n', '<C-w>_', cmd 'WindowsMaximizeVertically')
 vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
 vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
-vim.keymap.set('n', '<C-w>h', ':sp<CR> <C-w>l <C-w>j')
+vim.keymap.set('n', '<C-w>h', ':sp<CR> <C-w>j')
 vim.keymap.set('n', '<C-w>v', ':vsp<CR> <C-w>l')
 vim.keymap.set('n', '<A-Left>', '<C-w>h', { silent = true })
 vim.keymap.set('n', '<A-Right>', '<C-w>l', { silent = true })
