@@ -578,7 +578,7 @@ vim.keymap.set('n', '<A-C-Down>', '3<C-w>-', { silent = true })
 vim.keymap.set('n', '<leader>t', cmd 'Neotree toggle')
 
 -- open DBUI
-vim.keymap.set('n', '<leader>T', cmd 'DBUIToggle')
+vim.keymap.set('n', '<leader>n', cmd 'DBUIToggle')
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
