@@ -441,7 +441,11 @@ require('lazy').setup({
     opts = {
       icons = false,
     },
-  }
+  },
+
+  --winshift
+  'sindrets/winshift.nvim',
+
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
@@ -524,8 +528,8 @@ vim.keymap.set('n', '<C-w>f', cmd 'WindowsMaximize')
 vim.keymap.set('n', '<C-w>_', cmd 'WindowsMaximizeVertically')
 vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
 vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
-vim.keymap.set('n', '<C-w>h', ':sp<CR>')
-vim.keymap.set('n', '<C-w>v', ':vsp<CR>')
+vim.keymap.set('n', '<C-w>h', ':sp<CR> <C-w>j')
+vim.keymap.set('n', '<C-w>v', ':vsp<CR> <C-w>l')
 vim.keymap.set('n', '<A-Left>', '<C-w>h', { silent = true })
 vim.keymap.set('n', '<A-Right>', '<C-w>l', { silent = true })
 vim.keymap.set('n', '<A-Up>', '<C-w>k', { silent = true })
@@ -567,6 +571,9 @@ vim.keymap.set('t', '<A-Left>', '<C-\\><C-N><C-w>h', { silent = true })
 vim.keymap.set('t', '<A-Right>', '<C-\\><C-N><C-w>l', { silent = true })
 vim.keymap.set('t', '<A-Up>', '<C-\\><C-N><C-w>k', { silent = true })
 vim.keymap.set('t', '<A-Down>', '<C-\\><C-N><C-w>j', { silent = true })
+
+-- winshift keymaps
+vim.keymap.set('n', '<C-w>m', cmd 'WinShift')
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
