@@ -161,7 +161,44 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        # back to normal
+        bindsym 1 mode "default"
+        bindsym 2 mode "default"
+        bindsym 3 mode "default"
+        bindsym 4 mode "default"
+        bindsym 5 mode "default"
+        bindsym 6 mode "default"
+        bindsym 7 mode "default"
+        bindsym 8 mode "default"
+        bindsym 9 mode "default"
+        bindsym a mode "default"
+        bindsym b mode "default"
+        bindsym c mode "default"
+        bindsym d mode "default"
+        bindsym e mode "default"
+        bindsym f mode "default"
+        bindsym g mode "default"
+        bindsym h mode "default"
+        bindsym i mode "default"
+        bindsym j mode "default"
+        bindsym k mode "default"
+        bindsym l mode "default"
+        bindsym m mode "default"
+        bindsym n mode "default"
+        bindsym o mode "default"
+        bindsym p mode "default"
+        bindsym q mode "default"
+        bindsym r mode "default"
+        bindsym s mode "default"
+        bindsym t mode "default"
+        bindsym u mode "default"
+        bindsym v mode "default"
+        bindsym w mode "default"
+        bindsym x mode "default"
+        bindsym y mode "default"
+        bindsym z mode "default"
+        bindsym Shift mode "default"
+        bindsym Control mode "default"
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
@@ -213,9 +250,9 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh
 
 #grab window dmenu
-bindsym $mod+Shift+g exec bash ~/.bash_scripts/grab_window_dmenu.sh
-bindsym $mod+Shift+m exec bash ~/.bash_scripts/grab_window.sh 20
-bindsym $mod+Shift+h move container to workspace number $ws20
+bindsym $mod+Shift+Control+g exec bash ~/.bash_scripts/grab_window_dmenu.sh
+bindsym $mod+Shift+g exec bash ~/.bash_scripts/grab_window.sh 20
+bindsym $mod+Shift+m move container to workspace number $ws20
 
 #always apps open in floating mode
 for_window [class="feh" instance="feh"] floating enable

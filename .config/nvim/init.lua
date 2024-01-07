@@ -884,4 +884,5 @@ cmp.setup {
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.shiftwidth = 2
+vim.opt.nrformats = 'bin,octal,hex,alpha'
 -- vim: ts=2 sts=2 sw=2 et
