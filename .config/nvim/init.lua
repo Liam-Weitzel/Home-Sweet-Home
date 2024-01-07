@@ -1,4 +1,3 @@
--- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -20,13 +19,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure plugins ]]
--- NOTE: Here is where you install your plugins.
---  You can configure plugins using the `config` key.
---
---  You can also configure plugins after the setup call,
---    as they will be available in your neovim runtime.
 require('lazy').setup({
-  -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -35,8 +28,6 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  -- NOTE: This is where your plugins related to LSP can be installed.
-  --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -435,7 +426,7 @@ require('lazy').setup({
     end,
   },
 
-  -- trouble
+  -- show fancy lists for errors and your quick fix list use <leader>x to see more 
   {
     'folke/trouble.nvim',
     opts = {
@@ -443,24 +434,15 @@ require('lazy').setup({
     },
   },
 
-  --winshift
+  -- used for reordering windows, <C-w>m to enter this mode
   'sindrets/winshift.nvim',
 
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
--- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -503,7 +485,18 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Default tab indents
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.shiftwidth = 2
+
+-- This defines what can be incremented with <C-a>, go ahead try it.
+vim.opt.nrformats = 'bin,octal,hex,alpha'
+
 -- [[ Basic Keymaps ]]
+local function cmd(command)
+  return table.concat({ '<Cmd>', command, '<CR>' })
+end
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -514,10 +507,6 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- windows.nvim keymaps
-local function cmd(command)
-  return table.concat({ '<Cmd>', command, '<CR>' })
-end
-
 vim.keymap.set('n', '<C-w>f', cmd 'WindowsMaximize')
 vim.keymap.set('n', '<C-w>_', cmd 'WindowsMaximizeVertically')
 vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
@@ -552,17 +541,6 @@ vim.keymap.set("n", "<leader>xq", cmd 'TroubleToggle quickfix')
 vim.keymap.set("n", "<leader>xl", cmd 'TroubleToggle loclist')
 vim.keymap.set("n", "gR", cmd 'TroubleToggle lsp_references')
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
-
 -- terminal mode keymaps
 vim.keymap.set('t', '<A-Esc>', '<C-\\><C-N>', { silent = true }) -- in tmux this is interpreted as esc esc for some reason
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-N>', { silent = true }) -- in any other terminal
@@ -574,6 +552,17 @@ vim.keymap.set('t', '<A-Down>', '<C-\\><C-N><C-w>j', { silent = true })
 -- winshift keymaps
 vim.keymap.set('n', '<C-w>m', cmd 'WinShift')
 
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -583,11 +572,13 @@ require('telescope').setup {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
         ['<C-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
-        ['<M-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
+        ['<M-q>'] = { require('telescope.actions').send_selected_to_qflist, type = "action" },
       },
       n = {
+        ['<C-u>'] = false,
+        ['<C-d>'] = false,
         ['<C-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
-        ['<M-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
+        ['<M-q>'] = { require('telescope.actions').send_selected_to_qflist, type = "action" },
       }
     },
   },
@@ -880,9 +871,3 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
-vim.opt.expandtab = true
-vim.opt.autoindent = true
-vim.opt.shiftwidth = 2
-vim.opt.nrformats = 'bin,octal,hex,alpha'
--- vim: ts=2 sts=2 sw=2 et
