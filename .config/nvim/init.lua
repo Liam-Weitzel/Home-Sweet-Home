@@ -513,12 +513,6 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
 -- windows.nvim keymaps
 local function cmd(command)
   return table.concat({ '<Cmd>', command, '<CR>' })
@@ -539,6 +533,12 @@ vim.keymap.set('n', '<A-C-Right>', '3<C-w><', { silent = true })
 vim.keymap.set('n', '<A-C-Up>', '3<C-w>+', { silent = true })
 vim.keymap.set('n', '<A-C-Down>', '3<C-w>-', { silent = true })
 
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', cmd 'TroubleToggle', { desc = 'Toggle last trouble window' })
+
 -- open Neotree
 vim.keymap.set('n', '<leader>t', cmd 'Neotree toggle')
 
@@ -546,7 +546,6 @@ vim.keymap.set('n', '<leader>t', cmd 'Neotree toggle')
 vim.keymap.set('n', '<leader>n', cmd 'DBUIToggle')
 
 -- trouble keymaps
-vim.keymap.set("n", "<leader>xx", cmd 'TroubleToggle')
 vim.keymap.set("n", "<leader>xw", cmd 'TroubleToggle workspace_diagnostics')
 vim.keymap.set("n", "<leader>xd", cmd 'TroubleToggle document_diagnostics')
 vim.keymap.set("n", "<leader>xq", cmd 'TroubleToggle quickfix')
