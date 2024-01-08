@@ -145,6 +145,8 @@ bindsym $mod+Shift+Control+8 move container to workspace number $ws18
 bindsym $mod+Shift+Control+9 move container to workspace number $ws19
 bindsym $mod+Shift+Control+0 move container to workspace number $ws20
 
+bindsym $mod+Shift+o exec bash ~/.bash_scripts/workspace_to_monitor.sh
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -215,7 +217,6 @@ bar {
 #set default border to none
 default_border pixel 1
 default_floating_border pixel 1
-bindsym $mod+o border toggle
 
 #tap to click touchpad & set sens
 exec xinput set-prop "Apple Inc. Magic Trackpad 2" "libinput Tapping Enabled" 1

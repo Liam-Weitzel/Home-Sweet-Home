@@ -3,8 +3,8 @@ windowWidth=$(echo "$focus" | grep -oP '(?<='\"width\":').*?(?=,)');
 windowHeight=$(echo "$focus" | grep -oP '(?<='\"height\":').*');
 
 
-maxWidth=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' | sed -E  's/(.*)x{1}(.*)/\1/');
-maxHeight=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' | sed -E  's/(.*)x{1}(.*)/\2/');
+maxWidth=$(i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].rect["width"]');
+maxHeight=$(i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].rect["height"]');
 
 if [ $windowWidth -gt $(( $maxWidth*90/100 )) ] && [ $windowHeight -gt $(( $maxHeight*90/100 )) ]; 
 then i3-msg floating disable;
