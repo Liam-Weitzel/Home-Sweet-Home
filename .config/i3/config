@@ -51,6 +51,7 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+bindsym $mod+Shift+Escape focus mode_toggle
 
 # move focused window
 bindsym $mod+Shift+Left move left
@@ -215,8 +216,8 @@ bar {
 }
 
 #set default border to none
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 2
+default_floating_border pixel 2
 
 #tap to click touchpad & set sens
 exec_always xinput set-prop "Apple Inc. Magic Trackpad 2" "libinput Tapping Enabled" 1
