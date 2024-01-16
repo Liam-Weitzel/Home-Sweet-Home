@@ -1,0 +1,2797 @@
+{
+   "about": {
+      "message": "Apie"
+   },
+   "acceptPolicies": {
+      "message": "By checking this box you agree to the following:"
+   },
+   "acceptPoliciesRequired": {
+      "message": "Paslaugų teikimo sąlygos ir privatumo politika nebuvo pripažinti."
+   },
+   "accessDenied": {
+      "message": "Prieiga uždrausta. Neturi teisės peržiūrėti šį puslapį."
+   },
+   "account": {
+      "message": "Paskyra"
+   },
+   "accountSuccessfullyCreated": {
+      "message": "Paskyra sėkmingai sukurta!"
+   },
+   "addCardMenu": {
+      "message": "Pridėti kortelę"
+   },
+   "addFolder": {
+      "message": "Pridėti katalogą"
+   },
+   "addIdentityMenu": {
+      "message": "Pridėti tapatybę"
+   },
+   "addItem": {
+      "message": "Pridėti elementą"
+   },
+   "addLogin": {
+      "message": "Pridėti prisijungimą"
+   },
+   "addLoginMenu": {
+      "message": "Pridėti prisijungimą"
+   },
+   "addLoginNotificationDesc": {
+      "message": "Prisijungimo pridėjimo pranešimas automatiškai Jūs paragina išsaugoti naujus prisijungimus Jūsų saugykloje, kuomet prisijungiate pirmą kartą."
+   },
+   "addLoginNotificationDescAlt": {
+      "message": "Ask to add an item if one isn't found in your vault. Applies to all logged in accounts."
+   },
+   "addNewVaultItem": {
+      "description": "Screen reader text (aria-label) for new item button in overlay",
+      "message": "Add new vault item"
+   },
+   "addSend": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Add Send"
+   },
+   "addedFolder": {
+      "message": "Katalogas pridėtas"
+   },
+   "addedItem": {
+      "message": "Pridėtas elementas"
+   },
+   "address": {
+      "message": "Adresas"
+   },
+   "address1": {
+      "message": "Adresas 1"
+   },
+   "address2": {
+      "message": "Adresas 2"
+   },
+   "address3": {
+      "message": "Adresas 3"
+   },
+   "adminApprovalRequestSentToAdmins": {
+      "message": "Tavo prašymas išsiųstas administratoriui."
+   },
+   "adminApprovalRequested": {
+      "message": "Prašymas administratoriaus patvirtinimas"
+   },
+   "aliasDomain": {
+      "message": "Alias domain"
+   },
+   "allItems": {
+      "message": "Visi elementai"
+   },
+   "allSends": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Visi siuntimai"
+   },
+   "allVaults": {
+      "message": "Visos saugyklos"
+   },
+   "apiAccessToken": {
+      "message": "API Access Token"
+   },
+   "apiKey": {
+      "message": "API raktas"
+   },
+   "apiUrl": {
+      "message": "API serverio nuoroda"
+   },
+   "appName": {
+      "message": "Bitwarden"
+   },
+   "approveFromYourOtherDevice": {
+      "message": "Patvirtinti iš tavo kito įrenginio"
+   },
+   "approveWithMasterPassword": {
+      "message": "Patvirtinti su pagrindiniu slaptažodžiu"
+   },
+   "april": {
+      "message": "Balandis"
+   },
+   "attachmentSaved": {
+      "message": "Priedas išsaugotas"
+   },
+   "attachments": {
+      "message": "Priedai"
+   },
+   "august": {
+      "message": "Rugpjūtis"
+   },
+   "authenticatorAppDesc": {
+      "description": "'Authy' and 'Google Authenticator' are product names and should not be translated.",
+      "message": "Naudok autentifikatoriaus programėlę (pvz., Authy arba Google Autentifikatorius), kad sugeneruotum laiko patikrinimo kodus."
+   },
+   "authenticatorAppTitle": {
+      "message": "Autentifikavimo programa"
+   },
+   "authenticatorKeyTotp": {
+      "message": "Vienkartinio autentifikavimo raktas (TOTP)"
+   },
+   "autoFill": {
+      "message": "Automatinis užpildymas"
+   },
+   "autoFillAndSave": {
+      "message": "Automatiškai užpildyti ir išsaugoti"
+   },
+   "autoFillCard": {
+      "message": "Automatinio užpildymo kortelė"
+   },
+   "autoFillIdentity": {
+      "message": "Automatinio užpildymo tapatybė"
+   },
+   "autoFillInfo": {
+      "message": "Nėra galimų prisijungimų prie dabartinio naršyklės skirtuko."
+   },
+   "autoFillLogin": {
+      "message": "Automatinio užpildymo prisijungimas"
+   },
+   "autoFillOnPageLoadNo": {
+      "message": "Do not auto-fill on page load"
+   },
+   "autoFillOnPageLoadUseDefault": {
+      "message": "Naudoti numatytuosius nustatymus"
+   },
+   "autoFillOnPageLoadYes": {
+      "message": "Auto-fill on page load"
+   },
+   "autoFillSuccess": {
+      "message": "Item auto-filled "
+   },
+   "autoFillSuccessAndSavedUri": {
+      "message": "Item auto-filled and URI saved"
+   },
+   "autofillError": {
+      "message": "Nepavyko automatiškai užpildyti pasirinkto elemento šiame puslapyje. Nukopijuokite ir įklijuokite informaciją."
+   },
+   "autofillIframeWarning": {
+      "message": "The form is hosted by a different domain than the URI of your saved login. Choose OK to auto-fill anyway, or Cancel to stop."
+   },
+   "autofillIframeWarningTip": {
+      "message": "To prevent this warning in the future, save this URI, $HOSTNAME$, to your Bitwarden login item for this site.",
+      "placeholders": {
+         "hostname": {
+            "content": "$1",
+            "example": "www.example.com"
+         }
+      }
+   },
+   "autofillOnPageLoadSetToDefault": {
+      "description": "Toast message for informing the user that auto-fill on page load has been set to the default setting.",
+      "message": "Auto-fill on page load set to use default setting."
+   },
+   "autofillOverlayVisibilityOff": {
+      "description": "Overlay setting select option for disabling autofill overlay",
+      "message": "Off"
+   },
+   "autofillOverlayVisibilityOnButtonClick": {
+      "description": "Overlay appearance select option for showing the field on click of the overlay icon",
+      "message": "When auto-fill icon is selected"
+   },
+   "autofillOverlayVisibilityOnFieldFocus": {
+      "description": "Overlay appearance select option for showing the field on focus of the input element",
+      "message": "When field is selected (on focus)"
+   },
+   "autofillPageLoadPolicyActivated": {
+      "message": "Your organization policies have turned on auto-fill on page load."
+   },
+   "autofillSelectInfoWithCommand": {
+      "message": "Select an item from this screen, use the shortcut $COMMAND$, or explore other options in settings.",
+      "placeholders": {
+         "command": {
+            "content": "$1",
+            "example": "CTRL+Shift+L"
+         }
+      }
+   },
+   "autofillSelectInfoWithoutCommand": {
+      "message": "Select an item from this screen, or explore other options in settings."
+   },
+   "autofillSettings": {
+      "message": "Auto-fill settings"
+   },
+   "autofillShortcut": {
+      "message": "Auto-fill keyboard shortcut"
+   },
+   "autofillShortcutNotSet": {
+      "message": "The auto-fill shortcut is not set. Change this in the browser's settings."
+   },
+   "autofillShortcutText": {
+      "message": "The auto-fill shortcut is: $COMMAND$. Change this in the browser's settings.",
+      "placeholders": {
+         "command": {
+            "content": "$1",
+            "example": "CTRL+Shift+L"
+         }
+      }
+   },
+   "autofillShortcutTextSafari": {
+      "message": "Default auto-fill shortcut: $COMMAND$.",
+      "placeholders": {
+         "command": {
+            "content": "$1",
+            "example": "CTRL+Shift+L"
+         }
+      }
+   },
+   "avoidAmbChar": {
+      "message": "Vengti dviprasmiškų simbolių"
+   },
+   "awaitDesktop": {
+      "message": "Awaiting confirmation from desktop"
+   },
+   "awaitDesktopDesc": {
+      "message": "Please confirm using biometrics in the Bitwarden desktop application to set up biometrics for browser."
+   },
+   "awaitingSSO": {
+      "message": "Awaiting SSO authentication"
+   },
+   "awaitingSSODesc": {
+      "message": "Please continue to log in using your company credentials."
+   },
+   "back": {
+      "message": "Atgal"
+   },
+   "badgeCounterDesc": {
+      "message": "Nurodoma, kiek prisijungimų turi dabartiniame žiniatinklio puslapyje."
+   },
+   "baseDomain": {
+      "description": "Domain name. Ex. website.com",
+      "message": "Bazinis domenas"
+   },
+   "baseUrl": {
+      "message": "Serverio URL"
+   },
+   "biometricsFailedDesc": {
+      "message": "Biometriniai duomenys negali būti užpildyti, apsvarstyk galimybę naudoti pagrindinį slaptažodį arba atsijungti. Jei tai tęsiasi, kreipkitės į Bitwarden pagalbą."
+   },
+   "biometricsFailedTitle": {
+      "message": "Biometrika nepavyko"
+   },
+   "biometricsNotEnabledDesc": {
+      "message": "Browser biometrics requires desktop biometric to be set up in the settings first."
+   },
+   "biometricsNotEnabledTitle": {
+      "message": "Trūksta biometrinių duomenų nustatymų"
+   },
+   "biometricsNotSupportedDesc": {
+      "message": "Šiame įrenginyje biometrikos negalima naudoti."
+   },
+   "biometricsNotSupportedTitle": {
+      "message": "Biometrika negali būti naudojama"
+   },
+   "bitWebVault": {
+      "message": "„Bitwarden“ žiniatinklio saugykla"
+   },
+   "bitwardenOverlayButton": {
+      "description": "Page title for the iframe containing the overlay button",
+      "message": "Bitwarden auto-fill menu button"
+   },
+   "bitwardenOverlayMenuAvailable": {
+      "description": "Screen reader text for announcing when the overlay opens on the page",
+      "message": "Bitwarden auto-fill menu available. Press the down arrow key to select."
+   },
+   "bitwardenVault": {
+      "description": "Page title in overlay",
+      "message": "Bitwarden auto-fill menu"
+   },
+   "brand": {
+      "message": "Prekės ženktas"
+   },
+   "browserNotSupportClipboard": {
+      "message": "Jūsų žiniatinklio naršyklė nepalaiko automatinio kopijavimo. Vietoj to nukopijuokite rankiniu būdu."
+   },
+   "cancel": {
+      "message": "Atšaukti"
+   },
+   "capitalize": {
+      "description": "Make the first letter of a work uppercase.",
+      "message": "Pradėti didžiosiomis"
+   },
+   "cardholderName": {
+      "message": "Mokėjimo kortelės savininko vardas"
+   },
+   "cards": {
+      "message": "Kortelės"
+   },
+   "catchallEmail": {
+      "message": "Catch-all email"
+   },
+   "catchallEmailDesc": {
+      "message": "Use your domain's configured catch-all inbox."
+   },
+   "cfTypeBoolean": {
+      "message": "Taip/Ne"
+   },
+   "cfTypeHidden": {
+      "message": "Paslėpta"
+   },
+   "cfTypeLinked": {
+      "description": "This describes a field that is 'linked' (tied) to another field.",
+      "message": "Susieta"
+   },
+   "cfTypeText": {
+      "message": "Tekstas"
+   },
+   "changeMasterPass": {
+      "message": "Keisti pagrindinį slaptažodį"
+   },
+   "changeMasterPassword": {
+      "message": "Keisti pagrindinį slaptažodį"
+   },
+   "changeMasterPasswordConfirmation": {
+      "message": "Pagrindinį slaptažodį galite pakeisti bitwarden.com žiniatinklio saugykloje. Ar norite dabar apsilankyti svetainėje?"
+   },
+   "changedPasswordNotificationDesc": {
+      "message": "Paprašyti atnaujinti prisijungimo slaptažodį, kai pakeitimas aptiktas svetainėje."
+   },
+   "changedPasswordNotificationDescAlt": {
+      "message": "Ask to update a login's password when a change is detected on a website. Applies to all logged in accounts."
+   },
+   "characterMinimum": {
+      "message": "$LENGTH$ character minimum",
+      "placeholders": {
+         "length": {
+            "content": "$1",
+            "example": "14"
+         }
+      }
+   },
+   "checkForBreaches": {
+      "message": "Check known data breaches for this password"
+   },
+   "checkPassword": {
+      "message": "Patikrinkite, ar slaptažodis buvo atskleistas."
+   },
+   "chooseFile": {
+      "message": "Choose File"
+   },
+   "choosePasskey": {
+      "message": "Choose a login to save this passkey to"
+   },
+   "cityTown": {
+      "message": "Miestas"
+   },
+   "clear": {
+      "description": "To clear something out. example: To clear browser history.",
+      "message": "Išvalyti"
+   },
+   "clearClipboard": {
+      "description": "Clipboard is the operating system thing where you copy/paste data to on your device.",
+      "message": "Išvalyti iškarpinę"
+   },
+   "clearClipboardDesc": {
+      "description": "Clipboard is the operating system thing where you copy/paste data to on your device.",
+      "message": "Automatiškai išvalyti nukopijuotas reikšmes iškarpinėje."
+   },
+   "clone": {
+      "message": "Klonuoti"
+   },
+   "cloneItem": {
+      "message": "Klonuoti elementą"
+   },
+   "close": {
+      "message": "Uždaryti"
+   },
+   "codeSent": {
+      "message": "Kodas išsiųstas"
+   },
+   "collection": {
+      "message": "Collection"
+   },
+   "collections": {
+      "message": "Kolekcijos"
+   },
+   "commandAutofillDesc": {
+      "message": "Auto-fill the last used login for the current website"
+   },
+   "commandGeneratePasswordDesc": {
+      "message": "Generate and copy a new random password to the clipboard"
+   },
+   "commandLockVaultDesc": {
+      "message": "Užrakinti saugyklą"
+   },
+   "commandOpenPopup": {
+      "message": "Atidaryti saugyklą naujame lange"
+   },
+   "commandOpenSidebar": {
+      "message": "Atidaryti saugyklą šoninėje juostoje"
+   },
+   "communityForums": {
+      "message": "Naršyti Bitwarden bendruomenės forumus"
+   },
+   "company": {
+      "message": "Įmonė"
+   },
+   "confirm": {
+      "message": "Confirm"
+   },
+   "confirmFilePassword": {
+      "message": "Confirm file password"
+   },
+   "confirmIdentity": {
+      "message": "Norint tęsti, patvirtinkite tapatybę."
+   },
+   "confirmMasterPasswordRequired": {
+      "message": "Būtinas prisijungimo slaptažodžio patvirtinimas."
+   },
+   "confirmNewMasterPass": {
+      "message": "Patvirtinti naują pagrindinį slaptažodį"
+   },
+   "confirmVaultExport": {
+      "message": "Patvirtinti saugyklos eksportą"
+   },
+   "confirmVaultImport": {
+      "message": "Confirm vault import"
+   },
+   "confirmVaultImportDesc": {
+      "message": "This file is password-protected. Please enter the file password to import data."
+   },
+   "contactSupport": {
+      "message": "Susisiekti su Bitwarden palaikymo komanda"
+   },
+   "contextMenuItemDesc": {
+      "message": "Naudokite antrinį paspaudimą, kad patekti į svetainės slaptažodžio generavimo ir prisijungimo atitikimo parinktis. "
+   },
+   "contextMenuItemDescAlt": {
+      "message": "Use a secondary click to access password generation and matching logins for the website. Applies to all logged in accounts."
+   },
+   "continue": {
+      "message": "Tęsti"
+   },
+   "convertOrganizationEncryptionDesc": {
+      "message": "$ORGANIZATION$ is using SSO with a self-hosted key server. A master password is no longer required to log in for members of this organization.",
+      "placeholders": {
+         "organization": {
+            "content": "$1",
+            "example": "My Org Name"
+         }
+      }
+   },
+   "copyCustomFieldNameInvalidElement": {
+      "message": "Unable to identify a valid form element. Try inspecting the HTML instead."
+   },
+   "copyCustomFieldNameNotUnique": {
+      "message": "No unique identifier found."
+   },
+   "copyElementIdentifier": {
+      "message": "Kopijuoti pritaikyto laukelio pavadinimą"
+   },
+   "copyNote": {
+      "message": "Kopijuoti pastabas"
+   },
+   "copyNumber": {
+      "message": "Kopijuoti numerį"
+   },
+   "copyPassword": {
+      "message": "Kopijuoti slaptažodį"
+   },
+   "copySecurityCode": {
+      "message": "Kopijuoti saugos kodą"
+   },
+   "copySendLink": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Kopijuoti siuntimo nuorodą"
+   },
+   "copyUri": {
+      "message": "Kopijuoti nuorodą"
+   },
+   "copyUsername": {
+      "message": "Kopijuoti vartotojo vardą"
+   },
+   "copyValue": {
+      "message": "Copy value"
+   },
+   "copyVerificationCode": {
+      "message": "Kopijuoti patvirtinimo kodą"
+   },
+   "country": {
+      "message": "Šalis"
+   },
+   "createAccount": {
+      "message": "Sukurti paskyrą"
+   },
+   "createSend": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Naujas Siuntinys"
+   },
+   "createdSend": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Siuntinys sukurtas"
+   },
+   "currentAccessCount": {
+      "message": "Dabartinis prisijungimų skaičius"
+   },
+   "currentMasterPass": {
+      "message": "Dabartinis pagrindinis slaptažodis"
+   },
+   "currentTab": {
+      "message": "Dabartinis skirtukas"
+   },
+   "currentUri": {
+      "description": "The URI of one of the current open tabs in the browser.",
+      "message": "Current URI"
+   },
+   "custom": {
+      "message": "Custom"
+   },
+   "customEnvironment": {
+      "message": "Individualizuota aplinka"
+   },
+   "customEnvironmentFooter": {
+      "message": "Pažengusiems naudotojams. Galite nurodyti kiekvienos paslaugos pagrindinį URL adresą atskirai."
+   },
+   "customFields": {
+      "message": "Custom fields"
+   },
+   "dark": {
+      "description": "Dark color",
+      "message": "Tamsi"
+   },
+   "dateCreated": {
+      "description": "ex. Date this item was created",
+      "message": "Sukurtas"
+   },
+   "dateParsingError": {
+      "message": "There was an error saving your deletion and expiration dates."
+   },
+   "datePasswordUpdated": {
+      "description": "ex. Date this password was updated",
+      "message": "Slaptažodis atnaujintas"
+   },
+   "dateUpdated": {
+      "description": "ex. Date this item was updated",
+      "message": "Atnaujintas"
+   },
+   "days": {
+      "message": "$DAYS$ dienos",
+      "placeholders": {
+         "days": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "december": {
+      "message": "Gruodis"
+   },
+   "default": {
+      "message": "Numatytas"
+   },
+   "defaultAutoFillOnPageLoad": {
+      "message": "Default autofill setting for login items"
+   },
+   "defaultAutoFillOnPageLoadDesc": {
+      "message": "You can turn off auto-fill on page load for individual login items from the item's Edit view."
+   },
+   "defaultMatchDetection": {
+      "description": "Default URI match detection for auto-fill.",
+      "message": "Numatytasis atitikties aptikimas"
+   },
+   "defaultUriMatchDetection": {
+      "description": "Default URI match detection for auto-fill.",
+      "message": "Numatytojo URI atitikimo aptikimas"
+   },
+   "defaultUriMatchDetectionDesc": {
+      "message": "Pasirinkite standartinį būdą, kuriuo URI būtų aptinkamas prisijungiant, kuomet yra naudojamas automatinio užpildymo veiksmas."
+   },
+   "delete": {
+      "message": "Ištrinti"
+   },
+   "deleteAttachment": {
+      "message": "Ištrinti priedą"
+   },
+   "deleteAttachmentConfirmation": {
+      "message": "Ar esate tikri, kad norite ištrinti šį priedą?"
+   },
+   "deleteFolder": {
+      "message": "Šalinti katalogą"
+   },
+   "deleteFolderConfirmation": {
+      "message": "Ar tikrai norite ištrinti šį aplanką?"
+   },
+   "deleteItem": {
+      "message": "Šalinti elementą"
+   },
+   "deleteItemConfirmation": {
+      "message": "Ar tikrai norite perkelti į šiukšlinę?"
+   },
+   "deleteSend": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Ištrinti siuntinį"
+   },
+   "deleteSendConfirmation": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Are you sure you want to delete this Send?"
+   },
+   "deletedAttachment": {
+      "message": "Ištrintas priedas"
+   },
+   "deletedFolder": {
+      "message": "Katalogas ištrintas"
+   },
+   "deletedItem": {
+      "message": "Elementas perkeltas į šiukšlinę"
+   },
+   "deletedSend": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Siuntinys ištrintas"
+   },
+   "deletionDate": {
+      "message": "Deletion date"
+   },
+   "deletionDateAndTimeRequired": {
+      "message": "Ištrynimo data ir laikas yra privalomi."
+   },
+   "deletionDateDesc": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "The Send will be permanently deleted on the specified date and time."
+   },
+   "deletionDateIsInvalid": {
+      "message": "The deletion date provided is not valid."
+   },
+   "description": {
+      "message": "Description"
+   },
+   "desktopIntegrationDisabledDesc": {
+      "message": "Browser integration is not set up in the Bitwarden desktop application. Please set it up in the settings within the desktop application."
+   },
+   "desktopIntegrationDisabledTitle": {
+      "message": "Naršyklės integracija nėra nustatyta"
+   },
+   "desktopIntegrationVerificationText": {
+      "message": "Patikrink, ar darbalaukio programoje rodomas šis pirštų atspaudas: "
+   },
+   "desktopSyncVerificationTitle": {
+      "message": "Darbalaukio sinchronizavimo verifikavimas"
+   },
+   "deviceApprovalRequired": {
+      "message": "Įrenginio patvirtinimas reikalingas. Pasirink patvirtinimo būdą toliau:"
+   },
+   "deviceTrusted": {
+      "message": "Patikimas įrenginys"
+   },
+   "disableAutoTotpCopyDesc": {
+      "message": "Jei prisijungimas turi autentifikatoriaus raktą, nukopijuokite TOTP tikrinimo kodą į iškarpinę, kai automatiškai užpildysite prisijungimą."
+   },
+   "disabled": {
+      "message": "Išjungta"
+   },
+   "disabledOrganizationFilterError": {
+      "message": "Items in suspended Organizations cannot be accessed. Contact your Organization owner for assistance."
+   },
+   "display": {
+      "message": "Rodyti"
+   },
+   "domainName": {
+      "description": "Domain name. Ex. website.com",
+      "message": "Domenas"
+   },
+   "dr": {
+      "message": "Dr"
+   },
+   "dragToSort": {
+      "message": "Rūšiuok, kad surūšiuotum"
+   },
+   "duoDesc": {
+      "description": "'Duo Security' and 'Duo Mobile' are product names and should not be translated.",
+      "message": "Patvirtink su Duo Security naudodami Duo Mobile programą, SMS žinutę, telefono skambutį arba U2F saugumo raktą."
+   },
+   "duoOrganizationDesc": {
+      "description": "'Duo Security' and 'Duo Mobile' are product names and should not be translated.",
+      "message": "Patikrink su Duo Security savo organizacijai naudodamasis Duo Mobile programą, SMS žinutę, telefono skambutį arba U2F saugumo raktą."
+   },
+   "edit": {
+      "message": "Keisti"
+   },
+   "editFolder": {
+      "message": "Redaguoti aplanką"
+   },
+   "editItem": {
+      "message": "Redaguoti elementą"
+   },
+   "editSend": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Edit Send"
+   },
+   "editedFolder": {
+      "message": "Katalogas atnaujintas"
+   },
+   "editedItem": {
+      "message": "Redaguotas elementas"
+   },
+   "editedSend": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Siuntinys išsaugotas"
+   },
+   "email": {
+      "message": "El. paštas"
+   },
+   "emailAddress": {
+      "message": "El. paštas"
+   },
+   "emailDesc": {
+      "message": "Patvirtinimo kodai bus atsiųsti el. paštu tau."
+   },
+   "emailRequired": {
+      "message": "Reikalingas el. pašto adresas."
+   },
+   "emailTitle": {
+      "message": "El. paštas"
+   },
+   "emailVerificationRequired": {
+      "message": "Reikalingas elektroninio pašto patvirtinimas"
+   },
+   "emailVerificationRequiredDesc": {
+      "message": "You must verify your email to use this feature. You can verify your email in the web vault."
+   },
+   "enableAddLoginNotification": {
+      "message": "Prašyti pridėti prisijungimą"
+   },
+   "enableAutoBiometricsPrompt": {
+      "message": "Paleidžiant patvirtinti biometrinius duomenis"
+   },
+   "enableAutoFillOnPageLoad": {
+      "message": "Automatiškai užpildyti užsikrovus puslapiui"
+   },
+   "enableAutoFillOnPageLoadDesc": {
+      "message": "Jei aptikta prisijungimo forma, automatiškai užpildyti, kai kraunamas tinklalapis."
+   },
+   "enableAutoTotpCopy": {
+      "message": "Kopijuoti vienkartinį kodą (TOTP) automatiškai"
+   },
+   "enableBadgeCounter": {
+      "message": "Rodyti ženkliukų skaitiklį"
+   },
+   "enableChangedPasswordNotification": {
+      "message": "Paprašyti atnaujinti esamą prisijungimą"
+   },
+   "enableContextMenuItem": {
+      "message": "Rodyti kontekstinio meniu pasririnkimus"
+   },
+   "enableFavicon": {
+      "message": "Rodyti tinklalapių ikonėles"
+   },
+   "enableUsePasskeys": {
+      "message": "Ask to save and use passkeys"
+   },
+   "encExportAccountWarningDesc": {
+      "message": "Prieigos kodų raktai yra unikalūs kiekvienai Bitwarden vartotojo paskyrai, taigi jums nepavyktų importuoti užkoduotų eksportuotų duomenų į kitą prieigą."
+   },
+   "encExportKeyWarningDesc": {
+      "message": "Šis duomenų exportavimas užšifruoja jūsų duomenis naudodamas jūsų prieigos kodų raktu. Jei jūs kada nuspręsite pakeisti prieigos kodų raktą, jūs turėtumėte per naują eksportuoti duomenis, nes kitaip, jūs negalėsite iššifruoti išeksportuotų duomenų."
+   },
+   "encryptionKeyMigrationRequired": {
+      "message": "Encryption key migration required. Please login through the web vault to update your encryption key."
+   },
+   "enterEmailToGetHint": {
+      "message": "Įveskite savo paskyros el. pašto adresą, kad gautumėte pagrindinio slaptažodžio užuominą."
+   },
+   "enterVerificationCodeApp": {
+      "message": "Įvesk 6 skaitmenų patvirtinimo kodą iš tavo autentifikavimo aplikacijos."
+   },
+   "enterVerificationCodeEmail": {
+      "message": "Įvesk 6 skaitmenų prisijungimo kodą, kuris buvo išsiųstas $EMAIL$ el. paštu.",
+      "placeholders": {
+         "email": {
+            "content": "$1",
+            "example": "example@gmail.com"
+         }
+      }
+   },
+   "enterpriseSingleSignOn": {
+      "message": "Vienkartinis įmonės prisijungimas"
+   },
+   "environmentEditedClick": {
+      "message": "Spauskite čia"
+   },
+   "environmentEditedReset": {
+      "message": "to reset to pre-configured settings"
+   },
+   "environmentSaved": {
+      "message": "Aplinkos URL adresai išsaugoti"
+   },
+   "error": {
+      "message": "Error"
+   },
+   "errorEnableBiometricDesc": {
+      "message": "Action was canceled by the desktop application"
+   },
+   "errorEnableBiometricTitle": {
+      "message": "Unable to set up biometrics"
+   },
+   "errorOccurred": {
+      "message": "Įvyko klaida"
+   },
+   "eu": {
+      "description": "European Union",
+      "message": "ES"
+   },
+   "euDomain": {
+      "message": "bitwarden.eu"
+   },
+   "ex": {
+      "message": "pvz."
+   },
+   "exact": {
+      "message": "Tikslus"
+   },
+   "excludedDomains": {
+      "message": "Excluded domains"
+   },
+   "excludedDomainsDesc": {
+      "message": "Bitwarden will not ask to save login details for these domains. You must refresh the page for changes to take effect."
+   },
+   "excludedDomainsDescAlt": {
+      "message": "Bitwarden will not ask to save login details for these domains for all logged in accounts. You must refresh the page for changes to take effect."
+   },
+   "excludedDomainsInvalidDomain": {
+      "message": "$DOMAIN$ is not a valid domain",
+      "placeholders": {
+         "domain": {
+            "content": "$1",
+            "example": "googlecom"
+         }
+      }
+   },
+   "experimentalFeature": {
+      "message": "Compromised or untrusted websites can exploit auto-fill on page load."
+   },
+   "expiration": {
+      "message": "Galiojimo pabaiga"
+   },
+   "expirationDate": {
+      "message": "Galiojimo data"
+   },
+   "expirationDateAndTimeRequired": {
+      "message": "An expiration date and time are required."
+   },
+   "expirationDateDesc": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "If set, access to this Send will expire on the specified date and time."
+   },
+   "expirationDateIsInvalid": {
+      "message": "The expiration date provided is not valid."
+   },
+   "expirationMonth": {
+      "message": "Galiojimo pabaigos mėnesis"
+   },
+   "expirationYear": {
+      "message": "Galiojimo pabaigos metai"
+   },
+   "expired": {
+      "message": "Nebegalioja"
+   },
+   "exportMasterPassword": {
+      "message": "Įveskite pagrindinį slaptažodį norint išsinešti saugyklos duomenis."
+   },
+   "exportVault": {
+      "message": "Eksportuoti saugyklą"
+   },
+   "exportWarningDesc": {
+      "message": "Šiame duomenų exporte jūsų saugyklos duomenys yra neužšifruoti. Jūs neturėtumete laikyti ar siųsti išeksportuotos duomenų bylos nesaugiu komunikaciniu kanalu (tokiu kaip el. paštas). Ištrinkite jį kaip galima greičiau po to kai pasinaudojote."
+   },
+   "exportingIndividualVaultDescription": {
+      "message": "Only the individual vault items associated with $EMAIL$ will be exported. Organization vault items will not be included. Only vault item information will be exported and will not include associated attachments.",
+      "placeholders": {
+         "email": {
+            "content": "$1",
+            "example": "name@example.com"
+         }
+      }
+   },
+   "exportingPersonalVaultTitle": {
+      "message": "Exporting individual vault"
+   },
+   "exposedMasterPassword": {
+      "message": "Exposed Master Password"
+   },
+   "exposedMasterPasswordDesc": {
+      "message": "Password found in a data breach. Use a unique password to protect your account. Are you sure you want to use an exposed password?"
+   },
+   "extDesc": {
+      "description": "Extension description",
+      "message": "Saugi ir nemokama slaptažodžių tvarkyklė visiems įrenginiams."
+   },
+   "extName": {
+      "description": "Extension name, MUST be less than 40 characters (Safari restriction)",
+      "message": "Bitwarden"
+   },
+   "extensionPrivacyPermissionNotGrantedDescription": {
+      "description": "Description for the dialog that appears when the user has not granted the extension permission to set privacy settings",
+      "message": "Bitwarden must have access to the extension's privacy permission to override browser auto-fill settings."
+   },
+   "extensionPrivacyPermissionNotGrantedTitle": {
+      "description": "Title for the dialog that appears when the user has not granted the extension permission to set privacy settings",
+      "message": "Unable to override browser auto-fill"
+   },
+   "faviconDesc": {
+      "message": "Show a recognizable image next to each login."
+   },
+   "favorite": {
+      "message": "Mėgstamas"
+   },
+   "favorites": {
+      "message": "Mėgstamiausi"
+   },
+   "featureNotSupported": {
+      "message": "Feature not yet supported"
+   },
+   "featureUnavailable": {
+      "message": "Funkcija neprieinama"
+   },
+   "february": {
+      "message": "Vasaris"
+   },
+   "fieldsNeedAttention": {
+      "message": "$COUNT$ field(s) above need your attention.",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "4"
+         }
+      }
+   },
+   "fifteenMinutes": {
+      "message": "15 minučių"
+   },
+   "file": {
+      "message": "Failas"
+   },
+   "fileFormat": {
+      "message": "Failo formatas"
+   },
+   "fillCredentialsFor": {
+      "description": "Screen reader text for when overlay item is in focused",
+      "message": "Fill credentials for"
+   },
+   "fingerprintMatchInfo": {
+      "message": "Please make sure your vault is unlocked and the Fingerprint phrase matches on the other device."
+   },
+   "fingerprintPhrase": {
+      "description": "A 'fingerprint phrase' is a unique word phrase (similar to a passphrase) that a user can use to authenticate their public key with another user, for the purposes of sharing.",
+      "message": "Dalijimosi slaptažodis"
+   },
+   "fingerprintPhraseHeader": {
+      "message": "Fingerprint phrase"
+   },
+   "firstName": {
+      "message": "Vardas"
+   },
+   "fiveMinutes": {
+      "message": "5 minučių"
+   },
+   "folder": {
+      "message": "Aplankas"
+   },
+   "folders": {
+      "message": "Aplankai"
+   },
+   "forwardedEmail": {
+      "message": "Forwarded email alias"
+   },
+   "forwardedEmailDesc": {
+      "message": "Generate an email alias with an external forwarding service."
+   },
+   "fourHours": {
+      "message": "4 valandų"
+   },
+   "fullName": {
+      "message": "Vardas ir pavardė"
+   },
+   "general": {
+      "message": "Bendra"
+   },
+   "generatePassword": {
+      "message": "Kurti slaptažodį"
+   },
+   "generatePasswordCopied": {
+      "message": "Kurti slaptažodį (paruoštas įterpti)"
+   },
+   "generateUsername": {
+      "message": "Generate username"
+   },
+   "generator": {
+      "description": "Short for 'Password Generator'.",
+      "message": "Generatorius"
+   },
+   "getMasterPasswordHint": {
+      "message": "Gauti pagrindinio slaptažodžio užuominą"
+   },
+   "gettingStartedTutorial": {
+      "message": "Apmokymai"
+   },
+   "gettingStartedTutorialVideo": {
+      "message": "Peržiūrėkite aomokymus, kad sužinotumėte, kaip išnaudoti visas naršyklės plėtinio galimybes."
+   },
+   "good": {
+      "description": "ex. A good password. Scale: Weak -> Good -> Strong",
+      "message": "Geras"
+   },
+   "gotIt": {
+      "message": "Got it"
+   },
+   "helpCenter": {
+      "message": "Bitwarden pagalbos centras"
+   },
+   "helpFeedback": {
+      "message": "Pagalba ir atsiliepimai"
+   },
+   "hideEmail": {
+      "message": "Slėpti mano el. pašto adresą nuo gavėjų."
+   },
+   "hintEqualsPassword": {
+      "message": "Your password hint cannot be the same as your password."
+   },
+   "host": {
+      "description": "A URL's host value. For example, the host of https://sub.domain.com:443 is 'sub.domain.com:443'.",
+      "message": "Serveris"
+   },
+   "hostname": {
+      "description": "Part of a URL.",
+      "message": "Hostname"
+   },
+   "hours": {
+      "message": "Hours"
+   },
+   "howToAutofill": {
+      "message": "Kaip automatiškai užpildyti"
+   },
+   "iconsUrl": {
+      "message": "Piktogramų serverio URL"
+   },
+   "identities": {
+      "message": "Tapatybės"
+   },
+   "identityName": {
+      "message": "Tapatybės vardas"
+   },
+   "identityUrl": {
+      "message": "Identifikavimo serverio URL"
+   },
+   "ignore": {
+      "message": "Ignore"
+   },
+   "immediately": {
+      "message": "Nedelsiant"
+   },
+   "importData": {
+      "description": "Used for the header of the import dialog, the import button and within the file-password-prompt",
+      "message": "Import data"
+   },
+   "importDestination": {
+      "message": "Import destination"
+   },
+   "importDirectlyFromLastPass": {
+      "message": "Import directly from LastPass"
+   },
+   "importEncKeyError": {
+      "message": "Error decrypting the exported file. Your encryption key does not match the encryption key used export the data."
+   },
+   "importError": {
+      "message": "Import error"
+   },
+   "importErrorDesc": {
+      "message": "There was a problem with the data you tried to import. Please resolve the errors listed below in your source file and try again."
+   },
+   "importFormatError": {
+      "message": "Data is not formatted correctly. Please check your import file and try again."
+   },
+   "importFromCSV": {
+      "message": "Import from CSV"
+   },
+   "importItems": {
+      "message": "Importuoti duomenis"
+   },
+   "importNothingError": {
+      "message": "Nothing was imported."
+   },
+   "importSuccess": {
+      "message": "Data successfully imported"
+   },
+   "importSuccessNumberOfItems": {
+      "message": "A total of $AMOUNT$ items were imported.",
+      "placeholders": {
+         "amount": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "importTargetHint": {
+      "description": "Located as a hint under the import target. Will be appended by either folder or collection, depending if the user is importing into an individual or an organizational vault.",
+      "message": "Select this option if you want the imported file contents moved to a $DESTINATION$",
+      "placeholders": {
+         "destination": {
+            "content": "$1",
+            "example": "folder or collection"
+         }
+      }
+   },
+   "importUnassignedItemsError": {
+      "message": "File contains unassigned items."
+   },
+   "importWarning": {
+      "message": "You are importing data to $ORGANIZATION$. Your data may be shared with members of this organization. Do you want to proceed?",
+      "placeholders": {
+         "organization": {
+            "content": "$1",
+            "example": "My Org Name"
+         }
+      }
+   },
+   "important": {
+      "message": "Svarbu:"
+   },
+   "importingYourAccount": {
+      "message": "Importing your account..."
+   },
+   "includeNumber": {
+      "message": "Įtraukti skaičius"
+   },
+   "includeSharedFolders": {
+      "message": "Include shared folders"
+   },
+   "incorrectUsernameOrPassword": {
+      "message": "Incorrect username or password"
+   },
+   "inputEmail": {
+      "message": "Input is not an email address."
+   },
+   "inputForbiddenCharacters": {
+      "message": "The following characters are not allowed: $CHARACTERS$",
+      "placeholders": {
+         "characters": {
+            "content": "$1",
+            "example": "@, #, $, %"
+         }
+      }
+   },
+   "inputMaxLength": {
+      "message": "Input must not exceed $COUNT$ characters in length.",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "20"
+         }
+      }
+   },
+   "inputMaxValue": {
+      "message": "Input value must not exceed $MAX$.",
+      "placeholders": {
+         "max": {
+            "content": "$1",
+            "example": "100"
+         }
+      }
+   },
+   "inputMinLength": {
+      "message": "Input must be at least $COUNT$ characters long.",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "8"
+         }
+      }
+   },
+   "inputMinValue": {
+      "message": "Input value must be at least $MIN$.",
+      "placeholders": {
+         "min": {
+            "content": "$1",
+            "example": "8"
+         }
+      }
+   },
+   "inputRequired": {
+      "message": "Input is required."
+   },
+   "inputTrimValidator": {
+      "description": "Notification to inform the user that a form's input can't contain only whitespace.",
+      "message": "Input must not contain only whitespace."
+   },
+   "insecurePageWarning": {
+      "message": "Įspėjimas: Tai – neapsaugotas HTTP puslapis, todėl bet kokią pateiktą informaciją gali matyti ir keisti kiti asmenys. Šis prisijungimas iš pradžių buvo išsaugotas saugiame (HTTPS) puslapyje."
+   },
+   "insecurePageWarningFillPrompt": {
+      "message": "Do you still wish to fill this login?"
+   },
+   "insertU2f": {
+      "message": "Įkišk savo saugos raktą į kompiuterio USB prievadą. Jei jame yra mygtukas, paliesk jį."
+   },
+   "insertYubiKey": {
+      "message": "Įkišk YubiKey į savo kompiuterio USB prievadą, tada paliesk jo mygtuką."
+   },
+   "instructionsFor": {
+      "description": "The title for the import tool instructions.",
+      "message": "$NAME$ Instructions",
+      "placeholders": {
+         "name": {
+            "content": "$1",
+            "example": "LastPass (csv)"
+         }
+      }
+   },
+   "invalidEmail": {
+      "message": "Klaidingas el. pašto adresas."
+   },
+   "invalidFilePassword": {
+      "message": "Invalid file password, please use the password you entered when you created the export file."
+   },
+   "invalidMasterPassword": {
+      "message": "Neteisingas pagrindinis slaptažodis"
+   },
+   "invalidPin": {
+      "message": "Neteisingas PIN kodas."
+   },
+   "invalidVerificationCode": {
+      "message": "Neteisingas patvirtinimo kodas"
+   },
+   "itemAutoFillOnPageLoad": {
+      "message": "Auto-fill on page load (if set up in Options)"
+   },
+   "itemInformation": {
+      "message": "Informacija"
+   },
+   "january": {
+      "message": "Sausis"
+   },
+   "july": {
+      "message": "Liepa"
+   },
+   "june": {
+      "message": "Birželis"
+   },
+   "lastName": {
+      "message": "Pavardė"
+   },
+   "lastPassAuthRequired": {
+      "message": "LastPass authentication required"
+   },
+   "lastPassEmail": {
+      "message": "LastPass Email"
+   },
+   "lastPassMFADesc": {
+      "message": "Enter your one-time passcode from your authentication app"
+   },
+   "lastPassMFARequired": {
+      "message": "LastPass multifactor authentication required"
+   },
+   "lastPassMasterPassword": {
+      "message": "LastPass master password"
+   },
+   "lastPassOOBDesc": {
+      "message": "Approve the login request in your authentication app or enter a one-time passcode."
+   },
+   "lastPassTryAgainCheckEmail": {
+      "message": "Try again or look for an email from LastPass to verify it's you."
+   },
+   "lastPassYubikeyDesc": {
+      "message": "Su LastPass paskyra susietą YubiKey įkišk į kompiuterio USB jungtį, tada paliesk jo mygtuką."
+   },
+   "lastSeenOn": {
+      "message": "last seen on: $DATE$",
+      "placeholders": {
+         "date": {
+            "content": "$1",
+            "example": "Jun 15, 2015"
+         }
+      }
+   },
+   "lastSync": {
+      "message": "Sinchronizuota:"
+   },
+   "launch": {
+      "message": "Paleisti"
+   },
+   "learnAboutImportOptions": {
+      "message": "Learn about your import options"
+   },
+   "learnMore": {
+      "message": "Sužinoti daugiau"
+   },
+   "learnMoreAboutAutofill": {
+      "message": "Sužinokite daugiau apie automatinį užpildymą"
+   },
+   "learnOrg": {
+      "message": "Sužinoti apie organizacijas"
+   },
+   "learnOrgConfirmation": {
+      "message": "Bitwarden leidžia jums dalintis savo saugyklos elementais su kitais vartotojais organizacijoje. Ar jūs norėtumėte apsilankyti bitwarden.com puslapyje, kad sužinoti daugiau?"
+   },
+   "leaveOrganization": {
+      "message": "Leave organization"
+   },
+   "leaveOrganizationConfirmation": {
+      "message": "Are you sure you want to leave this organization?"
+   },
+   "leftOrganization": {
+      "message": "You have left the organization."
+   },
+   "length": {
+      "message": "Ilgis"
+   },
+   "licenseNumber": {
+      "message": "Licencijos numeris"
+   },
+   "light": {
+      "description": "Light color",
+      "message": "Šviesi"
+   },
+   "linkedValue": {
+      "description": "This describes a value that is 'linked' (tied) to another value.",
+      "message": "Susijusi reikšmė"
+   },
+   "lock": {
+      "description": "Verb form: to make secure or inaccesible by",
+      "message": "Užrakinti"
+   },
+   "lockNow": {
+      "message": "Užrakinti dabar"
+   },
+   "lockWithMasterPassOnRestart": {
+      "message": "Lock with master password on browser restart"
+   },
+   "logInWithPasskey": {
+      "message": "Log in with passkey?"
+   },
+   "logOut": {
+      "message": "Atsijungti"
+   },
+   "logOutConfirmation": {
+      "message": "Ar tikrai norite atsijungti?"
+   },
+   "loggedInAsOn": {
+      "message": "Prisijungta prie $HOSTNAME$ kaip $EMAIL$.",
+      "placeholders": {
+         "email": {
+            "content": "$1",
+            "example": "name@example.com"
+         },
+         "hostname": {
+            "content": "$2",
+            "example": "bitwarden.com"
+         }
+      }
+   },
+   "loggedOut": {
+      "message": "Atsijungta"
+   },
+   "loggingInAs": {
+      "message": "Prisijungimas kaip"
+   },
+   "loggingInOn": {
+      "message": "Logging in on"
+   },
+   "loggingInTo": {
+      "message": "Logging in to $DOMAIN$",
+      "placeholders": {
+         "domain": {
+            "content": "$1",
+            "example": "example.com"
+         }
+      }
+   },
+   "login": {
+      "message": "Prisijungti"
+   },
+   "loginApproved": {
+      "message": "Patvirtintas prisijungimas"
+   },
+   "loginExpired": {
+      "message": "Sesijos laikas baigėsi."
+   },
+   "loginInitiated": {
+      "message": "Pradėtas prisijungimas"
+   },
+   "loginOrCreateNewAccount": {
+      "message": "Prisijunkite arba sukurkite naują paskyrą, kad galėtumėte pasiekti saugyklą."
+   },
+   "loginToVaultMenu": {
+      "message": "Prisijungti prie saugyklos"
+   },
+   "loginUnavailable": {
+      "message": "Prisijungimas nepasiekiamas"
+   },
+   "loginWithDevice": {
+      "message": "Prisijunkite naudodami įrenginį"
+   },
+   "loginWithDeviceEnabledInfo": {
+      "message": "Prisijungti su įrenginiu turi būti nustatyta Bitwarden aplikacijos nustatymuose. Reikia kito pasirinkimo?"
+   },
+   "loginWithMasterPassword": {
+      "message": "Prisijungti su pagrindiniu slaptažodžiu"
+   },
+   "logins": {
+      "message": "Prisijungimai"
+   },
+   "lowercase": {
+      "message": "Mažosiomis (a-z)"
+   },
+   "manage": {
+      "message": "Tvarkyti"
+   },
+   "march": {
+      "message": "Kovas"
+   },
+   "masterPass": {
+      "message": "Pagrindinis slaptažodis"
+   },
+   "masterPassDesc": {
+      "message": "Pagrindinis slaptažodis yra slaptažodis, kurį naudojate norėdami pasiekti savo saugyklą. Labai svarbu nepamiršti pagrindinio slaptažodžio. Negalėsite atkurti slaptažodį, jei jį pamiršote."
+   },
+   "masterPassDoesntMatch": {
+      "message": "Pagrindinio slaptažodžio patvirtinimas nesutampa."
+   },
+   "masterPassHint": {
+      "message": "Pagrindinio slaptažodžio užuomina (neprivaloma)"
+   },
+   "masterPassHintDesc": {
+      "message": "Pagrindinio slaptažodžio užuomina gali padėti prisiminti slaptažodį, jei jį pamiršite."
+   },
+   "masterPassSent": {
+      "message": "Išsiuntėme jums el. laišką su pagrindinio slaptažodžio užuomina."
+   },
+   "masterPasswordHint": {
+      "message": "Your master password cannot be recovered if you forget it!"
+   },
+   "masterPasswordMinlength": {
+      "description": "The Master Password must be at least a specific number of characters long.",
+      "message": "Pagrindinis slaptažodis turi būti bent $VALUE$ simbolių ilgio.",
+      "placeholders": {
+         "value": {
+            "content": "$1",
+            "example": "8"
+         }
+      }
+   },
+   "masterPasswordPolicyInEffect": {
+      "message": "Viena ar daugiau organizacijos politikos reikalauja, kad tavo pagrindinis slaptažodis atitiktų šiuos reikalavimus:"
+   },
+   "masterPasswordPolicyRequirementsNotMet": {
+      "message": "Tavo naujasis pagrindinis slaptažodis neatitinka politikos reikalavimų."
+   },
+   "masterPasswordRequired": {
+      "message": "Būtinas pagrindinis slaptažodis."
+   },
+   "matchDetection": {
+      "description": "URI match detection for auto-fill.",
+      "message": "Atitikmens aptikimas"
+   },
+   "maxAccessCountReached": {
+      "description": "This text will be displayed after a Send has been accessed the maximum amount of times.",
+      "message": "Pasiektas maksimalus prisijungimų skaičius"
+   },
+   "maxFileSize": {
+      "message": "Didžiausias failo dydis – 500 MB."
+   },
+   "maximumAccessCount": {
+      "message": "Maksimalus prisijungimų skaičius"
+   },
+   "maximumAccessCountDesc": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "If set, users will no longer be able to access this Send once the maximum access count is reached."
+   },
+   "may": {
+      "message": "Gegužė"
+   },
+   "middleName": {
+      "message": "Antras vardas"
+   },
+   "minNumbers": {
+      "message": "Mažiausiai skaičių"
+   },
+   "minSpecial": {
+      "message": "Mažiausiai simbolių"
+   },
+   "minutes": {
+      "message": "Minutes"
+   },
+   "move": {
+      "message": "Perkelti"
+   },
+   "moveToOrgDesc": {
+      "message": "Pasirinkite organizacija, į kurią norite priskirti šį elementą. Priskiriant elementą organizacijai, visos elemento valdymo teisės bus perleistos organizacijai. Jūs daugiau nebebūsite tiesioginis elemento valdytojas po to kai jis bus priskirtas organizacijai."
+   },
+   "moveToOrganization": {
+      "message": "Perkelti į organizaciją"
+   },
+   "movedItemToOrg": {
+      "message": "$ITEMNAME$ perkelta(s) į $ORGNAME$",
+      "placeholders": {
+         "itemname": {
+            "content": "$1",
+            "example": "Secret Item"
+         },
+         "orgname": {
+            "content": "$2",
+            "example": "Company Name"
+         }
+      }
+   },
+   "mr": {
+      "message": "Ponas"
+   },
+   "mrs": {
+      "message": "Ponia"
+   },
+   "ms": {
+      "message": "Panelė"
+   },
+   "multiSelectClearAll": {
+      "message": "Clear all"
+   },
+   "multiSelectLoading": {
+      "message": "Retrieving options..."
+   },
+   "multiSelectNotFound": {
+      "message": "No items found"
+   },
+   "multiSelectPlaceholder": {
+      "message": "-- Type to filter --"
+   },
+   "multifactorAuthenticationCancelled": {
+      "message": "Multifactor authentication cancelled"
+   },
+   "multifactorAuthenticationFailed": {
+      "message": "Multifactor authentication failed"
+   },
+   "multipleInputEmails": {
+      "message": "1 or more emails are invalid"
+   },
+   "mx": {
+      "message": "Neutralinis (-i)"
+   },
+   "myVault": {
+      "message": "Mano saugykla"
+   },
+   "name": {
+      "message": "Pavadinimas"
+   },
+   "nameRequired": {
+      "message": "Pavadinimas yra būtinas."
+   },
+   "nativeMessaginPermissionErrorDesc": {
+      "message": "Without permission to communicate with the Bitwarden Desktop Application we cannot provide biometrics in the browser extension. Please try again."
+   },
+   "nativeMessaginPermissionErrorTitle": {
+      "message": "Nesuteiktos teisės"
+   },
+   "nativeMessaginPermissionSidebarDesc": {
+      "message": "This action cannot be done in the sidebar, please retry the action in the popup or popout."
+   },
+   "nativeMessaginPermissionSidebarTitle": {
+      "message": "Permission request error"
+   },
+   "nativeMessagingInvalidEncryptionDesc": {
+      "message": "Desktop application invalidated the secure communication channel. Please retry this operation"
+   },
+   "nativeMessagingInvalidEncryptionTitle": {
+      "message": "Desktop communication interrupted"
+   },
+   "nativeMessagingWrongUserDesc": {
+      "message": "The desktop application is logged into a different account. Please ensure both applications are logged into the same account."
+   },
+   "nativeMessagingWrongUserTitle": {
+      "message": "Paskyros neatitikimas"
+   },
+   "never": {
+      "message": "Niekada"
+   },
+   "neverLockWarning": {
+      "message": "Are you sure you want to use the \"Never\" option? Setting your lock options to \"Never\" stores your vault's encryption key on your device. If you use this option you should ensure that you keep your device properly protected."
+   },
+   "newAccountCreated": {
+      "message": "Jūsų paskyra sukurta! Galite prisijungti."
+   },
+   "newAroundHere": {
+      "message": "Ar jūs naujas čia?"
+   },
+   "newAttachment": {
+      "message": "Pridėti naują priedą"
+   },
+   "newCustomField": {
+      "message": "Naujas pasirinktis laukelis"
+   },
+   "newItem": {
+      "description": "Button text to display in overlay when there are no matching items",
+      "message": "New item"
+   },
+   "newMasterPass": {
+      "message": "Naujas pagrindinis slaptažodis"
+   },
+   "newPassword": {
+      "message": "Naujas slaptažodis"
+   },
+   "newUri": {
+      "message": "Naujas URI"
+   },
+   "no": {
+      "message": "Ne"
+   },
+   "noAttachments": {
+      "message": "Priedų nėra."
+   },
+   "noCards": {
+      "message": "Nėra kortelių"
+   },
+   "noCollectionsInList": {
+      "message": "There are no collections to list."
+   },
+   "noFileChosen": {
+      "message": "No file chosen"
+   },
+   "noFolders": {
+      "message": "Aplankų nėra"
+   },
+   "noIdentities": {
+      "message": "Nėra tapatybių"
+   },
+   "noItemsInList": {
+      "message": "Nėra rodytinų elementų."
+   },
+   "noItemsToShow": {
+      "description": "Text to show in overlay if there are no matching items",
+      "message": "No items to show"
+   },
+   "noLastPassDataFound": {
+      "message": "No LastPass data found"
+   },
+   "noMatchingLogins": {
+      "message": "Nėra atitinkančių prisijungimų."
+   },
+   "noMatchingPasskeyLogin": {
+      "message": "You do not have a matching login for this site."
+   },
+   "noOrganizationsList": {
+      "message": "You do not belong to any organizations. Organizations allow you to securely share items with other users."
+   },
+   "noPasskeysFoundForThisApplication": {
+      "message": "No passkeys found for this application."
+   },
+   "noPasswordsInList": {
+      "message": "There are no passwords to list."
+   },
+   "noTwoStepProviders": {
+      "message": "Šioje paskyroje nustatytas dviejų žingsnių prisijungimas, tačiau, nė vienas iš sukonfigūruotų dviejų žingsnių paslaugų teikėjų nėra palaikomas šioje interneto naršyklėje."
+   },
+   "noTwoStepProviders2": {
+      "message": "Prašome naudoti palaikomą interneto naršyklę (pvz., Chrome) ir/arba pridėti papildomus paslaugų teikėjus, kurie geriau palaikomi įvairiose interneto naršyklėse (pvz., autentifikavimo programėlę)."
+   },
+   "noneFolder": {
+      "description": "This is the folder for uncategorized items",
+      "message": "Be aplanko"
+   },
+   "notYou": {
+      "message": "Ne jūs?"
+   },
+   "note": {
+      "message": "Pastaba"
+   },
+   "notes": {
+      "message": "Pastabos"
+   },
+   "notificationAddDesc": {
+      "message": "Ar Bitwarden turėtų įsiminti šį slaptažodį už tave?"
+   },
+   "notificationAddSave": {
+      "message": "Išsaugoti"
+   },
+   "notificationChangeDesc": {
+      "message": "Ar nori atnaujinti šį slaptažodį Bitwarden?"
+   },
+   "notificationChangeSave": {
+      "message": "Atnaujinti"
+   },
+   "notificationSentDevice": {
+      "message": "A notification has been sent to your device."
+   },
+   "notificationUnlock": {
+      "message": "Atrakinti"
+   },
+   "notificationUnlockDesc": {
+      "message": "Atrakink savo Bitwarden saugyklą, kad užpildytum automatinio užpildymo užklausą."
+   },
+   "notificationsUrl": {
+      "message": "Notifikacijų serverio URL"
+   },
+   "november": {
+      "message": "Lapkritis"
+   },
+   "numWords": {
+      "message": "Žodžių skaičius"
+   },
+   "number": {
+      "message": "Numeris"
+   },
+   "numbers": {
+      "message": "Skaitmuo (0-9)"
+   },
+   "october": {
+      "message": "Spalis"
+   },
+   "ok": {
+      "message": "Gerai"
+   },
+   "onLocked": {
+      "message": "Užrakinant sistemą"
+   },
+   "onRestart": {
+      "message": "Paleidus iš naujo naršyklę"
+   },
+   "oneDay": {
+      "message": "1 d"
+   },
+   "oneHour": {
+      "message": "1 valandos"
+   },
+   "oneMinute": {
+      "message": "1 minutės"
+   },
+   "opensInANewWindow": {
+      "message": "Opens in a new window"
+   },
+   "options": {
+      "message": "Pasirinkimai"
+   },
+   "orCopyPasteFileContents": {
+      "message": "or copy/paste the import file contents"
+   },
+   "orgPermissionsUpdatedMustSetPassword": {
+      "description": "Used as a card title description on the set password page to explain why the user is there",
+      "message": "Your organization permissions were updated, requiring you to set a master password."
+   },
+   "orgRequiresYouToSetPassword": {
+      "description": "Used as a card title description on the set password page to explain why the user is there",
+      "message": "Your organization requires you to set a master password."
+   },
+   "organization": {
+      "description": "An entity of multiple related people (ex. a team or business organization).",
+      "message": "Organizacija"
+   },
+   "organizationIsDisabled": {
+      "message": "Organizacija suspenduota."
+   },
+   "other": {
+      "message": "Kita"
+   },
+   "overrideBrowserAutoFillSettings": {
+      "description": "Label for the setting that allows overriding the default browser autofill settings",
+      "message": "Override browser auto-fill settings"
+   },
+   "overrideBrowserAutofillDescription": {
+      "description": "Dialog message facilitating the ability to override a chrome browser's default autofill behavior",
+      "message": "Leaving this setting off may cause conflicts between the Bitwarden auto-fill menu and your browser’s."
+   },
+   "overrideBrowserAutofillPrivacyRequiredDescription": {
+      "description": "Dialog message facilitating the ability to override a chrome browser's default autofill behavior",
+      "message": "Leaving this setting off may cause conflicts between the Bitwarden auto-fill menu and your browser’s. Turning this on will restart the Bitwarden extension."
+   },
+   "overrideBrowserAutofillTitle": {
+      "description": "Dialog title facilitating the ability to override a chrome browser's default autofill behavior",
+      "message": "Override browser auto-fill?"
+   },
+   "overwritePasskey": {
+      "message": "Overwrite passkey?"
+   },
+   "overwritePasskeyAlert": {
+      "message": "This item already contains a passkey. Are you sure you want to overwrite the current passkey?"
+   },
+   "overwritePassword": {
+      "message": "Perrašyti slaptažodį"
+   },
+   "overwritePasswordConfirmation": {
+      "message": "Ar tikrai norite perrašyti dabartinį slaptažodį?"
+   },
+   "overwriteUsername": {
+      "message": "Perrašyti Vartotojo Vardą"
+   },
+   "overwriteUsernameConfirmation": {
+      "message": "Ar tikrai norite perrašyti dabartinį vartotojo vardą?"
+   },
+   "ownership": {
+      "message": "Nuosavybė"
+   },
+   "partialUsername": {
+      "description": "Screen reader text for when a login item is focused where a partial username is displayed. SR will announce this phrase before reading the text of the partial username",
+      "message": "Partial username"
+   },
+   "passGen": {
+      "message": "Slaptažodžių generatorius"
+   },
+   "passGenInfo": {
+      "message": "Automatiškai sukurkite patikimus, unikalius slaptažodžius."
+   },
+   "passcode": {
+      "message": "Passcode"
+   },
+   "passkeyAlreadyExists": {
+      "message": "A passkey already exists for this application."
+   },
+   "passkeyFeatureIsNotImplementedForAccountsWithoutMasterPassword": {
+      "message": "Verification required by the initiating site. This feature is not yet implemented for accounts without master password."
+   },
+   "passkeyItem": {
+      "message": "Passkey Item"
+   },
+   "passkeyNotCopied": {
+      "message": "Passkey will not be copied"
+   },
+   "passkeyNotCopiedAlert": {
+      "message": "The passkey will not be copied to the cloned item. Do you want to continue cloning this item?"
+   },
+   "passphrase": {
+      "message": "Slaptafrazė"
+   },
+   "passportNumber": {
+      "message": "Paso numeris"
+   },
+   "password": {
+      "message": "Slaptažodis"
+   },
+   "passwordConfirmation": {
+      "message": "Pagrindinio slaptažodžio patvirtinimas"
+   },
+   "passwordConfirmationDesc": {
+      "message": "Negalite šio veiksmo padaryti neįvedus savo pagrindinio slaptažodžio ir patvirtinę tapatybę."
+   },
+   "passwordCopied": {
+      "message": "Slaptažodis nukopijuotas"
+   },
+   "passwordExposed": {
+      "message": "Šis slaptažodis buvo atskleistas $VALUE$ kartus dėl duomenų pažeidimų. Turėtumėte jį pasikeisti.",
+      "placeholders": {
+         "value": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "passwordGeneratorPolicyInEffect": {
+      "message": "One or more organization policies are affecting your generator settings."
+   },
+   "passwordHint": {
+      "message": "Slaptažodžio užuomina"
+   },
+   "passwordHistory": {
+      "message": "Slaptažodžio istorija"
+   },
+   "passwordPrompt": {
+      "message": "Iš naujo prašoma pagrindinio slaptažodžio"
+   },
+   "passwordProtected": {
+      "message": "Apsaugota slaptažodžiu"
+   },
+   "passwordRepromptDisabledAutofillOnPageLoad": {
+      "description": "Toast message for describing that master password re-prompt cannot be auto-filled on page load.",
+      "message": "Items with master password re-prompt cannot be auto-filled on page load. Auto-fill on page load turned off."
+   },
+   "passwordSafe": {
+      "message": "Šis slaptažodis nebuvo rastas per jokius žinomus duomenų pažeidimus. Jis turėtų būti saugus naudoti."
+   },
+   "passwordType": {
+      "message": "Password type"
+   },
+   "pendingDeletion": {
+      "message": "Laukiama ištrynimo"
+   },
+   "permanentlyDeleteItem": {
+      "message": "Ištrinti visam laikui"
+   },
+   "permanentlyDeleteItemConfirmation": {
+      "message": "Ar tai tikrai norite visam laikui ištrinti?"
+   },
+   "permanentlyDeletedItem": {
+      "message": "Ištrintas visam laikui"
+   },
+   "personalOwnershipPolicyInEffect": {
+      "message": "An organization policy is affecting your ownership options."
+   },
+   "personalOwnershipPolicyInEffectImports": {
+      "message": "An organization policy has blocked importing items into your individual vault."
+   },
+   "personalOwnershipSubmitError": {
+      "message": "Due to an Enterprise Policy, you are restricted from saving items to your personal vault. Change the Ownership option to an organization and choose from available collections."
+   },
+   "personalVaultExportPolicyInEffect": {
+      "message": "One or more organization policies prevents you from exporting your individual vault."
+   },
+   "phone": {
+      "message": "Telefonas"
+   },
+   "pin": {
+      "description": "PIN code. Ex. The short code (often numeric) that you use to unlock a device.",
+      "message": "PIN"
+   },
+   "pinRequired": {
+      "message": "PIN kodas yra privalomas."
+   },
+   "plusAddressedEmail": {
+      "description": "Username generator option that appends a random sub-address to the username. For example: address+subaddress@email.com",
+      "message": "Plus addressed email"
+   },
+   "plusAddressedEmailDesc": {
+      "message": "Use your email provider's sub-addressing capabilities."
+   },
+   "plusNMore": {
+      "message": "+ $QUANTITY$ more",
+      "placeholders": {
+         "quantity": {
+            "content": "$1",
+            "example": "5"
+         }
+      }
+   },
+   "policyInEffectLowercase": {
+      "message": "Turi vieną ar daugiau mažųjų raidžių"
+   },
+   "policyInEffectMinComplexity": {
+      "message": "Minimalus sudėtingumo balas $SCORE$",
+      "placeholders": {
+         "score": {
+            "content": "$1",
+            "example": "4"
+         }
+      }
+   },
+   "policyInEffectMinLength": {
+      "message": "Minimalus ilgis $LENGTH$",
+      "placeholders": {
+         "length": {
+            "content": "$1",
+            "example": "14"
+         }
+      }
+   },
+   "policyInEffectNumbers": {
+      "message": "Turi vieną ar daugiau skaičių"
+   },
+   "policyInEffectSpecial": {
+      "message": "Turi vieną ar daugiau iš šių specialiųjų simbolių: $CHARS$",
+      "placeholders": {
+         "chars": {
+            "content": "$1",
+            "example": "!@#$%^&*"
+         }
+      }
+   },
+   "policyInEffectUppercase": {
+      "message": "Turi vieną ar daugiau didžiųjų raidžių"
+   },
+   "popOutNewWindow": {
+      "message": "Atverti naujame lange"
+   },
+   "popup2faCloseMessage": {
+      "message": "Paspaudę už iššokančio lango, kad patikrintum, ar el. paštu gausi patvirtinimo kodą, uždarys šį iššokantį langą. Ar nori atidaryti šį iššokantį langą naujame lange, kad jis neužsidarytų?"
+   },
+   "popupU2fCloseMessage": {
+      "message": "Ši naršyklė negali apdoroti U2F prašymų šiame iššokančiame lange. Ar nori atidaryti šį iššokantį langą naujame lange, kad galėtum prisijungti naudodamas (-a) U2F?"
+   },
+   "ppremiumSignUpFuture": {
+      "message": "Visos būsimos Premium savybės. Daugiau jau greitai!"
+   },
+   "ppremiumSignUpReports": {
+      "message": "Slaptažodžio higiena, prieigos sveikata ir duomenų nutekinimo ataskaitos, kad tavo saugyklas būtų saugus."
+   },
+   "ppremiumSignUpStorage": {
+      "message": "1 GB užšifruotos vietos diske bylų prisegimams."
+   },
+   "ppremiumSignUpSupport": {
+      "message": "Prioritetinis klientų aptarnavimas."
+   },
+   "ppremiumSignUpTotp": {
+      "message": "TOTP patvirtinimo kodų (2FA) generatorius prisijungimams prie tavo saugyklos."
+   },
+   "premiumCurrentMember": {
+      "message": "Tu esi Premium narys!"
+   },
+   "premiumCurrentMemberThanks": {
+      "message": "Dėkojame, kad remiate Bitwarden."
+   },
+   "premiumManage": {
+      "message": "Tvarkyti narystę"
+   },
+   "premiumManageAlert": {
+      "message": "Galite tvarkyti savo narystę internete per bitwarden.com. Ar norite aplankyti šį puslapį dabar?"
+   },
+   "premiumMembership": {
+      "message": "Premium narystė"
+   },
+   "premiumNotCurrentMember": {
+      "message": "Neturite Premium narystės."
+   },
+   "premiumPrice": {
+      "message": "Visa tai tik už $PRICE$ / metus!",
+      "placeholders": {
+         "price": {
+            "content": "$1",
+            "example": "$10"
+         }
+      }
+   },
+   "premiumPurchase": {
+      "message": "Įsigyti Premium"
+   },
+   "premiumPurchaseAlert": {
+      "message": "Gali įsigyti Premium narystę bitwarden.com interneto saugykloje. Ar nori aplankyti svetainėje dabar?"
+   },
+   "premiumRefresh": {
+      "message": "Atnaujinti narystę"
+   },
+   "premiumRequired": {
+      "message": "Premium reikalinga"
+   },
+   "premiumRequiredDesc": {
+      "message": "Premium narystė reikalinga šiai funkcijai naudoti."
+   },
+   "premiumSignUpAndGet": {
+      "message": "Prisijunk prie Premium narystės ir gauk:"
+   },
+   "premiumSignUpTwoStepOptions": {
+      "message": "Patentuotos dviejų žingsnių prisijungimo parinktys, tokios kaip YubiKey ir Duo."
+   },
+   "premiumSubcriptionRequired": {
+      "message": "Reikalingas Premium abonementas"
+   },
+   "privacyPolicy": {
+      "message": "Privatumo politika"
+   },
+   "privateModeWarning": {
+      "message": "Private mode support is experimental and some features are limited."
+   },
+   "random": {
+      "message": "Atsitiktinis"
+   },
+   "randomWord": {
+      "message": "Atsitiktinis žodis"
+   },
+   "rateExtension": {
+      "message": "Įvertinkite šį plėtinį"
+   },
+   "rateExtensionDesc": {
+      "message": "Apsvarstykite galimybę mums padėti palikdami gerą atsiliepimą!"
+   },
+   "reTypeMasterPass": {
+      "message": "Pakartokite pagrindinį slaptažodį"
+   },
+   "recoveryCodeDesc": {
+      "message": "Praradai prieigą prie visų savo dviejų veiksnių teikėjų? Naudok atkūrimo kodą, kad iš savo paskyros išjungtum visus dviejų veiksnių teikėjus."
+   },
+   "recoveryCodeTitle": {
+      "message": "Atkūrimo kodas"
+   },
+   "refresh": {
+      "message": "Atnaujinti"
+   },
+   "refreshComplete": {
+      "message": "Atnaujinimas įvykdytas"
+   },
+   "regEx": {
+      "description": "A programming term, also known as 'RegEx'.",
+      "message": "Reguliari išraiška"
+   },
+   "regeneratePassword": {
+      "message": "Generuoti slaptažodį iš naujo"
+   },
+   "regenerateUsername": {
+      "message": "Regenerate username"
+   },
+   "rememberEmail": {
+      "message": "Prisiminti el. paštą"
+   },
+   "rememberMe": {
+      "message": "Prisiminti mane"
+   },
+   "rememberThisDevice": {
+      "message": "Prisiminti šį įrenginį"
+   },
+   "remove": {
+      "message": "Pašalinti"
+   },
+   "removeMasterPassword": {
+      "message": "Ištrinti pagrindinį slaptažodį"
+   },
+   "removePassword": {
+      "message": "Šalinti slaptažodį"
+   },
+   "removePasswordConfirmation": {
+      "message": "Ar tikrai norite pašalinti slaptažodį?"
+   },
+   "removedMasterPassword": {
+      "message": "Pagrindinis slaptažodis pašalintas"
+   },
+   "removedPassword": {
+      "message": "Slaptažodis pašalintas"
+   },
+   "requestAdminApproval": {
+      "message": "Prašyti administratoriaus patvirtinimo"
+   },
+   "required": {
+      "message": "required"
+   },
+   "resendNotification": {
+      "message": "Iš naujo siųsti pranešimą"
+   },
+   "resetPasswordAutoEnrollInviteWarning": {
+      "message": "This organization has an enterprise policy that will automatically enroll you in password reset. Enrollment will allow organization administrators to change your master password."
+   },
+   "resetPasswordPolicyAutoEnroll": {
+      "message": "Automatic enrollment"
+   },
+   "resolveTheErrorsBelowAndTryAgain": {
+      "message": "Resolve the errors below and try again."
+   },
+   "restoreItem": {
+      "message": "Atkurti elementą"
+   },
+   "restoredItem": {
+      "message": "Elementas atkurtas"
+   },
+   "save": {
+      "message": "Išsaugoti"
+   },
+   "savePasskey": {
+      "message": "Save passkey"
+   },
+   "savePasskeyNewLogin": {
+      "message": "Save passkey as new login"
+   },
+   "search": {
+      "message": "Search"
+   },
+   "searchCollection": {
+      "message": "Ieškoti rinkinio"
+   },
+   "searchFolder": {
+      "message": "Ieškoti aplanke"
+   },
+   "searchSends": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Search Sends"
+   },
+   "searchTrash": {
+      "message": "Ieškoti šiukšliadėžėje"
+   },
+   "searchType": {
+      "message": "Ieškoti tipo"
+   },
+   "searchVault": {
+      "message": "Ieškoti saugykloje"
+   },
+   "secureNotes": {
+      "message": "Saugūs užrašai"
+   },
+   "security": {
+      "message": "Apsauga"
+   },
+   "securityCode": {
+      "message": "Apsaugos kodas"
+   },
+   "seeDetailedInstructions": {
+      "description": "This is followed a by a hyperlink to the help website.",
+      "message": "See detailed instructions on our help site at"
+   },
+   "select": {
+      "message": "Pasirinkti"
+   },
+   "selectFile": {
+      "message": "Pasirinkite failą."
+   },
+   "selectFolder": {
+      "message": "Select folder..."
+   },
+   "selectFormat": {
+      "message": "Select the format of the import file"
+   },
+   "selectImportCollection": {
+      "message": "Select a collection"
+   },
+   "selectImportFile": {
+      "message": "Select the import file"
+   },
+   "selectImportFolder": {
+      "message": "Select a folder"
+   },
+   "selectOneCollection": {
+      "message": "Turite pasirinkti bent vieną kategoriją."
+   },
+   "selectPlaceholder": {
+      "message": "-- Select --"
+   },
+   "selfHostedEnvironment": {
+      "message": "Savarankiškai sukurta aplinka"
+   },
+   "selfHostedEnvironmentFooter": {
+      "message": "Nurodyk pagrindinį URL adresą savo patalpose esančio Bitwarden diegimo."
+   },
+   "selfHostedServer": {
+      "message": "self-hosted"
+   },
+   "send": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Siųsti"
+   },
+   "sendCode": {
+      "message": "Siųsti kodą"
+   },
+   "sendDisableDesc": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Deactivate this Send so that no one can access it."
+   },
+   "sendDisabled": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Siuntimas pašalintas"
+   },
+   "sendDisabledWarning": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Due to an enterprise policy, you are only able to delete an existing Send."
+   },
+   "sendFileCalloutHeader": {
+      "message": "Prieš pradedant"
+   },
+   "sendFileDesc": {
+      "message": "Failas, kurį norite siųsti."
+   },
+   "sendFirefoxCustomDatePopoutMessage1": {
+      "description": "This will be used as part of a larger sentence, broken up to include links. The full sentence will read '**To use a calendar style date picker ** click here to pop out your window.'",
+      "message": "To use a calendar style date picker"
+   },
+   "sendFirefoxCustomDatePopoutMessage2": {
+      "description": "This will be used as part of a larger sentence, broken up to include links. The full sentence will read 'To use a calendar style date picker **click here** to pop out your window.'",
+      "message": "spauskite čia"
+   },
+   "sendFirefoxCustomDatePopoutMessage3": {
+      "description": "This will be used as part of a larger sentence, broken up to include links. The full sentence will read 'To use a calendar style date picker click here **to pop out your window.**'",
+      "message": "iškelti atskirame lange."
+   },
+   "sendFirefoxFileWarning": {
+      "message": "In order to choose a file using Firefox, open the extension in the sidebar or pop out to a new window by clicking this banner."
+   },
+   "sendHideText": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Hide this Send's text by default."
+   },
+   "sendLink": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Siųsti nuorodą"
+   },
+   "sendLinuxChromiumFileWarning": {
+      "message": "In order to choose a file, open the extension in the sidebar (if possible) or pop out to a new window by clicking this banner."
+   },
+   "sendNameDesc": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "A friendly name to describe this Send."
+   },
+   "sendNotesDesc": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Private notes about this Send."
+   },
+   "sendOptionsPolicyInEffect": {
+      "message": "One or more organization policies are affecting your Send options."
+   },
+   "sendPasswordDesc": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Optionally require a password for users to access this Send."
+   },
+   "sendSafariFileWarning": {
+      "message": "In order to choose a file using Safari, pop out to a new window by clicking this banner."
+   },
+   "sendShareDesc": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "Copy this Send's link to clipboard upon save."
+   },
+   "sendTextDesc": {
+      "message": "Tekstas, kurį norite siųsti."
+   },
+   "sendTypeFile": {
+      "message": "Byla"
+   },
+   "sendTypeHeader": {
+      "description": "'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.",
+      "message": "What type of Send is this?"
+   },
+   "sendTypeText": {
+      "message": "Tekstas"
+   },
+   "sendVerificationCode": {
+      "message": "Siųsti patvirtinimo kodą į el. paštą"
+   },
+   "sendVerificationCodeEmailAgain": {
+      "message": "Pakartotinai atsiųsti patvirtinimo koda el. paštu"
+   },
+   "september": {
+      "message": "Rugsėjis"
+   },
+   "serverVersion": {
+      "message": "Server version"
+   },
+   "service": {
+      "message": "Service"
+   },
+   "sessionTimeout": {
+      "message": "Your session has timed out. Please go back and try logging in again."
+   },
+   "setMasterPassword": {
+      "message": "Pagrindinio slaptažodžio nustatymas"
+   },
+   "setYourPinCode": {
+      "message": "Nustatykite savo PIN kodą, kad atrakintumėte „Bitwarden“. Jūsų PIN nustatymai bus nustatyti iš naujo, jei kada nors visiškai atsijungsite nuo programos."
+   },
+   "settings": {
+      "message": "Nustatymai"
+   },
+   "settingsEdited": {
+      "message": "Settings have been edited"
+   },
+   "share": {
+      "message": "Bendrinti"
+   },
+   "shared": {
+      "message": "Pasidalinti"
+   },
+   "showAutoFillMenuOnFormFields": {
+      "description": "Represents the message for allowing the user to enable the auto-fill overlay",
+      "message": "Show auto-fill menu on form fields"
+   },
+   "showAutoFillMenuOnFormFieldsDescAlt": {
+      "message": "Applies to all logged in accounts."
+   },
+   "showCardsCurrentTab": {
+      "message": "Rodyti korteles skirtuko puslapyje"
+   },
+   "showCardsCurrentTabDesc": {
+      "message": "Pateikti kortelių elementų skirtuko puslapyje sąrašą, kad būtų lengva automatiškai užpildyti."
+   },
+   "showIdentitiesCurrentTab": {
+      "message": "Rodyti tapatybes skirtuko puslapyje"
+   },
+   "showIdentitiesCurrentTabDesc": {
+      "message": "Pateikti tapatybės elementų skirtuko puslapyje, kad būtų lengva automatiškai užpildyti."
+   },
+   "solarizedDark": {
+      "description": "'Solarized' is a noun and the name of a color scheme. It should not be translated.",
+      "message": "Saulėtas tamsą"
+   },
+   "specialCharacters": {
+      "message": "Specialieji simboliai (!@#$%^&*)"
+   },
+   "ssn": {
+      "message": "ID kortelės numeris"
+   },
+   "ssoIdentifierRequired": {
+      "message": "Organizacijos SSO identifikatorius yra reikalingas."
+   },
+   "ssoKeyConnectorError": {
+      "message": "Key connector error: make sure key connector is available and working correctly."
+   },
+   "startDesktopDesc": {
+      "message": "The Bitwarden desktop application needs to be started before unlock with biometrics can be used."
+   },
+   "startDesktopTitle": {
+      "message": "Start the Bitwarden desktop application"
+   },
+   "startsWith": {
+      "message": "Prasideda"
+   },
+   "stateProvince": {
+      "message": "Rajonas/apskritis"
+   },
+   "strong": {
+      "description": "ex. A strong password. Scale: Weak -> Good -> Strong",
+      "message": "Stiprus"
+   },
+   "submenu": {
+      "message": "Submenu"
+   },
+   "submit": {
+      "message": "Išsaugoti"
+   },
+   "sync": {
+      "message": "Sinchronizuoti"
+   },
+   "syncVaultNow": {
+      "message": "Sinchronizuoti saugyklą dabar"
+   },
+   "syncingComplete": {
+      "message": "Sinchronizacija baigta"
+   },
+   "syncingFailed": {
+      "message": "Sinchronizuoti nepavyko"
+   },
+   "tab": {
+      "message": "Skirtukas"
+   },
+   "tenSeconds": {
+      "message": "10 sekundžių"
+   },
+   "termsOfService": {
+      "message": "Paslaugų teikimo paslaugos"
+   },
+   "theme": {
+      "message": "Tema"
+   },
+   "themeDesc": {
+      "message": "Pakeisti programos spalvos temą"
+   },
+   "themeDescAlt": {
+      "message": "Change the application's color theme. Applies to all logged in accounts."
+   },
+   "thirdParty": {
+      "message": "Trečioji šalis"
+   },
+   "thirdPartyServerMessage": {
+      "message": "Connected to third-party server implementation, $SERVERNAME$. Please verify bugs using the official server, or report them to the third-party server.",
+      "placeholders": {
+         "servername": {
+            "content": "$1",
+            "example": "ThirdPartyServerName"
+         }
+      }
+   },
+   "thirtyMinutes": {
+      "message": "30 minučių"
+   },
+   "thirtySeconds": {
+      "message": "30 sekundžių"
+   },
+   "title": {
+      "message": "Pavadinimas"
+   },
+   "toggleBitwardenVaultOverlay": {
+      "description": "Screen reader and tool tip label for the overlay button",
+      "message": "Toggle Bitwarden auto-fill menu"
+   },
+   "toggleCharacterCount": {
+      "message": "Toggle character count"
+   },
+   "toggleCollapse": {
+      "description": "Toggling an expand/collapse state.",
+      "message": "Toggle collapse"
+   },
+   "toggleCurrentUris": {
+      "description": "Toggle the display of the URIs of the currently open tabs in the browser.",
+      "message": "Toggle current URIs"
+   },
+   "toggleOptions": {
+      "message": "Perjungti opcijas"
+   },
+   "toggleVisibility": {
+      "message": "Perjungti matomumą"
+   },
+   "tools": {
+      "message": "Įrankiai"
+   },
+   "total": {
+      "message": "Total"
+   },
+   "trash": {
+      "description": "Noun: a special folder to hold deleted items",
+      "message": "Šiukšliadėžė"
+   },
+   "troubleLoggingIn": {
+      "message": "Problemos prisijungiant?"
+   },
+   "turnOffMasterPasswordPromptToEditField": {
+      "description": "Message appearing below the autofill on load message when master password reprompt is set for a vault item.",
+      "message": "Turn off master password re-prompt to edit this field"
+   },
+   "turnOn": {
+      "message": "Turn on"
+   },
+   "twentySeconds": {
+      "message": "20 sekundžių"
+   },
+   "twoMinutes": {
+      "message": "2 minučių"
+   },
+   "twoStepLogin": {
+      "message": "Dviejų žingsnių prisijungimas"
+   },
+   "twoStepLoginConfirmation": {
+      "message": "Prisijungus dviem veiksmais, jūsų paskyra tampa saugesnė, reikalaujant patvirtinti prisijungimą naudojant kitą įrenginį, pvz., Saugos raktą, autentifikavimo programą, SMS, telefono skambutį ar el. Paštą. Dviejų žingsnių prisijungimą galima įjungti „bitwarden.com“ interneto saugykloje. Ar norite dabar apsilankyti svetainėje?"
+   },
+   "twoStepOptions": {
+      "message": "Dviejų žingsnių prisijungimo parinktys"
+   },
+   "type": {
+      "message": "Tipas"
+   },
+   "typeCard": {
+      "message": "Kortelė"
+   },
+   "typeIdentity": {
+      "message": "Tapatybė"
+   },
+   "typeLogin": {
+      "message": "Prisijungimas"
+   },
+   "typeLogins": {
+      "message": "Prisijungimai"
+   },
+   "typeSecureNote": {
+      "message": "Saugus įrašas"
+   },
+   "types": {
+      "message": "Tipai"
+   },
+   "uncheckIfPublicDevice": {
+      "message": "Panaikink žymėjimą, jei naudojamas viešasis įrenginys"
+   },
+   "unexpectedError": {
+      "message": "Įvyko netikėta klaida."
+   },
+   "unlock": {
+      "message": "Atrakinti"
+   },
+   "unlockAccount": {
+      "description": "Button text to display in overlay when the account is locked.",
+      "message": "Unlock account"
+   },
+   "unlockMethodNeededToChangeTimeoutActionDesc": {
+      "message": "Nustatyk atrakinimo būdą, kad pakeistum saugyklos laiko limito veiksmą."
+   },
+   "unlockVaultMenu": {
+      "message": "Atrakinti saugyklą"
+   },
+   "unlockWithBiometrics": {
+      "message": "Atrakinti naudojant biometrinius duomenis"
+   },
+   "unlockWithPin": {
+      "message": "Atrakinti PIN kodu"
+   },
+   "unlockYourAccountToViewMatchingLogins": {
+      "description": "Text to display in overlay when the account is locked.",
+      "message": "Unlock your account to view matching logins"
+   },
+   "updateMasterPassword": {
+      "message": "Atnaujinti pagrindinį slaptažodį"
+   },
+   "updateMasterPasswordWarning": {
+      "message": "Your master password was recently changed by an administrator in your organization. In order to access the vault, you must update it now. Proceeding will log you out of your current session, requiring you to log back in. Active sessions on other devices may continue to remain active for up to one hour."
+   },
+   "updateWeakMasterPasswordWarning": {
+      "message": "Your master password does not meet one or more of your organization policies. In order to access the vault, you must update your master password now. Proceeding will log you out of your current session, requiring you to log back in. Active sessions on other devices may continue to remain active for up to one hour."
+   },
+   "updatedMasterPassword": {
+      "message": "Naujasis pagrindinis slaptažodis"
+   },
+   "uppercase": {
+      "message": "Didžiosiomis (A-Z)"
+   },
+   "uri": {
+      "message": "URI"
+   },
+   "uriPosition": {
+      "description": "A listing of URIs. Ex: URI 1, URI 2, URI 3, etc.",
+      "message": "URI adresas $POSITION$",
+      "placeholders": {
+         "position": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "usDomain": {
+      "message": "bitwarden.com"
+   },
+   "useAnotherTwoStepMethod": {
+      "message": "Naudoti dar vieną dviejų žingsnių prisijungimo metodą"
+   },
+   "useBrowserName": {
+      "message": "Use browser"
+   },
+   "usePasskeysDesc": {
+      "message": "Ask to save new passkeys or log in with passkeys stored in your vault. Applies to all logged in accounts."
+   },
+   "userEmailMissing": {
+      "message": "Trūksta naudotojo el. pašto"
+   },
+   "username": {
+      "message": "Vartotojo vardas"
+   },
+   "usernameType": {
+      "message": "Username type"
+   },
+   "value": {
+      "message": "Reikšmė"
+   },
+   "valueCopied": {
+      "description": "Value has been copied to the clipboard.",
+      "message": "Nukopijuota $VALUE$",
+      "placeholders": {
+         "value": {
+            "content": "$1",
+            "example": "Password"
+         }
+      }
+   },
+   "vault": {
+      "message": "Saugykla"
+   },
+   "vaultExportDisabled": {
+      "message": "Vault export unavailable"
+   },
+   "vaultTimeout": {
+      "message": "Atsijungta nuo saugyklos"
+   },
+   "vaultTimeoutAction": {
+      "message": "Vault timeout action"
+   },
+   "vaultTimeoutActionPolicyInEffect": {
+      "message": "Your organization policies have set your vault timeout action to $ACTION$.",
+      "placeholders": {
+         "action": {
+            "content": "$1",
+            "example": "Lock"
+         }
+      }
+   },
+   "vaultTimeoutLogOutConfirmation": {
+      "message": "Logging out will remove all access to your vault and requires online authentication after the timeout period. Are you sure you want to use this setting?"
+   },
+   "vaultTimeoutLogOutConfirmationTitle": {
+      "message": "Timeout action confirmation"
+   },
+   "vaultTimeoutPolicyInEffect": {
+      "message": "Your organization policies have set your maximum allowed vault timeout to $HOURS$ hour(s) and $MINUTES$ minute(s).",
+      "placeholders": {
+         "hours": {
+            "content": "$1",
+            "example": "5"
+         },
+         "minutes": {
+            "content": "$2",
+            "example": "5"
+         }
+      }
+   },
+   "vaultTimeoutPolicyWithActionInEffect": {
+      "message": "Your organization policies are affecting your vault timeout. Maximum allowed vault timeout is $HOURS$ hour(s) and $MINUTES$ minute(s). Your vault timeout action is set to $ACTION$.",
+      "placeholders": {
+         "action": {
+            "content": "$3",
+            "example": "Lock"
+         },
+         "hours": {
+            "content": "$1",
+            "example": "5"
+         },
+         "minutes": {
+            "content": "$2",
+            "example": "5"
+         }
+      }
+   },
+   "vaultTimeoutTooLarge": {
+      "message": "Your vault timeout exceeds the restrictions set by your organization."
+   },
+   "verificationCode": {
+      "message": "Patvirtinimo kodas"
+   },
+   "verificationCodeEmailSent": {
+      "message": "Patvirtinimo elektroninis paštas išsiųstas į $EMAIL$.",
+      "placeholders": {
+         "email": {
+            "content": "$1",
+            "example": "example@gmail.com"
+         }
+      }
+   },
+   "verificationCodeRequired": {
+      "message": "Būtinas patvirtinimo kodas."
+   },
+   "verificationCodeTotp": {
+      "message": "Patvirtinimo kodas (TOTP)"
+   },
+   "verifyIdentity": {
+      "message": "Patvirtinti tapatybę"
+   },
+   "version": {
+      "message": "Versija"
+   },
+   "view": {
+      "message": "Peržiūrėti"
+   },
+   "viewAllLoginOptions": {
+      "message": "View all log in options"
+   },
+   "viewItem": {
+      "message": "Peržiūrėti elementą"
+   },
+   "warning": {
+      "description": "WARNING (should stay in capitalized letters if the language permits)",
+      "message": "ĮSPĖJIMAS"
+   },
+   "weak": {
+      "description": "ex. A weak password. Scale: Weak -> Good -> Strong",
+      "message": "Silpnas"
+   },
+   "weakAndBreachedMasterPasswordDesc": {
+      "message": "Weak password identified and found in a data breach. Use a strong and unique password to protect your account. Are you sure you want to use this password?"
+   },
+   "weakAndExposedMasterPassword": {
+      "message": "Weak and Exposed Master Password"
+   },
+   "weakMasterPassword": {
+      "message": "Silpnas pagrindinis slaptažodis"
+   },
+   "weakMasterPasswordDesc": {
+      "message": "The master password you have chosen is weak. You should use a strong master password (or a passphrase) to properly protect your Bitwarden account. Are you sure you want to use this master password?"
+   },
+   "webAuthnAuthenticate": {
+      "message": "Autentifikuoti WebAuthn"
+   },
+   "webAuthnDesc": {
+      "message": "Naudok bet kurį WebAuthn palaikantį saugumo raktą, kad galėtum naudotis savo paskyra."
+   },
+   "webAuthnNewTab": {
+      "message": "Norint pradėti WebAuthn 2FA patikrinimą. Spustelėk toliau esantį mygtuką, kad atsidarytų naujas skirtukas, ir sek naujame skirtuke pateiktas instrukcijas."
+   },
+   "webAuthnNewTabOpen": {
+      "message": "Atidaryti naują skirtuką"
+   },
+   "webAuthnTitle": {
+      "message": "FIDO2 WebAuthn"
+   },
+   "webVaultUrl": {
+      "message": "Internetinės saugyklos serverio URL"
+   },
+   "website": {
+      "message": "Tinklapis"
+   },
+   "websiteName": {
+      "message": "Website name"
+   },
+   "whatWouldYouLikeToGenerate": {
+      "message": "Ką norėtumėte sugeneruoti?"
+   },
+   "whoOwnsThisItem": {
+      "message": "Kam priklauso šis elementas?"
+   },
+   "wordSeparator": {
+      "message": "Žodžių skirtukas"
+   },
+   "yes": {
+      "message": "Taip"
+   },
+   "youWillBeNotifiedOnceApproved": {
+      "message": "Tu būsi praneštas (-a), kai bus patvirtinta."
+   },
+   "yourAccountsFingerprint": {
+      "description": "A 'fingerprint phrase' is a unique word phrase (similar to a passphrase) that a user can use to authenticate their public key with another user, for the purposes of sharing.",
+      "message": "Jūsų paskiros dalijimosi slaptažodis"
+   },
+   "yourPasskeyIsLocked": {
+      "message": "Authentication required to use passkey. Verify your identity to continue."
+   },
+   "yourVaultIsLocked": {
+      "message": "Jūsų saugykla užrakinta. Norėdami tęsti, patikrinkite pagrindinį slaptažodį."
+   },
+   "yubiKeyDesc": {
+      "message": "Naudok YubiKey, kad prisijungtum prie savo paskyros. Veikia su YubiKey 4, 4 Nano, 4C ir NEO įrenginiais."
+   },
+   "yubiKeyTitle": {
+      "message": "YubiKey OTP saugumo raktas"
+   },
+   "zipPostalCode": {
+      "message": "Pašto kodas"
+   }
+}
