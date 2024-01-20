@@ -212,7 +212,7 @@ bar {
         status_command i3status
 }
 
-#set default border to none
+#set default border
 default_border pixel 2
 default_floating_border pixel 2
 

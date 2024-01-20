@@ -12,6 +12,6 @@ else i3-msg border pixel 7;
 	i3-msg floating enable;
 	i3-msg resize set $(echo "$maxWidth") $(echo "$maxHeight");
 	i3-msg move position 0 0;
-	i3-msg border pixel 1;
+	i3-msg border pixel 2;
 fi
 
