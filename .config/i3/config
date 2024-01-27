@@ -225,6 +225,9 @@ exec_always xinput set-prop "pointer:MOSART Semi. 2.4G Keyboard Mouse" "Coordina
 exec libinput-gestures-setup start
 exec blueman-manager
 exec gromit-mpx
+exec redshift-gtk
+exec /opt/Mullvad VPN/mullvad-vpn %U
+exec flatpak run me.timschneeberger.GalaxyBudsClient
 exec bash ~/.bash_scripts/battery_warning.sh
 exec CM_SELECTIONS=clipboard clipmenud
 
