@@ -506,9 +506,6 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Fuzzyfind different directory
-vim.keymap.set('n', '<F12>', ':term bash ~/.bash_scripts/tmux-sessionizer.sh<CR>i')
-
 -- windows.nvim keymaps
 vim.keymap.set('n', '<C-w>f', cmd 'WindowsMaximize')
 vim.keymap.set('n', '<C-w>_', cmd 'WindowsMaximizeVertically')

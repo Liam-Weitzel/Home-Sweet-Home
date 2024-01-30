@@ -12,7 +12,7 @@ fi
 
 selected_name=$(basename "$selected" | tr . _)
 
-if ! { [ -n "${TMUX}" ]; } then
+if ! { [ -n "${TMUX}" ]; } then 
     if tmux has-session -t=$selected_name 2> /dev/null; then
 	tmux attach -t $selected_name
 	exit 0

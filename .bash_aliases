@@ -1,4 +1,4 @@
-alias nvim='sudo -E -s ~/nvim'
+alias nvim='~/.bash_scripts/open_nvim.sh'
 
 alias saveBackupGnomeTerminal='dconf dump /org/gnome/terminal/legacy/profiles:/ > ~/gnome-terminal-profiles.dconf'
 
