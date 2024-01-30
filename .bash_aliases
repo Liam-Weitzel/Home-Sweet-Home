@@ -4,6 +4,8 @@ alias saveBackupGnomeTerminal='dconf dump /org/gnome/terminal/legacy/profiles:/ 
 
 alias loadBackupGnomeTerminal='dconf load /org/gnome/terminal/legacy/profiles:/ < ~/gnome-terminal-profiles.dconf'
 
+bind '"\e[24~":"\C-u~/.bash_scripts/tmux-sessionizer.sh\n"'
+
 # enable color support for commands
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
