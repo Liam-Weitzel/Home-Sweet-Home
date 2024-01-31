@@ -513,14 +513,14 @@ vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
 vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
 vim.keymap.set('n', '<C-w>h', ':sp<CR> <C-w>j')
 vim.keymap.set('n', '<C-w>v', ':vsp<CR> <C-w>l')
-vim.keymap.set('n', '<A-Left>', '<C-w>h', { silent = true })
-vim.keymap.set('n', '<A-Right>', '<C-w>l', { silent = true })
-vim.keymap.set('n', '<A-Up>', '<C-w>k', { silent = true })
-vim.keymap.set('n', '<A-Down>', '<C-w>j', { silent = true })
-vim.keymap.set('n', '<A-C-Left>', '3<C-w>>', { silent = true })
-vim.keymap.set('n', '<A-C-Right>', '3<C-w><', { silent = true })
-vim.keymap.set('n', '<A-C-Up>', '3<C-w>+', { silent = true })
-vim.keymap.set('n', '<A-C-Down>', '3<C-w>-', { silent = true })
+vim.keymap.set('n', '<A-n>', '<C-w>h', { silent = true })
+vim.keymap.set('n', '<A-i>', '<C-w>l', { silent = true })
+vim.keymap.set('n', '<A-u>', '<C-w>k', { silent = true })
+vim.keymap.set('n', '<A-e>', '<C-w>j', { silent = true })
+vim.keymap.set('n', '<A-C-n>', '3<C-w>>', { silent = true })
+vim.keymap.set('n', '<A-C-i>', '3<C-w><', { silent = true })
+vim.keymap.set('n', '<A-C-e>', '3<C-w>+', { silent = true })
+vim.keymap.set('n', '<A-C-u>', '3<C-w>-', { silent = true })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -544,10 +544,10 @@ vim.keymap.set("n", "gR", cmd 'TroubleToggle lsp_references')
 -- terminal mode keymaps
 vim.keymap.set('t', '<A-Esc>', '<C-\\><C-N>', { silent = true }) -- in tmux this is interpreted as esc esc for some reason
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-N>', { silent = true }) -- in any other terminal
-vim.keymap.set('t', '<A-Left>', '<C-\\><C-N><C-w>h', { silent = true })
-vim.keymap.set('t', '<A-Right>', '<C-\\><C-N><C-w>l', { silent = true })
-vim.keymap.set('t', '<A-Up>', '<C-\\><C-N><C-w>k', { silent = true })
-vim.keymap.set('t', '<A-Down>', '<C-\\><C-N><C-w>j', { silent = true })
+vim.keymap.set('t', '<A-n>', '<C-\\><C-N><C-w>h', { silent = true })
+vim.keymap.set('t', '<A-i>', '<C-\\><C-N><C-w>l', { silent = true })
+vim.keymap.set('t', '<A-u>', '<C-\\><C-N><C-w>k', { silent = true })
+vim.keymap.set('t', '<A-e>', '<C-\\><C-N><C-w>j', { silent = true })
 
 -- winshift keymaps
 vim.keymap.set('n', '<C-w>m', cmd 'WinShift')
