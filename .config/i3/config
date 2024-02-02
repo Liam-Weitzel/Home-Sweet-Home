@@ -289,14 +289,13 @@ bindsym $mod+Shift+t exec ~/.bash_scripts/tmux-sessionizer.sh
 #open clipboard manager
 bindsym $mod+c exec clipmenu -i
 
-#open/close xpad
-bindsym $mod+i exec bash ~/.bash_scripts/open_xpad.sh
-
+#open/close xpad -- rework these binds and scripts so that $mod+Shift+Fkey just opens that project?
+bindsym $mod+Shift+x exec bash ~/.bash_scripts/open_xpad.sh
 #switch xpad project
-bindsym $mod+F1 exec bash ~/.bash_scripts/switch_xpad_project.sh 1
-bindsym $mod+F2 exec bash ~/.bash_scripts/switch_xpad_project.sh 2
-bindsym $mod+F3 exec bash ~/.bash_scripts/switch_xpad_project.sh 3
-bindsym $mod+F4 exec bash ~/.bash_scripts/switch_xpad_project.sh 4
-bindsym $mod+F5 exec bash ~/.bash_scripts/switch_xpad_project.sh 5
-bindsym $mod+F6 exec bash ~/.bash_scripts/switch_xpad_project.sh 6
-bindsym $mod+F7 exec bash ~/.bash_scripts/switch_xpad_project.sh 7
+bindsym $mod+Shift+F1 exec bash ~/.bash_scripts/switch_xpad_project.sh 1
+bindsym $mod+Shift+F2 exec bash ~/.bash_scripts/switch_xpad_project.sh 2
+bindsym $mod+Shift+F3 exec bash ~/.bash_scripts/switch_xpad_project.sh 3
+bindsym $mod+Shift+F4 exec bash ~/.bash_scripts/switch_xpad_project.sh 4
+bindsym $mod+Shift+F5 exec bash ~/.bash_scripts/switch_xpad_project.sh 5
+bindsym $mod+Shift+F6 exec bash ~/.bash_scripts/switch_xpad_project.sh 6
+bindsym $mod+Shift+F7 exec bash ~/.bash_scripts/switch_xpad_project.sh 7
