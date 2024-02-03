@@ -1,5 +1,7 @@
 alias nvim='~/.bash_scripts/open_nvim.sh'
 
+alias :q='exit'
+
 alias saveBackupGnomeTerminal='dconf dump /org/gnome/terminal/legacy/profiles:/ > ~/gnome-terminal-profiles.dconf'
 
 alias loadBackupGnomeTerminal='dconf load /org/gnome/terminal/legacy/profiles:/ < ~/gnome-terminal-profiles.dconf'

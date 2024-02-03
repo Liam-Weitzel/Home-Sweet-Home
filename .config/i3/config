@@ -259,9 +259,10 @@ bindsym XF86AudioPrev exec playerctl previous
 #start custom dmenu
 bindsym $mod+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh
 
-#grab window dmenu
+#minimizing windows & fetching them
 bindsym $mod+Shift+m exec bash ~/.bash_scripts/cycle_move_window.sh 20
 bindsym $mod+m move container to workspace number $ws20
+bindsym $mod+Ctrl+m exec bash ~/.bash_scripts/skippy-xd-wrapper.sh
 
 #always apps open in floating mode
 for_window [class="feh" instance="feh"] floating enable

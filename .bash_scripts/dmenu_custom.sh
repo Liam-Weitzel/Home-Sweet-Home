@@ -7,7 +7,7 @@ if [ `find ./ -type f | wc -l` == "0" ]; then #empty scripts folder
 	exit 0;
 fi
 
-script=`find ./ -type f | cut -d '/' -f 2- | grep "app" | sort | dmenu -i $@`
+script=`find ./ -type f | cut -d '/' -f 2- | grep "_app" | sort | dmenu -i $@`
 
 if [ "x$script" == "x" ]; then
   exit 1
