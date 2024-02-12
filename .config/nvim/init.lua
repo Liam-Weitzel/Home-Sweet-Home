@@ -519,6 +519,10 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- tabs
+vim.keymap.set('n', 'gm', cmd 'tabnext')
+vim.keymap.set('n', 'gM', cmd 'tabprevious')
+
 -- windows.nvim keymaps
 vim.keymap.set('n', '<C-w>f', cmd 'WindowsMaximize')
 vim.keymap.set('n', '<C-w>_', cmd 'WindowsMaximizeVertically')
