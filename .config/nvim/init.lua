@@ -575,11 +575,14 @@ vim.keymap.set("v", "-", "<C-x>gv")
 
 -- set ctrl+c, ctrl+v & ctrl+x
 vim.keymap.set("v", "<C-c>", "y")
+vim.keymap.set("i", "<C-c>", "<C-o><S-v>y")
+vim.keymap.set("n", "<C-c>", "<S-v>y")
 vim.keymap.set("v", "<C-v>", "p")
 vim.keymap.set("n", "<C-v>", "p")
 vim.keymap.set("i", "<C-v>", "<C-r>+")
 vim.keymap.set("v", "<C-x>", "d")
 vim.keymap.set("n", "<C-x>", "dd")
+vim.keymap.set("i", "<C-x>", "<C-o>dd")
 
 -- set ctrl+z and ctrl+y
 vim.keymap.set("i", "<C-z>", cmd 'undo')
