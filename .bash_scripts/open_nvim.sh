@@ -1,6 +1,11 @@
 if ! { [ -n "${TMUX}" ]; } then 
-    tmux new -A -s nvim "sudo -E -s ~/nvim $1"
-    exit 0
+    if [ -z $1 ]; then 
+	tmux new "sudo -E -s ~/nvim"
+	exit 0
+    else
+	tmux new -A -s $1 "sudo -E -s ~/nvim $1"
+	exit 0
+    fi
 fi
 
 sudo -E -s ~/nvim $1

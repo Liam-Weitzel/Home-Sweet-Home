@@ -15,14 +15,3 @@ stack:
 todo:
 - Make custom dmenu to get rid of bloat
 - Make a minimized window picker
-- Neovim indent and redent shouldn't unselect
-- Neovim indent and redent on tab and shift+tab
-- Neovim also use ctri+c and ctri+v and ctri+x
-- Neovim don't copy on delete, that is what ctrl+x is for
-- Neovim make ctrl+v also work in insert mode
-- Neovim change visual block mode to alt+v
-- Neovim change u to ctrl+z
-- Neovim change ctrl+r to ctri+y
-- Neovim change decrement and increment binds to something more meaningfull (currently ctrl+a and ctrl+x??)
-- Tmux v split and h split are inversed
-- Open Neovim with a new tmux session instead of attaching to one if its already open
