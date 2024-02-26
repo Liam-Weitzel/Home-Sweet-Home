@@ -1,0 +1,6 @@
+boldunderlineAnalog camera:/underline/bold
+1. Add flyback diodes to relay coils
+2. Use OSD controls to switch between black and white mode in control panel & automatically
+3. Allow user to set auto black and white mode threshhold independently
+4. Allow user to set IR led threshold indpenedently
+5. Allow user to set IR Cut filter switcher threshold independently

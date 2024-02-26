@@ -1,0 +1,12 @@
+width 260
+height 136
+x 31
+y 74
+follow_font 1
+follow_color 0
+sticky 1
+hidden 0
+back rgb(246,97,81)
+text rgb(0,0,0)
+fontname Sans 11
+content content-8X72F2
