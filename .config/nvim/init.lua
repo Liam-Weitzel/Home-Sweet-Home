@@ -458,6 +458,9 @@ require('lazy').setup({
       }
   },
 
+  -- practice XD
+  'ThePrimeagen/vim-be-good',
+
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 }, {})
