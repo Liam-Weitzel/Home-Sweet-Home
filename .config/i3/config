@@ -146,10 +146,10 @@ bindsym $mod+Shift+Control+Right move workspace to output right
 bindsym $mod+Shift+Control+Up move workspace to output up
 bindsym $mod+Shift+Control+Down move workspace to output down
 
-bindsym $mod+Shift+Control+n move container to output left; focus output left;
-bindsym $mod+Shift+Control+i move container to output right; focus output right;
-bindsym $mod+Shift+Control+u move container to output up; focus output up;
-bindsym $mod+Shift+Control+e move container to output down; focus output down;
+bindsym $mod+Shift+Control+n move container to output left; focus output left
+bindsym $mod+Shift+Control+i move container to output right; focus output right
+bindsym $mod+Shift+Control+u move container to output up; focus output up
+bindsym $mod+Shift+Control+e move container to output down; focus output down
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
@@ -274,10 +274,10 @@ for_window [class="feh" instance="feh"] floating enable
 for_window [class="xpad" instance="xpad"] floating enable
 
 #prev next workspace using f17 & f18
-bindcode $mod+195 workspace prev
-bindcode $mod+196 workspace next
-bindcode $mod+Shift+195 move workspace prev; workspace prev
-bindcode $mod+Shift+196 move workspace next; workspace next
+bindcode $mod+195 workspace prev_on_output
+bindcode $mod+196 workspace next_on_output
+bindcode $mod+Shift+195 move workspace prev_on_output; workspace prev_on_output
+bindcode $mod+Shift+196 move workspace next_on_output; workspace next_on_output
 
 #printscreen
 bindsym Print exec gnome-screenshot -i
@@ -292,8 +292,9 @@ bindsym $mod+g exec google-chrome
 bindsym $mod+t exec i3-sensible-terminal
 bindsym $mod+Shift+t exec ~/.bash_scripts/tmux-sessionizer.sh
 
-#open dmenu window jumper
+#open dmenu window jumper & grabber
 bindsym $mod+j exec bash ~/.bash_scripts/dmenu-i3-window-jumper.sh
+bindsym $mod+Shift+j exec bash ~/.bash_scripts/dmenu-i3-window-grabber.sh
 
 #open clipboard manager
 bindsym $mod+c exec clipmenu -i
