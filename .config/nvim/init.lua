@@ -566,6 +566,24 @@ vim.keymap.set("v", "<C-d>", "<gv")
 vim.keymap.set("v", "<C-a>", "<C-a>gv")
 vim.keymap.set("v", "<C-x>", "<C-x>gv")
 
+-- don't yank on delete
+vim.keymap.set("v", "p", "P")
+vim.keymap.set("n", "x", "\"_x")
+vim.keymap.set("n", "xx", "\"_dd")
+vim.keymap.set("n", "c", "\"_c")
+vim.keymap.set("n", "cc", "\"_cc")
+vim.keymap.set("n", "s", "\"_s")
+vim.keymap.set("n", "X", "\"_X")
+vim.keymap.set("n", "C", "\"_C")
+vim.keymap.set("n", "S", "\"_S")
+vim.keymap.set("v", "x", "\"_x")
+vim.keymap.set("v", "xx", "\"_dd")
+vim.keymap.set("v", "c", "\"_c")
+vim.keymap.set("v", "s", "\"_s")
+vim.keymap.set("v", "X", "\"_X")
+vim.keymap.set("v", "C", "\"_C")
+vim.keymap.set("v", "S", "\"_S")
+
 -- terminal mode keymaps
 vim.keymap.set('t', '<A-Esc>', '<C-\\><C-N>', { silent = true }) -- in tmux this is interpreted as esc esc for some reason
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-N>', { silent = true }) -- in any other terminal
