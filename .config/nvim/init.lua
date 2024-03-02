@@ -192,11 +192,19 @@ require('lazy').setup({
     dependencies = {
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
+      {
+        's1n7ax/nvim-window-picker',
+        name = 'window-picker',
+        event = 'VeryLazy',
+        version = '2.*',
+        config = function()
+            require'window-picker'.setup()
+        end,
+      }
     },
     config = function ()
       require("neo-tree").setup({
         close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
-        popup_border_style = "rounded",
         enable_git_status = true,
         enable_diagnostics = false,
         enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs.
@@ -280,7 +288,7 @@ require('lazy').setup({
         -- see `:h neo-tree-custom-commands-global`
         commands = {},
         window = {
-          position = "left",
+          position = "right",
           width = 40,
           mapping_options = {
             noremap = true,
@@ -558,7 +566,7 @@ vim.keymap.set("n", "<leader>xq", cmd 'TroubleToggle quickfix')
 vim.keymap.set("n", "<leader>xl", cmd 'TroubleToggle loclist')
 vim.keymap.set("n", "gR", cmd 'TroubleToggle lsp_references')
 
--- dont deselect when indenting and incrementing
+-- don't deselect when indenting and incrementing
 vim.keymap.set("n", "<C-t>", ">>")
 vim.keymap.set("n", "<C-d>", "<<")
 vim.keymap.set("v", "<C-t>", ">gv")
