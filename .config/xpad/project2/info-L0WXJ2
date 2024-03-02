@@ -1,7 +1,7 @@
 width 260
 height 50
-x 311
-y 186
+x 1138
+y 505
 follow_font 1
 follow_color 0
 sticky 1
@@ -9,4 +9,4 @@ hidden 0
 back rgb(220,138,221)
 text rgb(0,0,0)
 fontname Sans 11
-content content-W37BJ2
+content content-3XWXJ2

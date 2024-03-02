@@ -1,0 +1,1 @@
+sudo docker run --net dev-network --ip 192.168.92.21 -it -p 3000:3000 --mount src="$(pwd)/dev",target="/web/dev",type=bind web:latest /bin/bash
