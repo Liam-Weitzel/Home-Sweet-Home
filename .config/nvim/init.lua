@@ -590,6 +590,16 @@ vim.keymap.set("v", "X", "\"_X")
 vim.keymap.set("v", "C", "\"_C")
 vim.keymap.set("v", "S", "\"_S")
 
+-- PageUp, PageDown, Home & End binds
+vim.keymap.set("n", "<PageUp>", "<PageUp>zz")
+vim.keymap.set("n", "<PageDown>", "<PageDown>zz")
+vim.keymap.set("v", "<PageUp>", "<PageUp>zz")
+vim.keymap.set("v", "<PageDown>", "<PageDown>zz")
+vim.keymap.set("n", "<Home>", "_")
+vim.keymap.set("v", "<Home>", "_")
+vim.keymap.set("n", "<End>", "$")
+vim.keymap.set("v", "<End>", "$")
+
 -- terminal mode keymaps
 vim.keymap.set('t', '<A-Esc>', '<C-\\><C-N>', { silent = true }) -- in tmux this is interpreted as esc esc for some reason
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-N>', { silent = true }) -- in any other terminal
