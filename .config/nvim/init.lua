@@ -558,47 +558,13 @@ vim.keymap.set("n", "<leader>xq", cmd 'TroubleToggle quickfix')
 vim.keymap.set("n", "<leader>xl", cmd 'TroubleToggle loclist')
 vim.keymap.set("n", "gR", cmd 'TroubleToggle lsp_references')
 
--- dont deselect when indenting
+-- dont deselect when indenting and incrementing
 vim.keymap.set("n", "<C-t>", ">>")
 vim.keymap.set("n", "<C-d>", "<<")
 vim.keymap.set("v", "<C-t>", ">gv")
 vim.keymap.set("v", "<C-d>", "<gv")
-
--- rebind visual block mode
-vim.keymap.set("n", "<A-v>", "<C-v>")
-
--- change increment and decrement binds
-vim.keymap.set("n", "+", "<C-a>")
-vim.keymap.set("n", "-", "<C-x>")
-vim.keymap.set("v", "+", "<C-a>gv")
-vim.keymap.set("v", "-", "<C-x>gv")
-
--- set ctrl+c, ctrl+v & ctrl+x
-vim.keymap.set("v", "<C-c>", "y")
-vim.keymap.set("i", "<C-c>", "<C-o><S-v>y")
-vim.keymap.set("n", "<C-c>", "<S-v>y")
-vim.keymap.set("v", "<C-v>", "p")
-vim.keymap.set("n", "<C-v>", "p")
-vim.keymap.set("i", "<C-v>", "<C-r>+")
-vim.keymap.set("v", "<C-x>", "d")
-vim.keymap.set("n", "<C-x>", "dd")
-vim.keymap.set("i", "<C-x>", "<C-o>dd")
-
--- set ctrl+z and ctrl+y
-vim.keymap.set("i", "<C-z>", cmd 'undo')
-vim.keymap.set("n", "<C-z>", "u")
-vim.keymap.set("v", "<C-z>", cmd 'undo')
-vim.keymap.set("i", "<C-y>", cmd 'redo')
-vim.keymap.set("n", "<C-y>", "<C-r>")
-vim.keymap.set("v", "<C-y>", cmd 'redo')
-
--- don't copy on delete
-vim.keymap.set("n", "d", "\"_d")
-vim.keymap.set("n", "dd", "\"_dd")
-vim.keymap.set("v", "d", "\"_d")
-vim.keymap.set("v", "dd", "\"_dd")
-vim.keymap.set("n", "x", "\"_x")
-vim.keymap.set("v", "x", "\"_x")
+vim.keymap.set("v", "<C-a>", "<C-a>gv")
+vim.keymap.set("v", "<C-x>", "<C-x>gv")
 
 -- terminal mode keymaps
 vim.keymap.set('t', '<A-Esc>', '<C-\\><C-N>', { silent = true }) -- in tmux this is interpreted as esc esc for some reason
@@ -631,13 +597,11 @@ require('telescope').setup {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
         ['<C-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
-        ['<M-q>'] = { require('telescope.actions').send_selected_to_qflist, type = "action" },
       },
       n = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
         ['<C-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
-        ['<M-q>'] = { require('telescope.actions').send_selected_to_qflist, type = "action" },
       }
     },
   },
