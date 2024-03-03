@@ -634,11 +634,13 @@ require('telescope').setup {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
         ['<C-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
+        ['<M-q>'] = false,
       },
       n = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
         ['<C-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
+        ['<M-q>'] = false,
       }
     },
   },
