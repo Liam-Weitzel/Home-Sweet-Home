@@ -617,6 +617,10 @@ vim.keymap.set("n", "<Home>", "_")
 vim.keymap.set("v", "<Home>", "_")
 vim.keymap.set("n", "<End>", "$")
 vim.keymap.set("v", "<End>", "$")
+vim.keymap.set("i", "<PageUp>", "<PageUp><C-o>zz")
+vim.keymap.set("i", "<PageDown>", "<PageDown><C-o>zz")
+vim.keymap.set("i", "<Home>", "<C-o>_")
+vim.keymap.set("i", "<End>", "<C-o>$")
 
 -- terminal mode keymaps
 vim.keymap.set('t', '<A-Esc>', '<C-\\><C-N>', { silent = true }) -- in tmux this is interpreted as esc esc for some reason
