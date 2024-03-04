@@ -205,7 +205,11 @@ require('lazy').setup({
         config = function()
           require'window-picker'.setup({
             hint = 'floating-big-letter',
-            selection_chars = 'TNSERIGMDHAOPLFUWYBJVKC'
+            selection_chars = 'TNSERIGMDHAOPLFUWYBJVKC',
+            bo = {
+                filetype = { 'NvimTree', 'neo-tree', 'notify', 'noice' },
+                buftype = { 'terminal' },
+            },
           })
         end,
       }
@@ -259,15 +263,15 @@ require('lazy').setup({
             symbols = {
               -- Change type
               added     = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
-              modified  = "m", -- or "-", but this is redundant info if you use git_status_colors on the name
+              modified  = "~", -- or "-", but this is redundant info if you use git_status_colors on the name
               deleted   = "✖",-- this can only be used in the git_status source
-              renamed   = "r",-- this can only be used in the git_status source
+              renamed   = "~",-- this can only be used in the git_status source
               -- Status type
-              untracked = "ut",
-              ignored   = "i",
-              unstaged  = "us",
-              staged    = "s",
-              conflict  = "c",
+              untracked = "",
+              ignored   = "",
+              unstaged  = "",
+              staged    = "",
+              conflict  = "!!",
             }
           },
           -- If you don't want to use these columns, you can set `enabled = false` for each of them individually
