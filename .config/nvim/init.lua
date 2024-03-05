@@ -461,17 +461,26 @@ require('lazy').setup({
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = {
-     -- add any options here
-    },
     dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
       }
   },
 
   -- practice XD
   'ThePrimeagen/vim-be-good',
+
+  -- refactoring plugins
+  'napmn/react-extract.nvim',
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("refactoring").setup()
+    end,
+  },
 
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
@@ -621,6 +630,17 @@ vim.keymap.set("i", "<PageUp>", "<PageUp><C-o>zz")
 vim.keymap.set("i", "<PageDown>", "<PageDown><C-o>zz")
 vim.keymap.set("i", "<Home>", "<C-o>_")
 vim.keymap.set("i", "<End>", "<C-o>$")
+
+-- refactoring keymaps
+vim.keymap.set("v", "<Leader>rrn", require("react-extract").extract_to_new_file, { desc = '[R]efactor [R]eact component [N]ew file' })
+vim.keymap.set("v", "<Leader>rrc", require("react-extract").extract_to_current_file, { desc = '[R]efactor [R]eact component [C]urrent file' })
+vim.keymap.set("x", "<leader>rf", function() require('refactoring').refactor('Extract Function') end, { desc = '[R]efactor extract [F]unction' })
+vim.keymap.set("x", "<leader>rF", function() require('refactoring').refactor('Extract Function To File') end, { desc = '[R]efactor extract [F]unction to file' })
+vim.keymap.set("x", "<leader>rv", function() require('refactoring').refactor('Extract Variable') end, { desc = '[R]efactor extract [V]ariable' })
+vim.keymap.set("n", "<leader>ri", function() require('refactoring').refactor('Inline Function') end, { desc = '[R]efactor [I]nline function' })
+vim.keymap.set({ "n", "x" }, "<leader>rI", function() require('refactoring').refactor('Inline Variable') end, { desc = '[R]efactor [I]nline variable' })
+vim.keymap.set("n", "<leader>rb", function() require('refactoring').refactor('Extract Block') end, { desc = '[R]efactor extract [B]lock' })
+vim.keymap.set("n", "<leader>rB", function() require('refactoring').refactor('Extract Block To File') end, { desc = '[R]efactor extract [B]lock to file' })
 
 -- terminal mode keymaps
 vim.keymap.set('t', '<A-Esc>', '<C-\\><C-N>', { silent = true }) -- in tmux this is interpreted as esc esc for some reason
@@ -844,7 +864,7 @@ require('which-key').register {
   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
   ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+  ['<leader>r'] = { name = '[R]efactor', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
 }
