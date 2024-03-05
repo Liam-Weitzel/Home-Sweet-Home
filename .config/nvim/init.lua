@@ -470,7 +470,6 @@ require('lazy').setup({
   'ThePrimeagen/vim-be-good',
 
   -- refactoring plugins
-  'napmn/react-extract.nvim',
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
@@ -632,8 +631,6 @@ vim.keymap.set("i", "<Home>", "<C-o>_")
 vim.keymap.set("i", "<End>", "<C-o>$")
 
 -- refactoring keymaps
-vim.keymap.set("v", "<Leader>rrn", require("react-extract").extract_to_new_file, { desc = '[R]efactor [R]eact component [N]ew file' })
-vim.keymap.set("v", "<Leader>rrc", require("react-extract").extract_to_current_file, { desc = '[R]efactor [R]eact component [C]urrent file' })
 vim.keymap.set("x", "<leader>rf", function() require('refactoring').refactor('Extract Function') end, { desc = '[R]efactor extract [F]unction' })
 vim.keymap.set("x", "<leader>rF", function() require('refactoring').refactor('Extract Function To File') end, { desc = '[R]efactor extract [F]unction to file' })
 vim.keymap.set("x", "<leader>rv", function() require('refactoring').refactor('Extract Variable') end, { desc = '[R]efactor extract [V]ariable' })
