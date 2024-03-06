@@ -85,18 +85,18 @@ require('lazy').setup({
 
         -- don't override the built-in and fugitive keymaps
         local gs = package.loaded.gitsigns
-        vim.keymap.set({ 'n', 'v' }, ']c', function()
+        vim.keymap.set({ 'n', 'v' }, ']h', function()
           if vim.wo.diff then
-            return ']c'
+            return ']h'
           end
           vim.schedule(function()
             gs.next_hunk()
           end)
         return '<Ignore>'
         end, { expr = true, buffer = bufnr, desc = 'Jump to next hunk' })
-        vim.keymap.set({ 'n', 'v' }, '[c', function()
+        vim.keymap.set({ 'n', 'v' }, '[h', function()
           if vim.wo.diff then
-            return '[c'
+            return '[h'
           end
           vim.schedule(function()
             gs.prev_hunk()
@@ -589,7 +589,7 @@ vim.keymap.set('n', '<leader>q', cmd 'TroubleToggle', { desc = 'Toggle last trou
 vim.keymap.set('n', '<leader>t', cmd 'Neotree toggle')
 
 -- open DBUI
-vim.keymap.set('n', '<leader>n', cmd 'DBUIToggle')
+vim.keymap.set('n', '<leader>db', '<Cmd>DBUIToggle<Cr><C-w>T', { desc = 'Open database tool'})
 
 -- trouble keymaps
 vim.keymap.set("n", "<leader>xw", cmd 'TroubleToggle workspace_diagnostics')
