@@ -524,6 +524,10 @@ vim.wo.relativenumber = true
 --Display both relative and static line numbers in two seperate columns in the statuscolumn
 -- vim.wo.statuscolumn = '%#NonText#%{&nu?v:lnum:""}%=%{&rnu&&(v:lnum%2)?" ".v:relnum:""}%#LineNr#%{&rnu&&!(v:lnum%2)?" ".v:relnum:""} '
 
+--Display enter/ eol symbol after each line
+vim.opt.listchars = {eol = '↲', nbsp = '␣'}
+vim.opt.list = true
+
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
