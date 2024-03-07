@@ -429,23 +429,6 @@ require('lazy').setup({
     end
   },
 
-  -- DB navigation with ui
-  {
-    'kristijanhusak/vim-dadbod-ui',
-    dependencies = {
-      { 'tpope/vim-dadbod', lazy = true },
-      { 'kristijanhusak/vim-dadbod-completion', lazy = true },
-    },
-    cmd = {
-      'DBUI',
-      'DBUIToggle',
-      'DBUIAddConnection',
-      'DBUIFindBuffer',
-    },
-    init = function()
-    end,
-  },
-
   -- show fancy lists for errors and your quick fix list use <leader>x to see more 
   {
     'folke/trouble.nvim',
@@ -587,9 +570,6 @@ vim.keymap.set('n', '<leader>q', cmd 'TroubleToggle', { desc = 'Toggle last trou
 
 -- open Neotree
 vim.keymap.set('n', '<leader>t', cmd 'Neotree toggle')
-
--- open DBUI
-vim.keymap.set('n', '<leader>db', '<Cmd>DBUIToggle<Cr><C-w>T', { desc = 'Open database tool'})
 
 -- trouble keymaps
 vim.keymap.set("n", "<leader>xw", cmd 'TroubleToggle workspace_diagnostics')
