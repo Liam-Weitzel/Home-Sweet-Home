@@ -566,17 +566,17 @@ vim.keymap.set('n', '<A-C-u>', '3<C-w>-', { silent = true })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', cmd 'TroubleToggle', { desc = 'Toggle last trouble window' })
+vim.keymap.set('n', '<leader>q', cmd 'execute "TroubleToggle" | execute "cclose"', { desc = 'Toggle last trouble window' })
 
 -- open Neotree
 vim.keymap.set('n', '<leader>t', cmd 'Neotree toggle')
 
 -- trouble keymaps
-vim.keymap.set("n", "<leader>xw", cmd 'TroubleToggle workspace_diagnostics')
-vim.keymap.set("n", "<leader>xd", cmd 'TroubleToggle document_diagnostics')
-vim.keymap.set("n", "<leader>xq", cmd 'TroubleToggle quickfix')
-vim.keymap.set("n", "<leader>xl", cmd 'TroubleToggle loclist')
-vim.keymap.set("n", "gR", cmd 'TroubleToggle lsp_references')
+vim.keymap.set("n", "<leader>xw", cmd 'execute "TroubleToggle workspace_diagnostics" | execute "cclose"', { desc = 'Trouble workspace diagnostics' })
+vim.keymap.set("n", "<leader>xd", cmd 'execute "TroubleToggle document_diagnostics" | execute "cclose"', { desc = 'Trouble document diagnostics' })
+vim.keymap.set("n", "<leader>xq", cmd 'execute "TroubleToggle quickfix" | execute "cclose"', { desc = 'Trouble quickfix' })
+vim.keymap.set("n", "<leader>xl", cmd 'execute "TroubleToggle loclist" | execute "cclose"', { desc = 'Trouble loclist' })
+vim.keymap.set("n", "gR", cmd 'execute "TroubleToggle lsp_references" | execute "cclose"', { desc = 'Trouble LSP references' })
 
 -- don't deselect when indenting and incrementing
 vim.keymap.set("n", "<C-t>", ">>")
@@ -655,13 +655,11 @@ require('telescope').setup {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
-        ['<C-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
         ['<M-q>'] = false,
       },
       n = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
-        ['<C-q>'] = { require('telescope.actions').send_to_qflist, type = "action" },
         ['<M-q>'] = false,
       }
     },
@@ -718,14 +716,18 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+local builtin = require 'telescope.builtin'
+vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>sG', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
