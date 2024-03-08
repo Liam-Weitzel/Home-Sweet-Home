@@ -657,12 +657,12 @@ require('telescope').setup {
     mappings = {
       i = {
         ['<C-u>'] = false,
-        ['<C-d>'] = false,
+        ['<c-d>'] = require('telescope.actions').delete_buffer,
         ['<M-q>'] = false,
       },
       n = {
         ['<C-u>'] = false,
-        ['<C-d>'] = false,
+        ['<c-d>'] = require('telescope.actions').delete_buffer,
         ['<M-q>'] = false,
       }
     },
