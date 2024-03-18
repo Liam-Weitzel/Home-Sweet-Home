@@ -207,7 +207,7 @@ require('lazy').setup({
             hint = 'floating-big-letter',
             selection_chars = 'TNSERIGMDHAOPLFUWYBJVKC',
             bo = {
-                filetype = { 'NvimTree', 'neo-tree', 'notify', 'noice' },
+                filetype = { 'NvimTree', 'neo-tree', 'notify' },
                 buftype = { 'terminal' },
             },
           })
@@ -448,7 +448,7 @@ require('lazy').setup({
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
-      }
+    },
   },
 
   -- practice XD
@@ -511,7 +511,7 @@ vim.wo.relativenumber = true
 -- vim.wo.statuscolumn = '%#NonText#%{&nu?v:lnum:""}%=%{&rnu&&(v:lnum%2)?" ".v:relnum:""}%#LineNr#%{&rnu&&!(v:lnum%2)?" ".v:relnum:""} '
 
 --Display enter/ eol symbol after each line
-vim.opt.listchars = {eol = '↲', nbsp = '␣'}
+vim.opt.listchars = {tab = '·┈', eol = '↲', nbsp = '␣'}
 vim.opt.list = true
 
 -- Decrease update time
@@ -569,17 +569,17 @@ vim.keymap.set('n', '<A-C-u>', '3<C-w>-', { silent = true })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', cmd 'execute "TroubleToggle quickfix" | execute "cclose"', { desc = 'Trouble quickfix' })
+vim.keymap.set('n', '<leader>q', cmd 'execute "cclose" | execute "TroubleToggle quickfix"', { desc = 'Trouble quickfix' })
 
 -- open Neotree
 vim.keymap.set('n', '<leader>t', cmd 'Neotree toggle')
 
 -- trouble keymaps
-vim.keymap.set("n", "<leader>xw", cmd 'execute "TroubleToggle workspace_diagnostics" | execute "cclose"', { desc = 'Trouble workspace diagnostics' })
-vim.keymap.set("n", "<leader>xd", cmd 'execute "TroubleToggle document_diagnostics" | execute "cclose"', { desc = 'Trouble document diagnostics' })
-vim.keymap.set("n", "<leader>xq", cmd 'execute "TroubleToggle quickfix" | execute "cclose"', { desc = 'Trouble quickfix' })
-vim.keymap.set("n", "<leader>xl", cmd 'execute "TroubleToggle loclist" | execute "cclose"', { desc = 'Trouble loclist' })
-vim.keymap.set("n", "gR", cmd 'execute "TroubleToggle lsp_references" | execute "cclose"', { desc = 'Trouble LSP references' })
+vim.keymap.set("n", "<leader>xw", cmd 'execute "cclose" | execute "TroubleToggle workspace_diagnostics"', { desc = 'Trouble workspace diagnostics' })
+vim.keymap.set("n", "<leader>xd", cmd 'execute "cclose" | execute "TroubleToggle document_diagnostics"', { desc = 'Trouble document diagnostics' })
+vim.keymap.set("n", "<leader>xq", cmd 'execute "cclose" | execute "TroubleToggle quickfix"', { desc = 'Trouble quickfix' })
+vim.keymap.set("n", "<leader>xl", cmd 'execute "cclose" | execute "TroubleToggle loclist"', { desc = 'Trouble loclist' })
+vim.keymap.set("n", "gR", cmd 'execute "cclose" | execute "TroubleToggle lsp_references"', { desc = 'Trouble LSP references' })
 
 -- don't deselect when indenting and incrementing
 vim.keymap.set("n", "<C-t>", ">>")
