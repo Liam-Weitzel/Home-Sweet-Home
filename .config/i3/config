@@ -229,14 +229,6 @@ exec_always xinput set-prop "pointer:MOSART Semi. 2.4G Keyboard Mouse" "Coordina
 
 #start up processes
 exec libinput-gestures-setup start
-exec google-chrome --app=https://whiteboard.office.com/
-exec google-chrome --app=https://chat.openai.com/
-exec blueman-manager
-exec google-chrome --app=https://www.audible.com/library/
-exec google-chrome --app=https://open.spotify.com/
-exec google-chrome --app=https://calendar.google.com/calendar/u/2/r/month/2024/2/1?pli=1
-exec google-chrome --app=https://mail.google.com/mail/u/0/#inbox 
-exec google-chrome -app=https://drive.google.com/drive/u/0/my-drive
 exec gromit-mpx
 exec redshift-gtk
 exec '/opt/Mullvad VPN/mullvad-vpn' %U
