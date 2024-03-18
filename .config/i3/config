@@ -269,10 +269,6 @@ bindsym $mod+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh
 bindsym $mod+Shift+m exec bash ~/.bash_scripts/cycle_move_window.sh 20
 bindsym $mod+m move container to workspace number $ws20
 
-#always apps open in floating mode
-for_window [class="feh" instance="feh"] floating enable
-for_window [class="xpad" instance="xpad"] floating enable
-
 #prev next workspace using f17 & f18
 bindcode $mod+195 workspace prev_on_output
 bindcode $mod+196 workspace next_on_output
@@ -298,14 +294,3 @@ bindsym $mod+Shift+j exec bash ~/.bash_scripts/dmenu-i3-window-grabber.sh
 
 #open clipboard manager
 bindsym $mod+c exec clipmenu -i
-
-#open/close xpad -- rework these binds and scripts so that $mod+Shift+Fkey just opens that project?
-bindsym $mod+Shift+x exec bash ~/.bash_scripts/open_xpad.sh
-#switch xpad project
-bindsym $mod+Shift+F1 exec bash ~/.bash_scripts/switch_xpad_project.sh 1
-bindsym $mod+Shift+F2 exec bash ~/.bash_scripts/switch_xpad_project.sh 2
-bindsym $mod+Shift+F3 exec bash ~/.bash_scripts/switch_xpad_project.sh 3
-bindsym $mod+Shift+F4 exec bash ~/.bash_scripts/switch_xpad_project.sh 4
-bindsym $mod+Shift+F5 exec bash ~/.bash_scripts/switch_xpad_project.sh 5
-bindsym $mod+Shift+F6 exec bash ~/.bash_scripts/switch_xpad_project.sh 6
-bindsym $mod+Shift+F7 exec bash ~/.bash_scripts/switch_xpad_project.sh 7

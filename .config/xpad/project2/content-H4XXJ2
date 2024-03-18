@@ -1,1 +1,0 @@
-sudo docker run --net dev-network --ip 192.168.92.22 -it -p 8080-8100:8080-8100 --mount src="$(pwd)/../videostore",target="/server/videostore",type=bind --mount src="$(pwd)/../sqlite",target="/server/sqlite",type=bind --mount src="$(pwd)/dev",target="/server/dev",type=bind --privileged backend:latest /bin/bash
