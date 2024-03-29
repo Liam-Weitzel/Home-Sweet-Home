@@ -466,6 +466,11 @@ require('lazy').setup({
     end,
   },
 
+  { -- Smooth scrolling
+    'declancm/cinnamon.nvim',
+    config = function() require('cinnamon').setup({default_delay = 2, hide_cursor = true}) end
+  },
+
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 }, {})
@@ -605,17 +610,11 @@ vim.keymap.set("v", "X", "\"_X")
 vim.keymap.set("v", "C", "\"_C")
 vim.keymap.set("v", "S", "\"_S")
 
--- PageUp, PageDown, Home & End binds
-vim.keymap.set("n", "<PageUp>", "<PageUp>zz")
-vim.keymap.set("n", "<PageDown>", "<PageDown>zz")
-vim.keymap.set("v", "<PageUp>", "<PageUp>zz")
-vim.keymap.set("v", "<PageDown>", "<PageDown>zz")
+-- Home & End binds
 vim.keymap.set("n", "<Home>", "_")
 vim.keymap.set("v", "<Home>", "_")
 vim.keymap.set("n", "<End>", "$")
 vim.keymap.set("v", "<End>", "$")
-vim.keymap.set("i", "<PageUp>", "<PageUp><C-o>zz")
-vim.keymap.set("i", "<PageDown>", "<PageDown><C-o>zz")
 vim.keymap.set("i", "<Home>", "<C-o>_")
 vim.keymap.set("i", "<End>", "<C-o>$")
 
