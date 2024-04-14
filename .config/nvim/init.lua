@@ -535,7 +535,7 @@ vim.opt.autoindent = true
 vim.opt.shiftwidth = 2
 
 -- This defines what can be incremented with <C-a>, go ahead try it.
-vim.opt.nrformats = 'bin,octal,hex,alpha'
+vim.opt.nrformats = 'bin,octal,hex'
 
 -- [[ Basic Keymaps ]]
 local function cmd(command)
@@ -593,22 +593,6 @@ vim.keymap.set("v", "<C-t>", ">gv")
 vim.keymap.set("v", "<C-d>", "<gv")
 vim.keymap.set("v", "<C-a>", "<C-a>gv")
 vim.keymap.set("v", "<C-x>", "<C-x>gv")
-
--- don't yank on delete
-vim.keymap.set("v", "p", "P")
-vim.keymap.set("n", "x", "\"_x")
-vim.keymap.set("n", "c", "\"_c")
-vim.keymap.set("n", "cc", "\"_cc")
-vim.keymap.set("n", "s", "\"_s")
-vim.keymap.set("n", "X", "\"_X")
-vim.keymap.set("n", "C", "\"_C")
-vim.keymap.set("n", "S", "\"_S")
-vim.keymap.set("v", "x", "\"_x")
-vim.keymap.set("v", "c", "\"_c")
-vim.keymap.set("v", "s", "\"_s")
-vim.keymap.set("v", "X", "\"_X")
-vim.keymap.set("v", "C", "\"_C")
-vim.keymap.set("v", "S", "\"_S")
 
 -- Home & End binds
 vim.keymap.set("n", "<Home>", "_")
