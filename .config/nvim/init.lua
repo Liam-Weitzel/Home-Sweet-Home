@@ -365,6 +365,21 @@ vim.keymap.set("v", "<C-d>", "<gv")
 vim.keymap.set("v", "<C-a>", "<C-a>gv")
 vim.keymap.set("v", "<C-x>", "<C-x>gv")
 
+-- don't yank on delete, but save in named register
+vim.keymap.set("n", "x", "\"xx")
+vim.keymap.set("n", "c", "\"cc")
+vim.keymap.set("n", "cc", "\"ccc")
+vim.keymap.set("n", "s", "\"ss")
+vim.keymap.set("n", "X", "\"xX")
+vim.keymap.set("n", "C", "\"cC")
+vim.keymap.set("n", "S", "\"sS")
+vim.keymap.set("v", "x", "\"xx")
+vim.keymap.set("v", "c", "\"cc")
+vim.keymap.set("v", "s", "\"ss")
+vim.keymap.set("v", "X", "\"xX")
+vim.keymap.set("v", "C", "\"cC")
+vim.keymap.set("v", "S", "\"sS")
+
 -- Home & End binds
 vim.keymap.set("n", "<Home>", "_")
 vim.keymap.set("v", "<Home>", "_")
