@@ -237,7 +237,9 @@ require('lazy').setup({
   { -- Oil nvim file explorer
     'stevearc/oil.nvim',
     opts = {},
-  }
+  },
+
+  "christoomey/vim-tmux-navigator",
 
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
@@ -332,10 +334,10 @@ vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
 vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
 vim.keymap.set('n', '<C-w>h', ':sp<CR> <C-w>j')
 vim.keymap.set('n', '<C-w>v', ':vsp<CR> <C-w>l')
-vim.keymap.set('n', '<A-n>', '<C-w>h', { silent = true })
-vim.keymap.set('n', '<A-i>', '<C-w>l', { silent = true })
-vim.keymap.set('n', '<A-u>', '<C-w>k', { silent = true })
-vim.keymap.set('n', '<A-e>', '<C-w>j', { silent = true })
+vim.keymap.set('n', '<A-n>', '<cmd>TmuxNavigateLeft<cr><C-w>h', { silent = true })
+vim.keymap.set('n', '<A-i>', '<cmd>TmuxNavigateRight<cr><C-w>l', { silent = true })
+vim.keymap.set('n', '<A-u>', '<cmd>TmuxNavigateUp<cr><C-w>k', { silent = true })
+vim.keymap.set('n', '<A-e>', '<cmd>TmuxNavigateDown<cr><C-w>j', { silent = true })
 vim.keymap.set('n', '<A-C-n>', '3<C-w>>', { silent = true })
 vim.keymap.set('n', '<A-C-i>', '3<C-w><', { silent = true })
 vim.keymap.set('n', '<A-C-e>', '3<C-w>+', { silent = true })
