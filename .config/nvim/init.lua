@@ -241,6 +241,13 @@ require('lazy').setup({
 
   "christoomey/vim-tmux-navigator",
 
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+    }
+  }
+
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 }, {})
@@ -354,6 +361,7 @@ vim.keymap.set('n', '<leader>p', cmd 'Oil', { desc = 'Open Oil at parent directo
 
 -- trouble keymaps
 vim.keymap.set("n", "<leader>xw", cmd 'execute "cclose" | execute "TroubleToggle workspace_diagnostics"', { desc = 'Trouble workspace diagnostics' })
+vim.keymap.set("n", "<leader>xt", cmd 'execute "cclose" | execute "TodoTrouble"', { desc = 'Trouble todo comments' })
 vim.keymap.set("n", "<leader>xd", cmd 'execute "cclose" | execute "TroubleToggle document_diagnostics"', { desc = 'Trouble document diagnostics' })
 vim.keymap.set("n", "<leader>xq", cmd 'execute "cclose" | execute "TroubleToggle quickfix"', { desc = 'Trouble quickfix' })
 vim.keymap.set("n", "<leader>xl", cmd 'execute "cclose" | execute "TroubleToggle loclist"', { desc = 'Trouble loclist' })
@@ -492,6 +500,7 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 
 local builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>su', '<cmd>Telescope undo<cr>', { desc = '[S]earch [U]ndo tree' })
+vim.keymap.set('n', '<leader>st', '<cmd>TodoTelescope<cr>', { desc = '[S]earch [T]odo comments' })
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
 vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
