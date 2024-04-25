@@ -322,6 +322,8 @@ local function cmd(command)
   return table.concat({ '<Cmd>', command, '<CR>' })
 end
 
+vim.keymap.set('n', 'L', '<C-^>')
+
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
