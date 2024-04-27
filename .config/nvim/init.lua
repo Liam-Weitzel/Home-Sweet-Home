@@ -234,9 +234,75 @@ require('lazy').setup({
     config = function() require('cinnamon').setup({default_delay = 1, hide_cursor = true}) end
   },
 
-  { -- Oil nvim file explorer
-    'stevearc/oil.nvim',
-    opts = {},
+  {
+    "echasnovski/mini.files",
+    opts = {
+      windows = {
+        preview = true,
+        width_focus = 30,
+        width_preview = 30,
+      },
+      options = {
+        -- Whether to use for editing directories
+        -- Disabled by default in LazyVim because neo-tree is used for that
+        use_as_default_explorer = false,
+      },
+      mappings = {
+        close       = 'q',
+        go_in       = '<Right>',
+        go_in_plus  = '<C-Right>',
+        go_out      = '<Left>',
+        go_out_plus = '<C-Left>',
+        reset       = '<BS>',
+        reveal_cwd  = '@',
+        show_help   = 'g?',
+        synchronize = '=',
+        trim_left   = '<',
+        trim_right  = '>',
+      },
+    },
+    keys = {
+      {
+        "<leader>p",
+        function()
+          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+        end,
+        desc = "Open mini.files (Directory of Current File)",
+      },
+    },
+    config = function(_, opts)
+      require("mini.files").setup(opts)
+
+      local show_dotfiles = true
+      local filter_show = function(fs_entry)
+        return true
+      end
+      local filter_hide = function(fs_entry)
+        return not vim.startswith(fs_entry.name, ".")
+      end
+
+      local toggle_dotfiles = function()
+        show_dotfiles = not show_dotfiles
+        local new_filter = show_dotfiles and filter_show or filter_hide
+        require("mini.files").refresh({ content = { filter = new_filter } })
+      end
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesBufferCreate",
+        callback = function(args)
+          local buf_id = args.data.buf_id
+          -- Tweak left-hand side of mapping to your liking
+          vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id, desc = "Toggle Hidden Files" })
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesActionRename",
+        callback = function(event)
+          LazyVim.lsp.on_rename(event.data.from, event.data.to)
+        end,
+      })
+    end,
   },
 
   "christoomey/vim-tmux-navigator",
@@ -357,9 +423,6 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', cmd 'execute "cclose" | execute "TroubleToggle quickfix"', { desc = 'Trouble quickfix' })
-
--- open Oil
-vim.keymap.set('n', '<leader>p', cmd 'Oil', { desc = 'Open Oil at parent directory' })
 
 -- trouble keymaps
 vim.keymap.set("n", "<leader>xw", cmd 'execute "cclose" | execute "TroubleToggle workspace_diagnostics"', { desc = 'Trouble workspace diagnostics' })
