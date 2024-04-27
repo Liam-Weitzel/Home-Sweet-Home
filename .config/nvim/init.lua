@@ -242,17 +242,12 @@ require('lazy').setup({
         width_focus = 30,
         width_preview = 30,
       },
-      options = {
-        -- Whether to use for editing directories
-        -- Disabled by default in LazyVim because neo-tree is used for that
-        use_as_default_explorer = false,
-      },
       mappings = {
         close       = 'q',
-        go_in       = '<Right>',
-        go_in_plus  = '<C-Right>',
-        go_out      = '<Left>',
-        go_out_plus = '<C-Left>',
+        go_in       = '<C-Right>',
+        go_in_plus  = '<Right>',
+        go_out      = '<C-Left>',
+        go_out_plus = '<Left>',
         reset       = '<BS>',
         reveal_cwd  = '@',
         show_help   = 'g?',
