@@ -496,12 +496,14 @@ require('telescope').setup {
     mappings = {
       i = {
         ['<C-u>'] = false,
-        ['<c-d>'] = require('telescope.actions').delete_buffer,
+        ['<C-cr>'] = require('telescope-undo.actions').restore,
+        ['<C-d>'] = require('telescope.actions').delete_buffer,
         ['<M-q>'] = false,
       },
       n = {
         ['<C-u>'] = false,
-        ['<c-d>'] = require('telescope.actions').delete_buffer,
+        ['<C-d>'] = require('telescope.actions').delete_buffer,
+        ['<C-cr>'] = require('telescope-undo.actions').restore,
         ['<M-q>'] = false,
       }
     },
@@ -660,7 +662,7 @@ local on_attach = function(_, bufnr)
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>!', vim.lsp.buf.code_action, 'Code Action')
+  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
