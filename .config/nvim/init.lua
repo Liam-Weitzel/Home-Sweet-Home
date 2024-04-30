@@ -229,11 +229,6 @@ require('lazy').setup({
     end,
   },
 
-  { -- Smooth scrolling
-    'declancm/cinnamon.nvim',
-    config = function() require('cinnamon').setup({default_delay = 1, hide_cursor = true}) end
-  },
-
   {
     "echasnovski/mini.files",
     opts = {
@@ -396,6 +391,14 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- tabs
 vim.keymap.set('n', 'gm', cmd 'tabnext')
 vim.keymap.set('n', 'gM', cmd 'tabprevious')
+
+-- Page up and down center cursor
+vim.keymap.set('n', '<PageUp>', '<PageUp>zz')
+vim.keymap.set('n', '<PageDown>', '<PageDown>zz')
+vim.keymap.set('i', '<PageUp>', '<PageUp><Esc>zzi')
+vim.keymap.set('i', '<PageDown>', '<PageDown><Esc>zzi')
+vim.keymap.set('v', '<PageUp>', '<PageUp>zz')
+vim.keymap.set('v', '<PageDown>', '<PageDown>zz')
 
 -- windows.nvim keymaps
 vim.keymap.set('n', '<C-w>f', cmd 'WindowsMaximize')
