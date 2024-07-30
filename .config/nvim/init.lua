@@ -379,6 +379,9 @@ local function cmd(command)
 end
 
 vim.keymap.set('n', 'L', '<C-^>')
+vim.keymap.set('n', '<C-z>', ':suspend<CR>')
+vim.keymap.set('i', '<C-z>', '<Esc>:suspend<CR>')
+vim.keymap.set('v', '<C-z>', '<Esc>:suspend<CR>')
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
