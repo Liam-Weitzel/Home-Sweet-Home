@@ -1,27 +1,38 @@
 { pkgs, config, libs, ... }:
 
 {
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = ["nvidia"];
 
-# Enable OpenGL
-  hardware.opengl = {
-    enable = true;
+  hardware = {
+    opengl.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement = {
+        enable = true;
+        finegrained = false;
+      };
+      open = false;
+      nvidiaSettings = true;
+      #forceFullCompositionPipeline = true;
+      prime = {
+        sync.enable = true;
+        # Make sure to use the correct Bus ID values for your system!
+        nvidiaBusId = "PCI:01:0:0";
+        intelBusId = "PCI:0:16:0";
+        # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
+      };
+    };
   };
 
-# Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
-  
-  hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.powerManagement.enable = false;
-  hardware.nvidia.powerManagement.finegrained = false;
-  hardware.nvidia.open = false;
-  hardware.nvidia.nvidiaSettings = true;
-# Special config to load the latest (535 or 550) driver for the support of the 4070 SUPER
+  #SPECIFIC FOR 4070 SUPER
   hardware.nvidia.package = let 
   rcu_patch = pkgs.fetchpatch {
     url = "https://github.com/gentoo/gentoo/raw/c64caf53/x11-drivers/nvidia-drivers/files/nvidia-drivers-470.223.02-gpl-pfn_valid.patch";
     hash = "sha256-eZiQQp2S/asE7MfGvfe6dA/kdCvek9SYa/FFGp24dVg=";
+
   };
-in config.boot.kernelPackages.nvidiaPackages.mkDriver {
+  in config.boot.kernelPackages.nvidiaPackages.mkDriver {
     version = "535.154.05";
     sha256_64bit = "sha256-fpUGXKprgt6SYRDxSCemGXLrEsIA6GOinp+0eGbqqJg=";
     sha256_aarch64 = "sha256-G0/GiObf/BZMkzzET8HQjdIcvCSqB1uhsinro2HLK9k=";
@@ -37,5 +48,5 @@ in config.boot.kernelPackages.nvidiaPackages.mkDriver {
     #persistencedSha256 = "sha256-11tLSY8uUIl4X/roNnxf5yS2PQvHvoNjnd2CB67e870=";
 
     patches = [ rcu_patch ];
- };
+  };
 }

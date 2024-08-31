@@ -57,8 +57,8 @@
     tmux
     wget
     git
-    google-chrome
     stow
+    librewolf
   ];
 
   programs.sway = {
