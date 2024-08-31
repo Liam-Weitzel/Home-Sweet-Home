@@ -4,9 +4,7 @@ alias :q='exit'
 
 alias f='fg;fg'
 
-alias saveBackupGnomeTerminal='dconf dump /org/gnome/terminal/legacy/profiles:/ > ~/gnome-terminal-profiles.dconf'
-
-alias loadBackupGnomeTerminal='dconf load /org/gnome/terminal/legacy/profiles:/ < ~/gnome-terminal-profiles.dconf'
+alias ..='cd ..'
 
 bind '"\e[24~":"\C-u~/.bash_scripts/tmux-sessionizer.sh\n"'
 
