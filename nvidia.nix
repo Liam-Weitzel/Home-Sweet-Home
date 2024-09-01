@@ -4,24 +4,21 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
+  services.xserver.extraOptions = ''
+    Option "AllowGSync" "True"
+  '';
+
   hardware = {
     opengl.enable = true;
     nvidia = {
       modesetting.enable = true;
       powerManagement = {
-        enable = true;
+        enable = false;
         finegrained = false;
       };
       open = false;
       nvidiaSettings = true;
-      #forceFullCompositionPipeline = true;
-      prime = {
-        sync.enable = true;
-        # Make sure to use the correct Bus ID values for your system!
-        nvidiaBusId = "PCI:01:0:0";
-        intelBusId = "PCI:0:16:0";
-        # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
-      };
+      forceFullCompositionPipeline = true;
     };
   };
 

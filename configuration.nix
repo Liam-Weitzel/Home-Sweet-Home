@@ -4,6 +4,7 @@
   imports =
     [
       ./nvidia.nix
+      ./runelite.nix
       ./hardware-configuration.nix
     ];
 
@@ -11,7 +12,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl."vm.swappiness" = 10;   # Reduce swappiness to prioritize physical memory over swap
-
+  
   networking.hostName = "liamw";
   #networking.wireless.enable = true;
 
@@ -55,25 +56,20 @@
   environment.systemPackages = with pkgs; [
     neovim
     tmux
-    wget
     git
     stow
     librewolf
+    xfce.thunar
+    vesktop
+    mako
+    cliphist
+    wl-clipboard    
+    rofi-wayland-unwrapped
   ];
 
   programs.sway = {
     enable = true;
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
 
   services.pipewire = {
     enable = true;                           # Enable PipeWire as the multimedia framework
@@ -82,15 +78,6 @@
     pulse.enable = true;                     # Enable PulseAudio support in PipeWire
     jack.enable = true;                      # Enable JACK support in PipeWire
   };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
