@@ -322,6 +322,8 @@ vim.o.mouse = 'a'
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
+vim.g.have_nerd_font = true
+
 -- Enable break indent
 vim.o.breakindent = true
 

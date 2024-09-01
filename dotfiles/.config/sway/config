@@ -14,24 +14,25 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu rofi -show drun | xargs swaymsg exec --
 
-
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output DP-1 res 2560x1440
 output DP-1 adaptive_sync on
-output HDMI-A-1 res 1920x1080
+output HDMI-A-1 res 1920x1080@75Hz
 output HDMI-A-1 transform 90
+output * background #303030 solid_color
 
 exec wl-paste --watch cliphist store
 bindsym $mod+c exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+
 #
 # Example configuration:
 #
@@ -209,7 +210,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    position bottom
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.

@@ -4,10 +4,6 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
-  services.xserver.extraOptions = ''
-    Option "AllowGSync" "True"
-  '';
-
   hardware = {
     opengl.enable = true;
     nvidia = {

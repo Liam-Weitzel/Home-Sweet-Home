@@ -4,7 +4,6 @@
   imports =
     [
       ./nvidia.nix
-      ./runelite.nix
       ./hardware-configuration.nix
     ];
 
@@ -54,21 +53,48 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+
+    #----=[ server ]=----#
     neovim
     tmux
     git
     stow
-    librewolf
-    xfce.thunar
-    vesktop
-    mako
-    cliphist
-    wl-clipboard    
+    gcc
+
+    #----=[ pc-essential ]=----#
+    alacritty
     rofi-wayland-unwrapped
+    wl-clipboard
+    cliphist
+    xfce.thunar
+    librewolf
+    sway
+    mako
+    slurp
+    grim
+    imagemagick
+    wl-color-picker
+
+    #----=[ pc-gaming ]=----#
+    vesktop
+    runelite
+
+    #----=[ pc-goldman ]=----#
+    citrix_workspace
+    zoom-us
   ];
 
-  programs.sway = {
-    enable = true;
+  #----=[ Fonts ]=----#
+  fonts = {
+    enableDefaultPackages = true;
+    fontDir.enable = true;
+    packages = with pkgs; [ 
+      (nerdfonts.override { fonts = [
+        "IBMPlexMono"
+        "Iosevka"
+        "IosevkaTerm"
+      ]; })
+    ];
   };
 
   services.pipewire = {
