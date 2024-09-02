@@ -85,18 +85,18 @@ require('lazy').setup({
 
         -- don't override the built-in and fugitive keymaps
         local gs = package.loaded.gitsigns
-        vim.keymap.set({ 'n', 'v' }, ']c', function()
+        vim.keymap.set({ 'n', 'v' }, ']6', function()
           if vim.wo.diff then
-            return ']c'
+            return ']6'
           end
           vim.schedule(function()
             gs.next_hunk()
           end)
         return '<Ignore>'
         end, { expr = true, buffer = bufnr, desc = 'Jump to next hunk' })
-        vim.keymap.set({ 'n', 'v' }, '[c', function()
+        vim.keymap.set({ 'n', 'v' }, '[6', function()
           if vim.wo.diff then
-            return '[c'
+            return '[6'
           end
           vim.schedule(function()
             gs.prev_hunk()
@@ -395,12 +395,12 @@ vim.keymap.set('n', 'gm', cmd 'tabnext')
 vim.keymap.set('n', 'gM', cmd 'tabprevious')
 
 -- Page up and down center cursor
-vim.keymap.set('n', '<PageUp>', '<PageUp>zz')
-vim.keymap.set('n', '<PageDown>', '<PageDown>zz')
-vim.keymap.set('i', '<PageUp>', '<PageUp><Esc>zzi')
-vim.keymap.set('i', '<PageDown>', '<PageDown><Esc>zzi')
-vim.keymap.set('v', '<PageUp>', '<PageUp>zz')
-vim.keymap.set('v', '<PageDown>', '<PageDown>zz')
+vim.keymap.set('n', '<PageUp>', '<C-u>zz')
+vim.keymap.set('n', '<PageDown>', '<C-d>zz')
+vim.keymap.set('i', '<PageUp>', '<Esc><C-u>zzi')
+vim.keymap.set('i', '<PageDown>', '<Esc><C-d>zzi')
+vim.keymap.set('v', '<PageUp>', '<space><space><C-u>zz')
+vim.keymap.set('v', '<PageDown>', '<space><space><C-d>zz')
 
 -- windows.nvim keymaps
 vim.keymap.set('n', '<C-w>f', cmd 'WindowsMaximize')
@@ -433,10 +433,10 @@ vim.keymap.set("n", "<leader>xl", cmd 'execute "cclose" | execute "TroubleToggle
 vim.keymap.set("n", "gR", cmd 'execute "cclose" | execute "TroubleToggle lsp_references"', { desc = 'Trouble LSP references' })
 
 -- don't deselect when indenting and incrementing
-vim.keymap.set("n", "<C-t>", ">>")
-vim.keymap.set("n", "<C-d>", "<<")
-vim.keymap.set("v", "<C-t>", ">gv")
-vim.keymap.set("v", "<C-d>", "<gv")
+vim.keymap.set("n", ">", ">>")
+vim.keymap.set("n", "<", "<<")
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", "<C-a>", "<C-a>gv")
 vim.keymap.set("v", "<C-x>", "<C-x>gv")
 

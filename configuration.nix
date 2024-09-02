@@ -60,6 +60,7 @@
     git
     stow
     gcc
+    fzf
 
     #----=[ pc-essential ]=----#
     alacritty
@@ -74,6 +75,7 @@
     grim
     imagemagick
     wl-color-picker
+    wdisplays
 
     #----=[ pc-gaming ]=----#
     vesktop
