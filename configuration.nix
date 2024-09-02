@@ -61,6 +61,7 @@
     stow
     gcc
     fzf
+    starship
 
     #----=[ pc-essential ]=----#
     alacritty

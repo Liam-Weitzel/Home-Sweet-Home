@@ -399,8 +399,8 @@ vim.keymap.set('n', '<PageUp>', '<C-u>zz')
 vim.keymap.set('n', '<PageDown>', '<C-d>zz')
 vim.keymap.set('i', '<PageUp>', '<Esc><C-u>zzi')
 vim.keymap.set('i', '<PageDown>', '<Esc><C-d>zzi')
-vim.keymap.set('v', '<PageUp>', '<space><space><C-u>zz')
-vim.keymap.set('v', '<PageDown>', '<space><space><C-d>zz')
+vim.keymap.set('v', '<PageUp>', '<C-u>zz')
+vim.keymap.set('v', '<PageDown>', '<C-d>zz')
 
 -- windows.nvim keymaps
 vim.keymap.set('n', '<C-w>f', cmd 'WindowsMaximize')
