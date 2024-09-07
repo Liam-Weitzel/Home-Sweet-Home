@@ -32,9 +32,7 @@ require('lazy').setup({
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -112,6 +110,9 @@ require('lazy').setup({
     'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
+      require('onedark').setup {
+        style = 'warm'
+      }
       vim.cmd.colorscheme 'onedark'
     end,
   },
@@ -194,11 +195,47 @@ require('lazy').setup({
 
   -- show fancy lists for errors and your quick fix list use <leader>x to see more 
   {
-    'folke/trouble.nvim',
-    opts = {
-      icons = false,
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>xw",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Workspace Diagnostics",
+      },
+      {
+        "<leader>xb",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics",
+      },
+      {
+        "<leader>xs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols",
+      },
+      {
+        "<leader>xl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ...",
+      },
+      {
+        "<leader>xL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List",
+      },
+      {
+        "<leader>xq",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List",
+      },
+      {
+        "<leader>xt",
+        "<cmd>TodoTrouble<cr>",
+        desc = "Todo List"
+      }
     },
-  },
+ },
 
   -- used for reordering windows, <C-w>m to enter this mode
   'sindrets/winshift.nvim',
@@ -302,8 +339,10 @@ require('lazy').setup({
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
     }
-  }
+  },
 
+  { 'echasnovski/mini.nvim', version = false },
+  'nvim-tree/nvim-web-devicons'
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 }, {})
@@ -422,15 +461,6 @@ vim.keymap.set('n', '<A-C-u>', '3<C-w>-', { silent = true })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', cmd 'execute "cclose" | execute "TroubleToggle quickfix"', { desc = 'Trouble quickfix' })
-
--- trouble keymaps
-vim.keymap.set("n", "<leader>xw", cmd 'execute "cclose" | execute "TroubleToggle workspace_diagnostics"', { desc = 'Trouble workspace diagnostics' })
-vim.keymap.set("n", "<leader>xt", cmd 'execute "cclose" | execute "TodoTrouble"', { desc = 'Trouble todo comments' })
-vim.keymap.set("n", "<leader>xd", cmd 'execute "cclose" | execute "TroubleToggle document_diagnostics"', { desc = 'Trouble document diagnostics' })
-vim.keymap.set("n", "<leader>xq", cmd 'execute "cclose" | execute "TroubleToggle quickfix"', { desc = 'Trouble quickfix' })
-vim.keymap.set("n", "<leader>xl", cmd 'execute "cclose" | execute "TroubleToggle loclist"', { desc = 'Trouble loclist' })
-vim.keymap.set("n", "gR", cmd 'execute "cclose" | execute "TroubleToggle lsp_references"', { desc = 'Trouble LSP references' })
 
 -- don't deselect when indenting and incrementing
 vim.keymap.set("n", ">", ">>")
@@ -693,20 +723,23 @@ local on_attach = function(_, bufnr)
 end
 
 -- document existing key chains
-require('which-key').register {
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]oto', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'Gitsigns', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]efactor', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-  ['<leader>x'] = { name = 'Trouble', _ = 'which_key_ignore' },
-}
-
--- mason-lspconfig requires that these setup functions are called in this order
--- before setting up the servers.
-require('mason').setup()
-require('mason-lspconfig').setup()
+local wk = require("which-key")
+wk.add({
+    { "<leader>d", group = "[D]ocument" },
+    { "<leader>d_", hidden = true },
+    { "<leader>g", group = "[G]oto" },
+    { "<leader>g_", hidden = true },
+    { "<leader>h", group = "Gitsigns" },
+    { "<leader>h_", hidden = true },
+    { "<leader>r", group = "[R]efactor" },
+    { "<leader>r_", hidden = true },
+    { "<leader>s", group = "[S]earch" },
+    { "<leader>s_", hidden = true },
+    { "<leader>w", group = "[W]orkspace" },
+    { "<leader>w_", hidden = true },
+    { "<leader>x", group = "Trouble" },
+    { "<leader>x_", hidden = true },
+})
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -742,22 +775,17 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
+local lsp_zero = require('lsp-zero')
 
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
 
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
-}
+require'lspconfig'.nil_ls.setup{}
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.jdtls.setup{}
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`

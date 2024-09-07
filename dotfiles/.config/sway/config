@@ -18,7 +18,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show drun | xargs swaymsg exec --
+set $menu rofi -show drun -show-icons | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -27,8 +27,8 @@ set $menu rofi -show drun | xargs swaymsg exec --
 # output DP-1 res 2560x1440
 # output DP-1 adaptive_sync on
 # output HDMI-A-1 res 1920x1080@75Hz
-# output HDMI-A-1 transform 90
-output * background #303030 solid_color
+output HDMI-A-1 transform 90
+output * background #2C2D30 solid_color
 
 exec wl-paste --watch cliphist store
 bindsym $mod+c exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
@@ -218,7 +218,7 @@ bar {
 
     colors {
         statusline #ffffff
-        background #323232
+        background #2C2D30
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }

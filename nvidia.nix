@@ -4,6 +4,11 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
+  environment.sessionVariables = {
+    WLR_RENDERER="vulkan";
+    WLR_NO_HARDWARE_CURSORS=1;
+  };
+
   hardware = {
     graphics.enable = true;
     nvidia = {

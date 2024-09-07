@@ -11,7 +11,7 @@ white = "#8A8A8A"
 [colors.normal]
 black = "#2c2525"
 red = "#D75F5F"
-green = "#87D787"
+green = "#99bc80"
 yellow = "#D7AF87"
 blue = "#f38d70"
 magenta = "#D787D7"
@@ -19,7 +19,7 @@ cyan = "#5BA6A6"
 white = "#8A8A8A"
 
 [colors.primary]
-background = "#303030"
+background = "#2c2d30"
 foreground = "#B2B2B2"
 
 [font]
@@ -40,3 +40,6 @@ style = "Italic"
 [font.normal]
 family = "IosevkaTerm Nerd Font"
 style = "Regular"
+
+[env]
+term = "xterm-256color"

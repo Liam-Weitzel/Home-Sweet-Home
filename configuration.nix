@@ -11,7 +11,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl."vm.swappiness" = 10;   # Reduce swappiness to prioritize physical memory over swap
-  
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   networking.hostName = "liamw";
   #networking.wireless.enable = true;
 
@@ -47,6 +48,7 @@
     packages = with pkgs; [];
   };
 
+  security.sudo.wheelNeedsPassword = false;
   services.getty.autologinUser = "liamw";
   nixpkgs.config.allowUnfree = true;
 
@@ -55,32 +57,44 @@
   environment.systemPackages = with pkgs; [
 
     #----=[ server ]=----#
-    neovim
+    neovim #TODO: requires EDITOR="nvim"
     tmux
     git
     stow
     gcc
     fzf
     starship
+    wget
+    curl
+    unzip
+    ripgrep
+    fd
+
+    #LSPs
+    nil #nix os lsp
+    clang-tools #c/c++
+    jdt-language-server #java lsp only
 
     #----=[ pc-essential ]=----#
+    sway
     alacritty
-    rofi-wayland-unwrapped
+    rofi-wayland
     wl-clipboard
     cliphist
     xfce.thunar
-    librewolf
-    sway
+    librewolf #TODO: check out zen browser instead
     mako
     slurp
     grim
     imagemagick
     wl-color-picker
     wdisplays
+    pavucontrol
+    bluetuith
 
     #----=[ pc-gaming ]=----#
     vesktop
-    runelite
+    runelite #TODO: Requires _JAVA_AWT_WM_NONREPARENTING=1
 
     #----=[ pc-goldman ]=----#
     citrix_workspace
@@ -107,7 +121,13 @@
     pulse.enable = true;                     # Enable PulseAudio support in PipeWire
     jack.enable = true;                      # Enable JACK support in PipeWire
   };
-
+  
+  environment.sessionVariables = {
+    MOZ_ENABLE_WAYLAND=1;
+    EDITOR="nvim";
+    GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01";
+    _JAVA_AWT_WM_NONREPARENTING=1;
+  };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
