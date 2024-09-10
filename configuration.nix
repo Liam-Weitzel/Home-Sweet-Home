@@ -3,24 +3,16 @@
 {
   imports =
     [
-      ./nvidia.nix
-      ./docker.nix
+      ./modules/desktop.nix
+      ./modules/docker.nix
       ./hardware-configuration.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernel.sysctl."vm.swappiness" = 10;   # Reduce swappiness to prioritize physical memory over swap
+  boot.kernel.sysctl."vm.swappiness" = 10;
   networking.hostName = "liamw";
-
-  #networking.wireless.enable = true;
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -54,8 +46,8 @@
 
   environment.systemPackages = with pkgs; [
 
-    #----=[ server ]=----#
-    neovim #TODO: requires EDITOR="nvim"
+    #----=[ workflow ]=----#
+    neovim #NOTE: Requires EDITOR="nvim"
     tmux
     git
     stow
@@ -71,36 +63,10 @@
     nix-direnv
     direnv
 
-    #LSPs
-    nil #nix os lsp
-    clang-tools #c/c++
+    #----=[ LSP's ]=----#
+    nil #nixos lsp only
+    clang-tools #c/c++ lsp & more
     jdt-language-server #java lsp only
-
-    #----=[ pc-essential ]=----#
-    sway
-    alacritty
-    rofi-wayland
-    wl-clipboard
-    cliphist
-    xfce.thunar
-    librewolf #TODO: check out zen browser instead
-    mako
-    slurp
-    grim
-    imagemagick
-    wl-color-picker
-    wdisplays
-    pavucontrol
-    bluetuith
-    guvcview
-
-    #----=[ pc-gaming ]=----#
-    vesktop
-    runelite #TODO: Requires _JAVA_AWT_WM_NONREPARENTING=1
-
-    #----=[ pc-goldman ]=----#
-    citrix_workspace
-    zoom-us
   ];
 
   #----=[ Fonts ]=----#
@@ -116,28 +82,16 @@
     ];
   };
 
-  services.pipewire = {
-    enable = true;                           # Enable PipeWire as the multimedia framework
-    alsa.enable = true;                      # Enable ALSA support in PipeWire
-    alsa.support32Bit = true;                # Enable 32-bit ALSA support
-    pulse.enable = true;                     # Enable PulseAudio support in PipeWire
-    jack.enable = true;                      # Enable JACK support in PipeWire
-  };
-  
-  environment.sessionVariables = {
-    MOZ_ENABLE_WAYLAND=1;
-    EDITOR="nvim";
-    GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01";
-    _JAVA_AWT_WM_NONREPARENTING=1;
+  programs.git = {
+    enable = true;
+    package = pkgs.gitFull;
+    config = { 
+        credential.helper = "libsecret";
+    };
   };
 
-  xdg.mime.defaultApplications = {
-    "application/pdf" = "librewolf.desktop";
-    "text/html"="librewolf.desktop";
-    "x-scheme-handler/http"="librewolf.desktop";
-    "x-scheme-handler/https"="librewolf.desktop";
-    "x-scheme-handler/about"="librewolf.desktop";
-    "x-scheme-handler/unknown"="librewolf.desktop";
+  environment.sessionVariables = {
+    EDITOR="nvim";
   };
 
   # This value determines the NixOS release from which the default
@@ -149,5 +103,4 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
 }
