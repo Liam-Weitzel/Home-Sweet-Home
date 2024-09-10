@@ -4,6 +4,7 @@
   imports =
     [
       ./nvidia.nix
+      ./docker.nix
       ./hardware-configuration.nix
     ];
 
@@ -11,10 +12,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl."vm.swappiness" = 10;   # Reduce swappiness to prioritize physical memory over swap
+  networking.hostName = "liamw";
+
+  #networking.wireless.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  networking.hostName = "liamw";
-  #networking.wireless.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -43,17 +45,13 @@
 
   users.users.liamw = {
     isNormalUser = true;
-    description = "liamw";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
   };
 
   security.sudo.wheelNeedsPassword = false;
   services.getty.autologinUser = "liamw";
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
 
     #----=[ server ]=----#
@@ -69,6 +67,9 @@
     unzip
     ripgrep
     fd
+    htop
+    nix-direnv
+    direnv
 
     #LSPs
     nil #nix os lsp
@@ -91,6 +92,7 @@
     wdisplays
     pavucontrol
     bluetuith
+    guvcview
 
     #----=[ pc-gaming ]=----#
     vesktop
@@ -128,6 +130,16 @@
     GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01";
     _JAVA_AWT_WM_NONREPARENTING=1;
   };
+
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "librewolf.desktop";
+    "text/html"="librewolf.desktop";
+    "x-scheme-handler/http"="librewolf.desktop";
+    "x-scheme-handler/https"="librewolf.desktop";
+    "x-scheme-handler/about"="librewolf.desktop";
+    "x-scheme-handler/unknown"="librewolf.desktop";
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
