@@ -82,14 +82,6 @@
     ];
   };
 
-  programs.git = {
-    enable = true;
-    package = pkgs.gitFull;
-    config = { 
-        credential.helper = "libsecret";
-    };
-  };
-
   environment.sessionVariables = {
     EDITOR="nvim";
   };
