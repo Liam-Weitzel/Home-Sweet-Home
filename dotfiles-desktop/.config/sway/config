@@ -33,6 +33,20 @@ output * background #2C2D30 solid_color
 exec wl-paste --watch cliphist store
 bindsym $mod+c exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
 
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll disabled
+    accel_profile "adaptive"
+    pointer_accel 0.5
+    middle_emulation enabled
+}
+
+bindgesture swipe:right workspace next
+bindgesture swipe:left workspace prev
+# bindgesture swipe:up workspace next
+# bindgesture swipe:down workspace prev
+
 #
 # Example configuration:
 #

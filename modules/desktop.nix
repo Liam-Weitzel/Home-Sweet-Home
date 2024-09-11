@@ -6,11 +6,23 @@
       ./nvidia.nix
     ];
 
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      input = {
+        General = {
+          UserspaceHID = true;
+        };
+      };
+    };
+  };
+
+  services.libinput.enable = true;
+
+  users.users.liamw.extraGroups = [ "input" ];
 
   environment.systemPackages = with pkgs; [
-
     #----=[ workflow ]=----#
     sway
     alacritty
@@ -18,7 +30,7 @@
     wl-clipboard
     cliphist
     xfce.thunar
-    librewolf #NOTE: Requires MOZ_ENABLE_WAYLAND=1
+    librewolf
     mako
     slurp
     grim
@@ -28,10 +40,13 @@
     pavucontrol
     bluetuith
     guvcview
+    bluez
+    bluez-tools
+    libinput
 
     #----=[ gaming ]=----#
     vesktop
-    runelite #NOTE: Requires _JAVA_AWT_WM_NONREPARENTING=1
+    runelite
 
     #----=[ goldman ]=----#
     citrix_workspace
