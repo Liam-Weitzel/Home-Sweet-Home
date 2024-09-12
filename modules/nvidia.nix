@@ -6,7 +6,15 @@
 
   environment.sessionVariables = {
     WLR_RENDERER="vulkan";
-    WLR_NO_HARDWARE_CURSORS=1;
+
+    # OpenGL Variables
+    GBM_BACKEND="nvidia-drm";
+    __GL_GSYNC_ALLOWED=0;
+    __GL_VRR_ALLOWED=0;
+    __GLX_VENDOR_LIBRARY_NAME="nvidia";
+
+    # Xwayland compatibility
+    XWAYLAND_NO_GLAMOR=1;
   };
 
   hardware = {

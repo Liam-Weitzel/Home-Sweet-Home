@@ -47,10 +47,6 @@
     #----=[ gaming ]=----#
     vesktop
     runelite
-
-    #----=[ goldman ]=----#
-    citrix_workspace
-    zoom-us
   ];
 
   services.pipewire = {
@@ -62,8 +58,15 @@
   };
 
   environment.sessionVariables = {
+    #Firefox stuffs
     MOZ_ENABLE_WAYLAND=1;
-    GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01";
+    MOZ_USE_XINPUT2=1;
+
+    #General wayland stuffs
+    XDG_SESSION_TYPE="wayland";
+    QT_QPA_PLATFORM="wayland";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION=1;
+
     _JAVA_AWT_WM_NONREPARENTING=1;
   };
 
