@@ -22,6 +22,10 @@
 
   users.users.liamw.extraGroups = [ "input" ];
 
+  environment.loginShellInit = lib.mkBefore ''
+    [[ "$(tty)" == /dev/tty1 ]] && sway
+  '';
+
   environment.systemPackages = with pkgs; [
     sway
     alacritty

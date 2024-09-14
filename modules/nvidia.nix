@@ -1,6 +1,10 @@
-{ pkgs, config, libs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+  environment.loginShellInit = lib.mkAfter ''
+    [[ "$(tty)" == /dev/tty1 ]] && sway --unsupported-gpu
+  '';
+
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
