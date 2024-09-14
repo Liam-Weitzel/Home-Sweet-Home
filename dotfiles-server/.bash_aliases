@@ -1,6 +1,7 @@
 alias nvim='~/.bash_scripts/open_nvim.sh'
 
 alias :q='exit'
+alias :Q='exit'
 
 alias f='fg;fg'
 

@@ -44,6 +44,8 @@ input type:touchpad {
 
 bindgesture swipe:right workspace next
 bindgesture swipe:left workspace prev
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 # bindgesture swipe:up workspace next
 # bindgesture swipe:down workspace prev
 

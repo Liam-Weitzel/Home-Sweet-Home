@@ -23,7 +23,6 @@
   users.users.liamw.extraGroups = [ "input" ];
 
   environment.systemPackages = with pkgs; [
-    #----=[ workflow ]=----#
     sway
     alacritty
     rofi-wayland
@@ -43,19 +42,13 @@
     bluez
     bluez-tools
     libinput
-
-    #----=[ gaming ]=----#
+    galaxy-buds-client
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal
     vesktop
     runelite
   ];
-
-  services.pipewire = {
-    enable = true;                           # Enable PipeWire as the multimedia framework
-    alsa.enable = true;                      # Enable ALSA support in PipeWire
-    alsa.support32Bit = true;                # Enable 32-bit ALSA support
-    pulse.enable = true;                     # Enable PulseAudio support in PipeWire
-    jack.enable = true;                      # Enable JACK support in PipeWire
-  };
 
   environment.sessionVariables = {
     #Firefox stuffs
@@ -64,10 +57,34 @@
 
     #General wayland stuffs
     XDG_SESSION_TYPE="wayland";
+    XDG_CURRENT_DESKTOP="sway";
+    XDG_SESSION_DESKTOP="sway";
     QT_QPA_PLATFORM="wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION=1;
 
     _JAVA_AWT_WM_NONREPARENTING=1;
+  };
+
+  xdg.portal = {
+    enable = true;
+    config.common.default = "wlr";
+    wlr.enable = true;
+    wlr.settings.screencast = {
+      chooser_type = "dmenu";
+      chooser_cmd = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
+    };
+  };
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    jack.enable = true;
+    audio.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
   };
 
   xdg.mime.defaultApplications = {
