@@ -30,6 +30,7 @@
     sway
     alacritty
     rofi-wayland
+    bemoji
     wl-clipboard
     cliphist
     xfce.thunar

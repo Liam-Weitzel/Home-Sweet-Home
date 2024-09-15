@@ -16,6 +16,7 @@ set $term alacritty
 set $menu rofi -show drun -show-icons | xargs swaymsg exec --
 bindsym $mod+j exec rofi -show window
 bindsym $mod+a exec rofi -show ssh
+bindsym $mod+x exec bemoji
 
 ### Output configuration
 #

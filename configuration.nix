@@ -62,6 +62,7 @@
     htop
     nix-direnv
     direnv
+    zulu8 #Java 8
 
     #----=[ LSP's ]=----#
     nil #nixos lsp only
