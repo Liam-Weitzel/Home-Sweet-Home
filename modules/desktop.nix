@@ -4,6 +4,7 @@
   imports =
     [
       ./nvidia.nix
+      ./firefox.nix
     ];
 
   hardware = {
@@ -34,7 +35,6 @@
     wl-clipboard
     cliphist
     xfce.thunar
-    librewolf
     mako
     slurp
     grim
@@ -56,10 +56,6 @@
   ];
 
   environment.sessionVariables = {
-    #Firefox stuffs
-    MOZ_ENABLE_WAYLAND=1;
-    MOZ_USE_XINPUT2=1;
-
     #General wayland stuffs
     XDG_SESSION_TYPE="wayland";
     XDG_CURRENT_DESKTOP="sway";
@@ -67,7 +63,7 @@
     QT_QPA_PLATFORM="wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION=1;
 
-    _JAVA_AWT_WM_NONREPARENTING=1;
+    _JAVA_AWT_WM_NONREPARENTING=1; #Runelite
   };
 
   xdg.portal = {
