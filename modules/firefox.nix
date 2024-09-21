@@ -64,6 +64,16 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/firessb/latest.xpi";
             installation_mode = "force_installed";
           };
+          # Dark Reader:
+          "addon@darkreader.org" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+            installation_mode = "force_installed";
+          };
+          # Dracula theme:
+          "{b743f56d-1cc1-4048-8ba6-f9c2ab7aa54d}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/dracula-dark-colorscheme/latest.xpi";
+            installation_mode = "force_installed";
+          };
         };
   
         /* ---- PREFERENCES ---- */
