@@ -20,6 +20,10 @@
   # Set up time zone.
   time.timeZone = "Europe/Warsaw";
 
+  # Automount connected devices
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -63,6 +67,11 @@
     nix-direnv
     direnv
     zulu8 #Java 8
+    usbutils
+    udiskie
+    udisks
+    jq
+    pstree
 
     #----=[ LSP's ]=----#
     nil #nixos lsp only

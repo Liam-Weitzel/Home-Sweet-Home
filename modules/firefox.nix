@@ -97,6 +97,7 @@
           "browser.newtabpage.activity-stream.showSponsored" = lock-false;
           "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+          "ui.key.menuAccessKeyFocuses" = lock-false;
         };
       };
     };

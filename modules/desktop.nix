@@ -53,6 +53,7 @@
     xdg-desktop-portal
     vesktop
     runelite
+    pavucontrol
   ];
 
   environment.sessionVariables = {

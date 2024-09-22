@@ -89,6 +89,7 @@ require('lazy').setup({
           end
           vim.schedule(function()
             gs.next_hunk()
+            vim.cmd('normal! zz')  -- Center the cursor after moving to the next hunk
           end)
         return '<Ignore>'
         end, { expr = true, buffer = bufnr, desc = 'Jump to next hunk' })
@@ -98,6 +99,7 @@ require('lazy').setup({
           end
           vim.schedule(function()
             gs.prev_hunk()
+            vim.cmd('normal! zz')  -- Center the cursor after moving to the next hunk
           end)
           return '<Ignore>'
         end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
@@ -332,7 +334,35 @@ require('lazy').setup({
     end,
   },
 
-  "christoomey/vim-tmux-navigator",
+  {
+    "aserowy/tmux.nvim",
+    config = function()
+      require("tmux").setup({
+        copy_sync = {
+          enable = true,
+          ignore_buffers = { empty = false },
+          redirect_to_clipboard = true,
+          register_offset = 0,
+          sync_clipboard = false,
+          sync_registers = true,
+          sync_registers_keymap_put = true,
+          sync_registers_keymap_reg = true,
+          sync_deletes = true,
+          sync_unnamed = true,
+        },
+        navigation = {
+          cycle_navigation = false,
+          enable_default_keybindings = true,
+          persist_zoom = false,
+        },
+        resize = {
+          enable_default_keybindings = false,
+          resize_step_x = 3,
+          resize_step_y = 3,
+        }
+      })
+      end
+    },
 
   {
     "folke/todo-comments.nvim",
@@ -448,14 +478,6 @@ vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
 vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
 vim.keymap.set('n', '<C-w>h', ':sp<CR> <C-w>j')
 vim.keymap.set('n', '<C-w>v', ':vsp<CR> <C-w>l')
-vim.keymap.set('n', '<A-n>', '<cmd>TmuxNavigateLeft<cr>', { silent = true })
-vim.keymap.set('n', '<A-i>', '<cmd>TmuxNavigateRight<cr>', { silent = true })
-vim.keymap.set('n', '<A-u>', '<cmd>TmuxNavigateUp<cr>', { silent = true })
-vim.keymap.set('n', '<A-e>', '<cmd>TmuxNavigateDown<cr>', { silent = true })
-vim.keymap.set('n', '<A-C-n>', '3<C-w>>', { silent = true })
-vim.keymap.set('n', '<A-C-i>', '3<C-w><', { silent = true })
-vim.keymap.set('n', '<A-C-e>', '3<C-w>+', { silent = true })
-vim.keymap.set('n', '<A-C-u>', '3<C-w>-', { silent = true })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -502,13 +524,15 @@ vim.keymap.set({ "n", "x" }, "<leader>rI", function() require('refactoring').ref
 vim.keymap.set("n", "<leader>rb", function() require('refactoring').refactor('Extract Block') end, { desc = '[R]efactor extract [B]lock' })
 vim.keymap.set("n", "<leader>rB", function() require('refactoring').refactor('Extract Block To File') end, { desc = '[R]efactor extract [B]lock to file' })
 
--- terminal mode keymaps
-vim.keymap.set('t', '<A-Esc>', '<C-\\><C-N>', { silent = true }) -- in tmux this is interpreted as esc esc for some reason
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-N>', { silent = true }) -- in any other terminal
-vim.keymap.set('t', '<A-n>', '<C-\\><C-N><C-w>h', { silent = true })
-vim.keymap.set('t', '<A-i>', '<C-\\><C-N><C-w>l', { silent = true })
-vim.keymap.set('t', '<A-u>', '<C-\\><C-N><C-w>k', { silent = true })
-vim.keymap.set('t', '<A-e>', '<C-\\><C-N><C-w>j', { silent = true })
+vim.keymap.set("n", "<A-n>", "<cmd>lua require('tmux').move_left()<cr>")
+vim.keymap.set("n", "<A-i>", "<cmd>lua require('tmux').move_right()<cr>")
+vim.keymap.set("n", "<A-u>", "<cmd>lua require('tmux').move_top()<cr>")
+vim.keymap.set("n", "<A-e>", "<cmd>lua require('tmux').move_bottom()<cr>")
+
+vim.keymap.set("n", "<A-Left>", "<cmd>lua require('tmux').resize_left()<cr>")
+vim.keymap.set("n", "<A-Right>", "<cmd>lua require('tmux').resize_right()<cr>")
+vim.keymap.set("n", "<A-Up>", "<cmd>lua require('tmux').resize_top()<cr>")
+vim.keymap.set("n", "<A-Down>", "<cmd>lua require('tmux').resize_bottom()<cr>")
 
 -- winshift keymaps
 vim.keymap.set('n', '<C-w>m', cmd 'WinShift')
