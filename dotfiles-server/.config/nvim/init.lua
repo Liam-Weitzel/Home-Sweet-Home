@@ -810,7 +810,7 @@ end)
 require'lspconfig'.nil_ls.setup{}
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.jdtls.setup{}
-require'lspconfig'.pylsp.setup{}
+require'lspconfig'.pyright.setup{}
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`

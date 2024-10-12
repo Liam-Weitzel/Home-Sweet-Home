@@ -78,7 +78,7 @@
     nil #nixos lsp only
     clang-tools #c/c++ lsp & more
     jdt-language-server #java lsp only
-    python312Packages.python-lsp-server #python lsp only
+    pyright #python lsp only
   ];
 
   #----=[ Fonts ]=----#
