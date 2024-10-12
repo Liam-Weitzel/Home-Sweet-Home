@@ -91,5 +91,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-eval "$(direnv hook bash)"
 eval "$(starship init bash)"

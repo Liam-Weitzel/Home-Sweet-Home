@@ -54,6 +54,7 @@
     vesktop
     runelite
     pavucontrol
+    libreoffice
   ];
 
   environment.sessionVariables = {
@@ -71,6 +72,8 @@
     enable = true;
     config.common.default = "wlr";
     wlr.enable = true;
+    # exec_before = "disable_notifications.sh";
+    # exec_after = "enable_notifications.sh";
     wlr.settings.screencast = {
       chooser_type = "dmenu";
       chooser_cmd = "${pkgs.rofi-wayland}/bin/rofi -dmenu";

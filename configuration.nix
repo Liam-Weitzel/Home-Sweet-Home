@@ -51,7 +51,7 @@
   environment.systemPackages = with pkgs; [
 
     #----=[ workflow ]=----#
-    neovim #NOTE: Requires EDITOR="nvim"
+    neovim
     tmux
     git
     stow
@@ -65,18 +65,20 @@
     fd
     htop
     nix-direnv
-    direnv
     zulu8 #Java 8
     usbutils
     udiskie
     udisks
     jq
     pstree
+    python312
+    hyperfine
 
     #----=[ LSP's ]=----#
     nil #nixos lsp only
     clang-tools #c/c++ lsp & more
     jdt-language-server #java lsp only
+    python312Packages.python-lsp-server #python lsp only
   ];
 
   #----=[ Fonts ]=----#

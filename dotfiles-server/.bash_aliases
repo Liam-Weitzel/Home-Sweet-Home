@@ -1,12 +1,5 @@
 alias nvim='~/.bash_scripts/open_nvim.sh'
 
-alias :q='exit'
-alias :Q='exit'
-
-alias f='fg;fg'
-
-alias ..='cd ..'
-
 bind '"\e[24~":"\C-u~/.bash_scripts/tmux-sessionizer.sh\n"'
 
 # enable color support for commands
