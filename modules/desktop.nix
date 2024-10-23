@@ -55,6 +55,14 @@
     runelite
     pavucontrol
     libreoffice
+    gimp
+    wf-recorder
+    postman
+
+    #GAMEDEV
+    aseprite
+    tiled
+    sfxr
   ];
 
   environment.sessionVariables = {
