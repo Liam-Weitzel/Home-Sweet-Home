@@ -48,6 +48,9 @@
   services.getty.autologinUser = "liamw";
   nixpkgs.config.allowUnfree = true;
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = [];
+
   environment.systemPackages = with pkgs; [
 
     #----=[ workflow ]=----#
@@ -73,9 +76,15 @@
     pstree
     python312
     hyperfine
+    zip
+    home-manager
+
+    #----=[ AWS ]=----#
+    awscli2
+    coldsnap
 
     #----=[ LSP's ]=----#
-    nil #nixos lsp only
+    nixd #nixos lsp only
     clang-tools #c/c++ lsp & more
     jdt-language-server #java lsp only
     pyright #python lsp only

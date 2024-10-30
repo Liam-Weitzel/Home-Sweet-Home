@@ -91,4 +91,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+source ~/.bash_scripts/fzf-marks.sh
+source ~/.bash_scripts/fzf-binds.sh
+
 eval "$(starship init bash)"

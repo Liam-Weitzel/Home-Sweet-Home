@@ -113,10 +113,10 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    bindsym $mod+Left exec sh ~/.bash_scripts/vim-sway-nav.sh left
+    bindsym $mod+Down exec sh ~/.bash_scripts/vim-sway-nav.sh down
+    bindsym $mod+Up exec sh ~/.bash_scripts/vim-sway-nav.sh up
+    bindsym $mod+Right exec sh ~/.bash_scripts/vim-sway-nav.sh right
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+Left move left

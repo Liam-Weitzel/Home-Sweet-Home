@@ -63,6 +63,10 @@
     aseprite
     tiled
     sfxr
+
+    #VIDEO
+    obs-studio
+    vlc
   ];
 
   environment.sessionVariables = {
