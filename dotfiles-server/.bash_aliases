@@ -1,3 +1,7 @@
+vi() {
+    sudo -Es nvim "$@"
+}
+
 # enable color support for commands
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"

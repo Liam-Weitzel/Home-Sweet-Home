@@ -74,6 +74,21 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/dracula-dark-colorscheme/latest.xpi";
             installation_mode = "force_installed";
           };
+          # OTP manager:
+          "{7bb1f5d8-56c8-4c72-a7b9-0f539a7feefd}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4368602/simple_otpmanager_browser-0.35.xpi";
+            installation_mode = "force_installed";
+          };
+          # Password manager:
+          "ncpasswords@mdns.eu" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4373288/nextcloud_passwords-2.7.0.xpi";
+            installation_mode = "force_installed";
+          };
+          # CSS override:
+          "css-override@scottco.co" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/3419738/css_override-1.0.xpi";
+            installation_mode = "force_installed";
+          };
         };
   
         /* ---- PREFERENCES ---- */

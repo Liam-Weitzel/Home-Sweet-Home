@@ -16,7 +16,7 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu rofi -show drun -show-icons | xargs swaymsg exec --
-bindsym $mod+j exec rofi -show window
+bindsym $mod+b exec rofi -show window
 bindsym $mod+a exec rofi -show ssh
 bindsym $mod+x exec bemoji
 
@@ -156,8 +156,8 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+h splitv
+    bindsym $mod+v splith
 
     # Switch the current container between different layout styles
     bindsym $mod+e layout toggle split tabbed stacking

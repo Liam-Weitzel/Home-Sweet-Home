@@ -58,6 +58,9 @@
     gimp
     wf-recorder
     postman
+    wev
+    google-chrome
+    nextcloud-client
 
     #GAMEDEV
     aseprite

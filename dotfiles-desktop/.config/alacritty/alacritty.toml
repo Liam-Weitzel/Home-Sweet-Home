@@ -43,3 +43,4 @@ style = "Regular"
 
 [env]
 term = "xterm-256color"
+save_to_clipboard = "true"
