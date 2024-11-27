@@ -1,5 +1,5 @@
 [colors.bright]
-black = "#2c2525"
+black = "#8A8A8A"
 red = "#D75F5F"
 green = "#87D787"
 yellow = "#D7AF87"
@@ -9,7 +9,7 @@ cyan = "#5BA6A6"
 white = "#8A8A8A"
 
 [colors.normal]
-black = "#2c2525"
+black = "#8A8A8A"
 red = "#D75F5F"
 green = "#99bc80"
 yellow = "#D7AF87"

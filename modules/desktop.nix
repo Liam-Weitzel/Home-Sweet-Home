@@ -61,16 +61,21 @@
     wev
     google-chrome
     nextcloud-client
+    wlprop
 
     #GAMEDEV
     aseprite
     tiled
     sfxr
+    steam
+    godot_4
 
     #VIDEO
     obs-studio
     vlc
   ];
+
+  programs.steam.enable = true;
 
   environment.sessionVariables = {
     #General wayland stuffs

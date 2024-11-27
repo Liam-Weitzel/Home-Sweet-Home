@@ -47,6 +47,10 @@ bindgesture swipe:left workspace prev
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
+for_window [instance="Godot_Editor"] floating enable 
+for_window [instance="Godot_Engine"] floating enable 
+for_window [class="steam"] floating enable 
+
 # bindgesture swipe:up workspace next
 # bindgesture swipe:down workspace prev
 

@@ -335,36 +335,6 @@ require('lazy').setup({
   },
 
   {
-    "aserowy/tmux.nvim",
-    config = function()
-      require("tmux").setup({
-        copy_sync = {
-          enable = true,
-          ignore_buffers = { empty = false },
-          redirect_to_clipboard = true,
-          register_offset = 0,
-          sync_clipboard = false,
-          sync_registers = true,
-          sync_registers_keymap_put = true,
-          sync_registers_keymap_reg = true,
-          sync_deletes = true,
-          sync_unnamed = true,
-        },
-        navigation = {
-          cycle_navigation = false,
-          enable_default_keybindings = true,
-          persist_zoom = false,
-        },
-        resize = {
-          enable_default_keybindings = false,
-          resize_step_x = 3,
-          resize_step_y = 3,
-        }
-      })
-      end
-    },
-
-  {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
@@ -372,9 +342,24 @@ require('lazy').setup({
   },
 
   { 'echasnovski/mini.nvim', version = false },
-  'nvim-tree/nvim-web-devicons'
-  -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
+
+  'nvim-tree/nvim-web-devicons',
+
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp",
+      "nvim-telescope/telescope.nvim",
+      { "stevearc/dressing.nvim", opts = {} },
+    },
+  },
+
+  {
+    "jcc/vim-sway-nav",
+    url = "https://git.sr.ht/~jcc/vim-sway-nav",
+  },
 }, {})
 
 -- [[ Setting options ]]
@@ -524,18 +509,46 @@ vim.keymap.set({ "n", "x" }, "<leader>rI", function() require('refactoring').ref
 vim.keymap.set("n", "<leader>rb", function() require('refactoring').refactor('Extract Block') end, { desc = '[R]efactor extract [B]lock' })
 vim.keymap.set("n", "<leader>rB", function() require('refactoring').refactor('Extract Block To File') end, { desc = '[R]efactor extract [B]lock to file' })
 
-vim.keymap.set("n", "<A-n>", "<cmd>lua require('tmux').move_left()<cr>")
-vim.keymap.set("n", "<A-i>", "<cmd>lua require('tmux').move_right()<cr>")
-vim.keymap.set("n", "<A-u>", "<cmd>lua require('tmux').move_top()<cr>")
-vim.keymap.set("n", "<A-e>", "<cmd>lua require('tmux').move_bottom()<cr>")
-
-vim.keymap.set("n", "<A-Left>", "<cmd>lua require('tmux').resize_left()<cr>")
-vim.keymap.set("n", "<A-Right>", "<cmd>lua require('tmux').resize_right()<cr>")
-vim.keymap.set("n", "<A-Up>", "<cmd>lua require('tmux').resize_top()<cr>")
-vim.keymap.set("n", "<A-Down>", "<cmd>lua require('tmux').resize_bottom()<cr>")
-
 -- winshift keymaps
 vim.keymap.set('n', '<C-w>m', cmd 'WinShift')
+
+-- CodeCompanion
+vim.keymap.set("i", "<C-q>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-q>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "<C-q>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>xa", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>xa", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+vim.cmd([[cab cc CodeCompanion]])
+
+require("codecompanion").setup({
+  strategies = {
+    chat = {
+      adapter = "anthropic",
+    },
+    inline = {
+      adapter = "anthropic",
+    },
+    agent = {
+      adapter = "anthropic",
+    },
+  },
+  adapters = {
+    anthropic = function()
+      return require("codecompanion.adapters").extend("anthropic", {
+        env = {
+          api_key = "API_KEY"
+        },
+        -- schema = {
+        --   model = {
+        --     default = "claude-3-opus-20240229",
+        --   },
+        -- },
+      })
+    end,
+  }
+})
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -702,14 +715,36 @@ vim.defer_fn(function()
 end, 0)
 
 -- [[ Configure LSP ]]
---  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
-  -- In this case, we create a function that lets us more easily define mappings specific
-  -- for LSP related items. It sets the mode, buffer and description for us each time.
+local wk = require("which-key")
+wk.add({
+    { "<leader>d", group = "[D]ocument" },
+    { "<leader>d_", hidden = true },
+    { "<leader>g", group = "[G]oto" },
+    { "<leader>g_", hidden = true },
+    { "<leader>h", group = "Gitsigns" },
+    { "<leader>h_", hidden = true },
+    { "<leader>r", group = "[R]efactor" },
+    { "<leader>r_", hidden = true },
+    { "<leader>s", group = "[S]earch" },
+    { "<leader>s_", hidden = true },
+    { "<leader>w", group = "[W]orkspace" },
+    { "<leader>w_", hidden = true },
+    { "<leader>x", group = "Trouble" },
+    { "<leader>x_", hidden = true },
+})
+
+-- Setup neovim lua configuration
+require('neodev').setup()
+
+-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+-- Ensure the servers above are installed
+local lsp_zero = require('lsp-zero')
+
+lsp_zero.on_attach(function(client, bufnr)
+  lsp_zero.default_keymaps({buffer = bufnr})
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
@@ -744,70 +779,9 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
-end
-
--- document existing key chains
-local wk = require("which-key")
-wk.add({
-    { "<leader>d", group = "[D]ocument" },
-    { "<leader>d_", hidden = true },
-    { "<leader>g", group = "[G]oto" },
-    { "<leader>g_", hidden = true },
-    { "<leader>h", group = "Gitsigns" },
-    { "<leader>h_", hidden = true },
-    { "<leader>r", group = "[R]efactor" },
-    { "<leader>r_", hidden = true },
-    { "<leader>s", group = "[S]earch" },
-    { "<leader>s_", hidden = true },
-    { "<leader>w", group = "[W]orkspace" },
-    { "<leader>w_", hidden = true },
-    { "<leader>x", group = "Trouble" },
-    { "<leader>x_", hidden = true },
-})
-
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
---
---  If you want to override the default filetypes that your language server will attach to you can
---  define the property 'filetypes' to the map in question.
-local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-      -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-      -- diagnostics = { disable = { 'missing-fields' } },
-    },
-  },
-}
-
--- Setup neovim lua configuration
-require('neodev').setup()
-
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
--- Ensure the servers above are installed
-local lsp_zero = require('lsp-zero')
-
-lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
-require'lspconfig'.nil_ls.setup{}
+require'lspconfig'.nixd.setup{}
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.jdtls.setup{}
 require'lspconfig'.pyright.setup{}
