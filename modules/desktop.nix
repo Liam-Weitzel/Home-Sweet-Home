@@ -73,6 +73,10 @@
     #VIDEO
     obs-studio
     vlc
+
+    #WORK
+    citrix_workspace
+    zoom-us
   ];
 
   programs.steam.enable = true;

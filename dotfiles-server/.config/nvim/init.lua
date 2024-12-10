@@ -781,6 +781,8 @@ lsp_zero.on_attach(function(client, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end)
 
+require'lspconfig'.gdshader_lsp.setup{}
+require'lspconfig'.gdscript.setup{}
 require'lspconfig'.nixd.setup{}
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.jdtls.setup{}

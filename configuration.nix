@@ -59,11 +59,13 @@
     git
     stow
     gcc
+    gdb
     fzf
     starship
     wget
     curl
     unzip
+    unrar
     ripgrep
     fd
     htop
