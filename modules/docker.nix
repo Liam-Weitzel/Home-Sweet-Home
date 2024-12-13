@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  users.users.liamw.extraGroups = [ "docker" ];
+  users.users.liam-w.extraGroups = [ "docker" ];
 
   virtualisation.docker = {
     enable = true;

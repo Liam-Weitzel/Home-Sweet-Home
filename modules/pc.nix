@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./nvidia.nix
+      #./nvidia.nix
       ./firefox.nix
     ];
 
@@ -21,7 +21,7 @@
 
   services.libinput.enable = true;
 
-  users.users.liamw.extraGroups = [ "input" ];
+  users.users.liam-w.extraGroups = [ "input" ];
 
   environment.loginShellInit = lib.mkBefore ''
     [[ "$(tty)" == /dev/tty1 ]] && sway

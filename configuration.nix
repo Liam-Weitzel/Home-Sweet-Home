@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./modules/desktop.nix
+      ./modules/pc.nix
       ./modules/docker.nix
       ./hardware-configuration.nix
     ];
@@ -12,7 +12,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl."vm.swappiness" = 10;
-  networking.hostName = "liamw";
+  networking.hostName = "liam-w";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -39,13 +39,13 @@
     LC_TIME = "pl_PL.UTF-8";
   };
 
-  users.users.liamw = {
+  users.users.liam-w = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
   security.sudo.wheelNeedsPassword = false;
-  services.getty.autologinUser = "liamw";
+  services.getty.autologinUser = "liam-w";
   nixpkgs.config.allowUnfree = true;
 
   programs.nix-ld.enable = true;

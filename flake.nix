@@ -10,7 +10,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       nixosConfigurations = {
-        liamw = lib.nixosSystem {
+        liam-w = lib.nixosSystem {
           inherit system;
           modules = [ ./configuration.nix ];
         };
