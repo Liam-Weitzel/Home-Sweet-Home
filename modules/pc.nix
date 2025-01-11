@@ -40,6 +40,7 @@
     grim
     imagemagick
     wl-color-picker
+    wtype
     wdisplays
     pavucontrol
     bluetuith
@@ -62,6 +63,7 @@
     google-chrome
     nextcloud-client
     wlprop
+    xorg.xmodmap
 
     #GAMEDEV
     aseprite
@@ -77,6 +79,7 @@
     #WORK
     citrix_workspace
     zoom-us
+    gromit-mpx
   ];
 
   programs.steam.enable = true;
@@ -117,11 +120,11 @@
   };
 
   xdg.mime.defaultApplications = {
-    "application/pdf" = "librewolf.desktop";
-    "text/html"="librewolf.desktop";
-    "x-scheme-handler/http"="librewolf.desktop";
-    "x-scheme-handler/https"="librewolf.desktop";
-    "x-scheme-handler/about"="librewolf.desktop";
-    "x-scheme-handler/unknown"="librewolf.desktop";
+    "application/pdf" = "firefox.desktop";
+    "text/html"="firefox.desktop";
+    "x-scheme-handler/http"="firefox.desktop";
+    "x-scheme-handler/https"="firefox.desktop";
+    "x-scheme-handler/about"="firefox.desktop";
+    "x-scheme-handler/unknown"="firefox.desktop";
   };
 }

@@ -60,6 +60,8 @@
     stow
     gcc
     gdb
+    valgrind
+    bear
     fzf
     starship
     wget
@@ -69,7 +71,6 @@
     ripgrep
     fd
     htop
-    nix-direnv
     zulu8 #Java 8
     usbutils
     udiskie
@@ -91,6 +92,8 @@
     jdt-language-server #java lsp only
     pyright #python lsp only
   ];
+
+  programs.direnv.enable = true;
 
   #----=[ Fonts ]=----#
   fonts = {

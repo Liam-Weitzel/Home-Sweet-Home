@@ -1,5 +1,16 @@
+alias nixsw='sudo nixos-rebuild switch --flake ~/Home-Sweet-Home/flake.nix#liam-w -vvvv'
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit'
+alias gca='git commit --ammend'
+alias gph='git push'
+alias gphf='git push -f'
+alias gpl='git pull'
+alias gplf='git pull -f'
+alias gfe='git fetch'
+
 vi() {
-    sudo -Es nvim "$@"
+    nvim "$@"
 }
 
 # enable color support for commands

@@ -39,5 +39,8 @@ set input-meta on
 set output-meta on
 set convert-meta off
 
-# Use Alt/Meta + Delete to delete the preceding word
-"\e[3;3~": kill-word
+# Use Ctrl + delete to delete the preceding word
+"\C-[3;3~": kill-word
+
+# Ctrl + backspace to delete the previous word
+"\C-H":"\C-W"

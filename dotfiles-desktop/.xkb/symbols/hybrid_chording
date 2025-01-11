@@ -1,0 +1,31 @@
+default partial modifier_keys
+
+xkb_symbols "basic" {
+    include "us(basic)"
+    name[Group1] = "US Keyboard, Separate left and right modifiers";
+    
+    modifier_map none { 
+        Shift_L, Shift_R, Caps_Lock,
+        Control_L, Control_R,
+        Alt_L, Alt_R, Meta_L,
+        Super_L, Super_R, Hyper_L,
+        ISO_Level3_Shift, ISO_Level5_Shift,
+        Num_Lock
+    };
+
+   //key <RTSH> {
+   //    type[Group1] = "ONE_LEVEL",
+   //    symbols[Group1] = [ Shift_R ],
+   //    actions[Group1] = [ SetMods(modifiers=Lock) ]
+   //};
+   //modifier_map Lock { Shift_R };
+
+    modifier_map Lock { Caps_Lock };
+    modifier_map Shift { Shift_L, Shift_R }; 
+    modifier_map Control { Control_L }; 
+    modifier_map Mod1 { Alt_L, Meta_L };
+    modifier_map Mod2 { Alt_R, Meta_R }; 
+    modifier_map Mod3 { Super_R };
+    modifier_map Mod4 { Super_L }; 
+    modifier_map Mod5 { Control_R }; 
+};

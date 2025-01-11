@@ -492,12 +492,32 @@ vim.keymap.set("v", "X", "\"xX")
 vim.keymap.set("v", "C", "\"cC")
 vim.keymap.set("v", "S", "\"sS")
 
+-- Delete previous word (Ctrl+Backspace)
+vim.keymap.set("i", "<C-BS>", "<C-w>", { noremap = true, silent = true, desc = 'Delete previous word' })
+vim.keymap.set("i", "<C-h>", "<C-w>", { noremap = true, silent = true, desc = 'Delete previous word' }) -- Terminal fallback
+
+-- Delete next word (Ctrl+Delete)
+vim.keymap.set("i", "<C-Del>", "<C-o>dw", { noremap = true, silent = true, desc = 'Delete next word' })
+
 -- Home & End binds
-vim.keymap.set("n", "<Home>", "_")
-vim.keymap.set("v", "<Home>", "_")
+local function smart_home()
+    local col = vim.fn.col('.')
+    local first_non_blank = vim.fn.match(vim.fn.getline('.'), '\\S') + 1
+    
+    if col == first_non_blank then
+        return '0'
+    else
+        return '_'
+    end
+end
+
+vim.keymap.set("n", "<Home>", smart_home, { expr = true })
+vim.keymap.set("v", "<Home>", smart_home, { expr = true })
+vim.keymap.set("i", "<Home>", function()
+    return '<C-o>' .. smart_home()
+end, { expr = true })
 vim.keymap.set("n", "<End>", "$")
 vim.keymap.set("v", "<End>", "$")
-vim.keymap.set("i", "<Home>", "<C-o>_")
 vim.keymap.set("i", "<End>", "<C-o>$")
 
 -- refactoring keymaps
@@ -513,14 +533,11 @@ vim.keymap.set("n", "<leader>rB", function() require('refactoring').refactor('Ex
 vim.keymap.set('n', '<C-w>m', cmd 'WinShift')
 
 -- CodeCompanion
-vim.keymap.set("i", "<C-q>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-q>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.keymap.set("v", "<C-q>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>xx", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>xx", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>xa", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>xa", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
-
-vim.cmd([[cab cc CodeCompanion]])
 
 require("codecompanion").setup({
   strategies = {
@@ -538,7 +555,7 @@ require("codecompanion").setup({
     anthropic = function()
       return require("codecompanion.adapters").extend("anthropic", {
         env = {
-          api_key = "API_KEY"
+          api_key = "API_KEY_HERE"
         },
         -- schema = {
         --   model = {
@@ -548,6 +565,19 @@ require("codecompanion").setup({
       })
     end,
   }
+})
+
+-- Macro recording message in lualine/ statusline
+require("lualine").setup({
+  sections = {
+    lualine_x = {
+      {
+        require("noice").api.statusline.mode.get,
+        cond = require("noice").api.statusline.mode.has,
+        color = { fg = "#ff9e64" },
+      }
+    },
+  },
 })
 
 -- [[ Highlight on yank ]]
@@ -794,6 +824,45 @@ local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
+
+-- rebind common typos
+vim.cmd([[
+cnoreabbrev W! w!
+cnoreabbrev W1 w!
+cnoreabbrev w1 w!
+cnoreabbrev Q! q!
+cnoreabbrev Q1 q!
+cnoreabbrev q1 q!
+cnoreabbrev Qa! qa!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wa wa
+cnoreabbrev Wq wq
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev wq1 wq!
+cnoreabbrev Wq1 wq!
+cnoreabbrev wQ1 wq!
+cnoreabbrev WQ1 wq!
+cnoreabbrev W w
+cnoreabbrev 7 w
+cnoreabbrev & w
+cnoreabbrev Q q
+cnoreabbrev Qa qa
+cnoreabbrev Qall qall
+]])
+
+--rebind fugitive
+vim.cmd([[
+cnoreabbrev gs Git
+cnoreabbrev ga Git add .
+cnoreabbrev gc Git commit
+cnoreabbrev gca Git commit --amend
+cnoreabbrev gph Git push
+cnoreabbrev gphf Git push -f
+cnoreabbrev gpl Git pull
+cnoreabbrev gplf Git pull -f
+cnoreabbrev gfe Git fetch
+]])
 
 cmp.setup {
   snippet = {
