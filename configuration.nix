@@ -58,10 +58,6 @@
     tmux
     git
     stow
-    gcc
-    gdb
-    valgrind
-    bear
     fzf
     starship
     wget
@@ -71,26 +67,38 @@
     ripgrep
     fd
     htop
-    zulu8 #Java 8
     usbutils
     udiskie
     udisks
     jq
     pstree
-    python312
     hyperfine
     zip
     home-manager
+    diffutils
 
     #----=[ AWS ]=----#
     awscli2
     coldsnap
 
-    #----=[ LSP's ]=----#
-    nixd #nixos lsp only
+    #----=[ Python ]=----#
+    python312
+    pyright #lsp only
+
+    #----=[ Java ]=----#
+    zulu8
+    jdt-language-server #lsp only
+
+    #----=[ C/C++ ]=----#
+    gcc
+    valgrind
+    bear
+    gdb
     clang-tools #c/c++ lsp & more
-    jdt-language-server #java lsp only
-    pyright #python lsp only
+
+    #----=[ NIX ]=----#
+    nixd #nixos lsp only
+
   ];
 
   programs.direnv.enable = true;

@@ -360,6 +360,84 @@ require('lazy').setup({
     "jcc/vim-sway-nav",
     url = "https://git.sr.ht/~jcc/vim-sway-nav",
   },
+
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function()
+      local dap = require "dap"
+      local ui = require "dapui"
+      require("dapui").setup()
+      require("nvim-dap-virtual-text").setup()
+
+      dap.adapters.gdb = {
+        type = "executable",
+        command = "gdb",
+        args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
+      }
+
+      dap.configurations.cpp = {
+        {
+          name = "Launch with shared libs",
+          type = "gdb",
+          request = "launch",
+          program = function()
+            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+          end,
+          cwd = "${workspaceFolder}",
+          stopAtBeginningOfMainSubprogram = false,
+          setupCommands = {
+            {
+              text = "set auto-load safe-path /",
+              description = "Allow loading shared libraries"
+            },
+            {
+              text = "set follow-fork-mode child",
+              description = "Follow child processes"
+            },
+            {
+              text = "set detach-on-fork off",
+              description = "Keep control of both processes after fork"
+            },
+            {
+              text = "set auto-solib-add on",
+              description = "Automatically load shared library symbols"
+            }
+          }
+        }
+      }
+
+      vim.keymap.set({"n", "v"}, "<space>b", dap.toggle_breakpoint, { desc = 'DAP: Set breakpoint' })
+      vim.keymap.set({"n", "v"}, "<space>B", dap.clear_breakpoints, { desc = 'DAP: Clear all breakpoints' })
+      vim.keymap.set({"n", "v"}, "<space>i", function()
+        require("dapui").eval(nil, { enter = true })
+      end, { desc = 'DAP: Inspect value' })
+
+      vim.keymap.set({"i", "n", "v"}, "<F4>", dap.continue, { desc = 'DAP: continue' })
+      vim.keymap.set({"i", "n", "v"}, "<F5>", dap.step_into, { desc = 'DAP: step_into' })
+      vim.keymap.set({"i", "n", "v"}, "<F6>", dap.step_over, { desc = 'DAP: step_over' })
+      vim.keymap.set({"i", "n", "v"}, "<F7>", dap.step_out, { desc = 'DAP: step_out' })
+      vim.keymap.set({"i", "n", "v"}, "<F8>", dap.step_back, { desc = 'DAP: step_back' })
+      vim.keymap.set({"i", "n", "v"}, "<F9>", dap.restart, { desc = 'DAP: restart' })
+
+      dap.listeners.before.attach.dapui_config = function()
+        ui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        ui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        ui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        ui.close()
+      end
+    end
+  },
 }, {})
 
 -- [[ Setting options ]]
@@ -394,6 +472,9 @@ vim.o.smartcase = true
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'number'
 
+-- Add highlighted column as a style guide
+vim.opt.colorcolumn = "120"
+
 -- Disable LSP warnings in statusColumn
 vim.diagnostic.config({ signs=false })
 
@@ -404,8 +485,33 @@ vim.wo.relativenumber = true
 --Display both relative and static line numbers in two seperate columns in the statuscolumn
 -- vim.wo.statuscolumn = '%#NonText#%{&nu?v:lnum:""}%=%{&rnu&&(v:lnum%2)?" ".v:relnum:""}%#LineNr#%{&rnu&&!(v:lnum%2)?" ".v:relnum:""} '
 
--- Display actual line number in between relative numbers 
-vim.wo.statuscolumn = '%=%{v:relnum?v:relnum:v:lnum} '
+-- Display breakpoints with red highlighting and spacing
+_G.get_status = function(lnum)
+  local breakpoints = require("dap.breakpoints").get()
+  local buf = vim.api.nvim_get_current_buf()
+  lnum = tonumber(lnum)
+  
+  if breakpoints[buf] then
+    for _, bp in ipairs(breakpoints[buf]) do
+      if bp.line == lnum then
+        return "%#Error#B " -- No need for escaping, just direct highlight syntax
+      end
+    end
+  end
+  
+  return (vim.v.relnum ~= 0 and vim.v.relnum or lnum) .. " "
+end
+
+-- Display actual line number in between relative numbers && breakpoints
+vim.wo.statuscolumn = '%{%v:lua.get_status(v:lnum)%}'
+
+-- Change cursor color to bright red
+vim.api.nvim_set_hl(0, "Cursor", { fg = "#a855aa", bg = "#a855aa" })
+vim.api.nvim_set_hl(0, "iCursor", { fg = "#a855aa", bg = "#a855aa" })
+vim.opt.guicursor = {
+  "n-v-c:block-Cursor",
+  "i:ver100-iCursor"
+}
 
 --Display enter/ eol symbol after each line
 vim.opt.listchars = {tab = '⇥ ', eol = '↲', nbsp = '␣'}
@@ -555,7 +661,7 @@ require("codecompanion").setup({
     anthropic = function()
       return require("codecompanion.adapters").extend("anthropic", {
         env = {
-          api_key = "API_KEY_HERE"
+          api_key = "MY_KEY"
         },
         -- schema = {
         --   model = {

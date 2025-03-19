@@ -3,7 +3,7 @@
 {
   imports =
     [
-      #./nvidia.nix
+      ./nvidia.nix
       ./firefox.nix
     ];
 
@@ -57,9 +57,9 @@
     pavucontrol
     libreoffice
     gimp
-    wf-recorder
+    wf-recorder #records a screen
     postman
-    wev
+    wev #check what input is being sent to wayland
     google-chrome
     nextcloud-client
     wlprop
@@ -71,6 +71,7 @@
     sfxr
     steam
     godot_4
+    blender
 
     #VIDEO
     obs-studio
@@ -80,6 +81,13 @@
     citrix_workspace
     zoom-us
     gromit-mpx
+
+    #DRONE
+    betaflight-configurator
+
+    #REVERSE ENGINEERING
+    ghidra
+    frida-tools
   ];
 
   programs.steam.enable = true;
@@ -117,14 +125,5 @@
       enable = true;
       support32Bit = true;
     };
-  };
-
-  xdg.mime.defaultApplications = {
-    "application/pdf" = "firefox.desktop";
-    "text/html"="firefox.desktop";
-    "x-scheme-handler/http"="firefox.desktop";
-    "x-scheme-handler/https"="firefox.desktop";
-    "x-scheme-handler/about"="firefox.desktop";
-    "x-scheme-handler/unknown"="firefox.desktop";
   };
 }

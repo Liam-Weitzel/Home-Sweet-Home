@@ -16,6 +16,14 @@
     MOZ_ENABLE_WAYLAND=1;
     MOZ_USE_XINPUT2=1;
   };
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "firefox.desktop";
+    "text/html"="firefox.desktop";
+    "x-scheme-handler/http"="firefox.desktop";
+    "x-scheme-handler/https"="firefox.desktop";
+    "x-scheme-handler/about"="firefox.desktop";
+    "x-scheme-handler/unknown"="firefox.desktop";
+  };
   programs = {
     firefox = {
       enable = true;
@@ -89,6 +97,11 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/file/3419738/css_override-1.0.xpi";
             installation_mode = "force_installed";
           };
+          # Floccus:
+          "floccus@handmadeideas.org" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4431645/floccus-5.4.4.xpi";
+            installation_mode = "force_installed";
+          };
         };
   
         /* ---- PREFERENCES ---- */
@@ -113,6 +126,9 @@
           "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
           "ui.key.menuAccessKeyFocuses" = lock-false;
+          "apz.allow_zooming" = lock-false;
+          "browser.gesture.pinch.in" = { Value = "cmd_fullZoomReset"; Status = "locked"; };
+          "browser.gesture.pinch.out" = { Value = "cmd_fullZoomReset"; Status = "locked"; };
         };
       };
     };
