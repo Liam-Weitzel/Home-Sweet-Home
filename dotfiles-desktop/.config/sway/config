@@ -267,7 +267,7 @@ bindcode $Shift_L+$Alt_L+200 exec sh ~/.bash_scripts/combo.sh "fortunate " 0 0 0
 bindcode $Shift_L+$Alt_L+201 exec sh ~/.bash_scripts/combo.sh "fortunately " 0 0 0 1 0
 bindcode $Shift_L+$Alt_L+202 exec sh ~/.bash_scripts/combo.sh "fortune " 0 0 0 1 0
 
-output HDMI-A-1 transform 90
+# output HDMI-A-1 transform 90
 output * background #2C2D30 solid_color
 bindsym $Super_L+Plus exec sh ~/.bash_scripts/change_output_scale.sh up
 bindsym $Super_L+Minus exec sh ~/.bash_scripts/change_output_scale.sh down
@@ -289,12 +289,24 @@ exec sh ~/.bash_scripts/always-launch.sh ~/Trackpad-Color-Picker/build/Trackpad-
 bindgesture pinch:inward exec
 bindgesture pinch:outward exec
 
+# Volume
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+# Brightness
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86BrightnessAuto exec bash -c 'pkill wluma || wluma'
+
+bindsym print exec grim -g "$(slurp -d)" - | wl-copy
+
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
 for_window [instance="Godot_Editor"] floating enable 
 for_window [instance="Godot_Engine"] floating enable 
 for_window [class="steam"] floating enable 
-for_window [title="nm_tui_win"] floating enable 
+for_window [title="nmtui"] floating enable 
+for_window [title="bluetuith"] floating enable 
 floating_modifier $Super_L normal
 
 bindsym $Super_L+Shift+c reload
@@ -373,7 +385,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command while echo $(cat /sys/class/power_supply/BAT*/capacity)% - $(date +'%Y-%m-%d %X'); do sleep 1; done
 
     colors {
         statusline #ffffff

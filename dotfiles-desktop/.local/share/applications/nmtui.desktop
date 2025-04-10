@@ -1,6 +1,6 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t nm_tui_win -e "nmtui"
+Exec=alacritty -t nmtui -e "nmtui"
 GenericName=Network manager terminal application (wifi)
 Icon=nmtui
 Keywords=wifi;nmtui;network;wi-fi;tui

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t bluetuith -e "bluetuith"
+GenericName=Bluetooth terminal application
+Icon=bluetuith
+Keywords=bluetooth;bluetuith;network;tui
+Name=bluetuith
+StartupWMClass=bluetuith
+Type=Application
+Version=1.0

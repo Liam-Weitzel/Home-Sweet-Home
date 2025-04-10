@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./nvidia.nix
+      # ./nvidia.nix
       ./firefox.nix
     ];
 
@@ -21,7 +21,7 @@
 
   services.libinput.enable = true;
 
-  users.users.liam-w.extraGroups = [ "input" ];
+  users.users.liam-w.extraGroups = [ "input" "video" ];
 
   environment.loginShellInit = lib.mkBefore ''
     [[ "$(tty)" == /dev/tty1 ]] && sway
@@ -64,6 +64,9 @@
     nextcloud-client
     wlprop
     xorg.xmodmap
+    pulseaudio
+    brightnessctl
+    wluma
 
     #GAMEDEV
     aseprite
