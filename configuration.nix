@@ -74,7 +74,6 @@
     pstree
     hyperfine
     zip
-    home-manager
     diffutils
 
     #----=[ AWS ]=----#

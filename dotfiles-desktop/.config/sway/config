@@ -307,6 +307,7 @@ for_window [instance="Godot_Engine"] floating enable
 for_window [class="steam"] floating enable 
 for_window [title="nmtui"] floating enable 
 for_window [title="bluetuith"] floating enable 
+for_window [title="Volume Control"] floating enable 
 floating_modifier $Super_L normal
 
 bindsym $Super_L+Shift+c reload

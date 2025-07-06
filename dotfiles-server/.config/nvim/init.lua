@@ -438,6 +438,16 @@ require('lazy').setup({
       end
     end
   },
+  {
+  "mbienkowsk/hush.nvim",
+    config = {},
+    keys = {
+        { "<leader>m", "<Cmd>Hush<CR>", desc = "Hush" },
+    },
+    cmd = {
+        "Hush", "HushAll"
+    },
+  }
 }, {})
 
 -- [[ Setting options ]]

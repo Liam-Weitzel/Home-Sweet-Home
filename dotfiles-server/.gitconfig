@@ -1,3 +1,5 @@
 [user]
 	email = liam.weitzel@gmail.com
 	name = Liam-Weitzel
+[credential]
+	helper = store

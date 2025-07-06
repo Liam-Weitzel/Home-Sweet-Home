@@ -102,6 +102,21 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/file/4431645/floccus-5.4.4.xpi";
             installation_mode = "force_installed";
           };
+          # Ctrl-Shift-C-Should-Copy
+          "ctrl-shift-c-copy@jeffersonscher.com" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/3717803/ctrl_shift_c_should_copy-0.1.0.xpi";
+            installation_mode = "force_installed";
+          };
+          # Steam Game Revenue
+          "{d963a14f-f7aa-4503-b651-fea11ff824dd}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4468112/steam_game_revenue-1.1.2.xpi";
+            installation_mode = "force_installed";
+          };
+          # SteamDB
+          "firefox-extension@steamdb.info" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4493966/steam_database-4.16.xpi";
+            installation_mode = "force_installed";
+          };
         };
   
         /* ---- PREFERENCES ---- */
