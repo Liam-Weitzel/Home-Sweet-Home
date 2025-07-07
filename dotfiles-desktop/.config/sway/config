@@ -20,8 +20,8 @@ bindsym $Super_L+d exec $menu
 bindsym $Super_L+c exec cliphist list | rofi -dmenu | cliphist decode | wl-copy && wtype -M ctrl -M shift v -m ctrl -m shift
 bindsym $Super_L+t exec $term
 bindsym $Super_L+$Shift_L+q kill
-bindsym $Super_L+w exec $term -e sh -c "cd ~/Space-Bots/client && nix develop --command sh build.sh hot; read -p 'Press Enter to close...'"
-bindsym $Super_L+y exec $term -e sh -c "cd ~/Space-Bots/server && nix develop --command sh build.sh hot; read -p 'Press Enter to close...'"
+# bindsym $Super_L+w exec $term -e sh -c "cd ~/Space-Bots/client && nix develop --command sh build.sh hot; read -p 'Press Enter to close...'"
+# bindsym $Super_L+y exec $term -e sh -c "cd ~/Space-Bots/server && nix develop --command sh build.sh hot; read -p 'Press Enter to close...'"
 
 exec echo 0 > /tmp/capitalize_next
 bindcode --release 50 exec "echo 1 > /tmp/capitalize_next; (sleep 0.75 && echo 0 > /tmp/capitalize_next)&"
@@ -267,7 +267,7 @@ bindcode $Shift_L+$Alt_L+200 exec sh ~/.bash_scripts/combo.sh "fortunate " 0 0 0
 bindcode $Shift_L+$Alt_L+201 exec sh ~/.bash_scripts/combo.sh "fortunately " 0 0 0 1 0
 bindcode $Shift_L+$Alt_L+202 exec sh ~/.bash_scripts/combo.sh "fortune " 0 0 0 1 0
 
-output HDMI-A-1 transform 90
+# output HDMI-A-1 transform 90
 output * background #2C2D30 solid_color
 bindsym $Super_L+Plus exec sh ~/.bash_scripts/change_output_scale.sh up
 bindsym $Super_L+Minus exec sh ~/.bash_scripts/change_output_scale.sh down
@@ -285,7 +285,7 @@ input type:touchpad {
 
 bindgesture swipe:right workspace next
 bindgesture swipe:left workspace prev
-exec sh ~/.bash_scripts/always-launch.sh ~/Trackpad-Color-Picker/build/Trackpad-Color-Picker Trackpad-Color-
+exec sh ~/.bash_scripts/always-launch.sh ~/Trackpad-Color-Picker/result/bin/Trackpad-Color-Picker Trackpad-Color-
 bindgesture pinch:inward exec
 bindgesture pinch:outward exec
 

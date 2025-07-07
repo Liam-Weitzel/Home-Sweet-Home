@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./nvidia.nix
+      # ./nvidia.nix
       ./firefox.nix
     ];
 

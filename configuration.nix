@@ -47,6 +47,9 @@
   security.sudo.wheelNeedsPassword = false;
   services.getty.autologinUser = "liam-w";
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "libxml2-2.13.8"
+  ];
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [];
@@ -75,6 +78,7 @@
     hyperfine
     zip
     diffutils
+    lazygit
 
     #----=[ AWS ]=----#
     awscli2
@@ -106,12 +110,9 @@
   fonts = {
     enableDefaultPackages = true;
     fontDir.enable = true;
-    packages = with pkgs; [ 
-      (nerdfonts.override { fonts = [
-        "IBMPlexMono"
-        "Iosevka"
-        "IosevkaTerm"
-      ]; })
+    packages = with pkgs.nerd-fonts; [
+      iosevka
+      iosevka-term
     ];
   };
 
