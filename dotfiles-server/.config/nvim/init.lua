@@ -237,7 +237,7 @@ require('lazy').setup({
         desc = "Todo List"
       }
     },
- },
+  },
 
   -- used for reordering windows, <C-w>m to enter this mode
   'sindrets/winshift.nvim',
@@ -269,92 +269,13 @@ require('lazy').setup({
   },
 
   {
-    "echasnovski/mini.files",
-    opts = {
-      windows = {
-        preview = true,
-        width_focus = 30,
-        width_preview = 30,
-      },
-      mappings = {
-        close       = 'q',
-        go_in       = '<C-Right>',
-        go_in_plus  = '<Right>',
-        go_out      = '<C-Left>',
-        go_out_plus = '<Left>',
-        reset       = '<BS>',
-        reveal_cwd  = '@',
-        show_help   = 'g?',
-        synchronize = '=',
-        trim_left   = '<',
-        trim_right  = '>',
-      },
-    },
-    keys = {
-      {
-        "<leader>p",
-        function()
-          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-        end,
-        desc = "Open mini.files (Directory of Current File)",
-      },
-    },
-    config = function(_, opts)
-      require("mini.files").setup(opts)
-
-      local show_dotfiles = true
-      local filter_show = function(fs_entry)
-        return true
-      end
-      local filter_hide = function(fs_entry)
-        return not vim.startswith(fs_entry.name, ".")
-      end
-
-      local toggle_dotfiles = function()
-        show_dotfiles = not show_dotfiles
-        local new_filter = show_dotfiles and filter_show or filter_hide
-        require("mini.files").refresh({ content = { filter = new_filter } })
-      end
-
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "MiniFilesBufferCreate",
-        callback = function(args)
-          local buf_id = args.data.buf_id
-          -- Tweak left-hand side of mapping to your liking
-          vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id, desc = "Toggle Hidden Files" })
-        end,
-      })
-
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "MiniFilesActionRename",
-        callback = function(event)
-          LazyVim.lsp.on_rename(event.data.from, event.data.to)
-        end,
-      })
-    end,
-  },
-
-  {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
     }
   },
 
-  { 'echasnovski/mini.nvim', version = false },
-
   'nvim-tree/nvim-web-devicons',
-
-  {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "hrsh7th/nvim-cmp",
-      "nvim-telescope/telescope.nvim",
-      { "stevearc/dressing.nvim", opts = {} },
-    },
-  },
 
   {
     "jcc/vim-sway-nav",
@@ -438,6 +359,7 @@ require('lazy').setup({
       end
     end
   },
+
   {
   "mbienkowsk/hush.nvim",
     config = {},
@@ -447,6 +369,112 @@ require('lazy').setup({
     cmd = {
         "Hush", "HushAll"
     },
+  },
+
+  {
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      { "nvim-lua/plenary.nvim", lazy = true },
+    },
+    keys = {
+      {
+        "<leader>p",
+        mode = { "n", "v" },
+        "<cmd>Yazi<cr>",
+        desc = "Open yazi at the current file",
+      }
+    },
+    opts = {
+      open_for_directories = true,
+      keymaps = {
+        show_help = "<f1>",
+      },
+    },
+    init = function()
+      vim.g.loaded_netrwPlugin = 1
+    end,
+  },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      bigfile = { enabled = true },
+      dashboard = { enabled = false },
+      explorer = { enabled = false },
+      indent = { enabled = true },
+      input = { enabled = true },
+      notifier = {
+        enabled = true,
+        timeout = 1000,
+      },
+      picker = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      scroll = { enabled = false },
+      statuscolumn = { enabled = false },
+      words = { enabled = true },
+      styles = {
+        notification = {
+          -- wo = { wrap = true } -- Wrap notifications
+        }
+      }
+    },
+    keys = {
+      -- Top Pickers & Explorer
+      { "<leader>s:", function() Snacks.picker.command_history() end, desc = "Command History" },
+      { "<leader>sn", function() Snacks.picker.notifications() end, desc = "Notification History" },
+      -- Other
+      { "<leader>.",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
+      { "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
+      { "<leader>g", function() Snacks.lazygit() end, desc = "Lazygit" },
+      { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+      {
+        "<leader>N",
+        desc = "Neovim News",
+        function()
+          Snacks.win({
+            file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
+            width = 0.6,
+            height = 0.6,
+            wo = {
+              spell = false,
+              wrap = false,
+              signcolumn = "yes",
+              statuscolumn = " ",
+              conceallevel = 3,
+            },
+          })
+        end,
+      }
+    },
+    init = function()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "VeryLazy",
+        callback = function()
+          -- Setup some globals for debugging (lazy-loaded)
+          _G.dd = function(...)
+            Snacks.debug.inspect(...)
+          end
+          _G.bt = function()
+            Snacks.debug.backtrace()
+          end
+          vim.print = _G.dd -- Override print to use snacks for `:=` command
+
+          -- Create some toggle mappings
+          Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
+          Snacks.toggle.diagnostics():map("<leader>ud")
+          Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uc")
+          Snacks.toggle.treesitter():map("<leader>uT")
+          Snacks.toggle.inlay_hints():map("<leader>uh")
+          Snacks.toggle.indent():map("<leader>ug")
+          Snacks.toggle.dim():map("<leader>uD")
+        end,
+      })
+    end,
   }
 }, {})
 
@@ -648,41 +676,6 @@ vim.keymap.set("n", "<leader>rB", function() require('refactoring').refactor('Ex
 -- winshift keymaps
 vim.keymap.set('n', '<C-w>m', cmd 'WinShift')
 
--- CodeCompanion
-vim.keymap.set("n", "<leader>xx", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>xx", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>xa", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>xa", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
-
-require("codecompanion").setup({
-  strategies = {
-    chat = {
-      adapter = "anthropic",
-    },
-    inline = {
-      adapter = "anthropic",
-    },
-    agent = {
-      adapter = "anthropic",
-    },
-  },
-  adapters = {
-    anthropic = function()
-      return require("codecompanion.adapters").extend("anthropic", {
-        env = {
-          api_key = "MY_KEY"
-        },
-        -- schema = {
-        --   model = {
-        --     default = "claude-3-opus-20240229",
-        --   },
-        -- },
-      })
-    end,
-  }
-})
-
 -- Macro recording message in lualine/ statusline
 require("lualine").setup({
   sections = {
@@ -863,10 +856,6 @@ end, 0)
 -- [[ Configure LSP ]]
 local wk = require("which-key")
 wk.add({
-    { "<leader>d", group = "[D]ocument" },
-    { "<leader>d_", hidden = true },
-    { "<leader>g", group = "[G]oto" },
-    { "<leader>g_", hidden = true },
     { "<leader>h", group = "Gitsigns" },
     { "<leader>h_", hidden = true },
     { "<leader>r", group = "[R]efactor" },
@@ -875,6 +864,8 @@ wk.add({
     { "<leader>s_", hidden = true },
     { "<leader>w", group = "[W]orkspace" },
     { "<leader>w_", hidden = true },
+    { "<leader>u", group = "Toggles" },
+    { "<leader>u_", hidden = true },
     { "<leader>x", group = "Trouble" },
     { "<leader>x_", hidden = true },
 })
@@ -906,7 +897,7 @@ lsp_zero.on_attach(function(client, bufnr)
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
   nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+  nmap('<leader>S', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
@@ -965,19 +956,6 @@ cnoreabbrev & w
 cnoreabbrev Q q
 cnoreabbrev Qa qa
 cnoreabbrev Qall qall
-]])
-
---rebind fugitive
-vim.cmd([[
-cnoreabbrev gs Git
-cnoreabbrev ga Git add .
-cnoreabbrev gc Git commit
-cnoreabbrev gca Git commit --amend
-cnoreabbrev gph Git push
-cnoreabbrev gphf Git push -f
-cnoreabbrev gpl Git pull
-cnoreabbrev gplf Git pull -f
-cnoreabbrev gfe Git fetch
 ]])
 
 cmp.setup {

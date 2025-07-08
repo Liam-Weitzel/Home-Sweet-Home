@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t yazi -e "yazi"
+GenericName=Yazi terminal application
+Icon=Yazi
+Keywords=yazi;files;file explorer;tui
+Name=yazi
+StartupWMClass=yazi
+Type=Application
+Version=1.0

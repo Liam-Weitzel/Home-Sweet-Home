@@ -79,6 +79,7 @@
     zip
     diffutils
     lazygit
+    yazi
 
     #----=[ AWS ]=----#
     awscli2

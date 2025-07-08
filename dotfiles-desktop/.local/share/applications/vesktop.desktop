@@ -8,3 +8,4 @@ Name=Vesktop
 StartupWMClass=Vesktop
 Type=Application
 Version=1.4
+MimeType=x-scheme-handler/discord;

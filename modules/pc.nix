@@ -5,6 +5,7 @@
     [
       # ./nvidia.nix
       ./firefox.nix
+      ./cursor.nix
     ];
 
   hardware = {
@@ -30,11 +31,11 @@
   environment.systemPackages = with pkgs; [
     sway
     alacritty
+    ueberzugpp
     rofi-wayland
     bemoji
     wl-clipboard
     cliphist
-    xfce.thunar
     mako
     slurp
     grim
