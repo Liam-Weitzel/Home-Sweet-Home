@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t hoard -e hoard list
+GenericName=Command collection terminal application
+Icon=Alacritty
+Keywords=commands;collect;cli;hoard;tui
+Name=hoard
+StartupWMClass=hoard
+Type=Application
+Version=1.0

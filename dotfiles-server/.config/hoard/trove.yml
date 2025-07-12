@@ -1,0 +1,29 @@
+---
+version: 1.4.2
+commands:
+  - name: install-local-nix-package
+    namespace: default
+    tags:
+      - nix
+      - install
+      - packages
+    command: "nix-env -f . -iA #package-name"
+    description: this installs a nix package from a clone of nixpkgs locally
+  - name: nixos-rebuild
+    namespace: default
+    tags:
+      - nix
+      - rebuild
+      - switch
+      - flake
+    command: "sudo nixos-rebuild switch --flake .#liam-w"
+    description: this rebuilds nixos using the flake in the current directory for user liam-w
+  - name: nixos-uninstall-local-package
+    namespace: default
+    tags:
+      - nix
+      - install
+      - package
+      - uninstall
+    command: "nix-env -e #package-name"
+    description: this uninstalls a package which was installed locally previously from nixpkgs

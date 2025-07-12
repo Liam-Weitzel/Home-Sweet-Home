@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t neomutt -e "neomutt"
+GenericName=Email terminal application
+Icon=Alacritty
+Keywords=email;mail;neomutt;nm;tui
+Name=neomutt
+StartupWMClass=neomutt
+Type=Application
+Version=1.0

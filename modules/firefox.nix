@@ -117,6 +117,11 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/file/4493966/steam_database-4.16.xpi";
             installation_mode = "force_installed";
           };
+          # Vimium
+          "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4524018/vimium_ff-2.3.xpi";
+            installation_mode = "force_installed";
+          };
         };
   
         /* ---- PREFERENCES ---- */

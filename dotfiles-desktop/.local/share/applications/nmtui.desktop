@@ -2,7 +2,7 @@
 Categories=Network;
 Exec=alacritty -t nmtui -e "nmtui"
 GenericName=Network manager terminal application (wifi)
-Icon=nmtui
+Icon=Alacritty
 Keywords=wifi;nmtui;network;wi-fi;tui
 Name=nmtui
 StartupWMClass=nmtui

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t htop -e "htop"
+GenericName=Process monitoring terminal application
+Icon=htop
+Keywords=process;monitoring;htop;tui
+Name=htop
+StartupWMClass=htop
+Type=Application
+Version=1.0

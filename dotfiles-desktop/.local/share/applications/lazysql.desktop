@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t lazysql -e "lazysql"
+GenericName=sql terminal application
+Icon=Alacritty
+Keywords=sql;workflow;lazysql;tui
+Name=lazysql
+StartupWMClass=lazysql
+Type=Application
+Version=1.0

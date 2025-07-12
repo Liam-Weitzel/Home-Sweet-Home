@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t bitwise -e "bitwise"
+GenericName=bitwise terminal application
+Icon=Alacritty
+Keywords=bit;bitwise;tui
+Name=bitwise
+StartupWMClass=bitwise
+Type=Application
+Version=1.0

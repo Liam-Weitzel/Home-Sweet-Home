@@ -3,6 +3,8 @@
 {
   imports =
     [
+      ./modules/email.nix
+      ./modules/tui-deck.nix
       ./modules/pc.nix
       ./modules/docker.nix
       ./hardware-configuration.nix
@@ -79,7 +81,19 @@
     zip
     diffutils
     lazygit
-    yazi
+    irssi
+
+    typioca
+    sl
+    hoard
+    heh
+    flamelens
+    lazysql
+    fastfetch
+    dive
+    cloc
+    bitwise
+    bandwhich
 
     #----=[ AWS ]=----#
     awscli2

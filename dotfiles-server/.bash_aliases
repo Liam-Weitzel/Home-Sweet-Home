@@ -1,5 +1,7 @@
-alias nixsw='sudo nixos-rebuild switch --flake ~/Home-Sweet-Home/flake.nix#liam-w -vvvv'
+alias nixsw='sudo nixos-rebuild switch --flake ~/Home-Sweet-Home/flake.nix#liam-w'
+alias nixswv='sudo nixos-rebuild switch --flake ~/Home-Sweet-Home/flake.nix#liam-w -vvvv'
 alias lg='lazygit'
+alias nm='neomutt'
 
 vi() {
     nvim "$@"

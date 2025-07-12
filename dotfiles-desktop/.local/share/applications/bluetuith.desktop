@@ -2,7 +2,7 @@
 Categories=Network;
 Exec=alacritty -t bluetuith -e "bluetuith"
 GenericName=Bluetooth terminal application
-Icon=bluetuith
+Icon=Alacritty
 Keywords=bluetooth;bluetuith;network;tui
 Name=bluetuith
 StartupWMClass=bluetuith

@@ -32,6 +32,8 @@
     sway
     alacritty
     ueberzugpp
+    xfce.thunar
+    xfce.thunar-volman
     rofi-wayland
     bemoji
     wl-clipboard
@@ -68,6 +70,8 @@
     pulseaudio
     brightnessctl
     wluma
+
+    gfn-electron
 
     #GAMEDEV
     aseprite

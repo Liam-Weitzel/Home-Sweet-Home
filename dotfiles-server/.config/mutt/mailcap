@@ -1,0 +1,4 @@
+text/html;              sh ~/.bash_scripts/view_in_firefox.sh "%s" "text/html";              test=test -n "$DISPLAY"; needsterminal=false
+application/xhtml+xml;  sh ~/.bash_scripts/view_in_firefox.sh "%s" "application/xhtml+xml"; test=test -n "$DISPLAY"; needsterminal=false
+application/pdf;        sh ~/.bash_scripts/view_in_firefox.sh "%s" "application/pdf";        test=test -n "$DISPLAY"; needsterminal=false
+image/*;                sh ~/.bash_scripts/view_in_firefox.sh "%s" "image/*";                test=test -n "$DISPLAY"; needsterminal=false

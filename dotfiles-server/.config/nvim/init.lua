@@ -372,27 +372,71 @@ require('lazy').setup({
   },
 
   {
-    "mikavilpas/yazi.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      { "nvim-lua/plenary.nvim", lazy = true },
+    "Liam-Weitzel/mini.files",
+    opts = {
+      windows = {
+        preview = true,
+        width_focus = 30,
+        width_preview = 30,
+      },
+
+      mappings = {
+        close       = 'q',
+        go_in       = '<C-Right>',
+        go_in_plus  = '<Right>',
+        go_out      = '<C-Left>',
+        go_out_plus = '<Left>',
+        mark_goto   = "'",
+        mark_set    = 'm',
+        reset       = '<BS>',
+        reveal_cwd  = '@',
+        show_help   = 'g?',
+        synchronize = '=',
+        trim_left   = '<',
+        trim_right  = '>',
+      },
     },
+
     keys = {
       {
         "<leader>p",
-        mode = { "n", "v" },
-        "<cmd>Yazi<cr>",
-        desc = "Open yazi at the current file",
-      }
-    },
-    opts = {
-      open_for_directories = true,
-      keymaps = {
-        show_help = "<f1>",
+        function()
+          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+        end,
+
+        desc = "Open mini.files (Directory of Current File)",
       },
     },
-    init = function()
-      vim.g.loaded_netrwPlugin = 1
+
+    config = function(_, opts)
+      require("mini.files").setup(opts)
+
+      local show_dotfiles = true
+      local filter_show = function(fs_entry)
+        return true
+      end
+      local filter_hide = function(fs_entry)
+        return not vim.startswith(fs_entry.name, ".")
+      end
+      local toggle_dotfiles = function()
+        show_dotfiles = not show_dotfiles
+        local new_filter = show_dotfiles and filter_show or filter_hide
+        require("mini.files").refresh({ content = { filter = new_filter } })
+      end
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesBufferCreate",
+        callback = function(args)
+          local buf_id = args.data.buf_id
+          vim.keymap.set("n", ".", toggle_dotfiles, { buffer = buf_id, desc = "Toggle Hidden Files" })
+        end,
+      })
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesActionRename",
+        callback = function(event)
+          LazyVim.lsp.on_rename(event.data.from, event.data.to)
+        end,
+      })
     end,
   },
 
@@ -475,7 +519,42 @@ require('lazy').setup({
         end,
       })
     end,
+  },
+
+  { 'echasnovski/mini.surround', version = false,
+    opts = {
+      mappings = {
+        add = 'sa', -- Add surrounding in Normal and Visual modes
+        delete = 'sd', -- Delete surrounding
+        find = 'sf', -- Find surrounding (to the right)
+        find_left = 'sf', -- Find surrounding (to the left)
+        highlight = 'sh', -- Highlight surrounding
+        replace = 'sr', -- Replace surrounding
+        update_n_lines = 'sn', -- Update `n_lines`
+
+        suffix_last = 'N', -- Suffix to search with "prev" method
+        suffix_next = 'n', -- Suffix to search with "next" method
+      },
+      silent = true
+    }
+  },
+
+  { 'echasnovski/mini.splitjoin', version = false,
+    opts = {
+      mappings = {
+        toggle = 'gs',
+        split = '',
+        join = '',
+      }
+    }
+  },
+
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    opts = {},
   }
+
 }, {})
 
 -- [[ Setting options ]]
@@ -543,6 +622,57 @@ end
 -- Display actual line number in between relative numbers && breakpoints
 vim.wo.statuscolumn = '%{%v:lua.get_status(v:lnum)%}'
 
+local function switch_case()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local text = vim.fn.getline(line)
+
+  -- Helper to treat underscore as part of word
+  local function is_word_char(c)
+    return c:match("[%w_]") ~= nil
+  end
+
+  -- Find word start
+  local s = col
+  while s > 0 and is_word_char(text:sub(s, s)) do
+    s = s - 1
+  end
+  local word_start = s
+
+  -- Find word end
+  local e = col + 1
+  while e <= #text and is_word_char(text:sub(e, e)) do
+    e = e + 1
+  end
+  local word_end = e - 1
+
+  local word = text:sub(word_start + 1, word_end)
+  if word == '' then
+    print("No word found under cursor")
+    return
+  end
+
+  local replacement
+  if word:match('^[a-z]+[A-Z]') or word:match('[a-z][A-Z]') then
+    -- camelCase or PascalCase → snake_case
+    replacement = word:gsub('([a-z0-9])([A-Z])', '%1_%2'):lower()
+  elseif word:find('_') then
+    -- snake_case → camelCase
+    replacement = word:lower():gsub('_(%l)', function(c)
+      return c:upper()
+    end)
+  else
+    print("Not a recognized camelCase or snake_case word: " .. word)
+    return
+  end
+
+  vim.api.nvim_buf_set_text(0, line - 1, word_start, line - 1, word_end, { replacement })
+end
+
+vim.keymap.set({ 'n', 'v' }, '<leader>sc', switch_case, {
+  silent = true,
+  desc = "[S]witch [C]ase"
+})
+
 -- Change cursor color to bright red
 vim.api.nvim_set_hl(0, "Cursor", { fg = "#a855aa", bg = "#a855aa" })
 vim.api.nvim_set_hl(0, "iCursor", { fg = "#a855aa", bg = "#a855aa" })
@@ -584,14 +714,6 @@ vim.keymap.set('n', 'L', '<C-^>')
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- tabs
-vim.keymap.set('n', 'gm', cmd 'tabnext')
-vim.keymap.set('n', 'gM', cmd 'tabprevious')
-
 -- Page up and down center cursor
 vim.keymap.set('n', '<PageUp>', '<C-u>zz')
 vim.keymap.set('n', '<PageDown>', '<C-d>zz')
@@ -607,6 +729,12 @@ vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
 vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
 vim.keymap.set('n', '<C-w>h', ':sp<CR> <C-w>j')
 vim.keymap.set('n', '<C-w>v', ':vsp<CR> <C-w>l')
+
+-- Markdown keymaps
+vim.keymap.set('n', '<leader>mt', cmd 'RenderMarkdown buf_toggle')
+vim.keymap.set({'n', 'v'}, '<leader>mo', cmd 'RenderMarkdown expand')
+vim.keymap.set({'n', 'v'}, '<leader>mc', cmd 'RenderMarkdown contract')
+vim.keymap.set('n', '<leader>md', cmd 'RenderMarkdown debug')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })

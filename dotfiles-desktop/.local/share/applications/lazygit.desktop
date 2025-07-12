@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t lazygit -e "lazygit"
+GenericName=git terminal application
+Icon=Alacritty
+Keywords=git;workflow;lazygit;tui
+Name=lazygit
+StartupWMClass=lazygit
+Type=Application
+Version=1.0

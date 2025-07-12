@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t irssi -e "irssi"
+GenericName=IRC terminal application
+Icon=Alacritty
+Keywords=irc;chat;irssi;tui
+Name=irssi
+StartupWMClass=irssi
+Type=Application
+Version=1.0
