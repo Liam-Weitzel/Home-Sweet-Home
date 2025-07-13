@@ -51,6 +51,10 @@ require('lazy').setup({
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
 
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lua',
+
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
 
@@ -473,7 +477,6 @@ require('lazy').setup({
       { "<leader>sn", function() Snacks.picker.notifications() end, desc = "Notification History" },
       -- Other
       { "<leader>.",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
-      { "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
       { "<leader>g", function() Snacks.lazygit() end, desc = "Lazygit" },
       { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
       {
@@ -771,6 +774,12 @@ vim.keymap.set("i", "<C-h>", "<C-w>", { noremap = true, silent = true, desc = 'D
 -- Delete next word (Ctrl+Delete)
 vim.keymap.set("i", "<C-Del>", "<C-o>dw", { noremap = true, silent = true, desc = 'Delete next word' })
 
+-- Explicitly delete these as i have no idea where they are coming from...
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "grn")
+vim.keymap.del("n", "grr")
+vim.keymap.del("n", "gra")
+
 -- Home & End binds
 local function smart_home()
     local col = vim.fn.col('.')
@@ -832,6 +841,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
+    scroll_strategy = 'limit',
     mappings = {
       i = {
         ['<C-u>'] = false,
@@ -1096,33 +1106,17 @@ cmp.setup {
     completeopt = 'menu,menuone,noinsert'
   },
   mapping = cmp.mapping.preset.insert {
-    ['<C-s>'] = cmp.mapping.complete {},
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm {
+    ['<C-n>'] = cmp.mapping.close(),
+    ['<C-y>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
-    },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
+    }
   },
   sources = {
+    { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
+    { name = 'path' },
     { name = 'luasnip' },
+    { name = 'buffer', keyword_length = 5 },
   },
 }
