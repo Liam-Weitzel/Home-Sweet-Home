@@ -1,0 +1,37 @@
+# Take a look at the mako manpage with the command:
+#   man 5 mako
+# To view all configuration options.
+#
+
+on-button-left=exec /run/current-system/sw/bin/mpv ~/.config/mako/maplestory_drop.mp3 & /run/current-system/sw/bin/makoctl invoke -n "${id}" invoke-default-action & /run/current-system/sw/bin/makoctl dismiss -n "${id}"
+on-button-middle=exec /run/current-system/sw/bin/mpv ~/.config/mako/maplestory_drop.mp3 & /run/current-system/sw/bin/makoctl dismiss -n "${id}"
+on-button-right=exec /run/current-system/sw/bin/mpv ~/.config/mako/maplestory_drop.mp3 & /run/current-system/sw/bin/makoctl dismiss -n "${id}"
+on-touch=exec /run/current-system/sw/bin/mpv ~/.config/mako/maplestory_drop.mp3 & /run/current-system/sw/bin/makoctl dismiss -n "${id}"
+on-notify=exec /run/current-system/sw/bin/mpv ~/.config/mako/maplestory_invite.mp3
+
+font=Cozette 11
+format=<b>%a ⏵</b> %s\n%b
+sort=-time
+layer=overlay
+anchor=top-right
+background-color=#2C2D30
+width=300
+height=110
+margin=5
+padding=0,5,10
+border-size=3
+icons=0
+max-icon-size=64
+default-timeout=10000
+ignore-timeout=1
+
+[urgency=high]
+default-timeout=0
+
+[mode=hide]
+invisible=1
+on-button-left=none
+on-button-middle=none
+on-button-right=none
+on-touch=none
+on-notify=none

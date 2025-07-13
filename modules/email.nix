@@ -12,7 +12,7 @@
     pinentry
     cron
     lynx
-    notmuch-mutt
+    notmuch
     abook
     mpop
     urlscan
@@ -23,4 +23,10 @@
     enableSSHSupport = true;
   };
   services.pcscd.enable = true;
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "* * * * * liam-w export XDG_RUNTIME_DIR=/run/user/$(id -u) && /run/current-system/sw/bin/mailsync"
+    ];
+  };
 }

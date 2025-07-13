@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -e sh /home/liam-w/.bash_scripts/do_not_disturb.sh
+GenericName=Do not disturb
+Icon=Alacritty
+Keywords=dnd;workflow;notification;do-not-disturb;tui
+Name=do-not-disturb
+StartupWMClass=do-not-disturb
+Type=Application
+Version=1.0
