@@ -71,6 +71,7 @@
     pulseaudio
     brightnessctl
     wluma
+    playerctl
 
     gfn-electron
 

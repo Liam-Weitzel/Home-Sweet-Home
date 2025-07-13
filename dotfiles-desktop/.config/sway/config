@@ -16,14 +16,13 @@ set $term alacritty
 set $menu rofi -show drun -show-icons | xargs swaymsg exec --
 
 bindsym $Super_L+b exec rofi -show window
+bindsym $Super_L+$Shift_L+b exec sh ~/.bash_scripts/move_window_here.sh
 bindsym $Super_L+a exec rofi -show ssh
-bindsym $Super_L+x exec bemoji
+bindsym $Super_L+x exec bemoji && cliphist list | head -n1 | awk '{print $1}' | tr -d "[:space:]" | cliphist decode | tr -d "\n" | wl-copy && wtype -M ctrl -M shift v -m ctrl -m shift && cliphist list | sed -n 1p | awk '{print $1}' | tr -d "[:space:]" | cliphist delete
 bindsym $Super_L+d exec $menu
 bindsym $Super_L+c exec cliphist list | rofi -dmenu | cliphist decode | wl-copy && wtype -M ctrl -M shift v -m ctrl -m shift
 bindsym $Super_L+t exec $term
 bindsym $Super_L+$Shift_L+q kill
-# bindsym $Super_L+w exec $term -e sh -c "cd ~/Space-Bots/client && nix develop --command sh build.sh hot; read -p 'Press Enter to close...'"
-# bindsym $Super_L+y exec $term -e sh -c "cd ~/Space-Bots/server && nix develop --command sh build.sh hot; read -p 'Press Enter to close...'"
 
 exec echo 0 > /tmp/capitalize_next
 bindcode --release 50 exec "echo 1 > /tmp/capitalize_next; (sleep 0.75 && echo 0 > /tmp/capitalize_next)&"
@@ -298,6 +297,10 @@ exec python3 ~/.bash_scripts/serve_with_mime_type.py
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 # Brightness
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
@@ -362,6 +365,19 @@ bindsym $Super_L+Shift+8 move container to workspace number 8
 bindsym $Super_L+Shift+9 move container to workspace number 9
 bindsym $Super_L+Shift+0 move container to workspace number 10
 
+bindcode 415 workspace next_on_output
+bindcode 420 workspace prev_on_output
+bindcode $Super_L+415 exec swaymsg workspace $(seq $(swaymsg -t get_workspaces | jq -r 'map(select(.focused == true)) | .[0].name') 100 | grep -vFf <(swaymsg -t get_workspaces | jq -r '.[].name') | head -n 1)
+bindcode $Super_L+420 exec swaymsg workspace $(seq $(swaymsg -t get_workspaces | jq -r 'map(select(.focused == true)) | .[0].name') -1 1 | grep -vFf <(swaymsg -t get_workspaces | jq -r '.[].name') | head -n 1)
+bindcode $Super_L+Shift+415 move workspace next_on_output; workspace next_on_output
+bindcode $Super_L+Shift+420 move workspace prev_on_output; workspace prev_on_output
+
+#startup apps:
+exec alacritty
+exec firefox
+exec nextcloud
+exec vesktop
+
 bindsym $Super_L+h splitv
 bindsym $Super_L+v splith
 
@@ -369,11 +385,11 @@ bindsym $Super_L+e layout toggle split tabbed stacking
 
 bindsym $Super_L+f exec "sh ~/.bash_scripts/full_screen.sh"
 
-bindsym $Super_L+Shift+space floating toggle
+bindsym $Super_L+Tab floating toggle
 
-bindsym $Super_L+space focus mode_toggle
+bindsym $Super_L+Escape focus mode_toggle
 
-bindsym $Super_L+Escape focus parent
+bindsym $Super_L+p focus parent
 
 bindsym $Super_L+m move scratchpad
 bindsym $Super_L+$Shift_L+m scratchpad show
@@ -383,14 +399,51 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    bindsym Left resize shrink width 30px
+    bindsym Down resize grow height 30px
+    bindsym Up resize shrink height 30px
+    bindsym Right resize grow width 30px
 
-    # Return to default mode
+    bindsym 1 mode "default"
+    bindsym 2 mode "default"
+    bindsym 3 mode "default"
+    bindsym 4 mode "default"
+    bindsym 5 mode "default"
+    bindsym 6 mode "default"
+    bindsym 7 mode "default"
+    bindsym 8 mode "default"
+    bindsym 9 mode "default"
+    bindsym a mode "default"
+    bindsym b mode "default"
+    bindsym c mode "default"
+    bindsym d mode "default"
+    bindsym e mode "default"
+    bindsym f mode "default"
+    bindsym g mode "default"
+    bindsym h mode "default"
+    bindsym i mode "default"
+    bindsym j mode "default"
+    bindsym k mode "default"
+    bindsym l mode "default"
+    bindsym m mode "default"
+    bindsym n mode "default"
+    bindsym o mode "default"
+    bindsym p mode "default"
+    bindsym q mode "default"
+    bindsym r mode "default"
+    bindsym s mode "default"
+    bindsym t mode "default"
+    bindsym u mode "default"
+    bindsym v mode "default"
+    bindsym w mode "default"
+    bindsym x mode "default"
+    bindsym y mode "default"
+    bindsym z mode "default"
+    bindsym Shift mode "default"
+    bindsym Control mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym $Super_L+r mode "default"
 }
 bindsym $Super_L+r mode "resize"
 
@@ -413,301 +466,3 @@ bar {
 }
 
 include /etc/sway/config.d/*
-
-
-# # This file has been auto-generated by i3-config-wizard(1).
-# # It will not be overwritten, so edit it as you like.
-# #
-# # Should you change your keyboard layout some time, delete
-# # this file and re-run i3-config-wizard(1).
-# #
-#
-# # i3 config file (v4)
-# #
-# # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-#
-# set $Super_L Mod4
-#
-# # Font for window titles. Will also be used by the bar unless a different font
-# # is used in the bar {} block below.
-# font pango:monospace 8
-#
-# # This font is widely installed, provides lots of unicode glyphs, right-to-left
-# # text rendering and scalability on retina/hidpi displays (thanks to pango).
-# #font pango:DejaVu Sans Mono 8
-#
-# # The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# # they are included here as an example. Modify as you see fit.
-#
-# # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# # screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-#
-# # NetworkManager is the most popular way to manage wireless networks on Linux,
-# # and nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
-#
-# # Use Mouse+$Super_L to drag floating windows to their wanted position
-# floating_modifier $Super_L
-#
-# # kill focused window
-# bindsym $Super_L+Shift+q kill
-#
-# # start dmenu (a program launcher)
-# bindsym $Super_L+d exec dmenu_run -i
-# # There also is the (new) i3-dmenu-desktop which only displays applications
-# # shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# # installed.
-# # bindsym $Super_L+d exec --no-startup-id i3-dmenu-desktop
-#
-# # change focus
-# bindsym $Super_L+Left focus left
-# bindsym $Super_L+Down focus down
-# bindsym $Super_L+Up focus up
-# bindsym $Super_L+Right focus right
-# bindsym $Super_L+Escape focus mode_toggle
-#
-# # move focused window
-# bindsym $Super_L+Shift+Left move left
-# bindsym $Super_L+Shift+Down move down
-# bindsym $Super_L+Shift+Up move up
-# bindsym $Super_L+Shift+Right move right
-#
-# # split in horizontal orientation
-# bindsym $Super_L+h split v
-#
-# # split in vertical orientation
-# bindsym $Super_L+v split h
-#
-# # enter fullscreen mode for the focused container
-# bindsym $Super_L+f exec bash ~/.bash_scripts/fullscreen.sh
-#
-# # change container layout (stacked, tabbed, split)
-# bindsym $Super_L+e layout toggle
-#
-# # toggle tiling / floating
-# bindsym $Super_L+space floating toggle
-#
-# # change focus between tiling / floating windows
-# bindsym $Super_L+Shift+a focus mode_toggle
-#
-# # Define names for default workspaces for which we configure key bindings later on.
-# # We use variables to avoid repeating the names in multiple places.
-# set $ws1 "1"
-# set $ws2 "2"
-# set $ws3 "3"
-# set $ws4 "4"
-# set $ws5 "5"
-# set $ws6 "6"
-# set $ws7 "7"
-# set $ws8 "8"
-# set $ws9 "9"
-# set $ws10 "10"
-# set $ws11 "11"
-# set $ws12 "12"
-# set $ws13 "13"
-# set $ws14 "14"
-# set $ws15 "15"
-# set $ws16 "16"
-# set $ws17 "17"
-# set $ws18 "18"
-# set $ws19 "19"
-# set $ws20 "20"
-#
-# # switch to workspace
-# bindsym $Super_L+1 workspace number $ws1
-# bindsym $Super_L+2 workspace number $ws2
-# bindsym $Super_L+3 workspace number $ws3
-# bindsym $Super_L+4 workspace number $ws4
-# bindsym $Super_L+5 workspace number $ws5
-# bindsym $Super_L+6 workspace number $ws6
-# bindsym $Super_L+7 workspace number $ws7
-# bindsym $Super_L+8 workspace number $ws8
-# bindsym $Super_L+9 workspace number $ws9
-# bindsym $Super_L+0 workspace number $ws10
-# bindsym $Super_L+Control+1 workspace number $ws11
-# bindsym $Super_L+Control+2 workspace number $ws12
-# bindsym $Super_L+Control+3 workspace number $ws13
-# bindsym $Super_L+Control+4 workspace number $ws14
-# bindsym $Super_L+Control+5 workspace number $ws15
-# bindsym $Super_L+Control+6 workspace number $ws16
-# bindsym $Super_L+Control+7 workspace number $ws17
-# bindsym $Super_L+Control+8 workspace number $ws18
-# bindsym $Super_L+Control+9 workspace number $ws19
-# bindsym $Super_L+Control+0 workspace number $ws20
-#
-# # move focused container to workspace
-# bindsym $Super_L+Shift+1 move container to workspace number $ws1
-# bindsym $Super_L+Shift+2 move container to workspace number $ws2
-# bindsym $Super_L+Shift+3 move container to workspace number $ws3
-# bindsym $Super_L+Shift+4 move container to workspace number $ws4
-# bindsym $Super_L+Shift+5 move container to workspace number $ws5
-# bindsym $Super_L+Shift+6 move container to workspace number $ws6
-# bindsym $Super_L+Shift+7 move container to workspace number $ws7
-# bindsym $Super_L+Shift+8 move container to workspace number $ws8
-# bindsym $Super_L+Shift+9 move container to workspace number $ws9
-# bindsym $Super_L+Shift+0 move container to workspace number $ws10
-# bindsym $Super_L+Shift+Control+1 move container to workspace number $ws11
-# bindsym $Super_L+Shift+Control+2 move container to workspace number $ws12
-# bindsym $Super_L+Shift+Control+3 move container to workspace number $ws13
-# bindsym $Super_L+Shift+Control+4 move container to workspace number $ws14
-# bindsym $Super_L+Shift+Control+5 move container to workspace number $ws15
-# bindsym $Super_L+Shift+Control+6 move container to workspace number $ws16
-# bindsym $Super_L+Shift+Control+7 move container to workspace number $ws17
-# bindsym $Super_L+Shift+Control+8 move container to workspace number $ws18
-# bindsym $Super_L+Shift+Control+9 move container to workspace number $ws19
-# bindsym $Super_L+Shift+Control+0 move container to workspace number $ws20
-#
-# bindsym $Super_L+Shift+Control+Left move workspace to output left
-# bindsym $Super_L+Shift+Control+Right move workspace to output right
-# bindsym $Super_L+Shift+Control+Up move workspace to output up
-# bindsym $Super_L+Shift+Control+Down move workspace to output down
-#
-# bindsym $Super_L+Shift+Control+n move container to output left; focus output left
-# bindsym $Super_L+Shift+Control+i move container to output right; focus output right
-# bindsym $Super_L+Shift+Control+u move container to output up; focus output up
-# bindsym $Super_L+Shift+Control+e move container to output down; focus output down
-#
-# # exit i3 (logs you out of your X session)
-# bindsym $Super_L+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-#
-# # resize window (you can also use the mouse for that)
-# mode "resize" {
-#         # These bindings trigger as soon as you enter the resize mode
-#
-#         # Pressing left will shrink the window’s width.
-#         # Pressing right will grow the window’s width.
-#         # Pressing up will shrink the window’s height.
-#         # Pressing down will grow the window’s height.
-#         bindsym Left resize shrink width 10 px or 10 ppt
-#         bindsym Down resize grow height 10 px or 10 ppt
-#         bindsym Up resize shrink height 10 px or 10 ppt
-#         bindsym Right resize grow width 10 px or 10 ppt
-#
-#         # back to normal
-#         bindsym 1 mode "default"
-#         bindsym 2 mode "default"
-#         bindsym 3 mode "default"
-#         bindsym 4 mode "default"
-#         bindsym 5 mode "default"
-#         bindsym 6 mode "default"
-#         bindsym 7 mode "default"
-#         bindsym 8 mode "default"
-#         bindsym 9 mode "default"
-#         bindsym a mode "default"
-#         bindsym b mode "default"
-#         bindsym c mode "default"
-#         bindsym d mode "default"
-#         bindsym e mode "default"
-#         bindsym f mode "default"
-#         bindsym g mode "default"
-#         bindsym h mode "default"
-#         bindsym i mode "default"
-#         bindsym j mode "default"
-#         bindsym k mode "default"
-#         bindsym l mode "default"
-#         bindsym m mode "default"
-#         bindsym n mode "default"
-#         bindsym o mode "default"
-#         bindsym p mode "default"
-#         bindsym q mode "default"
-#         bindsym r mode "default"
-#         bindsym s mode "default"
-#         bindsym t mode "default"
-#         bindsym u mode "default"
-#         bindsym v mode "default"
-#         bindsym w mode "default"
-#         bindsym x mode "default"
-#         bindsym y mode "default"
-#         bindsym z mode "default"
-#         bindsym Shift mode "default"
-#         bindsym Control mode "default"
-#         bindsym Return mode "default"
-#         bindsym Escape mode "default"
-#         bindsym $Super_L+r mode "default"
-# }
-#
-# bindsym $Super_L+r mode "resize"
-#
-# # Start i3bar to display a workspace bar (plus the system information i3status
-# # finds out, if available)
-# bar {
-#         status_command i3status
-# }
-#
-# #set default border
-# default_border pixel 2
-# default_floating_border pixel 2
-#
-# #tap to click touchpad & set sens
-# exec_always xinput set-prop "Apple Inc. Magic Trackpad 2" "libinput Tapping Enabled" 1
-# exec_always xinput set-prop "Apple Inc. Magic Trackpad 2" "Coordinate Transformation Matrix" 1.2, 0.0, 0.0, 0.0, 1.2, 0.0, 0.0, 0.0, 1.0
-# exec_always xinput set-prop "pointer:MOSART Semi. 2.4G Keyboard Mouse" "Coordinate Transformation Matrix" 0.5, 0.0, 0.0, 0.0, 0.5, 0.0, 0.0, 0.0, 1.0
-#
-# #start up processes
-# exec libinput-gestures-setup start
-# exec google-chrome --app=https://whiteboard.office.com/
-# exec google-chrome --app=https://chat.openai.com/
-# exec blueman-manager
-# exec google-chrome --app=https://www.audible.com/library/
-# exec google-chrome --app=https://open.spotify.com/
-# exec google-chrome --app=https://calendar.google.com/calendar/u/2/r/month/2024/2/1?pli=1
-# exec google-chrome --app=https://mail.google.com/mail/u/0/#inbox 
-# exec google-chrome -app=https://drive.google.com/drive/u/0/my-drive
-# exec gromit-mpx
-# exec redshift-gtk
-# exec '/opt/Mullvad VPN/mullvad-vpn' %U
-# exec flatpak run me.timschneeberger.GalaxyBudsClient
-# exec bash ~/.bash_scripts/battery_warning.sh
-# exec CM_SELECTIONS=clipboard clipmenud
-#
-# # restart audio stack & i3
-# bindsym $Super_L+Shift+XF86AudioPrev restart; exec systemctl --user restart wireplumber pipewire pipewire-pulse
-#
-# #brightness keys using brightnessctl
-# bindsym XF86MonBrightnessUp exec sudo brightnessctl set +5%
-# bindsym XF86MonBrightnessDown exec sudo brightnessctl set 5%-
-#
-# #volume keys using pactl bash script
-# bindsym XF86AudioRaiseVolume exec bash ~/.bash_scripts/pactl_volume.sh +5% && $refresh_i3status
-# bindsym XF86AudioLowerVolume exec bash ~/.bash_scripts/pactl_volume.sh -5% && $refresh_i3status
-# bindsym XF86AudioMute exec bash ~/.bash_scripts/pactl_volume.sh M && $refresh_i3status
-#
-# #play-pause-next-previous buttons
-# bindsym XF86AudioPlay exec playerctl play-pause
-# bindsym XF86AudioPause exec playerctl play-pause
-# bindsym XF86AudioNext exec playerctl next
-# bindsym XF86AudioPrev exec playerctl previous
-#
-# #start custom dmenu
-# bindsym $Super_L+Shift+d exec bash ~/.bash_scripts/dmenu_custom.sh
-#
-# #minimizing windows & fetching them
-# bindsym $Super_L+Shift+m exec bash ~/.bash_scripts/cycle_move_window.sh 20
-# bindsym $Super_L+m move container to workspace number $ws20
-#
-# #prev next workspace using f17 & f18
-# bindcode $Super_L+195 workspace prev_on_output
-# bindcode $Super_L+196 workspace next_on_output
-# bindcode $Super_L+Shift+195 move workspace prev_on_output; workspace prev_on_output
-# bindcode $Super_L+Shift+196 move workspace next_on_output; workspace next_on_output
-#
-# #printscreen
-# bindsym Print exec gnome-screenshot -i
-#
-# #open file explorer
-# bindsym $Super_L+s exec nemo
-#
-# #open google
-# bindsym $Super_L+g exec google-chrome
-#
-# # start a terminal
-# bindsym $Super_L+t exec i3-sensible-terminal
-# bindsym $Super_L+Shift+t exec ~/.bash_scripts/tmux-sessionizer.sh
-#
-# #open dmenu window jumper & grabber
-# bindsym $Super_L+j exec bash ~/.bash_scripts/dmenu-i3-window-jumper.sh
-# bindsym $Super_L+Shift+j exec bash ~/.bash_scripts/dmenu-i3-window-grabber.sh
-#
-# #open clipboard manager
-# bindsym $Super_L+c exec clipmenu -i

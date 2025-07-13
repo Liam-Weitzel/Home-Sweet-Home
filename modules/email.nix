@@ -16,6 +16,7 @@
     abook
     mpop
     urlscan
+    pam_gnupg
   ];
 
   programs.gnupg.agent = {
