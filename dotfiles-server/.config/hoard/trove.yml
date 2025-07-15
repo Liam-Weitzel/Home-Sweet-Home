@@ -27,3 +27,12 @@ commands:
       - uninstall
     command: "nix-env -e #package-name"
     description: this uninstalls a package which was installed locally previously from nixpkgs
+  - name: monitor_cron_jobs
+    namespace: default
+    tags:
+      - cron
+      - monitoring
+      - journalctl
+      - cronjob
+    command: journalctl -u cron -f
+    description: shows a live output of what commands cron is running

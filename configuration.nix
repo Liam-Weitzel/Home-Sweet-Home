@@ -83,6 +83,8 @@
     lazygit
     irssi
 
+    gtt
+    showmethekey
     typioca
     sl
     hoard

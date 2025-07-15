@@ -552,6 +552,158 @@ require('lazy').setup({
     }
   },
 
+  { 'echasnovski/mini.jump', version = false,
+    opts = { 
+      -- Module mappings. Use `''` (empty string) to disable one.
+      mappings = {
+        forward = 'f',
+        backward = 'F',
+        forward_till = 't',
+        backward_till = 'T',
+        repeat_jump = ';',
+      },
+
+      -- Delay values (in ms) for different functionalities. Set any of them to
+      -- a very big number (like 10^7) to virtually disable.
+      delay = {
+        -- Delay between jump and highlighting all possible jumps
+        highlight = 250,
+
+        -- Delay between jump and automatic stop if idle (no jump is done)
+        idle_stop = 10000000,
+      },
+
+      -- Whether to disable showing non-error feedback
+      -- This also affects (purely informational) helper messages shown after
+      -- idle time if user input is required.
+      silent = false,
+    }
+  },
+
+  { 'echasnovski/mini.bracketed', version = false, 
+    opts = {
+      -- First-level elements are tables describing behavior of a target:
+      --
+      -- - <suffix> - single character suffix. Used after `[` / `]` in mappings.
+      --   For example, with `b` creates `[B`, `[b`, `]b`, `]B` mappings.
+      --   Supply empty string `''` to not create mappings.
+      --
+      -- - <options> - table overriding target options.
+      --
+      -- See `:h MiniBracketed.config` for more info.
+
+      buffer     = { suffix = 'b', options = {} },
+      comment    = { suffix = '2', options = {} },
+      conflict   = { suffix = '1', options = {} },
+      diagnostic = { suffix = '3', options = {} },
+      file       = { suffix = '', options = {} },
+      indent     = { suffix = '', options = {} },
+      jump       = { suffix = '', options = {} },
+      location   = { suffix = '4', options = {} },
+      oldfile    = { suffix = '9', options = {} },
+      quickfix   = { suffix = '\\', options = {} },
+      treesitter = { suffix = '', options = {} },
+      undo       = { suffix = '', options = {} },
+      window     = { suffix = '', options = {} },
+      yank       = { suffix = '', options = {} },
+    }
+  },
+
+  { 'echasnovski/mini.pairs', version = false,
+    opts = {
+      -- In which modes mappings from this `config` should be created
+      modes = { insert = true, command = false, terminal = false },
+
+      -- Global mappings. Each right hand side should be a pair information, a
+      -- table with at least these fields (see more in |MiniPairs.map|):
+      -- - <action> - one of 'open', 'close', 'closeopen'.
+      -- - <pair> - two character string for pair to be used.
+      -- By default pair is not inserted after `\`, quotes are not recognized by
+      -- <CR>, `'` does not insert pair after a letter.
+      -- Only parts of tables can be tweaked (others will use these defaults).
+      mappings = {
+        ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
+        ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
+        ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
+
+        [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+        [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+        ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+
+        ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
+        ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
+        ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
+      }
+    }
+  },
+
+  { 'echasnovski/mini.move', version = false,
+    opts = {
+      -- Module mappings. Use `''` (empty string) to disable one.
+      mappings = {
+        -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+        left = '<A-Left>',
+        right = '<A-Right>',
+        down = '<A-Down>',
+        up = '<A-Up>',
+
+        -- Move current line in Normal mode
+        line_left = '<A-Left>',
+        line_right = '<A-Right>',
+        line_down = '<A-Down>',
+        line_up = '<A-Up>',
+      },
+
+      -- Options which control moving behavior
+      options = {
+        -- Automatically reindent selection during linewise vertical move
+        reindent_linewise = true,
+      },
+    }
+  },
+
+  { 'echasnovski/mini.align', version = false },
+
+  { 'echasnovski/mini.ai', version = false,
+    opts = {
+      -- Table with textobject id as fields, textobject specification as values.
+      -- Also use this to disable builtin textobjects. See |MiniAi.config|.
+      custom_textobjects = nil,
+
+      -- Module mappings. Use `''` (empty string) to disable one.
+      mappings = {
+        -- Main textobject prefixes
+        around = 'a',
+        inside = 'i',
+
+        -- Next/last variants
+        -- NOTE: These override built-in LSP selection mappings on Neovim>=0.12
+        -- Map LSP selection manually to use it (see `:h MiniAi.config`)
+        around_next = 'an',
+        inside_next = 'in',
+        around_last = 'al',
+        inside_last = 'il',
+
+        -- Move cursor to corresponding edge of `a` textobject
+        goto_left = 'g[',
+        goto_right = 'g]',
+      },
+
+      -- Number of lines within which textobject is searched
+      n_lines = 50,
+
+      -- How to search for object (first inside current line, then inside
+      -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
+      -- 'cover_or_nearest', 'next', 'previous', 'nearest'.
+      search_method = 'cover_or_next',
+
+      -- Whether to disable showing non-error feedback
+      -- This also affects (purely informational) helper messages shown after
+      -- idle time if user input is required.
+      silent = false,
+    }
+  },
+
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
@@ -756,16 +908,12 @@ vim.keymap.set("v", "<C-x>", "<C-x>gv")
 vim.keymap.set("n", "x", "\"xx")
 vim.keymap.set("n", "c", "\"cc")
 vim.keymap.set("n", "cc", "\"ccc")
-vim.keymap.set("n", "s", "\"ss")
 vim.keymap.set("n", "X", "\"xX")
 vim.keymap.set("n", "C", "\"cC")
-vim.keymap.set("n", "S", "\"sS")
 vim.keymap.set("v", "x", "\"xx")
 vim.keymap.set("v", "c", "\"cc")
-vim.keymap.set("v", "s", "\"ss")
 vim.keymap.set("v", "X", "\"xX")
 vim.keymap.set("v", "C", "\"cC")
-vim.keymap.set("v", "S", "\"sS")
 
 -- Delete previous word (Ctrl+Backspace)
 vim.keymap.set("i", "<C-BS>", "<C-w>", { noremap = true, silent = true, desc = 'Delete previous word' })
@@ -773,6 +921,12 @@ vim.keymap.set("i", "<C-h>", "<C-w>", { noremap = true, silent = true, desc = 'D
 
 -- Delete next word (Ctrl+Delete)
 vim.keymap.set("i", "<C-Del>", "<C-o>dw", { noremap = true, silent = true, desc = 'Delete next word' })
+
+-- Delete default delete + insert bind
+vim.keymap.set("n", "s", "<nop>")
+vim.keymap.set("n", "S", "<nop>")
+vim.keymap.set("v", "s", "<nop>")
+vim.keymap.set("v", "S", "<nop>")
 
 -- Explicitly delete these as i have no idea where they are coming from...
 vim.keymap.del("n", "gri")
@@ -962,21 +1116,13 @@ vim.defer_fn(function()
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
-          [']m'] = '@function.outer',
+          [']f'] = '@function.outer',
           [']]'] = '@class.outer',
         },
-        goto_next_end = {
-          [']M'] = '@function.outer',
-          [']['] = '@class.outer',
-        },
         goto_previous_start = {
-          ['[m'] = '@function.outer',
+          ['[f'] = '@function.outer',
           ['[['] = '@class.outer',
-        },
-        goto_previous_end = {
-          ['[M'] = '@function.outer',
-          ['[]'] = '@class.outer',
-        },
+        }
       },
       swap = {
         enable = true,
