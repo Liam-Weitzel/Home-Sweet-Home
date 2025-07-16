@@ -708,7 +708,60 @@ require('lazy').setup({
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
     opts = {},
-  }
+  },
+
+  { 'p00f/godbolt.nvim',
+    opts = {
+      languages = {
+        cpp = { compiler = "g122", options = {} },
+        c = { compiler = "cg122", options = {} },
+        rust = { compiler = "r1650", options = {} },
+        -- any_additional_filetype = { compiler = ..., options = ... },
+      },
+      auto_cleanup = true, -- remove highlights and autocommands on buffer close
+      highlight = {
+        cursor = "Visual", -- `cursor = false` to disable
+        -- values in this table can be:
+        -- 1. existing highlight group
+        -- 2. hex color string starting with #
+        static = {
+          "#3a3e48", -- slightly brighter bluish-gray
+          "#423640", -- brighter purple-gray
+          "#3d4444", -- lifted desaturated green-gray
+          "#474339", -- warm brown-gray
+          "#3e444f", -- cool gray-blue
+          "#44394d"  -- lavender-gray
+        }
+        -- `static = false` to disable
+      },
+      -- `highlight = false` to disable highlights
+      quickfix = {
+        enable = false, -- whether to populate the quickfix list in case of errors
+        auto_open = false -- whether to open the quickfix list in case of errors
+      },
+      url = "https://godbolt.org" -- can be changed to a different godbolt instance
+    }
+  },
+
+  { 'madskjeldgaard/cppman.nvim',
+    requires = { { 'MunifTanjim/nui.nvim' } },
+    config = function()
+      local cppman = require"cppman"
+      cppman.setup()
+
+      -- Make a keymap to open the word under cursor in CPPman
+      vim.keymap.set("n", "<leader>cm", function()
+        cppman.open_cppman_for(vim.fn.expand("<cword>"))
+      end, { desc = 'Open word under cursor in cppman' })
+
+      -- Open search box
+      vim.keymap.set("n", "<leader>cs", function()
+        cppman.input()
+      end, { desc = 'Open cppman search box' })
+    end
+  }, 
+
+  "Freed-Wu/cppinsights.nvim",
 
 }, {})
 
@@ -885,15 +938,17 @@ vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
 vim.keymap.set('n', '<C-w>h', ':sp<CR> <C-w>j')
 vim.keymap.set('n', '<C-w>v', ':vsp<CR> <C-w>l')
 
+-- Godbolt keymaps
+vim.keymap.set('n', '<leader>cg', cmd 'Godbolt')
+vim.keymap.set('n', '<leader>cc', cmd 'GodboltCompiler telescope')
+
 -- Markdown keymaps
 vim.keymap.set('n', '<leader>mt', cmd 'RenderMarkdown buf_toggle')
 vim.keymap.set({'n', 'v'}, '<leader>mo', cmd 'RenderMarkdown expand')
 vim.keymap.set({'n', 'v'}, '<leader>mc', cmd 'RenderMarkdown contract')
 vim.keymap.set('n', '<leader>md', cmd 'RenderMarkdown debug')
 
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+-- Open diagnostic
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 
 -- don't deselect when indenting and incrementing
@@ -1148,6 +1203,8 @@ wk.add({
     { "<leader>s_", hidden = true },
     { "<leader>w", group = "[W]orkspace" },
     { "<leader>w_", hidden = true },
+    { "<leader>c", group = "[C]++" },
+    { "<leader>c_", hidden = true },
     { "<leader>u", group = "Toggles" },
     { "<leader>u_", hidden = true },
     { "<leader>x", group = "Trouble" },

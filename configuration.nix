@@ -7,6 +7,7 @@
       ./modules/tui-deck.nix
       ./modules/pc.nix
       ./modules/docker.nix
+      ./modules/cppman.nix
       ./hardware-configuration.nix
     ];
 

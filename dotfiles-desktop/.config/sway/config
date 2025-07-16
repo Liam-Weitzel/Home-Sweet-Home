@@ -18,7 +18,7 @@ set $menu rofi -show drun -show-icons | xargs swaymsg exec --
 bindsym $Super_L+b exec rofi -show window
 bindsym $Super_L+$Shift_L+b exec sh ~/.bash_scripts/move_window_here.sh
 bindsym $Super_L+a exec rofi -show ssh
-bindsym $Super_L+x exec bemoji && cliphist list | head -n1 | awk '{print $1}' | tr -d "[:space:]" | cliphist decode | tr -d "\n" | wl-copy && wtype -M ctrl -M shift v -m ctrl -m shift && cliphist list | sed -n 1p | awk '{print $1}' | tr -d "[:space:]" | cliphist delete
+bindsym $Super_L+x exec bemoji -t
 bindsym $Super_L+d exec $menu
 bindsym $Super_L+c exec cliphist list | rofi -dmenu | cliphist decode | wl-copy && wtype -M ctrl -M shift v -m ctrl -m shift
 bindsym $Super_L+t exec $term
