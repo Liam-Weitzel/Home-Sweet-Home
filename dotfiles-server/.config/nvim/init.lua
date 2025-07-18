@@ -761,6 +761,33 @@ require('lazy').setup({
     end
   }, 
 
+  { 
+    'sQVe/sort.nvim',
+    config = function()
+      require('sort').setup({
+        mappings = {
+          operator = 'ss',
+          textobject = false,
+          motion = false,
+        },
+      })
+    end,
+  },
+
+  {
+    "mg979/vim-visual-multi",
+    init = function()
+      vim.g.VM_maps = {
+        ["Find Under"]         = "<C-n>",
+        ["Find Subword Under"] = "<C-n>",
+        ["Select All"]         = "<leader>ma",
+        ["Start Regex Search"] = "<leader>mr",
+        ["Add Cursor At Pos"]  = "<leader>mp",
+        ["Visual Cursors"]     = "<leader>mv",
+      }
+    end
+  }
+
 }, {})
 
 -- [[ Setting options ]]
@@ -1246,6 +1273,8 @@ wk.add({
     { "<leader>h_", hidden = true },
     { "<leader>r", group = "[R]efactor" },
     { "<leader>r_", hidden = true },
+    { "<leader>m", group = "[M]ardown & [M]ultiline" },
+    { "<leader>m_", hidden = true },
     { "<leader>s", group = "[S]earch" },
     { "<leader>s_", hidden = true },
     { "<leader>w", group = "[W]orkspace" },
@@ -1318,7 +1347,16 @@ require'lspconfig'.pyright.setup{}
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
-luasnip.config.setup {}
+
+-- FIX: these keymaps don't work - how do i add new snippets?
+vim.keymap.set({"i"}, "<M-u>", function() luasnip.expand() end, {silent = true})
+vim.keymap.set({"i", "s"}, "<M-i>", function() luasnip.jump( 1) end, {silent = true})
+vim.keymap.set({"i", "s"}, "<M-n>", function() luasnip.jump(-1) end, {silent = true})
+vim.keymap.set({"i", "s"}, "<M-e>", function()
+  if luasnip.choice_active() then
+    luasnip.change_choice(1)
+  end
+end, {silent = true})
 
 -- rebind common typos
 vim.cmd([[
