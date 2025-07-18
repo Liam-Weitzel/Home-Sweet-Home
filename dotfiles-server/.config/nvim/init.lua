@@ -761,8 +761,6 @@ require('lazy').setup({
     end
   }, 
 
-  "Freed-Wu/cppinsights.nvim",
-
 }, {})
 
 -- [[ Setting options ]]
@@ -988,6 +986,55 @@ vim.keymap.del("n", "gri")
 vim.keymap.del("n", "grn")
 vim.keymap.del("n", "grr")
 vim.keymap.del("n", "gra")
+
+-- CPP insights
+function RunInsights()
+    local filepath = vim.fn.expand('%:p')
+
+    -- Create vertical split
+    vim.cmd('vsplit')
+    local output_win = vim.api.nvim_get_current_win()
+
+    -- Create a new buffer with a unique name
+    local timestamp = os.time()
+    local output_buf = vim.api.nvim_create_buf(true, false)
+    local unique_name = 'insights_output_' .. timestamp .. '.cpp'
+    vim.api.nvim_buf_set_name(output_buf, unique_name)
+
+    -- Set the buffer into the split
+    vim.api.nvim_win_set_buf(output_win, output_buf)
+
+    -- Set filetype explicitly to cpp
+    vim.api.nvim_buf_set_option(output_buf, 'filetype', 'cpp')
+
+    -- Run insights command
+    local handle = io.popen('insights "' .. filepath .. '"')
+    if not handle then
+        print("Failed to run insights")
+        return
+    end
+
+    local result = handle:read("*a")
+    handle:close()
+
+    -- Replace INSIGHTS-TODO comments with concise TODO
+    result = result:gsub('/%* INSIGHTS%-TODO:.-%*/', '/* TODO */')
+
+    -- Insert output into buffer
+    vim.api.nvim_buf_set_lines(output_buf, 0, -1, false, vim.split(result, '\n'))
+
+    -- Mark buffer modifiable & readonly (for LSP and no accidental edits)
+    vim.bo[output_buf].modifiable = true
+    vim.bo[output_buf].readonly = true
+
+    -- Mark buffer as NOT modified so no quit warning
+    vim.bo[output_buf].modified = false
+
+    -- Go back to left window
+    vim.cmd('wincmd h')
+end
+
+vim.keymap.set("n", "<leader>ci", RunInsights, { desc = "Run cppinsights" })
 
 -- Home & End binds
 local function smart_home()
