@@ -1345,18 +1345,48 @@ require'lspconfig'.pyright.setup{}
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
-local luasnip = require 'luasnip'
+local ls = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
+require('luasnip.loaders.from_lua').lazy_load({ paths = "~/.config/nvim/snippets" })
 
--- FIX: these keymaps don't work - how do i add new snippets?
-vim.keymap.set({"i"}, "<M-u>", function() luasnip.expand() end, {silent = true})
-vim.keymap.set({"i", "s"}, "<M-i>", function() luasnip.jump( 1) end, {silent = true})
-vim.keymap.set({"i", "s"}, "<M-n>", function() luasnip.jump(-1) end, {silent = true})
-vim.keymap.set({"i", "s"}, "<M-e>", function()
-  if luasnip.choice_active() then
-    luasnip.change_choice(1)
+-- Jump forward in snippet
+vim.keymap.set({ "i", "s" }, "<Tab>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
   end
-end, {silent = true})
+end, { silent = true })
+
+-- Jump backward in snippet
+vim.keymap.set({ "i", "s" }, "<C-Tab>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })
+
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      ls.lsp_expand(args.body)
+    end,
+  },
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
+  },
+  mapping = cmp.mapping.preset.insert {
+    ['<C-n>'] = cmp.mapping.close(),
+    ['<C-y>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+  },
+  sources = {
+    { name = 'nvim_lua' },
+    { name = 'nvim_lsp' },
+    { name = 'path' },
+    { name = 'luasnip' },
+    { name = 'buffer', keyword_length = 5 },
+  },
+}
 
 -- rebind common typos
 vim.cmd([[
@@ -1383,28 +1413,3 @@ cnoreabbrev Q q
 cnoreabbrev Qa qa
 cnoreabbrev Qall qall
 ]])
-
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  completion = {
-    completeopt = 'menu,menuone,noinsert'
-  },
-  mapping = cmp.mapping.preset.insert {
-    ['<C-n>'] = cmp.mapping.close(),
-    ['<C-y>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    }
-  },
-  sources = {
-    { name = 'nvim_lua' },
-    { name = 'nvim_lsp' },
-    { name = 'path' },
-    { name = 'luasnip' },
-    { name = 'buffer', keyword_length = 5 },
-  },
-}
