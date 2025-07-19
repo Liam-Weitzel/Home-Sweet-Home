@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t ncspot -e "ncspot"
+GenericName=Spotify terminal application
+Icon=Alacritty
+Keywords=music;spotify;audio;ncspot;song;tui
+Name=ncspot
+StartupWMClass=ncspot
+Type=Application
+Version=1.0

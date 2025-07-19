@@ -299,56 +299,46 @@ require('lazy').setup({
       require("dapui").setup()
       require("nvim-dap-virtual-text").setup()
 
-      dap.adapters.gdb = {
+      dap.adapters.lldb = {
         type = "executable",
-        command = "gdb",
-        args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
+        command = "lldb-dap",
+        name = "lldb-dap"
       }
 
       dap.configurations.cpp = {
         {
-          name = "Launch with shared libs",
-          type = "gdb",
+          name = "Launch with LLDB-DAP",
+          type = "lldb",
           request = "launch",
           program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
           end,
           cwd = "${workspaceFolder}",
-          stopAtBeginningOfMainSubprogram = false,
-          setupCommands = {
-            {
-              text = "set auto-load safe-path /",
-              description = "Allow loading shared libraries"
-            },
-            {
-              text = "set follow-fork-mode child",
-              description = "Follow child processes"
-            },
-            {
-              text = "set detach-on-fork off",
-              description = "Keep control of both processes after fork"
-            },
-            {
-              text = "set auto-solib-add on",
-              description = "Automatically load shared library symbols"
-            }
-          }
+          stopOnEntry = false,
+          args = {},
+          runInTerminal = false,
         }
       }
 
-      vim.keymap.set({"n", "v"}, "<space>b", dap.toggle_breakpoint, { desc = 'DAP: Set breakpoint' })
-      vim.keymap.set({"n", "v"}, "<space>B", dap.clear_breakpoints, { desc = 'DAP: Clear all breakpoints' })
-      vim.keymap.set({"n", "v"}, "<space>i", function()
+      --re-use for rust & c
+      dap.configurations.c = dap.configurations.cpp
+      dap.configurations.rust = dap.configurations.cpp
+
+      -- Keymaps
+      vim.keymap.set({ "n", "v" }, "<space>b", dap.toggle_breakpoint, { desc = "DAP: Set breakpoint" })
+      vim.keymap.set({ "n", "v" }, "<space>B", dap.clear_breakpoints, { desc = "DAP: Clear all breakpoints" })
+      vim.keymap.set({ "n", "v" }, "<space>i", function()
         require("dapui").eval(nil, { enter = true })
-      end, { desc = 'DAP: Inspect value' })
+      end, { desc = "DAP: Inspect value" })
 
-      vim.keymap.set({"i", "n", "v"}, "<F4>", dap.continue, { desc = 'DAP: continue' })
-      vim.keymap.set({"i", "n", "v"}, "<F5>", dap.step_into, { desc = 'DAP: step_into' })
-      vim.keymap.set({"i", "n", "v"}, "<F6>", dap.step_over, { desc = 'DAP: step_over' })
-      vim.keymap.set({"i", "n", "v"}, "<F7>", dap.step_out, { desc = 'DAP: step_out' })
-      vim.keymap.set({"i", "n", "v"}, "<F8>", dap.step_back, { desc = 'DAP: step_back' })
-      vim.keymap.set({"i", "n", "v"}, "<F9>", dap.restart, { desc = 'DAP: restart' })
+      vim.keymap.set({ "i", "n", "v" }, "<F4>", dap.continue, { desc = "DAP: continue" })
+      vim.keymap.set({ "i", "n", "v" }, "<F5>", dap.step_into, { desc = "DAP: step_into" })
+      vim.keymap.set({ "i", "n", "v" }, "<F6>", dap.step_over, { desc = "DAP: step_over" })
+      vim.keymap.set({ "i", "n", "v" }, "<F7>", dap.step_out, { desc = "DAP: step_out" })
+      vim.keymap.set({ "i", "n", "v" }, "<F8>", dap.step_back, { desc = "DAP: step_back" })
+      vim.keymap.set({ "i", "n", "v" }, "<F9>", dap.restart, { desc = "DAP: restart" })
 
+      -- Auto open/close dap-ui
       dap.listeners.before.attach.dapui_config = function()
         ui.open()
       end

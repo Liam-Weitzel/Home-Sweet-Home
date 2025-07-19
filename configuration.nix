@@ -122,6 +122,7 @@
     clang
     cmake
     ninja
+    lldb
 
     #----=[ NIX ]=----#
     nixd #nixos lsp only

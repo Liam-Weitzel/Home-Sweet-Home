@@ -72,6 +72,7 @@
     brightnessctl
     wluma
     playerctl
+    ncspot
 
     gfn-electron
 

@@ -321,6 +321,7 @@ for_window [title="gtt"] floating enable
 for_window [title="nmtui"] floating enable
 for_window [title="bluetuith"] floating enable 
 for_window [title="neomutt"] floating enable
+for_window [title="ncspot"] floating enable
 for_window [title="irssi"] floating enable
 for_window [title="lazygit"] floating enable
 for_window [title="typioca"] floating enable
