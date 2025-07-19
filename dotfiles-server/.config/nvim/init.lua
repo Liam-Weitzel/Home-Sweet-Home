@@ -743,24 +743,6 @@ require('lazy').setup({
     }
   },
 
-  { 'madskjeldgaard/cppman.nvim',
-    requires = { { 'MunifTanjim/nui.nvim' } },
-    config = function()
-      local cppman = require"cppman"
-      cppman.setup()
-
-      -- Make a keymap to open the word under cursor in CPPman
-      vim.keymap.set("n", "<leader>cm", function()
-        cppman.open_cppman_for(vim.fn.expand("<cword>"))
-      end, { desc = 'Open word under cursor in cppman' })
-
-      -- Open search box
-      vim.keymap.set("n", "<leader>cs", function()
-        cppman.input()
-      end, { desc = 'Open cppman search box' })
-    end
-  }, 
-
   { 
     'sQVe/sort.nvim',
     config = function()
@@ -1014,51 +996,336 @@ vim.keymap.del("n", "grn")
 vim.keymap.del("n", "grr")
 vim.keymap.del("n", "gra")
 
--- CPP insights
-function RunInsights()
-    local filepath = vim.fn.expand('%:p')
+-- CPP man
+-- Extract man page portion as a single string from full cppman output
+local function extract_man_page(output)
+  local lines = vim.split(output, "\n")
+  local man_start = nil
+  for i, line in ipairs(lines) do
+    -- Look for line like: std::fetestexcept(3)        C++ Programmer's Manual       std::fetestexcept(3)
+    if line:match("^%S+%(%d+%)%s+.+Manual") then
+      man_start = i
+      break
+    end
+  end
 
-    -- Create vertical split
-    vim.cmd('vsplit')
-    local output_win = vim.api.nvim_get_current_win()
+  if not man_start then
+    return output -- fallback: return full output string if no match
+  end
 
-    -- Create a new buffer with a unique name
-    local timestamp = os.time()
-    local output_buf = vim.api.nvim_create_buf(true, false)
-    local unique_name = 'insights_output_' .. timestamp .. '.cpp'
-    vim.api.nvim_buf_set_name(output_buf, unique_name)
+  local man_lines = {}
+  for i = man_start, #lines do
+    table.insert(man_lines, lines[i])
+  end
+  return table.concat(man_lines, "\n") -- return a single string
+end
 
-    -- Set the buffer into the split
-    vim.api.nvim_win_set_buf(output_win, output_buf)
+local function cppman_with_selection(word, selection_number, on_output)
+  local stdout_data = {}
+  local stderr_data = {}
 
-    -- Set filetype explicitly to cpp
-    vim.api.nvim_buf_set_option(output_buf, 'filetype', 'cpp')
+  local job_id = vim.fn.jobstart({'cppman', word}, {
+    on_stdout = function(_, data, _)
+      if data then
+        for _, line in ipairs(data) do
+          if line ~= "" then
+            table.insert(stdout_data, line)
+          end
+        end
+      end
+    end,
+    on_stderr = function(_, data, _)
+      if data then
+        for _, line in ipairs(data) do
+          if line ~= "" then
+            table.insert(stderr_data, line)
+          end
+        end
+      end
+    end,
+    on_exit = function(_, exit_code, _)
+      if exit_code ~= 0 then
+        vim.schedule(function()
+          vim.api.nvim_err_writeln("cppman exited with code " .. exit_code)
+        end)
+      else
+        vim.schedule(function()
+          local full_output = table.concat(stdout_data, "\n")
+          local cleaned = extract_man_page(full_output)
+          on_output(cleaned)
+        end)
+      end
+    end,
+    stdin = 'pipe',
+  })
 
-    -- Run insights command
-    local handle = io.popen('insights "' .. filepath .. '"')
-    if not handle then
-        print("Failed to run insights")
-        return
+  if job_id <= 0 then
+    vim.api.nvim_err_writeln("Failed to start cppman process")
+    return
+  end
+
+  -- Delay sending selection number to stdin so cppman can prompt
+  vim.defer_fn(function()
+    vim.fn.chansend(job_id, selection_number .. "\n")
+    vim.fn.chanclose(job_id, 'stdin')
+  end, 100)
+end
+
+local telescope = require('telescope')
+local pickers = require('telescope.pickers')
+local finders = require('telescope.finders')
+local conf = require('telescope.config').values
+local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
+
+local function cppman_telescope()
+  local word = vim.fn.expand('<cword>')
+  local cmd = 'cppman ' .. word
+
+  local handle = io.popen(cmd)
+  if not handle then
+    print("Error running cppman")
+    return
+  end
+  local result = handle:read("*a")
+  handle:close()
+
+  local options = {}
+  for line in result:gmatch("[^\r\n]+") do
+    if line:match("^%d+%.") then
+      table.insert(options, line)
+    end
+  end
+
+  if #options == 0 then
+    -- No ambiguous options: show man page directly in vertical split
+    local out_handle = io.popen('cppman ' .. word)
+    local output = out_handle:read("*a")
+    out_handle:close()
+
+    vim.cmd('vnew')
+    local buf = vim.api.nvim_get_current_buf()
+    vim.api.nvim_buf_set_option(buf, 'buftype', 'cpp')
+    vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
+    vim.api.nvim_buf_set_option(buf, 'filetype', 'man')
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(output, '\n'))
+    vim.cmd('setlocal nomodifiable')
+    return
+  end
+
+  pickers.new({}, {
+    prompt_title = "cppman ambiguous options for '" .. word .. "'",
+    finder = finders.new_table {
+      results = options,
+    },
+    sorter = conf.generic_sorter({}),
+    attach_mappings = function(prompt_bufnr, map)
+      local function open_man_page()
+        local selection = action_state.get_selected_entry()
+        actions.close(prompt_bufnr)
+
+        local sel_text = selection[1]
+        local index = sel_text:match("^(%d+)%.")
+        if not index then
+          print("Could not parse selection number")
+          return
+        end
+
+        -- Call cppman_with_selection with the chosen option
+        cppman_with_selection(word, index, function(output)
+          vim.cmd('vnew')
+          local buf = vim.api.nvim_get_current_buf()
+          vim.api.nvim_buf_set_option(buf, 'buftype', '')
+          vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
+          vim.api.nvim_buf_set_option(buf, 'filetype', 'man')
+
+          -- Set content
+          vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(output, '\n'))
+
+          -- Make buffer readonly and unmodified
+          vim.bo.modified = false
+          vim.cmd('setlocal nomodifiable')
+        end)
+      end
+
+      map('i', '<CR>', open_man_page)
+      map('n', '<CR>', open_man_page)
+      return true
+    end,
+  }):find()
+end
+
+local function cppman_prompt_telescope()
+  vim.ui.input({ prompt = "cppman: search for symbol > " }, function(input)
+    if not input or input == "" then
+      return
     end
 
+    -- Reuse existing logic by passing the input word
+    local word = input
+    local cmd = 'cppman ' .. word
+
+    local handle = io.popen(cmd)
+    if not handle then
+      print("Error running cppman")
+      return
+    end
     local result = handle:read("*a")
     handle:close()
 
-    -- Replace INSIGHTS-TODO comments with concise TODO
-    result = result:gsub('/%* INSIGHTS%-TODO:.-%*/', '/* TODO */')
+    local options = {}
+    for line in result:gmatch("[^\r\n]+") do
+      if line:match("^%d+%.") then
+        table.insert(options, line)
+      end
+    end
 
-    -- Insert output into buffer
-    vim.api.nvim_buf_set_lines(output_buf, 0, -1, false, vim.split(result, '\n'))
+    if #options == 0 then
+      local out_handle = io.popen('cppman ' .. word)
+      local output = out_handle:read("*a")
+      out_handle:close()
 
-    -- Mark buffer modifiable & readonly (for LSP and no accidental edits)
-    vim.bo[output_buf].modifiable = true
-    vim.bo[output_buf].readonly = true
+      vim.cmd('vnew')
+      local buf = vim.api.nvim_get_current_buf()
+      vim.api.nvim_buf_set_option(buf, 'buftype', '')
+      vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
+      vim.api.nvim_buf_set_option(buf, 'filetype', 'man')
+      vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(output, '\n'))
+      vim.bo.modified = false
+      vim.cmd('setlocal nomodifiable')
+      return
+    end
 
-    -- Mark buffer as NOT modified so no quit warning
-    vim.bo[output_buf].modified = false
+    pickers.new({}, {
+      prompt_title = "cppman ambiguous options for '" .. word .. "'",
+      finder = finders.new_table {
+        results = options,
+      },
+      sorter = conf.generic_sorter({}),
+      attach_mappings = function(prompt_bufnr, map)
+        local function open_man_page()
+          local selection = action_state.get_selected_entry()
+          actions.close(prompt_bufnr)
 
-    -- Go back to left window
-    vim.cmd('wincmd h')
+          local sel_text = selection[1]
+          local index = sel_text:match("^(%d+)%.")
+          if not index then
+            print("Could not parse selection number")
+            return
+          end
+
+          cppman_with_selection(word, index, function(output)
+            vim.cmd('vnew')
+            local buf = vim.api.nvim_get_current_buf()
+            vim.api.nvim_buf_set_option(buf, 'buftype', '')
+            vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
+            vim.api.nvim_buf_set_option(buf, 'filetype', 'man')
+            vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(output, '\n'))
+
+            -- Mark clean and readonly
+            vim.bo.modified = false
+            vim.cmd('setlocal nomodifiable')
+            vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '<cmd>bd<CR>', { nowait = true, noremap = true, silent = true })
+          end)
+        end
+
+        map('i', '<CR>', open_man_page)
+        map('n', '<CR>', open_man_page)
+        return true
+      end,
+    }):find()
+  end)
+end
+
+vim.keymap.set('n', '<leader>cs', cppman_prompt_telescope, {
+  noremap = true,
+  silent = true,
+  desc = "cppman: search symbol via prompt"
+})
+
+vim.keymap.set('n', '<leader>cm', cppman_telescope, {
+  noremap = true,
+  silent = true,
+  desc = "cppman: search word under cursor"
+})
+
+-- CPP insights
+function RunInsights()
+  local root_dir = vim.env.PWD or vim.loop.cwd()
+
+  -- Use find command to get compile_commands.json paths
+  local handle = io.popen('find ' .. root_dir .. ' -type f -name compile_commands.json')
+  local lines = {}
+  if handle then
+    for line in handle:lines() do
+      table.insert(lines, line)
+    end
+    handle:close()
+  end
+
+  -- Insert a "None" option to let user skip compile_commands.json selection
+  table.insert(lines, 1, "[None]")
+
+  pickers.new({}, {
+    prompt_title = "Select compile_commands.json",
+    finder = finders.new_table {
+      results = lines,
+    },
+    sorter = conf.generic_sorter({}),
+    attach_mappings = function(prompt_bufnr, map)
+      local function run_insights()
+        local selection = action_state.get_selected_entry()
+        actions.close(prompt_bufnr)
+
+        local compile_commands_path = nil
+        if selection[1] ~= "[None]" then
+          compile_commands_path = selection[1]
+        end
+
+        local filepath = vim.fn.expand('%:p')
+
+        vim.cmd('vsplit')
+        local output_win = vim.api.nvim_get_current_win()
+
+        local timestamp = os.time()
+        local output_buf = vim.api.nvim_create_buf(true, false)
+        local unique_name = 'insights_output_' .. timestamp .. '.cpp'
+        vim.api.nvim_buf_set_name(output_buf, unique_name)
+        vim.api.nvim_win_set_buf(output_win, output_buf)
+        vim.api.nvim_buf_set_option(output_buf, 'filetype', 'cpp')
+
+        local cmd
+        if compile_commands_path then
+          cmd = string.format('~/.bash_scripts/run-insights.sh "%s" "%s"', compile_commands_path, filepath)
+        else
+          cmd = string.format('~/.bash_scripts/run-insights.sh "%s"', filepath)
+        end
+
+        local handle = io.popen(cmd)
+        if not handle then
+          print("Failed to run insights")
+          return
+        end
+
+        local result = handle:read("*a")
+        handle:close()
+
+        result = result:gsub('/%* INSIGHTS%-TODO:.-%*/', '/* TODO */')
+
+        vim.api.nvim_buf_set_lines(output_buf, 0, -1, false, vim.split(result, '\n'))
+        vim.bo[output_buf].modifiable = true
+        vim.bo[output_buf].readonly = true
+        vim.bo[output_buf].modified = false
+        vim.cmd('wincmd h')
+        vim.api.nvim_buf_set_keymap(output_buf, 'n', 'q', '<cmd>bd<CR>', { nowait = true, noremap = true, silent = true })
+      end
+
+      map('i', '<CR>', run_insights)
+      map('n', '<CR>', run_insights)
+
+      return true
+    end,
+  }):find()
 end
 
 vim.keymap.set("n", "<leader>ci", RunInsights, { desc = "Run cppinsights" })
@@ -1349,19 +1616,19 @@ local ls = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 require('luasnip.loaders.from_lua').lazy_load({ paths = "~/.config/nvim/snippets" })
 
--- Jump forward in snippet
-vim.keymap.set({ "i", "s" }, "<Tab>", function()
+-- Jump forward or fallback to default <Tab>
+vim.keymap.set({ "n", "s" }, "<Tab>", function(fallback)
   if ls.expand_or_jumpable() then
     ls.expand_or_jump()
   end
-end, { silent = true })
+end, { silent = true, expr = false })
 
--- Jump backward in snippet
-vim.keymap.set({ "i", "s" }, "<C-Tab>", function()
+-- Jump backward or fallback to default <C-Tab>
+vim.keymap.set({ "n", "s" }, "<C-Tab>", function(fallback)
   if ls.jumpable(-1) then
     ls.jump(-1)
   end
-end, { silent = true })
+end, { silent = true, expr = false })
 
 cmp.setup {
   snippet = {

@@ -56,7 +56,9 @@
   ];
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [];
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+  ];
 
   environment.systemPackages = with pkgs; [
 
@@ -117,6 +119,9 @@
     bear
     gdb
     clang-tools #c/c++ lsp & more
+    clang
+    cmake
+    ninja
 
     #----=[ NIX ]=----#
     nixd #nixos lsp only
