@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t lazyjournal -e "lazyjournal"
+GenericName=journal terminal application
+Icon=Alacritty
+Keywords=journal;workflow;lazyjournal;tui
+Name=lazyjournal
+StartupWMClass=lazyjournal
+Type=Application
+Version=1.0

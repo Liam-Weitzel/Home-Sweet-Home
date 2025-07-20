@@ -316,11 +316,15 @@ for_window [class="steam"] floating enable
 for_window [title="Volume Control"] floating enable 
 for_window [app_id="ssb"] floating enable; move position 0 px 0 px; 
 
+for_window [title="2048-in-terminal"] floating enable
+for_window [title="lazyjournal"] floating enable
+for_window [title="chess-tui"] floating enable
 for_window [title="htop"] floating enable
 for_window [title="gtt"] floating enable
 for_window [title="nmtui"] floating enable
 for_window [title="bluetuith"] floating enable 
 for_window [title="neomutt"] floating enable
+for_window [title="binsider"] floating enable
 for_window [title="ncspot"] floating enable
 for_window [title="irssi"] floating enable
 for_window [title="lazygit"] floating enable

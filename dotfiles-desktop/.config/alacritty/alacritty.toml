@@ -45,7 +45,8 @@ style = "Regular"
 term = "xterm-256color"
 save_to_clipboard = "true"
 
-[keyboard]
-bindings = [
-{ key = "+", mods = "Control | Shift", action = "IncreaseFontSize" },
-]
+# Ctrl+Shift+'+' to increase font size (your existing binding)
+[[keyboard.bindings]]
+key = "+"
+mods = "Control|Shift"
+action = "IncreaseFontSize"

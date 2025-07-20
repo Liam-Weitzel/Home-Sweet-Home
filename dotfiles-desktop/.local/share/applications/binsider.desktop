@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t binsider -e "binsider"
+GenericName=Binary analysis terminal application
+Icon=Alacritty
+Keywords=inspect;binary;analysis;binsider;tui
+Name=binsider
+StartupWMClass=binsider
+Type=Application
+Version=1.0

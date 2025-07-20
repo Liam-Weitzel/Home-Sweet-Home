@@ -90,16 +90,20 @@
     gtt
     showmethekey
     typioca
-    sl
-    hoard
-    heh
-    flamelens
     lazysql
     fastfetch
-    dive
-    cloc
     bitwise
     bandwhich
+    lazyjournal
+    _2048-in-terminal
+    chess-tui
+    binsider
+
+    sl
+    cloc
+    dive
+    heh
+    flamelens
 
     #----=[ AWS ]=----#
     awscli2
@@ -122,7 +126,7 @@
     clang
     cmake
     ninja
-    lldb
+    vscode-extensions.vadimcn.vscode-lldb
 
     #----=[ NIX ]=----#
     nixd #nixos lsp only

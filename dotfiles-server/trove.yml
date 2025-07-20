@@ -1,0 +1,49 @@
+---
+version: 1.4.2
+commands:
+  - name: nixos-install-local-package
+    namespace: default
+    tags:
+      - nix
+      - install
+      - packages
+    command: "nix-env -f . -iA #package-name"
+    description: this installs a package from a clone of nixpkgs locally
+  - name: nixos-uninstall-local-package
+    namespace: default
+    tags:
+      - nix
+      - install
+      - package
+      - uninstall
+    command: "nix-env -e #package-name"
+    description: this uninstalls a package which was installed locally previously from nixpkgs
+  - name: watch_mem_dump
+    namespace: default
+    tags:
+      - memory
+      - binary
+      - ram
+      - heap
+      - live
+      - c
+      - cpp
+      - c++
+      - debugging
+    command: "watch -n 0.5 \"pid=129617; addr=0x11b91a0; size=256; sudo dd if=/proc/\\$pid/mem bs=1 skip=\\$((addr)) count=\\$size 2>/dev/null | hexdump -C\""
+    description: live memory preview of a process + address + count - use p arena & process status in lldb to get params
+  - name: lldb_hex_dump_of_address
+    namespace: default
+    tags:
+      - memory
+      - binary
+      - ram
+      - heap
+      - live
+      - c
+      - cpp
+      - c++
+      - debugging
+      - lldb
+    command: memory read -s1 -c64 -f x 0x1000
+    description: LLDB memory dump of address + count + size in hex

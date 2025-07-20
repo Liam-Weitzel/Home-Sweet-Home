@@ -2,6 +2,43 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Helper to read or cache the nix path
+local function get_codelldb_path()
+  local cache_file = "/tmp/codelldb_path_cache.txt"
+
+  local function file_exists(path)
+    local f = io.open(path, "r")
+    if f then f:close() return true end
+    return false
+  end
+
+  local function file_age_seconds(path)
+    local handle = io.popen("stat -c %Y " .. path)
+    local mod_time = tonumber(handle:read("*a"))
+    handle:close()
+    return os.time() - mod_time
+  end
+
+  local cache_valid = file_exists(cache_file) and file_age_seconds(cache_file) < 86400
+
+  if cache_valid then
+    local f = io.open(cache_file, "r")
+    local cached = f:read("*a"):gsub("%s+", "")
+    f:close()
+    return cached .. "/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb"
+  else
+    local handle = io.popen("nix eval --raw nixpkgs#vscode-extensions.vadimcn.vscode-lldb.outPath")
+    local nix_path = handle:read("*a"):gsub("%s+", "")
+    handle:close()
+
+    local f = io.open(cache_file, "w")
+    f:write(nix_path)
+    f:close()
+
+    return nix_path .. "/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb"
+  end
+end
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -217,7 +254,7 @@ require('lazy').setup({
       },
       {
         "<leader>xs",
-        "<cmd>Trouble symbols toggle focus=false<cr>",
+        "<cmd>Trouble symbols toggle focus=false win.position=left<cr>",
         desc = "Symbols",
       },
       {
@@ -237,7 +274,7 @@ require('lazy').setup({
       },
       {
         "<leader>xt",
-        "<cmd>TodoTrouble<cr>",
+        "<cmd>TodoTrouble toggle<cr>",
         desc = "Todo List"
       }
     },
@@ -299,15 +336,18 @@ require('lazy').setup({
       require("dapui").setup()
       require("nvim-dap-virtual-text").setup()
 
+      -- Dynamically resolve the path to codelldb from the Nix store
+      local codelldb_path = get_codelldb_path()
+
       dap.adapters.lldb = {
         type = "executable",
-        command = "lldb-dap",
-        name = "lldb-dap"
+        command = codelldb_path,
+        name = "codelldb"
       }
 
       dap.configurations.cpp = {
         {
-          name = "Launch with LLDB-DAP",
+          name = "Launch with CodeLLDB",
           type = "lldb",
           request = "launch",
           program = function()
@@ -320,7 +360,7 @@ require('lazy').setup({
         }
       }
 
-      --re-use for rust & c
+      -- Reuse for Rust & C
       dap.configurations.c = dap.configurations.cpp
       dap.configurations.rust = dap.configurations.cpp
 
@@ -466,7 +506,6 @@ require('lazy').setup({
       { "<leader>s:", function() Snacks.picker.command_history() end, desc = "Command History" },
       { "<leader>sn", function() Snacks.picker.notifications() end, desc = "Notification History" },
       -- Other
-      { "<leader>.",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
       { "<leader>g", function() Snacks.lazygit() end, desc = "Lazygit" },
       { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
       {
@@ -599,34 +638,6 @@ require('lazy').setup({
     }
   },
 
-  { 'echasnovski/mini.pairs', version = false,
-    opts = {
-      -- In which modes mappings from this `config` should be created
-      modes = { insert = true, command = false, terminal = false },
-
-      -- Global mappings. Each right hand side should be a pair information, a
-      -- table with at least these fields (see more in |MiniPairs.map|):
-      -- - <action> - one of 'open', 'close', 'closeopen'.
-      -- - <pair> - two character string for pair to be used.
-      -- By default pair is not inserted after `\`, quotes are not recognized by
-      -- <CR>, `'` does not insert pair after a letter.
-      -- Only parts of tables can be tweaked (others will use these defaults).
-      mappings = {
-        ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
-        ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
-        ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
-
-        [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
-        [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
-        ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
-
-        ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
-        ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
-        ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
-      }
-    }
-  },
-
   { 'echasnovski/mini.move', version = false,
     opts = {
       -- Module mappings. Use `''` (empty string) to disable one.
@@ -715,12 +726,12 @@ require('lazy').setup({
         -- 1. existing highlight group
         -- 2. hex color string starting with #
         static = {
-          "#3a3e48", -- slightly brighter bluish-gray
-          "#423640", -- brighter purple-gray
-          "#3d4444", -- lifted desaturated green-gray
-          "#474339", -- warm brown-gray
-          "#3e444f", -- cool gray-blue
-          "#44394d"  -- lavender-gray
+          "#434854", -- slightly brighter bluish-gray
+          "#4b3f4a", -- brighter purple-gray
+          "#464e4e", -- lifted desaturated green-gray
+          "#524e44", -- warm brown-gray
+          "#48505b", -- cool gray-blue
+          "#4e4358"  -- lavender-gray
         }
         -- `static = false` to disable
       },
@@ -985,6 +996,79 @@ vim.keymap.del("n", "gri")
 vim.keymap.del("n", "grn")
 vim.keymap.del("n", "grr")
 vim.keymap.del("n", "gra")
+
+-- LLDB Hex dump to binary
+local bit = require('bit')
+
+vim.api.nvim_create_user_command('ConvertHexToBinary', function(opts)
+  local function to_binary8(num)
+    local bits = {}
+    for i = 7, 0, -1 do
+      bits[#bits+1] = bit.band(num, bit.lshift(1, i)) ~= 0 and '1' or '0'
+    end
+    return table.concat(bits)
+  end
+
+  local start_line, end_line
+  if opts.range == 0 then
+    -- Normal mode: use current line
+    start_line = vim.fn.line('.')
+    end_line = start_line
+  else
+    -- Visual mode or range provided
+    start_line = opts.line1
+    end_line = opts.line2
+  end
+
+  local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
+  local result_lines = {}
+
+  for _, line in ipairs(lines) do
+    local address = line:match("^(0x%x+):")
+    local binary_bytes = {}
+    local data_part = line:match("^0x%x+:%s*(.+)") or line
+
+    -- Match full hex blob
+    local hex_blob = data_part:match("0x([0-9a-fA-F]+)")
+    if hex_blob then
+      for i = 1, #hex_blob - 1, 2 do
+        local hex_byte = hex_blob:sub(i, i+1)
+        local num = tonumber(hex_byte, 16)
+        if num then
+          table.insert(binary_bytes, to_binary8(num))
+        end
+      end
+    else
+      -- Fallback: individual 0xXX bytes
+      for hex_byte in data_part:gmatch("0x(%x%x)") do
+        local num = tonumber(hex_byte, 16)
+        if num then
+          table.insert(binary_bytes, to_binary8(num))
+        end
+      end
+    end
+
+    if address then
+      table.insert(result_lines, address .. ": " .. table.concat(binary_bytes, " "))
+    else
+      table.insert(result_lines, table.concat(binary_bytes, " "))
+    end
+  end
+
+  vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, result_lines)
+end, { range = true })
+
+vim.keymap.set('n', '<leader>cb', ':ConvertHexToBinary<CR>', {
+  noremap = true,
+  silent = true,
+  desc = 'Convert LLDB hex dump to binary (current line)'
+})
+
+vim.keymap.set('v', '<leader>cb', ':<C-U>ConvertHexToBinary<CR>', {
+  noremap = true,
+  silent = true,
+  desc = 'Convert LLDB hex dump to binary (selection)'
+})
 
 -- CPP man
 -- Extract man page portion as a single string from full cppman output
@@ -1599,6 +1683,14 @@ require'lspconfig'.clangd.setup{}
 require'lspconfig'.jdtls.setup{}
 require'lspconfig'.pyright.setup{}
 
+-- Removes auto comment
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
+  end,
+})
+
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
@@ -1606,19 +1698,32 @@ local ls = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 require('luasnip.loaders.from_lua').lazy_load({ paths = "~/.config/nvim/snippets" })
 
--- Jump forward or fallback to default <Tab>
-vim.keymap.set({ "n", "s" }, "<Tab>", function(fallback)
+-- Jump backward to default <C-Tab>
+vim.keymap.set({ "i", "n", "s" }, "<Tab>", function()
   if ls.expand_or_jumpable() then
     ls.expand_or_jump()
+  else
+    -- fallback to normal <Tab> behavior.
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n", false)
   end
-end, { silent = true, expr = false })
+end, { silent = true })
 
--- Jump backward or fallback to default <C-Tab>
-vim.keymap.set({ "n", "s" }, "<C-Tab>", function(fallback)
+-- Jump backward to default <C-Tab>
+vim.keymap.set({ "i", "n", "s" }, "<C-Tab>", function()
   if ls.jumpable(-1) then
     ls.jump(-1)
+  else
+    -- fallback to normal Ctrl+O (open command in insert mode)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-o>", true, true, true), "n", false)
   end
-end, { silent = true, expr = false })
+end, { silent = true })
+
+-- Next choice in choice node <C-l>
+vim.keymap.set({ "i", "n", "s" }, "<C-l>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end)
 
 cmp.setup {
   snippet = {

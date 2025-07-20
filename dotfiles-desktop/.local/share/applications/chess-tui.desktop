@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t chess-tui -e "chess-tui"
+GenericName=Chess terminal application
+Icon=Alacritty
+Keywords=chess;games;tui
+Name=chess-tui
+StartupWMClass=chess-tui
+Type=Application
+Version=1.0
