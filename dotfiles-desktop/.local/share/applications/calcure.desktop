@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t calcure -e "calcure"
+GenericName=Calendar terminal application
+Icon=Alacritty
+Keywords=calendar;cal;calcure;tui
+Name=calcure
+StartupWMClass=calcure
+Type=Application
+Version=1.0

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t toipe -e "toipe"
+GenericName=Typing terminal application
+Icon=Alacritty
+Keywords=type;typing;monkeytype;monkey;workflow;toipe;tui
+Name=toipe
+StartupWMClass=toipe
+Type=Application
+Version=1.0

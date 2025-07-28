@@ -1,0 +1,19 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+# Sync personal events:
+
+[pair events_personal]
+a = "events_personal_local"
+b = "events_personal_remote"
+collections = null
+
+[storage events_personal_local]
+type = "singlefile"
+path = "~/.config/vdirsyncer/data/events_personal.ics"
+
+[storage events_personal_remote]
+type = "caldav"
+url = "https://nc.liam-w.com/remote.php/dav/calendars/liam-w/personal"
+username = "liam-w"
+password = "REDACTED"

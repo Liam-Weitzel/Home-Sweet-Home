@@ -89,7 +89,7 @@
 
     gtt
     showmethekey
-    typioca
+    calcurse
     lazysql
     fastfetch
     bitwise
@@ -98,6 +98,9 @@
     _2048-in-terminal
     chess-tui
     binsider
+    toipe
+    calcure
+    vdirsyncer
 
     sl
     cloc
