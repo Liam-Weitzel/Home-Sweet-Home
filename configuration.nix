@@ -101,6 +101,7 @@
     toipe
     calcure
     vdirsyncer
+    nchat
 
     sl
     cloc
