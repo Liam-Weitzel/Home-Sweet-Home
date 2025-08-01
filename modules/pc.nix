@@ -73,6 +73,7 @@
     wluma
     playerctl
     ncspot
+    imv #light-weight image viewer
 
     gfn-electron
 

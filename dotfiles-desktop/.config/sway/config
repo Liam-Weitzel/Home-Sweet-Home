@@ -272,6 +272,7 @@ bindcode $Shift_L+$Alt_L+202 exec sh ~/.bash_scripts/combo.sh "fortune " 0 0 0 1
 output * background #2C2D30 solid_color
 bindsym $Super_L+Plus exec sh ~/.bash_scripts/change_output_scale.sh up
 bindsym $Super_L+Minus exec sh ~/.bash_scripts/change_output_scale.sh down
+mouse_warping container
 
 exec wl-paste --watch cliphist store
 
@@ -290,7 +291,7 @@ exec sh ~/.bash_scripts/always-launch.sh ~/Trackpad-Color-Picker/result/bin/Trac
 bindgesture pinch:inward exec
 bindgesture pinch:outward exec
 
-# mainly for displaying mails
+# for displaying any mime type in firefox (images, pdfs, etc.)
 exec python3 ~/.bash_scripts/serve_with_mime_type.py
 
 # Volume
@@ -322,10 +323,12 @@ for_window [title="chess-tui"] floating enable
 for_window [title="calcure"] floating enable
 for_window [title="htop"] floating enable
 for_window [title="gtt"] floating enable
+for_window [title="mpv"] floating enable
+for_window [title="imv"] floating enable
+for_window [title="neomutt"] floating enable
 for_window [title="toipe"] floating enable
 for_window [title="nmtui"] floating enable
 for_window [title="bluetuith"] floating enable 
-for_window [title="neomutt"] floating enable
 for_window [title="binsider"] floating enable
 for_window [title="ncspot"] floating enable
 for_window [title="irssi"] floating enable
@@ -380,11 +383,12 @@ bindcode $Super_L+420 exec swaymsg workspace $(seq $(swaymsg -t get_workspaces |
 bindcode $Super_L+Shift+415 move workspace next_on_output; workspace next_on_output
 bindcode $Super_L+Shift+420 move workspace prev_on_output; workspace prev_on_output
 
-#startup apps:
+#core startup apps:
 exec alacritty
 exec firefox --name=default -P default
 exec nextcloud
-exec vesktop
+exec vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu --nosocket=wayland
+exec alacritty -t nchat -e "nchat"
 
 bindsym $Super_L+h splitv
 bindsym $Super_L+v splith
@@ -461,6 +465,13 @@ bindsym $Super_L+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
+
+    # diable vertical scrolling
+    bindsym button4 nop
+    bindsym button5 nop
+    # diable horizontal scrolling
+    bindsym button6 nop
+    bindsym button7 nop
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
