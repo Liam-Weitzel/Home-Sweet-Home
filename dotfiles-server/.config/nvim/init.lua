@@ -506,7 +506,6 @@ require('lazy').setup({
       { "<leader>s:", function() Snacks.picker.command_history() end, desc = "Command History" },
       { "<leader>sn", function() Snacks.picker.notifications() end, desc = "Notification History" },
       -- Other
-      { "<leader>g", function() Snacks.lazygit() end, desc = "Lazygit" },
       { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
       {
         "<leader>N",
