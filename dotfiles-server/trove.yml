@@ -22,6 +22,10 @@ name: docker build image with tags
 tags: [ docker, qsLAM, PCR ]
 command: sudo docker build . -t qslam_pcr_aio:0.0.2 -t qslam_pcr_aio:latest
 
-name: update mime types
+name: source mime types
 tags: [nchat, mime types, rice]
 command: nix-shell -p desktop-file-utils --run "update-desktop-database ~/.local/share/applications"
+
+name: find shared library in nix packages
+tags: [nix, packages, dynamic, shared library]
+command: nix run github:nix-community/nix-index-database libglib-2.0.so.0

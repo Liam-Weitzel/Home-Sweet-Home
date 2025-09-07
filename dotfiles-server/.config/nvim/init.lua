@@ -775,6 +775,22 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+-- Redraw on regaining focus
+vim.api.nvim_create_autocmd("FocusGained", {
+  desc = "Redraw on focus gain (e.g., after fg)",
+  callback = function()
+    vim.cmd("redraw!")
+  end,
+})
+
+-- Redraw after resuming from suspension (Ctrl+Z + fg)
+vim.api.nvim_create_autocmd("VimResume", {
+  desc = "Redraw after resume from suspension",
+  callback = function()
+    vim.cmd("redraw!")
+  end,
+})
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
