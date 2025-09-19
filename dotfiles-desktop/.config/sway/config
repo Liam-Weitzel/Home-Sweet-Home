@@ -269,7 +269,8 @@ bindcode $Shift_L+$Alt_L+200 exec sh ~/.bash_scripts/combo.sh "fortunate " 0 0 0
 bindcode $Shift_L+$Alt_L+201 exec sh ~/.bash_scripts/combo.sh "fortunately " 0 0 0 1 0
 bindcode $Shift_L+$Alt_L+202 exec sh ~/.bash_scripts/combo.sh "fortune " 0 0 0 1 0
 
-# output HDMI-A-1 transform 90
+output HDMI-A-1 transform 90
+output HDMI-A-1 pos 0 0
 output * background #2C2D30 solid_color
 bindsym $Super_L+Plus exec sh ~/.bash_scripts/change_output_scale.sh up
 bindsym $Super_L+Minus exec sh ~/.bash_scripts/change_output_scale.sh down
@@ -317,6 +318,8 @@ for_window [instance="Godot_Engine"] floating enable
 for_window [class="steam"] floating enable 
 for_window [title="Volume Control"] floating enable 
 for_window [app_id="ssb"] floating enable; move position 0 px 0 px; 
+for_window [title="gpustat"] floating enable
+for_window [title="Guvcview"] floating enable
 
 for_window [title="2048-in-terminal"] floating enable
 for_window [title="lazyjournal"] floating enable

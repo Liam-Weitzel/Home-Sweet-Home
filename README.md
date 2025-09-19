@@ -1,0 +1,24 @@
+1. Install nixos on pc & boot into it
+2. sudo nano /etc/nixos/configuration.nix
+3. get git, vim, and enable flakes
+4. go to home dir
+5. git clone https://github.com/Liam-Weitzel/Home-Sweet-Home.git
+6. sudo mv /etc/nixos/hardware-configuration.nix ./
+7. comment out citrix... will install after
+8. sudo nixos-rebuild switch --flake .#liam-w
+9. stow dotfiles-desktop & server
+10. restart
+11. uncomment citrx & nixsw
+
+Create a new firefox profile called ssb & one called default
+    - Open previous windows and tabs
+    - Passwords for nextcloud extension -> preferences -> notifications off -> auto fill off -> close popup after pasting credentials off
+    - Log into floccus, nc passwords, otp manager
+Log into vesktop -> plugins NotificationVolume -> restart
+Log into nextcloud -> choose what to sync
+Log into ncspot
+Log into citrix
+Log into emails on firefox
+Log into github
+Set up Trackpad-Color-Picker
+Set up maplestory cursor (command in trove)

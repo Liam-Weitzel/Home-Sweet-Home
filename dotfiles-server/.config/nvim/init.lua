@@ -1713,7 +1713,7 @@ local ls = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 require('luasnip.loaders.from_lua').lazy_load({ paths = "~/.config/nvim/snippets" })
 
--- Jump backward to default <C-Tab>
+-- Jump forward <Tab>
 vim.keymap.set({ "i", "n", "s" }, "<Tab>", function()
   if ls.expand_or_jumpable() then
     ls.expand_or_jump()

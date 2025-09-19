@@ -19,5 +19,5 @@
     XCURSOR_SIZE = "64";
   };
 
-  environment.systemPackages = with pkgs; [ banana-cursor ];
+  environment.systemPackages = with pkgs; [ maplestory-cursor ];
 }
