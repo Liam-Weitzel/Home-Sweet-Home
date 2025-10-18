@@ -1,22 +1,23 @@
 [{
   "layer": "bottom",
-  "position": "bottom",
+  "position": "top",
   "output": "DP-2",
   "modules-left": [
     "sway/workspaces"
   ],
   "modules-center": [],
   "modules-right": [
-    "custom/priv_ip",
-    "custom/pub_ip",
+    //"custom/priv_ip",
+    //"custom/pub_ip",
     "custom/network",
     "custom/ping",
-    "custom/uptime",
+    //"custom/uptime",
     "custom/mem",
     "custom/cpu",
     "custom/disk",
-    "custom/iface",
-    "custom/bat",
+    //"custom/iface",
+    //"custom/bat",
+    "custom/vol",
     "custom/date"
   ],
 
@@ -36,7 +37,7 @@
   },
   "custom/network": {
     "exec": "~/.bash_scripts/waybar/network.sh",
-    "on-click": "~/.bash_scripts/waybar/network.sh true",
+    "on-click": "alacritty -t bandwhich -e sudo bandwhich",
     "interval": 2,
     "return-type": "json",
     "class": "button"
@@ -50,7 +51,7 @@
   },
   "custom/uptime": {
     "exec": "~/.bash_scripts/waybar/uptime.sh",
-    "on-click": "~/.bash_scripts/waybar/uptime.sh true",
+    "on-click": "sudo shutdown -h now",
     "interval": 60,
     "return-type": "json",
     "class": "button"
@@ -71,14 +72,14 @@
   },
   "custom/disk": {
     "exec": "~/.bash_scripts/waybar/disk.sh",
-    "on-click": "~/.bash_scripts/waybar/disk.sh true",
+    "on-click": "thunar",
     "interval": 60,
     "return-type": "json",
     "class": "button"
   },
   "custom/iface": {
     "exec": "~/.bash_scripts/waybar/iface.sh",
-    "on-click": "~/.bash_scripts/waybar/iface.sh true",
+    "on-click": "alacritty -t nmtui -e \"nmtui\"",
     "interval": 10,
     "return-type": "json",
     "class": "button"
@@ -90,9 +91,16 @@
     "return-type": "json",
     "class": "button"
   },
+  "custom/vol": {
+    "exec": "~/.bash_scripts/waybar/vol.sh",
+    "on-click": "pavucontrol",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
   "custom/date": {
     "exec": "~/.bash_scripts/waybar/date.sh",
-    "on-click": "~/.bash_scripts/waybar/date.sh true",
+    "on-click": "alacritty -t calcure -e \"calcure\"",
     "interval": 1,
     "return-type": "json",
     "class": "button"
@@ -100,7 +108,7 @@
 },
 {
   "layer": "bottom",
-  "position": "bottom",
+  "position": "top",
   "output": "HDMI-A-1",
   "modules-left": [
     "sway/workspaces"
@@ -111,12 +119,13 @@
     //"custom/pub_ip",
     //"custom/network",
     //"custom/ping",
-    //"custom/uptime",
-    "custom/mem",
-    "custom/cpu",
-    "custom/disk",
+    "custom/uptime",
+    //"custom/mem",
+    //"custom/cpu",
+    //"custom/disk",
     //"custom/iface",
     //"custom/bat",
+    "custom/vol",
     "custom/date"
   ],
 
@@ -136,7 +145,7 @@
   },
   "custom/network": {
     "exec": "~/.bash_scripts/waybar/network.sh",
-    "on-click": "~/.bash_scripts/waybar/network.sh true",
+    "on-click": "alacritty -t bandwhich -e sudo bandwhich",
     "interval": 2,
     "return-type": "json",
     "class": "button"
@@ -150,7 +159,7 @@
   },
   "custom/uptime": {
     "exec": "~/.bash_scripts/waybar/uptime.sh",
-    "on-click": "~/.bash_scripts/waybar/uptime.sh true",
+    "on-click": "sudo shutdown -h now",
     "interval": 60,
     "return-type": "json",
     "class": "button"
@@ -171,14 +180,14 @@
   },
   "custom/disk": {
     "exec": "~/.bash_scripts/waybar/disk.sh",
-    "on-click": "~/.bash_scripts/waybar/disk.sh true",
+    "on-click": "thunar",
     "interval": 60,
     "return-type": "json",
     "class": "button"
   },
   "custom/iface": {
     "exec": "~/.bash_scripts/waybar/iface.sh",
-    "on-click": "~/.bash_scripts/waybar/iface.sh true",
+    "on-click": "alacritty -t nmtui -e \"nmtui\"",
     "interval": 10,
     "return-type": "json",
     "class": "button"
@@ -190,9 +199,16 @@
     "return-type": "json",
     "class": "button"
   },
+  "custom/vol": {
+    "exec": "~/.bash_scripts/waybar/vol.sh",
+    "on-click": "pavucontrol",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
   "custom/date": {
     "exec": "~/.bash_scripts/waybar/date.sh",
-    "on-click": "~/.bash_scripts/waybar/date.sh true",
+    "on-click": "alacritty -t calcure -e \"calcure\"",
     "interval": 1,
     "return-type": "json",
     "class": "button"

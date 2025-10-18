@@ -471,5 +471,11 @@ bindsym $Super_L+r mode "resize"
 exec waybar
 default_border pixel
 default_floating_border pixel
+font IosevkaTerm Nerd Font Bold 14
+client.focused            #99BC80 #99BC80 #2C2D30 #99BC80 #99BC80
+client.focused_inactive   #DFBE81 #DFBE81 #2C2D30 #DFBE81 #DFBE81
+client.focused_tab_title  #99BC80 #99BC80 #2C2D30
+client.unfocused          #2C2D30 #2C2D30 #ABAEB3 #2C2D30 #2C2D30
+client.urgent             #E16D77 #E16D77 #2C2D30 #E16D77 #E16D77
 
 include /etc/sway/config.d/*

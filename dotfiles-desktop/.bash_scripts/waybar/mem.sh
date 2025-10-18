@@ -7,5 +7,5 @@ MEM_USED=$(awk '/MemTotal/ {t=$2} /MemAvailable/ {a=$2} END {printf "%.1f/%.1fG"
 if [ "$ONCLICK" = "true" ]; then
     echo -n "$MEM_USED" | wl-copy
 else
-    echo "{\"text\": \"MEM: $MEM_USED\"}"
+    echo "{\"text\": \"🧠 $MEM_USED\"}"
 fi

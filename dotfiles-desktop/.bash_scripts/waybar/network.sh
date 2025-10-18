@@ -29,5 +29,5 @@ NET_TEXT="↓ ${DOWN} KB/s ↑ ${UP} KB/s"
 if [ "$ONCLICK" = "true" ]; then
     echo -n "$NET_TEXT" | wl-copy
 else
-    echo "{\"text\": \"NET: $NET_TEXT\"}"
+    echo "{\"text\": \"$NET_TEXT\"}"
 fi

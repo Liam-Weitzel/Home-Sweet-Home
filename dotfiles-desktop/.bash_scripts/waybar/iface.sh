@@ -14,5 +14,5 @@ fi
 if [ "$ONCLICK" = "true" ]; then
     echo -n "$SSID" | wl-copy
 else
-    echo "{\"text\": \"SSID: $SSID\"}"
+    echo "{\"text\": \"🛜 $SSID\"}"
 fi

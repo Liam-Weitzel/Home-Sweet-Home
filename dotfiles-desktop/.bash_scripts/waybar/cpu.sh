@@ -3,6 +3,7 @@
 ONCLICK="$1"
 CPU_FILE="/tmp/waybar_cpu_prev"
 
+# --- CPU Usage ---
 CPU_CUR=($(grep '^cpu ' /proc/stat))
 IDLE_CUR=${CPU_CUR[4]}
 TOTAL_CUR=0
@@ -22,10 +23,14 @@ DIFF_TOTAL=$((TOTAL_CUR - TOTAL_PREV))
 CPU_USAGE=$((DIFF_TOTAL ? 100 * (DIFF_TOTAL - DIFF_IDLE) / DIFF_TOTAL : 0))
 echo "$TOTAL_CUR $IDLE_CUR" > "$CPU_FILE"
 
-CPU_TEXT=$(printf "%3s%%" "$CPU_USAGE")
+# --- CPU Temp ---
+TEMP="$(( $(cat /sys/class/thermal/thermal_zone0/temp) / 1000 ))°C"
+
+# --- Output ---
+ICON="🖥️"
 
 if [ "$ONCLICK" = "true" ]; then
-    echo -n "$CPU_TEXT" | wl-copy
+    echo -n "$CPU_USAGE% | $TEMP" | wl-copy
 else
-    echo "{\"text\": \"CPU: $CPU_TEXT\"}"
+    echo "{\"text\": \"$ICON $CPU_USAGE% | $TEMP\"}"
 fi

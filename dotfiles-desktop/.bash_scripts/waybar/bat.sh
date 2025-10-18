@@ -8,5 +8,5 @@ BAT_TEXT=$( [ "$BAT_VAL" != "N/A" ] && printf "%3s%%" "$BAT_VAL" || echo "N/A" )
 if [ "$ONCLICK" = "true" ]; then
     echo -n $BAT_TEXT | wl-copy
 else
-    echo "{\"text\": \"BAT: $BAT_TEXT\"}"
+    echo "{\"text\": \"🔋 $BAT_TEXT\"}"
 fi

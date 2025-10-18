@@ -10,5 +10,5 @@ UP_TEXT=$(printf "%02dh%02dm" $UP_H $UP_M)
 if [ "$ONCLICK" = "true" ]; then
     echo -n "$UP_TEXT" | wl-copy
 else
-    echo "{\"text\": \"UPTIME: $UP_TEXT\"}"
+    echo "{\"text\": \"⬆️ $UP_TEXT\"}"
 fi

@@ -12,5 +12,5 @@ fi
 if [ "$ONCLICK" = "true" ]; then
     echo -n "$PING_TEXT" | wl-copy
 else
-    echo "{\"text\": \"PING: $PING_TEXT\"}"
+    echo "{\"text\": \"🔄 $PING_TEXT\"}"
 fi

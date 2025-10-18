@@ -11,5 +11,5 @@ PRIVATE_IP=$(ip -4 addr show dev "$IFACE" | grep inet | awk '{print $2}' | cut -
 if [ "$ONCLICK" = "true" ]; then
     echo -n "$PRIVATE_IP" | wl-copy
 else
-    echo "{\"text\": \"PRIV_IP: $PRIVATE_IP\"}"
+    echo "{\"text\": \"🏠 $PRIVATE_IP\"}"
 fi

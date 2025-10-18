@@ -6,5 +6,5 @@ DATE_TEXT=$(date +'%Y-%m-%d %X')
 if [ "$ONCLICK" = "true" ]; then
     echo -n "$DATE_TEXT" | wl-copy
 else
-    echo "{\"text\": \"DATE: $DATE_TEXT\"}"
+    echo "{\"text\": \"🕛 $DATE_TEXT\"}"
 fi

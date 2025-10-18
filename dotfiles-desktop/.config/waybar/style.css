@@ -1,7 +1,7 @@
 /* --- Global Styles --- */
 * {
-    font-family: 'SF Pro Text', 'Inter', 'Segoe UI, NotoSans Nerd Font', sans-serif;
-    font-size: 16px;
+    font-family: 'IosevkaTerm Nerd Font';
+    font-size: 18px;
     min-height: 0;
     padding: 0;
 }
@@ -11,7 +11,7 @@
     background: transparent;
     color: #c6d0f5;
     margin: 0;
-    font-weight: 500;
+    font-weight: 900;
 }
 
 #custom-priv_ip,
@@ -23,18 +23,18 @@
 #custom-cpu,
 #custom-disk,
 #custom-iface,
-#custom-vol,
 #custom-bat,
+#custom-vol,
 #custom-date {
-    background-color: #1a1b26;
+    background-color: #35373B;
     padding: 0.3rem 0.7rem;
     margin: 5px 5px; /* top/bottom + horizontal spacing */
-    border-radius: 6px;
+    border-radius: 0px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     min-width: 0;
     border: none;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    color: #babbf1;
+    color: #AFB2B7;
     font-weight: 500;
 }
 
@@ -47,31 +47,11 @@
 #custom-cpu:hover,
 #custom-disk:hover,
 #custom-iface:hover,
-#custom-vol:hover,
 #custom-bat:hover,
+#custom-vol:hover,
 #custom-date:hover {
-    background-color: rgb(41, 42, 53);
-    color: #c6d0f5;
-}
-
-/* --- Workspaces Buttons --- */
-#workspaces button {
-    color: #babbf1;
-    border-radius: 5px;
-    padding: 0.3rem 0.6rem;
-    background: transparent;
-    transition: all 0.2s ease-in-out;
-    border: none;
-    outline: none;
-}
-#workspaces button.active {
-    color: #99d1db;
-    background-color: rgba(153, 209, 219, 0.1);
-    box-shadow: inset 0 0 0 1px rgba(153, 209, 219, 0.2);
-}
-#workspaces button:hover {
-    background: rgb(41, 42, 53);
-    color: #c6d0f5;
+    background-color: #99BC80;
+    color: #333735;
 }
 
 /* --- Tooltip Styles --- */
@@ -80,8 +60,40 @@ tooltip {
     color: #dddddd;
     padding: 5px 12px;
     margin: 5px 0px;
-    border-radius: 6px;
+    border-radius: 0px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     font-size: 12px;
+}
+
+/* --- Workspaces Buttons --- */
+#workspaces button {
+    background: transparent;
+    outline: none;
+    background-color: #35373B;
+    padding: 0.3rem 0.7rem;
+    margin: 5px 5px; /* top/bottom + horizontal spacing */
+    border-radius: 0px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    min-width: 0;
+    border: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    color: #AFB2B7;
+    font-weight: 500;
+}
+#workspaces button.visible {
+    background-color: #DFBE81;
+    color: #333735;
+}
+#workspaces button:hover {
+    background-color: #68AEE8;
+    color: #333735;
+}
+#workspaces button.focused {
+    background-color: #99BC80;
+    color: #333735;
+}
+#workspaces button.urgent {
+    background: #E16D77;
+    color: #333735;
 }
