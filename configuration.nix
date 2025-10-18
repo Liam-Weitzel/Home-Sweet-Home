@@ -87,6 +87,7 @@
     diffutils
     lazygit
     irssi
+    timer
 
     gtt
     showmethekey
@@ -99,12 +100,11 @@
     _2048-in-terminal
     chess-tui
     binsider
-    toipe
+    smassh
     calcure
     vdirsyncer
     nchat
 
-    sl
     cloc
     dive
     heh

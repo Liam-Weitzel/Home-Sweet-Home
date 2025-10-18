@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 INPUT=$(echo "$1" | sed "s/^['\"]//; s/['\"]$//")
 MIME_TYPE="$2"
@@ -29,7 +29,7 @@ fi
 
 ENCODED_URI=$(printf '%s' "$URI" | jq -s -R -r @uri)
 
-EXTENSION_URL="moz-extension://151b039a-85b6-4372-9efd-d1279064176e/ssb.html"
+EXTENSION_URL="moz-extension://2356835a-b7f8-4bb0-8819-b2f336939d1c/ssb.html"
 FULL_URL="${EXTENSION_URL}?url=${ENCODED_URI}&name=&incognito=false"
 
 firefox --name=ssb -P ssb --new-window "$FULL_URL" &

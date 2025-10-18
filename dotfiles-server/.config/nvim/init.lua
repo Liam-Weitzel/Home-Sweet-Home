@@ -993,12 +993,9 @@ vim.keymap.set("v", "c", "\"cc")
 vim.keymap.set("v", "X", "\"xX")
 vim.keymap.set("v", "C", "\"cC")
 
--- Delete previous word (Ctrl+Backspace)
-vim.keymap.set("i", "<C-BS>", "<C-w>", { noremap = true, silent = true, desc = 'Delete previous word' })
-vim.keymap.set("i", "<C-h>", "<C-w>", { noremap = true, silent = true, desc = 'Delete previous word' }) -- Terminal fallback
-
+-- Delete previous word (Ctrl+Backspace) is done in alacritty using ctrl+w
 -- Delete next word (Ctrl+Delete)
-vim.keymap.set("i", "<C-Del>", "<C-o>dw", { noremap = true, silent = true, desc = 'Delete next word' })
+vim.keymap.set("i", '<A-d>', '<C-o>dw', { noremap = true, silent = true, desc = 'Delete next word' })
 
 -- Delete default delete + insert bind
 vim.keymap.set("n", "s", "<nop>")

@@ -84,7 +84,7 @@
           };
           # OTP manager:
           "{7bb1f5d8-56c8-4c72-a7b9-0f539a7feefd}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/file/4368602/simple_otpmanager_browser-0.35.xpi";
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4581864/simple_otpmanager_browser-0.36.xpi";
             installation_mode = "force_installed";
           };
           # Password manager:
@@ -115,6 +115,11 @@
           # SteamDB
           "firefox-extension@steamdb.info" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/file/4493966/steam_database-4.16.xpi";
+            installation_mode = "force_installed";
+          };
+          # Link Hints
+          "linkhints@lydell.github.io" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4346988/linkhints-1.3.3.xpi";
             installation_mode = "force_installed";
           };
           /* # Vimium

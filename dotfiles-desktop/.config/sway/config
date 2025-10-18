@@ -313,6 +313,8 @@ bindsym print exec grim -g "$(slurp -d)" - | wl-copy
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
+bindsym $Super_L+$Shift_L+L exec sh ~/.bash_scripts/leetcode_daily.sh
+
 for_window [instance="Godot_Editor"] floating enable 
 for_window [instance="Godot_Engine"] floating enable 
 for_window [class="steam"] floating enable 
@@ -320,6 +322,9 @@ for_window [title="Volume Control"] floating enable
 for_window [app_id="ssb"] floating enable; move position 0 px 0 px; 
 for_window [title="gpustat"] floating enable
 for_window [title="Guvcview"] floating enable
+for_window [title="Nextcloud"] floating enable
+for_window [title="wdisplays"] floating enable
+for_window [instance="zoom"] floating enable 
 
 for_window [title="2048-in-terminal"] floating enable
 for_window [title="lazyjournal"] floating enable
@@ -330,7 +335,7 @@ for_window [title="gtt"] floating enable
 for_window [title="mpv"] floating enable
 for_window [title="imv"] floating enable
 for_window [title="neomutt"] floating enable
-for_window [title="toipe"] floating enable
+for_window [title="smassh"] floating enable
 for_window [title="nmtui"] floating enable
 for_window [title="bluetuith"] floating enable 
 for_window [title="binsider"] floating enable
@@ -353,10 +358,10 @@ bindsym $Super_L+Down exec sh ~/.bash_scripts/vim-sway-nav.sh down
 bindsym $Super_L+Up exec sh ~/.bash_scripts/vim-sway-nav.sh up
 bindsym $Super_L+Right exec sh ~/.bash_scripts/vim-sway-nav.sh right
 
-bindsym $Super_L+Shift+Left move left
-bindsym $Super_L+Shift+Down move down
-bindsym $Super_L+Shift+Up move up
-bindsym $Super_L+Shift+Right move right
+bindsym $Super_L+Shift+Left  move left 100px
+bindsym $Super_L+Shift+Down  move down 100px
+bindsym $Super_L+Shift+Up    move up 100px
+bindsym $Super_L+Shift+Right move right 100px
 
 bindsym $Super_L+1 workspace number 1
 bindsym $Super_L+2 workspace number 2

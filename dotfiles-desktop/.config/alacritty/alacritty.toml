@@ -50,3 +50,15 @@ save_to_clipboard = "true"
 key = "+"
 mods = "Control|Shift"
 action = "IncreaseFontSize"
+
+# Ctrl+Backspace deletes previous word (sends Ctrl+W)
+[[keyboard.bindings]]
+key = "Back"
+mods = "Control"
+chars = "\u0017"
+
+# Ctrl+Delete deletes next word (sends Alt+D)
+[[keyboard.bindings]]
+key = "Delete"
+mods = "Control"
+chars = "\u001bd"
