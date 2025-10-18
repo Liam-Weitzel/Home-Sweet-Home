@@ -25,6 +25,7 @@ Create a new firefox profile called ssb & one called default
         - Swap which end of a text selection to work on = ctrl + shift + o
     - make sure to do this for btoh firefox profiles...
 Log into vesktop -> plugins NotificationVolume -> restart
+Configure waybar depending on screens
 Log into nextcloud -> choose what to sync
 Log into ncspot
 Log into nchat

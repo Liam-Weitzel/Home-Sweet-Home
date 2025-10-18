@@ -1,0 +1,200 @@
+[{
+  "layer": "bottom",
+  "position": "bottom",
+  "output": "DP-2",
+  "modules-left": [
+    "sway/workspaces"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "custom/priv_ip",
+    "custom/pub_ip",
+    "custom/network",
+    "custom/ping",
+    "custom/uptime",
+    "custom/mem",
+    "custom/cpu",
+    "custom/disk",
+    "custom/iface",
+    "custom/bat",
+    "custom/date"
+  ],
+
+  "custom/priv_ip": {
+    "exec": "~/.bash_scripts/waybar/priv_ip.sh",
+    "on-click": "~/.bash_scripts/waybar/priv_ip.sh true",
+    "interval": 5,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/pub_ip": {
+    "exec": "~/.bash_scripts/waybar/pub_ip.sh",
+    "on-click": "~/.bash_scripts/waybar/pub_ip.sh true",
+    "interval": 30,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/network": {
+    "exec": "~/.bash_scripts/waybar/network.sh",
+    "on-click": "~/.bash_scripts/waybar/network.sh true",
+    "interval": 2,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/ping": {
+    "exec": "~/.bash_scripts/waybar/ping.sh",
+    "on-click": "~/.bash_scripts/waybar/ping.sh true",
+    "interval": 5,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/uptime": {
+    "exec": "~/.bash_scripts/waybar/uptime.sh",
+    "on-click": "~/.bash_scripts/waybar/uptime.sh true",
+    "interval": 60,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/mem": {
+    "exec": "~/.bash_scripts/waybar/mem.sh",
+    "on-click": "~/.bash_scripts/waybar/mem.sh true",
+    "interval": 2,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/cpu": {
+    "exec": "~/.bash_scripts/waybar/cpu.sh",
+    "on-click": "~/.bash_scripts/waybar/cpu.sh true",
+    "interval": 2,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/disk": {
+    "exec": "~/.bash_scripts/waybar/disk.sh",
+    "on-click": "~/.bash_scripts/waybar/disk.sh true",
+    "interval": 60,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/iface": {
+    "exec": "~/.bash_scripts/waybar/iface.sh",
+    "on-click": "~/.bash_scripts/waybar/iface.sh true",
+    "interval": 10,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/bat": {
+    "exec": "~/.bash_scripts/waybar/bat.sh",
+    "on-click": "~/.bash_scripts/waybar/bat.sh true",
+    "interval": 30,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/date": {
+    "exec": "~/.bash_scripts/waybar/date.sh",
+    "on-click": "~/.bash_scripts/waybar/date.sh true",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  }
+},
+{
+  "layer": "bottom",
+  "position": "bottom",
+  "output": "HDMI-A-1",
+  "modules-left": [
+    "sway/workspaces"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    //"custom/priv_ip",
+    //"custom/pub_ip",
+    //"custom/network",
+    //"custom/ping",
+    //"custom/uptime",
+    "custom/mem",
+    "custom/cpu",
+    "custom/disk",
+    //"custom/iface",
+    //"custom/bat",
+    "custom/date"
+  ],
+
+  "custom/priv_ip": {
+    "exec": "~/.bash_scripts/waybar/priv_ip.sh",
+    "on-click": "~/.bash_scripts/waybar/priv_ip.sh true",
+    "interval": 5,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/pub_ip": {
+    "exec": "~/.bash_scripts/waybar/pub_ip.sh",
+    "on-click": "~/.bash_scripts/waybar/pub_ip.sh true",
+    "interval": 30,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/network": {
+    "exec": "~/.bash_scripts/waybar/network.sh",
+    "on-click": "~/.bash_scripts/waybar/network.sh true",
+    "interval": 2,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/ping": {
+    "exec": "~/.bash_scripts/waybar/ping.sh",
+    "on-click": "~/.bash_scripts/waybar/ping.sh true",
+    "interval": 5,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/uptime": {
+    "exec": "~/.bash_scripts/waybar/uptime.sh",
+    "on-click": "~/.bash_scripts/waybar/uptime.sh true",
+    "interval": 60,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/mem": {
+    "exec": "~/.bash_scripts/waybar/mem.sh",
+    "on-click": "~/.bash_scripts/waybar/mem.sh true",
+    "interval": 2,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/cpu": {
+    "exec": "~/.bash_scripts/waybar/cpu.sh",
+    "on-click": "~/.bash_scripts/waybar/cpu.sh true",
+    "interval": 2,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/disk": {
+    "exec": "~/.bash_scripts/waybar/disk.sh",
+    "on-click": "~/.bash_scripts/waybar/disk.sh true",
+    "interval": 60,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/iface": {
+    "exec": "~/.bash_scripts/waybar/iface.sh",
+    "on-click": "~/.bash_scripts/waybar/iface.sh true",
+    "interval": 10,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/bat": {
+    "exec": "~/.bash_scripts/waybar/bat.sh",
+    "on-click": "~/.bash_scripts/waybar/bat.sh true",
+    "interval": 30,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/date": {
+    "exec": "~/.bash_scripts/waybar/date.sh",
+    "on-click": "~/.bash_scripts/waybar/date.sh true",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  }
+}]

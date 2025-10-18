@@ -468,29 +468,8 @@ mode "resize" {
 }
 bindsym $Super_L+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position bottom
-
-    # diable vertical scrolling
-    bindsym button4 nop
-    bindsym button5 nop
-    # diable horizontal scrolling
-    bindsym button6 nop
-    bindsym button7 nop
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while echo $(cat /sys/class/power_supply/BAT*/capacity)% - $(date +'%Y-%m-%d %X'); do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #2C2D30
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+exec waybar
+default_border pixel
+default_floating_border pixel
 
 include /etc/sway/config.d/*
