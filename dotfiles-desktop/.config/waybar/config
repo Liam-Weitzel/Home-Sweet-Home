@@ -1,22 +1,23 @@
 [{
   "layer": "bottom",
-  "position": "top",
+  "position": "bottom",
   "output": "DP-2",
   "modules-left": [
     "sway/workspaces"
   ],
   "modules-center": [],
   "modules-right": [
-    //"custom/priv_ip",
-    //"custom/pub_ip",
     "custom/network",
     "custom/ping",
+    "custom/priv_ip",
+    "custom/pub_ip",
     //"custom/uptime",
     "custom/mem",
     "custom/cpu",
     "custom/disk",
     //"custom/iface",
     //"custom/bat",
+    //"custom/bt",
     "custom/vol",
     "custom/date"
   ],
@@ -31,21 +32,21 @@
   "custom/pub_ip": {
     "exec": "~/.bash_scripts/waybar/pub_ip.sh",
     "on-click": "~/.bash_scripts/waybar/pub_ip.sh true",
-    "interval": 30,
+    "interval": 5,
     "return-type": "json",
     "class": "button"
   },
   "custom/network": {
     "exec": "~/.bash_scripts/waybar/network.sh",
     "on-click": "alacritty -t bandwhich -e sudo bandwhich",
-    "interval": 2,
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/ping": {
     "exec": "~/.bash_scripts/waybar/ping.sh",
-    "on-click": "~/.bash_scripts/waybar/ping.sh true",
-    "interval": 5,
+    "on-click": "alacritty -t trippy -e sudo trip --mode tui www.google.com --geoip-mmdb-file GeoLite2-City.mmdb",
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
@@ -58,36 +59,43 @@
   },
   "custom/mem": {
     "exec": "~/.bash_scripts/waybar/mem.sh",
-    "on-click": "~/.bash_scripts/waybar/mem.sh true",
-    "interval": 2,
+    "on-click": "alacritty -t bitwise -e bitwise",
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/cpu": {
     "exec": "~/.bash_scripts/waybar/cpu.sh",
-    "on-click": "~/.bash_scripts/waybar/cpu.sh true",
-    "interval": 2,
+    "on-click": "alacritty -t trippy -e htop",
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/disk": {
     "exec": "~/.bash_scripts/waybar/disk.sh",
-    "on-click": "thunar",
-    "interval": 60,
+    "on-click": "alacritty -t dua -e dua interactive",
+    "interval": 10,
     "return-type": "json",
     "class": "button"
   },
   "custom/iface": {
     "exec": "~/.bash_scripts/waybar/iface.sh",
-    "on-click": "alacritty -t nmtui -e \"nmtui\"",
-    "interval": 10,
+    "on-click": "alacritty -t nmtui -e nmtui",
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/bat": {
     "exec": "~/.bash_scripts/waybar/bat.sh",
     "on-click": "~/.bash_scripts/waybar/bat.sh true",
-    "interval": 30,
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/bt": {
+    "exec": "~/.bash_scripts/waybar/bt.sh",
+    "on-click": "alacritty -t bluetuith -e bluetuith",
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
@@ -100,7 +108,7 @@
   },
   "custom/date": {
     "exec": "~/.bash_scripts/waybar/date.sh",
-    "on-click": "alacritty -t calcure -e \"calcure\"",
+    "on-click": "alacritty -t calcure -e calcure",
     "interval": 1,
     "return-type": "json",
     "class": "button"
@@ -108,23 +116,24 @@
 },
 {
   "layer": "bottom",
-  "position": "top",
+  "position": "bottom",
   "output": "HDMI-A-1",
   "modules-left": [
     "sway/workspaces"
   ],
   "modules-center": [],
   "modules-right": [
-    //"custom/priv_ip",
-    //"custom/pub_ip",
     //"custom/network",
     //"custom/ping",
+    //"custom/priv_ip",
+    //"custom/pub_ip",
     "custom/uptime",
     //"custom/mem",
     //"custom/cpu",
     //"custom/disk",
     //"custom/iface",
     //"custom/bat",
+    "custom/bt",
     "custom/vol",
     "custom/date"
   ],
@@ -139,21 +148,21 @@
   "custom/pub_ip": {
     "exec": "~/.bash_scripts/waybar/pub_ip.sh",
     "on-click": "~/.bash_scripts/waybar/pub_ip.sh true",
-    "interval": 30,
+    "interval": 5,
     "return-type": "json",
     "class": "button"
   },
   "custom/network": {
     "exec": "~/.bash_scripts/waybar/network.sh",
     "on-click": "alacritty -t bandwhich -e sudo bandwhich",
-    "interval": 2,
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/ping": {
     "exec": "~/.bash_scripts/waybar/ping.sh",
-    "on-click": "~/.bash_scripts/waybar/ping.sh true",
-    "interval": 5,
+    "on-click": "alacritty -t trippy -e sudo trip --mode tui www.google.com",
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
@@ -166,36 +175,43 @@
   },
   "custom/mem": {
     "exec": "~/.bash_scripts/waybar/mem.sh",
-    "on-click": "~/.bash_scripts/waybar/mem.sh true",
-    "interval": 2,
+    "on-click": "alacritty -t bitwise -e bitwise",
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/cpu": {
     "exec": "~/.bash_scripts/waybar/cpu.sh",
-    "on-click": "~/.bash_scripts/waybar/cpu.sh true",
-    "interval": 2,
+    "on-click": "alacritty -t trippy -e htop",
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/disk": {
     "exec": "~/.bash_scripts/waybar/disk.sh",
-    "on-click": "thunar",
-    "interval": 60,
+    "on-click": "alacritty -t dua -e dua interactive",
+    "interval": 10,
     "return-type": "json",
     "class": "button"
   },
   "custom/iface": {
     "exec": "~/.bash_scripts/waybar/iface.sh",
-    "on-click": "alacritty -t nmtui -e \"nmtui\"",
-    "interval": 10,
+    "on-click": "alacritty -t nmtui -e nmtui",
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/bat": {
     "exec": "~/.bash_scripts/waybar/bat.sh",
     "on-click": "~/.bash_scripts/waybar/bat.sh true",
-    "interval": 30,
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/bt": {
+    "exec": "~/.bash_scripts/waybar/bt.sh",
+    "on-click": "alacritty -t bluetuith -e bluetuith",
+    "interval": 1,
     "return-type": "json",
     "class": "button"
   },
@@ -208,7 +224,7 @@
   },
   "custom/date": {
     "exec": "~/.bash_scripts/waybar/date.sh",
-    "on-click": "alacritty -t calcure -e \"calcure\"",
+    "on-click": "alacritty -t calcure -e calcure",
     "interval": 1,
     "return-type": "json",
     "class": "button"

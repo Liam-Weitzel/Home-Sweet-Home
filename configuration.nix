@@ -96,6 +96,7 @@
     fastfetch
     bitwise
     bandwhich
+    trippy
     lazyjournal
     _2048-in-terminal
     chess-tui
@@ -104,6 +105,8 @@
     calcure
     vdirsyncer
     nchat
+    duf
+    dua
 
     cloc
     dive

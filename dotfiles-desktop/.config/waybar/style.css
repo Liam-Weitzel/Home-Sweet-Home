@@ -24,6 +24,7 @@
 #custom-disk,
 #custom-iface,
 #custom-bat,
+#custom-bt,
 #custom-vol,
 #custom-date {
     background-color: #35373B;
@@ -48,6 +49,7 @@
 #custom-disk:hover,
 #custom-iface:hover,
 #custom-bat:hover,
+#custom-bt:hover,
 #custom-vol:hover,
 #custom-date:hover {
     background-color: #99BC80;

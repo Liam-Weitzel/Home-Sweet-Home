@@ -345,7 +345,9 @@ for_window [title="lazygit"] floating enable
 for_window [title="hoard"] floating enable
 for_window [title="lazysql"] floating enable
 for_window [title="bitwise"] floating enable
+for_window [title="dua"] floating enable
 for_window [title="bandwhich"] floating enable
+for_window [title="trippy"] floating enable
 for_window [title="tui-deck"] floating enable
 
 floating_modifier $Super_L normal

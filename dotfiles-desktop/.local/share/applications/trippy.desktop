@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t trippy -e sudo trip --mode tui www.google.com --geoip-mmdb-file /home/liam-w/GeoLite2-City.mmdb
+GenericName=Trace route terminal application
+Icon=Alacritty
+Keywords=traceroute;trippy;google;ping;internet;tui
+Name=trippy
+StartupWMClass=trippy
+Type=Application
+Version=1.0
