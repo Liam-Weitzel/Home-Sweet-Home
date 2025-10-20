@@ -88,6 +88,7 @@
     lazygit
     irssi
     timer
+    claude-code
 
     gtt
     showmethekey
