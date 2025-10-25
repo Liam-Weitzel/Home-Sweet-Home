@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 # Complete homelab setup with Wi-Fi AP, AdGuard DNS/DHCP, Samba NAS, and Mullvad VPN
-# This creates a local network (192.168.4.0/24) accessible via Wi-Fi that provides:
+# This creates a local network accessible via Wi-Fi that provides:
 # - Internet access through Mullvad VPN for privacy
 # - AdGuard DNS filtering and DHCP management
 # - Samba file shares (public, private, media, homes)
@@ -16,7 +16,37 @@ let
   apInterface = "wlo1";        # WiFi interface for Access Point (must support AP mode)
   wanInterface = "enp4s0";     # Interface for internet connection (ethernet preferred)
 
+  # Network configuration
   apGateway = "192.168.4.1";
+  apNetwork = "192.168.4.0/24";
+  apNetworkPrefix = "192.168.4."; # First 3 octets for Samba hosts allow
+  dhcpRangeStart = "192.168.4.10";
+  dhcpRangeEnd = "192.168.4.100";
+  dhcpLeaseDuration = 43200;   # 12 hours in seconds
+
+  # Wi-Fi AP configuration
+  wifiSSID = "liam-w";
+  wifiPassword = "REDACTED";
+  wifiCountryCode = "PL";
+  wifiChannel = 6;
+
+  # AdGuard configuration
+  adguardUsername = "admin";
+  adguardPasswordHash = "REDACTED"; # Generate with: mkpasswd -m bcrypt 'your_password'
+
+  # Samba NAS configuration
+  sambaWorkgroup = "WORKGROUP";
+  sambaServerName = "liam-w NAS";
+  sambaNetbiosName = "liam-w-nas";
+  sambaUser = "liam-w";              # Primary user for Samba shares
+  sambaGroup = "users";              # Primary group for Samba shares
+
+  # Mullvad VPN configuration
+  mullvadIPs = [ "REDACTED" "REDACTED" ]; # Your assigned IPs from Mullvad
+  mullvadListenPort = 51820;
+  mullvadEndpointIP = "REDACTED";  # Mullvad server IP
+  mullvadPublicKey = "REDACTED"; # Server's public key
+  mullvadAllowedIPs = [ "0.0.0.0/0" "::/0" ];
 in {
 
   #----=[ Mullvad VPN Configuration ]=----#
@@ -28,18 +58,18 @@ in {
   networking.wireguard.interfaces = {
     mullvad = {
       # Interface will be created automatically
-      ips = [ "IPV4HERE" "IPV6HERE" ]; # Replace with your assigned IPs
-      listenPort = 51820;
+      ips = mullvadIPs;
+      listenPort = mullvadListenPort;
 
-      # Your private key - REPLACE THIS with your actual private key
+      # Your private key
       privateKeyFile = "/etc/wireguard/mullvad-private.key";
 
       peers = [
         {
           # Mullvad server - replace with your preferred server
-          publicKey = "EXAMPLE_KEY"; # Example key - replace with actual
-          allowedIPs = [ "0.0.0.0/0" "::/0" ];
-          endpoint = "EXAMPLE_ENDPOINT"; # Example endpoint - replace with actual
+          publicKey = mullvadPublicKey;
+          allowedIPs = mullvadAllowedIPs;
+          endpoint = "${mullvadEndpointIP}:${toString mullvadListenPort}";
           persistentKeepalive = 25;
         }
       ];
@@ -51,13 +81,10 @@ in {
 
         # Add route for Mullvad server via original gateway
         ORIGINAL_GW=$(${pkgs.iproute2}/bin/ip route show default | ${pkgs.gawk}/bin/awk 'NR==1{print $3}')
-        ${pkgs.iproute2}/bin/ip route add 45.134.212.66/32 via $ORIGINAL_GW || true
+        ${pkgs.iproute2}/bin/ip route add ${mullvadEndpointIP}/32 via $ORIGINAL_GW || true
 
         # Set VPN as default route with higher metric for main table
         ${pkgs.iproute2}/bin/ip route add default dev mullvad metric 100 || true
-
-        # Configure DNS to use Mullvad's DNS
-        echo "nameserver 10.64.0.1" > /etc/resolv.conf.mullvad
       '';
 
       preShutdown = ''
@@ -65,13 +92,13 @@ in {
         if [ -f /tmp/default_route_backup ]; then
           ${pkgs.iproute2}/bin/ip route del default dev mullvad || true
           ORIGINAL_GW=$(${pkgs.iproute2}/bin/ip route show default | ${pkgs.gawk}/bin/awk 'NR==1{print $3}')
-          ${pkgs.iproute2}/bin/ip route del 45.134.212.66/32 via $ORIGINAL_GW || true
+          ${pkgs.iproute2}/bin/ip route del ${mullvadEndpointIP}/32 via $ORIGINAL_GW || true
         fi
         # Restore original routing
         if [ -f /tmp/default_route_backup ]; then
           ${pkgs.iproute2}/bin/ip route del default dev mullvad || true
           ORIGINAL_GW=$(${pkgs.iproute2}/bin/ip route show default | ${pkgs.gawk}/bin/awk 'NR==1{print $3}')
-          ${pkgs.iproute2}/bin/ip route del 45.134.212.66/32 via $ORIGINAL_GW || true
+          ${pkgs.iproute2}/bin/ip route del ${mullvadEndpointIP}/32 via $ORIGINAL_GW || true
         fi
       '';
     };
@@ -112,9 +139,9 @@ in {
       sleep 5
 
       # Route AP subnet through VPN
-      ${pkgs.iproute2}/bin/ip rule add from 192.168.4.0/24 table vpn priority 100 || true
+      ${pkgs.iproute2}/bin/ip rule add from ${apNetwork} table vpn priority 100 || true
       ${pkgs.iproute2}/bin/ip route add default dev mullvad table vpn || true
-      ${pkgs.iproute2}/bin/ip route add 192.168.4.0/24 dev ${apInterface} table vpn || true
+      ${pkgs.iproute2}/bin/ip route add ${apNetwork} dev ${apInterface} table vpn || true
 
       # Flush route cache
       ${pkgs.iproute2}/bin/ip route flush cache
@@ -122,7 +149,7 @@ in {
 
     preStop = ''
       # Clean up routing rules
-      ${pkgs.iproute2}/bin/ip rule del from 192.168.4.0/24 table vpn || true
+      ${pkgs.iproute2}/bin/ip rule del from ${apNetwork} table vpn || true
       ${pkgs.iproute2}/bin/ip route flush table vpn || true
       ${pkgs.iproute2}/bin/ip route flush cache
     '';
@@ -168,14 +195,14 @@ in {
   services.hostapd = {
     enable = true;
     radios.${apInterface} = {
-      countryCode = "PL";
+      countryCode = wifiCountryCode;
       band = "2g";
-      channel = 6;
+      channel = wifiChannel;
       networks.${apInterface} = {
-        ssid = "liam-w";
+        ssid = wifiSSID;
         authentication = {
           mode = "wpa3-sae";
-          saePasswords = [ { password = "changeme123"; } ];
+          saePasswords = [ { password = wifiPassword; } ];
         };
       };
     };
@@ -206,7 +233,7 @@ in {
       ${pkgs.iptables}/bin/iptables -t nat -F POSTROUTING
 
       # Add only the VPN NAT rule we need
-      ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 192.168.4.0/24 -o mullvad -j MASQUERADE
+      ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s ${apNetwork} -o mullvad -j MASQUERADE
     '';
 
     extraStopCommands = ''
@@ -286,8 +313,8 @@ in {
       # Web interface authentication (change these!)
       users = [
         {
-          name = "admin";
-          password = "EXAMPLE"; # Generate with: echo 'password' | htpasswd -bnBC 10 "" | tr -d ':\n'
+          name = adguardUsername;
+          password = adguardPasswordHash;
         }
       ];
 
@@ -419,12 +446,12 @@ in {
         local_domain_name = "home.local";
 
         dhcpv4 = {
-          gateway_ip = "192.168.4.1";
+          gateway_ip = apGateway;
           subnet_mask = "255.255.255.0";
-          range_start = "192.168.4.10";
-          range_end = "192.168.4.100";
-          lease_duration = 43200; # 12 hours
-          dns = [ "192.168.4.1" ];
+          range_start = dhcpRangeStart;
+          range_end = dhcpRangeEnd;
+          lease_duration = dhcpLeaseDuration;
+          dns = [ apGateway ];
         };
       };
 
@@ -433,15 +460,15 @@ in {
         rewrites = [
           {
             domain = "local";
-            answer = "192.168.4.1";
+            answer = apGateway;
           }
           {
             domain = "nas.local";
-            answer = "192.168.4.1";
+            answer = apGateway;
           }
           {
             domain = "homelab.local";
-            answer = "192.168.4.1";
+            answer = apGateway;
           }
         ];
       };
@@ -485,11 +512,11 @@ in {
     # Global Samba settings
     settings = {
       global = {
-        "workgroup" = "WORKGROUP";
-        "server string" = "liam-w NAS";
-        "netbios name" = "liam-w-nas";
+        "workgroup" = sambaWorkgroup;
+        "server string" = sambaServerName;
+        "netbios name" = sambaNetbiosName;
         "security" = "user";
-        "hosts allow" = "192.168.4. 127.0.0.1 localhost";
+        "hosts allow" = "${apNetworkPrefix} 127.0.0.1 localhost";
         "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";
@@ -521,8 +548,8 @@ in {
         "guest ok" = "yes";
         "create mask" = "0664";
         "directory mask" = "0775";
-        "force user" = "liam-w";
-        "force group" = "users";
+        "force user" = sambaUser;
+        "force group" = sambaGroup;
       };
 
       # Private share
@@ -533,9 +560,9 @@ in {
         "guest ok" = "no";
         "create mask" = "0660";
         "directory mask" = "0770";
-        "valid users" = "liam-w";
-        "force user" = "liam-w";
-        "force group" = "users";
+        "valid users" = sambaUser;
+        "force user" = sambaUser;
+        "force group" = sambaGroup;
       };
 
       # Home directory share
@@ -554,9 +581,9 @@ in {
         "browseable" = "no";
         "read only" = "no";
         "guest ok" = "no";
-        "valid users" = "liam-w";
-        "force user" = "liam-w";
-        "force group" = "users";
+        "valid users" = sambaUser;
+        "force user" = sambaUser;
+        "force group" = sambaGroup;
       };
     };
   };
@@ -582,7 +609,7 @@ in {
       mkdir -p /srv/samba/{public,private,media}
 
       # Set ownership
-      chown -R liam-w:users /srv/samba
+      chown -R ${sambaUser}:${sambaGroup} /srv/samba
 
       # Set permissions
       chmod 775 /srv/samba/public
@@ -592,7 +619,7 @@ in {
   };
 
   # Enable user namespaces for better security
-  users.users.liam-w.extraGroups = [ "sambashare" ];
+  users.users.${sambaUser}.extraGroups = [ "sambashare" ];
   users.groups.sambashare = {};
 
   #----=[ Firewall Configuration with VPN Kill Switch ]=----#
