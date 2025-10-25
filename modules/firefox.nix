@@ -108,6 +108,10 @@ in
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4442132/sidebery-5.3.3.xpi";
           installation_mode = "force_installed";
         };
+        "sponsorBlocker@ajay.app" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4598130/sponsorblock-6.0.3.xpi";
+          installation_mode = "force_installed";
+        };
       };
 
       Preferences = {

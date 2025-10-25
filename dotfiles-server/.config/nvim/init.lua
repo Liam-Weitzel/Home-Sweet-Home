@@ -940,6 +940,11 @@ local function cmd(command)
 end
 
 vim.keymap.set('n', 'L', '<C-^>')
+vim.keymap.set('n', '<leader>ua', function()
+  local current = vim.o.autoread
+  vim.o.autoread = not current
+  print("autoread " .. (vim.o.autoread and "enabled" or "disabled"))
+end, { desc = "Toggle autoread" })
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`

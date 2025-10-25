@@ -9,6 +9,7 @@
       ./modules/docker.nix
       ./modules/cppinsights.nix
       ./modules/cppman.nix
+      ./modules/homelab.nix
       ./hardware-configuration.nix
     ];
 

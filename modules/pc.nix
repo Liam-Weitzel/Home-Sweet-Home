@@ -58,6 +58,7 @@
     gfn-electron
     gamescope
     gpu-viewer
+    rpi-imager
 
     #GAMEDEV
     aseprite
