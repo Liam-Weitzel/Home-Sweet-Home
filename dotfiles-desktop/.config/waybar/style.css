@@ -16,6 +16,7 @@
 
 #custom-priv_ip,
 #custom-pub_ip,
+#custom-vpn,
 #custom-network,
 #custom-ping,
 #custom-uptime,
@@ -41,6 +42,7 @@
 
 #custom-priv_ip:hover,
 #custom-pub_ip:hover,
+#custom-vpn:hover,
 #custom-network:hover,
 #custom-ping:hover,
 #custom-uptime:hover,

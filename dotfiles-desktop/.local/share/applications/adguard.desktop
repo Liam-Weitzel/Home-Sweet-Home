@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=alacritty -t adguard-tui -e bash -c "docker run -e "ADGUARD_IP=local" -e "ADGUARD_PORT=3000" -e "ADGUARD_USERNAME=admin" -e "ADGUARD_PASSWORD=REDACTED" -it obaraelijah/adguard-tui"
+GenericName=adguard terminal application
+Icon=Alacritty
+Keywords=adguard;networking;vpn;homelab;tui
+Name=adguard
+StartupWMClass=adguard
+Type=Application
+Version=1.0

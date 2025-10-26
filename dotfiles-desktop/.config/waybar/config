@@ -11,6 +11,7 @@
     "custom/ping",
     "custom/priv_ip",
     "custom/pub_ip",
+    //"custom/vpn",
     //"custom/uptime",
     "custom/mem",
     "custom/cpu",
@@ -32,6 +33,13 @@
   "custom/pub_ip": {
     "exec": "~/.bash_scripts/waybar/pub_ip.sh",
     "on-click": "~/.bash_scripts/waybar/pub_ip.sh true",
+    "interval": 5,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/vpn": {
+    "exec": "~/.bash_scripts/waybar/vpn.sh",
+    "on-click": "alacritty -t adguard-tui -e bash -c 'docker run -e 'ADGUARD_IP=local' -e 'ADGUARD_PORT=3000' -e 'ADGUARD_USERNAME=admin' -e 'ADGUARD_PASSWORD=REDACTED' -it obaraelijah/adguard-tui'",
     "interval": 5,
     "return-type": "json",
     "class": "button"
@@ -128,6 +136,7 @@
     //"custom/priv_ip",
     //"custom/pub_ip",
     "custom/uptime",
+    "custom/vpn",
     //"custom/mem",
     //"custom/cpu",
     //"custom/disk",
@@ -148,6 +157,13 @@
   "custom/pub_ip": {
     "exec": "~/.bash_scripts/waybar/pub_ip.sh",
     "on-click": "~/.bash_scripts/waybar/pub_ip.sh true",
+    "interval": 5,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/vpn": {
+    "exec": "~/.bash_scripts/waybar/vpn.sh",
+    "on-click": "alacritty -t adguard-tui -e bash -c 'docker run -e 'ADGUARD_IP=local' -e 'ADGUARD_PORT=3000' -e 'ADGUARD_USERNAME=admin' -e 'ADGUARD_PASSWORD=REDACTED' -it obaraelijah/adguard-tui'",
     "interval": 5,
     "return-type": "json",
     "class": "button"

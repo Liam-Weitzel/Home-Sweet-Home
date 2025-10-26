@@ -327,6 +327,7 @@ for_window [title="wdisplays"] floating enable
 for_window [instance="zoom"] floating enable 
 
 for_window [title="2048-in-terminal"] floating enable
+for_window [title="adguard-tui"] floating enable
 for_window [title="lazyjournal"] floating enable
 for_window [title="chess-tui"] floating enable
 for_window [title="calcure"] floating enable

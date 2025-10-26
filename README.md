@@ -209,6 +209,8 @@ sambaGroup = "users";                # Primary group
 ```bash
 mkpasswd -m bcrypt 'your_admin_password'
 # Copy output to adguardPasswordHash variable
+# Put the same password in /dotfiles-desktop/.local/share/applications/adguard.desktop
+# Put the same password in /dotfiles-desktop/.config/waybar/config
 ```
 
 ### Step 3: Configure Mullvad VPN
@@ -242,7 +244,7 @@ sudo smbpasswd -a liam-w
 ### Step 5: Apply Configuration
 
 ```bash
-sudo nixos-rebuild switch --flake .#liam-w
+nixsw
 ```
 
 ## Access Points
@@ -262,3 +264,8 @@ Once setup is complete, access your services:
 - AdGuard provides DNS filtering and DHCP
 - Samba shares: public (guest), private (auth), media (auth), homes (auth)
 - Host system benefits from all homelab services
+
+## Known Issues
+
+- If homelab module is active on startup, no internet connection possible
+- You need to nixsw with the homelab commented out, then turn it back on again
