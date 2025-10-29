@@ -768,6 +768,18 @@ require('lazy').setup({
         ["Visual Cursors"]     = "<leader>mv",
       }
     end
+  },
+
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {
+    },
   }
 
 }, {})
@@ -965,6 +977,56 @@ vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
 vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
 vim.keymap.set('n', '<C-w>h', ':sp<CR> <C-w>j')
 vim.keymap.set('n', '<C-w>v', ':vsp<CR> <C-w>l')
+
+-- Leetcode keymaps
+vim.keymap.set('n', '<leader>ll', cmd 'Leet')
+vim.keymap.set('n', '<leader>lc', cmd 'Leet console')
+vim.keymap.set('n', '<leader>li', cmd 'Leet info')
+vim.keymap.set('n', '<leader>lt', cmd 'Leet tabs')
+vim.keymap.set('n', '<leader>ly', cmd 'Leet yank')
+vim.keymap.set('n', '<leader>lp', cmd 'Leet lang')
+vim.keymap.set('n', '<leader>lq', cmd 'Leet exit')
+vim.keymap.set('n', '<leader>lr', cmd 'Leet run')
+vim.keymap.set('n', '<leader>ls', cmd 'Leet submit')
+vim.keymap.set('n', '<leader>ld', cmd 'Leet desc')
+vim.keymap.set('n', '<leader>ld', cmd 'Leet desc')
+
+-- store last opened question globally
+_G.last_leetcode_question = nil
+
+-- hook to save current question
+require("leetcode").setup({
+  hooks = {
+    question_enter = {
+      function(q)
+        if not q or not q.q or not q.q.title_slug then
+          return
+        end
+        _G.last_leetcode_question = q
+      end,
+    },
+  },
+})
+
+-- standalone hotkey
+vim.keymap.set('n', '<leader>lo', function()
+  local q = _G.last_leetcode_question
+  if not q or not q.q or not q.q.title_slug then
+    vim.notify("No active LeetCode question opened yet", vim.log.levels.WARN)
+    return
+  end
+
+  local url = "https://leetcode.com/problems/" .. q.q.title_slug .. "/"
+
+  -- run your bash script
+  vim.fn.jobstart({
+    os.getenv("HOME") .. "/.bash_scripts/view_in_firefox.sh",
+    url,
+    "text/html",
+  })
+
+  vim.notify("Opening: " .. url, vim.log.levels.INFO)
+end, { desc = "Open last LeetCode question via script" })
 
 -- Godbolt keymaps
 vim.keymap.set('n', '<leader>cg', cmd 'Godbolt')
@@ -1637,6 +1699,8 @@ wk.add({
     { "<leader>s_", hidden = true },
     { "<leader>w", group = "[W]orkspace" },
     { "<leader>w_", hidden = true },
+    { "<leader>l", group = "[L]eetcode" },
+    { "<leader>l_", hidden = true },
     { "<leader>c", group = "[C]++" },
     { "<leader>c_", hidden = true },
     { "<leader>u", group = "Toggles" },

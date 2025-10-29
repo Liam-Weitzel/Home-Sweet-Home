@@ -313,8 +313,6 @@ bindsym print exec grim -g "$(slurp -d)" - | wl-copy
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
-bindsym $Super_L+$Shift_L+L exec sh ~/.bash_scripts/leetcode_daily.sh
-
 for_window [instance="Godot_Editor"] floating enable 
 for_window [instance="Godot_Engine"] floating enable 
 for_window [class="steam"] floating enable 
