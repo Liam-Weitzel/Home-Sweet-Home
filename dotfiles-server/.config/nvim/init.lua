@@ -662,7 +662,52 @@ require('lazy').setup({
     }
   },
 
-  { 'echasnovski/mini.align', version = false },
+  {
+    'echasnovski/mini.align',
+    version = false,
+    opts = {
+      -- Module mappings
+      mappings = {
+        start = '',
+        start_with_preview = 'ga',
+      },
+
+      -- Modifiers
+      modifiers = {
+        ['s'] = nil,  -- enter split pattern
+        ['j'] = nil,  -- choose justify side
+        ['m'] = nil,  -- enter merge delimiter
+        ['f'] = nil,  -- filter parts by Lua expression
+        ['i'] = nil,  -- ignore some split matches
+        ['p'] = nil,  -- pair parts
+        ['t'] = nil,  -- trim parts
+        ['<BS>'] = nil, -- delete last pre-step
+        ['='] = nil,  -- enhanced setup for '='
+        [','] = nil,  -- enhanced setup for ','
+        ['|'] = nil,  -- enhanced setup for '|'
+        [' '] = nil,  -- enhanced setup for ' '
+      },
+
+      -- Default options
+      options = {
+        split_pattern = '',
+        justify_side = 'left',
+        merge_delimiter = '',
+      },
+
+      -- Default steps
+      steps = {
+        pre_split = {},
+        split = nil,
+        pre_justify = {},
+        justify = nil,
+        pre_merge = {},
+        merge = nil,
+      },
+
+      silent = false,
+    },
+  },
 
   { 'echasnovski/mini.ai', version = false,
     opts = {
@@ -962,6 +1007,10 @@ end, { desc = "Toggle autoread" })
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- NOTE: This is remapped to make space for mini.align
+-- Show ascii value of character under cursor
+vim.keymap.set('n', 'gA', 'ga', { noremap = true })
+
 -- Page up and down center cursor
 vim.keymap.set('n', '<PageUp>', '<C-u>zz')
 vim.keymap.set('n', '<PageDown>', '<C-d>zz')
@@ -1026,7 +1075,7 @@ vim.keymap.set('n', '<leader>lo', function()
   })
 
   vim.notify("Opening: " .. url, vim.log.levels.INFO)
-end, { desc = "Open last LeetCode question via script" })
+end, { desc = "Open LeetCode question in browser" })
 
 -- Godbolt keymaps
 vim.keymap.set('n', '<leader>cg', cmd 'Godbolt')
@@ -1757,12 +1806,26 @@ lsp_zero.on_attach(function(client, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end)
 
-require'lspconfig'.gdshader_lsp.setup{}
-require'lspconfig'.gdscript.setup{}
-require'lspconfig'.nixd.setup{}
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.jdtls.setup{}
-require'lspconfig'.pyright.setup{}
+-- Optional shared config (for all servers)
+vim.lsp.config('*', {
+  -- e.g., shared capabilities, root_markers etc
+  -- capabilities = my_capabilities,
+  -- root_markers = {'.git', 'compile_commands.json'},
+})
+
+-- For each server:
+
+vim.lsp.config('nixd', {})
+vim.lsp.enable('nixd')
+
+vim.lsp.config('clangd', {})
+vim.lsp.enable('clangd')
+
+vim.lsp.config('jdtls', {})
+vim.lsp.enable('jdtls')
+
+vim.lsp.config('pyright', {})
+vim.lsp.enable('pyright')
 
 -- Removes auto comment
 vim.api.nvim_create_autocmd("FileType", {

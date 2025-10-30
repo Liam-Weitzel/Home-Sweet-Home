@@ -29,3 +29,11 @@ command: nix-shell -p desktop-file-utils --run "update-desktop-database ~/.local
 name: find shared library in nix packages
 tags: [nix, packages, dynamic, shared library]
 command: nix run github:nix-community/nix-index-database libglib-2.0.so.0
+
+name: change tab width in vim manually
+tags: [nvim, vi, tab, spaces, width]
+command: :set tabstop=2 && :set shiftwidth=2 && :set expandtab
+
+name: nvim global find and replace
+tags: [search, replace, find, global]
+command: :cfdo %s/searchterm/replaceterm/g | update | bd
