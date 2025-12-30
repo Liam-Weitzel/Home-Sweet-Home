@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t gtt -e "gtt"
+Exec=foot --title gtt gtt
 GenericName=Translate terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=translate;google translate;workflow;gtt;tui
 Name=gtt
 StartupWMClass=gtt

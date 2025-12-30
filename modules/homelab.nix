@@ -26,13 +26,13 @@ let
 
   # Wi-Fi AP configuration
   wifiSSID = "liam-w";
-  wifiPassword = "REDACTED";
+  wifiPassword = "REDACTED002";
   wifiCountryCode = "PL";
   wifiChannel = 6;
 
   # AdGuard configuration
   adguardUsername = "admin";
-  adguardPasswordHash = "REDACTED"; # Generate with: mkpasswd -m bcrypt 'your_password'
+  adguardPasswordHash = "REDACTED006"; # Generate with: mkpasswd -m bcrypt 'your_password'
 
   # Samba NAS configuration
   sambaWorkgroup = "WORKGROUP";
@@ -42,11 +42,11 @@ let
   sambaGroup = "users";              # Primary group for Samba shares
 
   # Mullvad VPN configuration
-  mullvadIPs = [ "REDACTED" "REDACTED" ]; # Your assigned IPs from Mullvad
+  mullvadIPs = [ "REDACTED007" "REDACTED008" ]; # Your assigned IPs from Mullvad
   mullvadListenPort = 51820;
-  mullvadEndpointIP = "REDACTED";  # Mullvad server IP
-  mullvadPublicKey = "REDACTED"; # Server's public key
-  mullvadAllowedIPs = [ "0.0.0.0/0" "::/0" ];
+  mullvadEndpointIP = "REDACTED009";  # Mullvad server IP
+  mullvadPublicKey = "REDACTED010"; # Server's public key
+  mullvadAllowedIPs = [ "REDACTED011" "REDACTED012" ];
 in {
 
   #----=[ Mullvad VPN Configuration ]=----#
@@ -76,29 +76,44 @@ in {
 
       # Post-up and pre-down scripts for routing
       postSetup = ''
-        # Save current default route
+        # Save current default routes (IPv4 and IPv6)
         ${pkgs.iproute2}/bin/ip route show default > /tmp/default_route_backup || true
+        ${pkgs.iproute2}/bin/ip -6 route show default > /tmp/default_route6_backup || true
 
-        # Add route for Mullvad server via original gateway
+        # Add route for Mullvad server via original gateway (IPv4)
         ORIGINAL_GW=$(${pkgs.iproute2}/bin/ip route show default | ${pkgs.gawk}/bin/awk 'NR==1{print $3}')
         ${pkgs.iproute2}/bin/ip route add ${mullvadEndpointIP}/32 via $ORIGINAL_GW || true
 
-        # Set VPN as default route with higher metric for main table
-        ${pkgs.iproute2}/bin/ip route add default dev mullvad metric 100 || true
+        # Set VPN as default route with higher priority (lower metric)
+        ${pkgs.iproute2}/bin/ip route add default dev mullvad metric 50 || true
+        ${pkgs.iproute2}/bin/ip -6 route add default dev mullvad metric 50 || true
+
+        # Ensure ISP routes have lower priority (higher metric)
+        ORIGINAL_GW6=$(${pkgs.iproute2}/bin/ip -6 route show default | ${pkgs.gawk}/bin/awk 'NR==1{print $3}')
+        ORIGINAL_DEV=$(${pkgs.iproute2}/bin/ip route show default | ${pkgs.gawk}/bin/awk 'NR==1{print $5}')
+        ${pkgs.iproute2}/bin/ip route replace default via $ORIGINAL_GW dev $ORIGINAL_DEV metric 200 || true
+        ${pkgs.iproute2}/bin/ip -6 route replace default via $ORIGINAL_GW6 dev $ORIGINAL_DEV metric 200 || true
       '';
 
       preShutdown = ''
-        # Restore original routing and DNS
+        # Clean up VPN routes
+        ${pkgs.iproute2}/bin/ip route del default dev mullvad || true
+        ${pkgs.iproute2}/bin/ip -6 route del default dev mullvad || true
+
+        # Remove Mullvad server route
+        ORIGINAL_GW=$(${pkgs.iproute2}/bin/ip route show default | ${pkgs.gawk}/bin/awk 'NR==1{print $3}')
+        ${pkgs.iproute2}/bin/ip route del ${mullvadEndpointIP}/32 via $ORIGINAL_GW || true
+
+        # Restore original ISP routes with normal metric
         if [ -f /tmp/default_route_backup ]; then
-          ${pkgs.iproute2}/bin/ip route del default dev mullvad || true
-          ORIGINAL_GW=$(${pkgs.iproute2}/bin/ip route show default | ${pkgs.gawk}/bin/awk 'NR==1{print $3}')
-          ${pkgs.iproute2}/bin/ip route del ${mullvadEndpointIP}/32 via $ORIGINAL_GW || true
+          ORIGINAL_GW=$(cat /tmp/default_route_backup | ${pkgs.gawk}/bin/awk '{print $3}')
+          ORIGINAL_DEV=$(cat /tmp/default_route_backup | ${pkgs.gawk}/bin/awk '{print $5}')
+          ${pkgs.iproute2}/bin/ip route replace default via $ORIGINAL_GW dev $ORIGINAL_DEV metric 100 || true
         fi
-        # Restore original routing
-        if [ -f /tmp/default_route_backup ]; then
-          ${pkgs.iproute2}/bin/ip route del default dev mullvad || true
-          ORIGINAL_GW=$(${pkgs.iproute2}/bin/ip route show default | ${pkgs.gawk}/bin/awk 'NR==1{print $3}')
-          ${pkgs.iproute2}/bin/ip route del ${mullvadEndpointIP}/32 via $ORIGINAL_GW || true
+        if [ -f /tmp/default_route6_backup ]; then
+          ORIGINAL_GW6=$(cat /tmp/default_route6_backup | ${pkgs.gawk}/bin/awk '{print $3}')
+          ORIGINAL_DEV=$(cat /tmp/default_route6_backup | ${pkgs.gawk}/bin/awk '{print $5}')
+          ${pkgs.iproute2}/bin/ip -6 route replace default via $ORIGINAL_GW6 dev $ORIGINAL_DEV metric 100 || true
         fi
       '';
     };
@@ -138,9 +153,10 @@ in {
       # Wait for VPN to be up
       sleep 5
 
-      # Route AP subnet through VPN
+      # Route AP subnet through VPN (IPv4 and IPv6)
       ${pkgs.iproute2}/bin/ip rule add from ${apNetwork} table vpn priority 100 || true
       ${pkgs.iproute2}/bin/ip route add default dev mullvad table vpn || true
+      ${pkgs.iproute2}/bin/ip -6 route add default dev mullvad table vpn || true
       ${pkgs.iproute2}/bin/ip route add ${apNetwork} dev ${apInterface} table vpn || true
 
       # Flush route cache
@@ -517,7 +533,7 @@ in {
         "netbios name" = sambaNetbiosName;
         "security" = "user";
         "hosts allow" = "${apNetworkPrefix} 127.0.0.1 localhost";
-        "hosts deny" = "0.0.0.0/0";
+        "hosts deny" = "REDACTED011";
         "guest account" = "nobody";
         "map to guest" = "bad user";
 
@@ -622,7 +638,13 @@ in {
   users.users.${sambaUser}.extraGroups = [ "sambashare" ];
   users.groups.sambashare = {};
 
-  #----=[ Firewall Configuration with VPN Kill Switch ]=----#
+  # Ensure AdGuard starts after AP interface is configured
+  systemd.services.adguardhome = {
+    after = [ "release-ap-interface.service" "hostapd.service" ];
+    wants = [ "release-ap-interface.service" "hostapd.service" ];
+  };
+
+  #----=[ Firewall Configuration ]=----#
 
   networking.firewall = {
     enable = true;
@@ -639,9 +661,6 @@ in {
       137 138         # NetBIOS
       3702            # WS-Discovery
     ];
-
-    # Kill switch is automatic: NAT only works through mullvad interface
-    # If VPN is down, no internet access for host or AP clients
   };
 
   #----=[ System Packages ]=----#

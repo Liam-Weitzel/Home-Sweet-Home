@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t neomutt -e "neomutt"
+Exec=foot --title neomutt neomutt
 GenericName=Email terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=email;mail;neomutt;nm;tui
 Name=neomutt
 StartupWMClass=neomutt

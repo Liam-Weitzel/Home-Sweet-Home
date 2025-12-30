@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t bandwhich -e sudo bandwhich
+Exec=foot --title bandwhich sudo bandwhich
 GenericName=Network bandwith monitoring terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=monitoring;bandwhich;network;tui
 Name=bandwhich
 StartupWMClass=bandwhich

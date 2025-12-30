@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=System;
+Exec=foot --title duf -e bash -c ~/.bash_scripts/duf-wrapper.sh
+GenericName=Disk usage analyzer terminal application
+Icon=foot
+Keywords=disk;usage;filesystem;storage;tui
+Name=duf
+StartupWMClass=duf
+Type=Application
+Version=1.0

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Development;
+Exec=foot --title cloc -e bash -c ~/.bash_scripts/cloc-wrapper.sh
+GenericName=Source code line counter terminal application
+Icon=foot
+Keywords=code;lines;count;analysis;development;tui
+Name=cloc
+StartupWMClass=cloc
+Type=Application
+Version=1.0

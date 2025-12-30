@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t bitwise -e "bitwise"
+Exec=foot --title bitwise bitwise
 GenericName=bitwise terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=bit;bitwise;tui
 Name=bitwise
 StartupWMClass=bitwise

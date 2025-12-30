@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t ncspot -e "ncspot"
+Exec=foot --title ncspot ncspot
 GenericName=Spotify terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=music;spotify;audio;ncspot;song;tui
 Name=ncspot
 StartupWMClass=ncspot

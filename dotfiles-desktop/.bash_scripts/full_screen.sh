@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/run/current-system/sw/bin/bash
 
 MARGIN=0
 MARGIN_TOL=30

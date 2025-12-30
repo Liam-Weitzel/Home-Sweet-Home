@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t bluetuith -e "bluetuith"
+Exec=foot --title bluetuith bluetuith
 GenericName=Bluetooth terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=bluetooth;bluetuith;network;tui
 Name=bluetuith
 StartupWMClass=bluetuith

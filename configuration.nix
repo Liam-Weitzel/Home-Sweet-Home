@@ -90,26 +90,28 @@
     irssi
     timer
     claude-code
+    imagemagick
+    vdirsyncer
+    gh
+    openssl
+    oath-toolkit
 
     gtt
-    showmethekey
     calcurse
     lazysql
     fastfetch
     bitwise
     bandwhich
-    trippy
     lazyjournal
     _2048-in-terminal
     chess-tui
-    binsider
     smassh
     calcure
-    vdirsyncer
     nchat
-    duf
     dua
-
+    binsider
+    trippy
+    duf
     cloc
     dive
     heh

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Development;
+Exec=foot --title flamelens -e bash -c ~/.bash_scripts/flamelens-wrapper.sh
+GenericName=Flame graph viewer terminal application
+Icon=foot
+Keywords=flame;graph;profiler;performance;analysis;tui
+Name=flamelens
+StartupWMClass=flamelens
+Type=Application
+Version=1.0

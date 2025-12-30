@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t smassh -e "smassh"
+Exec=foot --title smassh smassh
 GenericName=Typing terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=type;typing;monkeytype;monkey;workflow;smassh;tui
 Name=smassh
 StartupWMClass=smassh

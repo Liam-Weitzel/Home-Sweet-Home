@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t trippy -e sudo trip --mode tui www.google.com --geoip-mmdb-file /home/liam-w/GeoLite2-City.mmdb
+Exec=foot --title trippy -e bash -c ~/.bash_scripts/trippy-wrapper.sh
 GenericName=Trace route terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=traceroute;trippy;google;ping;internet;tui
 Name=trippy
 StartupWMClass=trippy

@@ -2,6 +2,17 @@
 
 My personal NixOS configuration with dotfiles, homelab setup, and application configurations.
 
+## 🔐 Security Notice
+
+**Before committing any changes**: If you hardcode passwords, API tokens, or any sensitive credentials in config files, you MUST add them to the redaction system:
+
+1. Add the sensitive token to `.tokens` file (one per line)
+2. Run `./redact.sh redact` before committing
+3. Commit and push the redacted files
+4. Run `./redact.sh unredact` to restore tokens for local use
+
+The redaction system now uses 3-digit zero-padded placeholders (REDACTED001, REDACTED002, etc.) allowing up to 999 tokens and preventing substring collision issues. This ensures sensitive data never reaches the public repository.
+
 ## Initial Setup
 
 ### Prerequisites
@@ -94,6 +105,24 @@ Create two Firefox profiles: `ssb` and `default`
 - **Email**: Configure in Firefox
 - **GitHub**: Login and setup
 
+### Password Manager (ncpass-rofi)
+
+The system includes a lightweight password manager with rofi frontend (`Super+p`).
+
+> **Important**: Update the Nextcloud token in `dotfiles-server/.bash_scripts/ncpass.sh` to match your current app password for the password manager to work properly.
+
+### File Transfer Utility (ncp)
+
+The system includes a command-line file transfer utility for uploading/downloading files to/from Nextcloud.
+
+> **Important**: The Nextcloud credentials are hardcoded in `dotfiles-server/.bash_scripts/ncp.sh` and match the ncpass configuration.
+
+### OTP Manager (ncotp)
+
+The system includes a command-line OTP manager with a rofi frontend (`Super+O`).
+
+> **Important**: The Nextcloud credentials are hardcoded in `dotfiles-server/.bash_scripts/ncotp.sh` and match the ncpass configuration.
+
 ## Email Setup (Neomutt)
 
 1. **Generate GPG key**:
@@ -115,18 +144,14 @@ Create two Firefox profiles: `ssb` and `default`
    ```
 
 ## Calendar Setup (Calcure)
-
-1. **Copy config template**:
-   ```bash
-   cp ~/.config/vdirsyncer/config.example ~/.config/vdirsyncer/config
    ```
 
-2. **Configure with app password**:
+1. **Configure with app password**:
    ```bash
-   vi ~/.config/vdirsyncer/config  # Replace REDACTED with nextcloud app password
+   vi ~/.config/vdirsyncer/config  # Replace REDACTED### with nextcloud app password
    ```
 
-3. **Initialize sync**:
+2. **Initialize sync**:
    ```bash
    vdirsyncer discover events_personal
    vdirsyncer sync
@@ -134,14 +159,25 @@ Create two Firefox profiles: `ssb` and `default`
 
 ## Nextcloud Deck Setup (tui-deck)
 
-1. **Copy config template**:
+1. **Configure with credentials**:
    ```bash
-   cp ~/.config/tui-deck/config_EXAMPLE.json ~/.config/tui-deck/config.json
+   vi ~/.config/tui-deck/config.json  # Replace REDACTED### with nextcloud app password
    ```
 
-2. **Configure with credentials**:
+## GH setup
+1. **Login to GH cli**:
    ```bash
-   vi ~/.config/tui-deck/config.json  # Replace REDACTED with nextcloud app password
+   gh auth login
+   ```
+
+2. **Install gh-dash extension**:
+   ```bash
+   gh extension install dlvhdr/gh-dash
+   ```
+
+3. **Install gh-enhance extension**:
+   ```bash
+   gh extension install Liam-Weitzel/gh-enhance
    ```
 
 ## Homelab Setup
@@ -225,7 +261,7 @@ mkpasswd -m bcrypt 'your_admin_password'
    mullvadListenPort = 51820;                      # Usually 51820
    mullvadEndpointIP = "xxx.xxx.xxx.xxx";          # From Endpoint (IP only)
    mullvadPublicKey = "base64_public_key";         # From PublicKey
-   mullvadAllowedIPs = [ "0.0.0.0/0" "::/0" ];    # Route all traffic
+   mullvadAllowedIPs = [ "REDACTED011" "REDACTED012" ];    # Route all traffic
    ```
 
 3. **Create private key file**:

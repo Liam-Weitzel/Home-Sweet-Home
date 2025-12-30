@@ -1,2 +1,4 @@
-/dotfiles-server/.config/vdirsyncer/data/
-/dotfiles-server/.config/vdirsyncer/config
+# Redaction system files
+.tokens
+.redact_mapping
+.redact_backup/

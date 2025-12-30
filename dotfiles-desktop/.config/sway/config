@@ -13,7 +13,7 @@ set $Control_R Mod5
 
 seat * xcursor_theme Maple 64
 
-set $term alacritty
+set $term foot
 set $menu rofi -show drun -show-icons | xargs swaymsg exec --
 
 bindsym $Super_L+b exec rofi -show window
@@ -324,30 +324,37 @@ for_window [title="Nextcloud"] floating enable
 for_window [title="wdisplays"] floating enable
 for_window [instance="zoom"] floating enable 
 
-for_window [title="2048-in-terminal"] floating enable
-for_window [title="adguard-tui"] floating enable
-for_window [title="lazyjournal"] floating enable
-for_window [title="chess-tui"] floating enable
-for_window [title="calcure"] floating enable
-for_window [title="htop"] floating enable
-for_window [title="gtt"] floating enable
-for_window [title="mpv"] floating enable
-for_window [title="imv"] floating enable
-for_window [title="neomutt"] floating enable
-for_window [title="smassh"] floating enable
-for_window [title="nmtui"] floating enable
-for_window [title="bluetuith"] floating enable 
-for_window [title="binsider"] floating enable
-for_window [title="ncspot"] floating enable
-for_window [title="irssi"] floating enable
-for_window [title="lazygit"] floating enable
-for_window [title="hoard"] floating enable
-for_window [title="lazysql"] floating enable
-for_window [title="bitwise"] floating enable
-for_window [title="dua"] floating enable
-for_window [title="bandwhich"] floating enable
-for_window [title="trippy"] floating enable
-for_window [title="tui-deck"] floating enable
+for_window [title="2048-in-terminal"] floating enable; resize set 1200 800
+for_window [title="adguard-tui"] floating enable; resize set 1200 800
+for_window [title="lazyjournal"] floating enable; resize set 1200 800
+for_window [title="chess-tui"] floating enable; resize set 1200 800
+for_window [title="calcure"] floating enable; resize set 1200 800
+for_window [title="htop"] floating enable; resize set 1200 800
+for_window [title="gtt"] floating enable; resize set 1200 800
+for_window [title="mpv"] floating enable; resize set 1200 800
+for_window [title="imv"] floating enable; resize set 1200 800
+for_window [title="neomutt"] floating enable; resize set 1200 800
+for_window [title="smassh"] floating enable; resize set 1200 800
+for_window [title="nmtui"] floating enable; resize set 1200 800
+for_window [title="bluetuith"] floating enable; resize set 1200 800
+for_window [title="binsider"] floating enable; resize set 1200 800
+for_window [title="ncspot"] floating enable; resize set 1200 800
+for_window [title="irssi"] floating enable; resize set 1200 800
+for_window [title="lazygit"] floating enable; resize set 1200 800
+for_window [title="hoard"] floating enable; resize set 1200 800
+for_window [title="lazysql"] floating enable; resize set 1200 800
+for_window [title="bitwise"] floating enable; resize set 1200 800
+for_window [title="dua"] floating enable; resize set 1200 800
+for_window [title="gh-dash"] floating enable; resize set 1200 800
+for_window [title="bandwhich"] floating enable; resize set 1200 800
+for_window [title="trippy"] floating enable; resize set 1200 800
+for_window [title="tui-deck"] floating enable; resize set 1200 800
+for_window [title="duf"] floating enable; resize set 1200 800
+for_window [title="cloc"] floating enable; resize set 1200 800
+for_window [title="dive"] floating enable; resize set 1200 800
+for_window [title="heh"] floating enable; resize set 1200 800
+for_window [title="flamelens"] floating enable; resize set 1200 800
+for_window [title="gh-enhance"] floating enable; resize set 1200 800
 
 floating_modifier $Super_L normal
 
@@ -394,11 +401,11 @@ bindcode $Super_L+Shift+415 move workspace next_on_output; workspace next_on_out
 bindcode $Super_L+Shift+420 move workspace prev_on_output; workspace prev_on_output
 
 #core startup apps:
-exec alacritty
+exec foot
 exec firefox --name=default -P default
 exec nextcloud
 exec vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu --nosocket=wayland
-exec alacritty -t nchat -e "nchat"
+exec foot --title nchat nchat
 
 bindsym $Super_L+h splitv
 bindsym $Super_L+v splith
@@ -411,7 +418,10 @@ bindsym $Super_L+Tab floating toggle
 
 bindsym $Super_L+Escape focus mode_toggle
 
-bindsym $Super_L+p focus parent
+bindsym $Super_L+u focus parent
+
+bindsym $Super_L+p exec ~/.bash_scripts/ncpass-rofi.sh
+bindsym $Super_L+o exec ~/.bash_scripts/ncotp-rofi.sh
 
 bindsym $Super_L+m move scratchpad
 bindsym $Super_L+$Shift_L+m scratchpad show

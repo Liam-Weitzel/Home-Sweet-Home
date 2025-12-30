@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Development;
+Exec=foot --title heh -e bash -c ~/.bash_scripts/heh-wrapper.sh
+GenericName=Hex editor terminal application
+Icon=foot
+Keywords=hex;editor;binary;file;tui
+Name=heh
+StartupWMClass=heh
+Type=Application
+Version=1.0

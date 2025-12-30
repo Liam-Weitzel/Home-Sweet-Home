@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=foot --title gh-dash gh dash
+GenericName=github dashboard terminal application
+Icon=foot
+Keywords=git;github;dash;dashboard;mr;pr;merge;pull;tui
+Name=gh-dash
+StartupWMClass=gh-dash
+Type=Application
+Version=1.0

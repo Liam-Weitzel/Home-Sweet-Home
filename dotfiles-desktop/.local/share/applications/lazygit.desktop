@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t lazygit -e "lazygit"
+Exec=foot --title lazygit lazygit
 GenericName=git terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=git;workflow;lazygit;tui
 Name=lazygit
 StartupWMClass=lazygit

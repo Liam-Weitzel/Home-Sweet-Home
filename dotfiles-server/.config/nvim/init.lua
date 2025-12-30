@@ -407,6 +407,7 @@ require('lazy').setup({
 
   {
     "Liam-Weitzel/mini.files",
+    dependencies = { "3rd/image.nvim" },
     opts = {
       windows = {
         preview = true,
@@ -428,6 +429,10 @@ require('lazy').setup({
         synchronize = '=',
         trim_left   = '<',
         trim_right  = '>',
+        copy_relative_path = 'ypr',
+        copy_absolute_path = 'ypa',
+        open_with_default = 'gx',
+        open_in_explorer = 'gX',
       },
     },
 
@@ -480,6 +485,7 @@ require('lazy').setup({
     lazy = false,
     ---@type snacks.Config
     opts = {
+      gh = { enabled = false },
       bigfile = { enabled = true },
       dashboard = { enabled = false },
       explorer = { enabled = false },
@@ -490,6 +496,7 @@ require('lazy').setup({
         timeout = 1000,
       },
       picker = { enabled = true },
+      image = { enabled = false },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = false },
@@ -825,9 +832,57 @@ require('lazy').setup({
     },
     opts = {
     },
-  }
+  },
 
-}, {})
+  {
+    "3rd/image.nvim",
+    build = "",
+    opts = {
+      backend = "sixel",
+      processor = "magick_cli",
+      integrations = {
+        markdown = {
+          enabled = true,
+          clear_in_insert_mode = false,
+          download_remote_images = true,
+          only_render_image_at_cursor = true,
+          only_render_image_at_cursor_mode = "popup",
+          floating_windows = false,
+          filetypes = { "markdown", "vimwiki" },
+        },
+        neorg = {
+          enabled = true,
+          filetypes = { "norg" },
+        },
+        typst = {
+          enabled = true,
+          filetypes = { "typst" },
+        },
+        html = {
+          enabled = false,
+        },
+        css = {
+          enabled = false,
+        },
+      },
+      max_width = nil,
+      max_height = nil,
+      max_width_window_percentage = nil,
+      max_height_window_percentage = 50,
+      scale_factor = 1.0,
+      window_overlap_clear_enabled = false,
+      window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "snacks_notif", "scrollview", "scrollview_sign" },
+      editor_only_render_when_focused = false,
+      tmux_show_only_in_active_window = false,
+      hijack_file_patterns = {},
+      rocks = { 
+        enabled = false,
+        hererocks = false
+      }
+    }
+  }, 
+
+},{})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -1109,7 +1164,7 @@ vim.keymap.set("v", "c", "\"cc")
 vim.keymap.set("v", "X", "\"xX")
 vim.keymap.set("v", "C", "\"cC")
 
--- Delete previous word (Ctrl+Backspace) is done in alacritty using ctrl+w
+-- Delete previous word (Ctrl+Backspace) is done in foot using ctrl+w
 -- Delete next word (Ctrl+Delete)
 vim.keymap.set("i", '<A-d>', '<C-o>dw', { noremap = true, silent = true, desc = 'Delete next word' })
 

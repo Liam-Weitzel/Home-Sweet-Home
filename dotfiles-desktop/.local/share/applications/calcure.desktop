@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t calcure -e "calcure"
+Exec=foot --title calcure calcure
 GenericName=Calendar terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=calendar;cal;calcure;tui
 Name=calcure
 StartupWMClass=calcure

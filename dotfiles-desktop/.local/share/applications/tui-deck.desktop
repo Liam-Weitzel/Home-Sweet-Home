@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t tui-deck -e "tui-deck"
+Exec=foot --title tui-deck tui-deck
 GenericName=Nextcloud deck terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=workflow;deck;kanban;organization;tui-deck;tui
 Name=tui-deck
 StartupWMClass=tui-deck

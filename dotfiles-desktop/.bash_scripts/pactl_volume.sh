@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/run/current-system/sw/bin/bash
 
 SINK=$(pacmd list-sinks | grep "index:" | grep '*' | awk '{print $3}')
 

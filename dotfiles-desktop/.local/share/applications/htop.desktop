@@ -1,6 +1,6 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t htop -e "htop"
+Exec=foot --title htop htop
 GenericName=Process monitoring terminal application
 Icon=htop
 Keywords=process;monitoring;htop;tui

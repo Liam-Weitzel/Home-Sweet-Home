@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t dua -e dua interactive
+Exec=foot --title dua dua interactive
 GenericName=Disk space analyzer terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=disk;space;df;storage;files;workflow;dua;tui
 Name=dua
 StartupWMClass=dua

@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t lazyjournal -e "lazyjournal"
+Exec=foot --title lazyjournal lazyjournal
 GenericName=journal terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=journal;workflow;lazyjournal;tui
 Name=lazyjournal
 StartupWMClass=lazyjournal

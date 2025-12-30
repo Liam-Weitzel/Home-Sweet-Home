@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t binsider -e "binsider"
+Exec=foot --title binsider -e bash -c ~/.bash_scripts/binsider-wrapper.sh
 GenericName=Binary analysis terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=inspect;binary;analysis;binsider;tui
 Name=binsider
 StartupWMClass=binsider

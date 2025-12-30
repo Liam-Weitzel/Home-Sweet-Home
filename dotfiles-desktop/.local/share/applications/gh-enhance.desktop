@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Development;
+Exec=foot --title gh-enhance -e bash -c ~/.bash_scripts/gh-enhance-wrapper.sh
+GenericName=GitHub PR enhancer terminal application
+Icon=foot
+Keywords=github;pr;enhance;pull;request;tui
+Name=gh-enhance
+StartupWMClass=gh-enhance
+Type=Application
+Version=1.0

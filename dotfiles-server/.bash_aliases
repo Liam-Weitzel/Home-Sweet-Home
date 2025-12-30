@@ -1,6 +1,8 @@
 alias nixsw='sudo nixos-rebuild switch --flake ~/Home-Sweet-Home/flake.nix#liam-w'
 alias nixswv='sudo nixos-rebuild switch --flake ~/Home-Sweet-Home/flake.nix#liam-w -vvvv'
 alias lg='lazygit'
+alias gd='gh dash'
+alias ge='gh enhance'
 alias lq='lazysql'
 alias bt='bluetuith'
 alias nm='nmtui'

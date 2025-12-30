@@ -6,7 +6,7 @@ ONCLICK="$1"
 BT_STATUS=$(bluetoothctl show | awk '/Powered:/ {print $2}')
 
 # Count connected devices
-CONNECTED_COUNT=$(bluetoothctl info | grep -c "Connected: yes")
+CONNECTED_COUNT=$(bluetoothctl devices Connected | grep '^Device ' | wc -l)
 
 if [ "$BT_STATUS" = "yes" ]; then
     ICON="🟦"

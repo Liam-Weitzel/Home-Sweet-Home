@@ -27,8 +27,7 @@
   users.users.liam-w.extraGroups = [ "input" "video" ];
 
   environment.systemPackages = with pkgs; [
-    alacritty
-    ueberzugpp
+    foot
     xfce.thunar
     xfce.thunar-volman
     bemoji

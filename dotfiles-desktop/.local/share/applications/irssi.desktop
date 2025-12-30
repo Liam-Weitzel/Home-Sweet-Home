@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t irssi -e "irssi"
+Exec=foot --title irssi irssi
 GenericName=IRC terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=irc;chat;irssi;tui
 Name=irssi
 StartupWMClass=irssi

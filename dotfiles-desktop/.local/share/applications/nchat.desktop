@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t nchat -e "nchat"
+Exec=foot --title nchat nchat
 GenericName=Whatsapp terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=chat;whatsapp;message;messaging;nchat;tui
 Name=nchat
 StartupWMClass=nchat

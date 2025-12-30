@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Development;
+Exec=foot --title dive -e bash -c ~/.bash_scripts/dive-wrapper.sh
+GenericName=Docker image analyzer terminal application
+Icon=foot
+Keywords=docker;image;analysis;container;layers;tui
+Name=dive
+StartupWMClass=dive
+Type=Application
+Version=1.0

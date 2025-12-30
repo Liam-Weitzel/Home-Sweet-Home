@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t 2048-in-terminal -e "2048-in-terminal"
+Exec=foot --title 2048-in-terminal 2048-in-terminal
 GenericName=2048 terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=2048;games;tui
 Name=2048
 StartupWMClass=2048

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/run/current-system/sw/bin/bash
 
 TEXT=${1:-"std::"}
 CURSOR_STEPS=${2:-0}

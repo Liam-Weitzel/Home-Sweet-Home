@@ -39,21 +39,21 @@
   },
   "custom/vpn": {
     "exec": "~/.bash_scripts/waybar/vpn.sh",
-    "on-click": "alacritty -t adguard-tui -e bash -c 'docker run -e 'ADGUARD_IP=local' -e 'ADGUARD_PORT=3000' -e 'ADGUARD_USERNAME=admin' -e 'ADGUARD_PASSWORD=REDACTED' -it obaraelijah/adguard-tui'",
+    "on-click": "foot --title adguard-tui bash -c 'docker run -e 'ADGUARD_IP=local' -e 'ADGUARD_PORT=3000' -e 'ADGUARD_USERNAME=admin' -e 'ADGUARD_PASSWORD=REDACTED002' -it obaraelijah/adguard-tui'",
     "interval": 5,
     "return-type": "json",
     "class": "button"
   },
   "custom/network": {
     "exec": "~/.bash_scripts/waybar/network.sh",
-    "on-click": "alacritty -t bandwhich -e sudo bandwhich",
+    "on-click": "foot --title bandwhich sudo bandwhich -s",
     "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/ping": {
     "exec": "~/.bash_scripts/waybar/ping.sh",
-    "on-click": "alacritty -t trippy -e sudo trip --mode tui www.google.com --geoip-mmdb-file GeoLite2-City.mmdb",
+    "on-click": "foot --title trippy -e bash -c ~/.bash_scripts/trippy-wrapper.sh",
     "interval": 1,
     "return-type": "json",
     "class": "button"
@@ -67,28 +67,28 @@
   },
   "custom/mem": {
     "exec": "~/.bash_scripts/waybar/mem.sh",
-    "on-click": "alacritty -t bitwise -e bitwise",
+    "on-click": "foot --title bitwise bitwise",
     "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/cpu": {
     "exec": "~/.bash_scripts/waybar/cpu.sh",
-    "on-click": "alacritty -t trippy -e htop",
+    "on-click": "foot --title trippy htop",
     "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/disk": {
     "exec": "~/.bash_scripts/waybar/disk.sh",
-    "on-click": "alacritty -t dua -e dua interactive",
+    "on-click": "foot --title dua dua interactive",
     "interval": 10,
     "return-type": "json",
     "class": "button"
   },
   "custom/iface": {
     "exec": "~/.bash_scripts/waybar/iface.sh",
-    "on-click": "alacritty -t nmtui -e nmtui",
+    "on-click": "foot --title nmtui nmtui",
     "interval": 1,
     "return-type": "json",
     "class": "button"
@@ -102,7 +102,7 @@
   },
   "custom/bt": {
     "exec": "~/.bash_scripts/waybar/bt.sh",
-    "on-click": "alacritty -t bluetuith -e bluetuith",
+    "on-click": "foot --title bluetuith bluetuith",
     "interval": 1,
     "return-type": "json",
     "class": "button"
@@ -116,7 +116,7 @@
   },
   "custom/date": {
     "exec": "~/.bash_scripts/waybar/date.sh",
-    "on-click": "alacritty -t calcure -e calcure",
+    "on-click": "foot --title calcure calcure",
     "interval": 1,
     "return-type": "json",
     "class": "button"
@@ -163,21 +163,21 @@
   },
   "custom/vpn": {
     "exec": "~/.bash_scripts/waybar/vpn.sh",
-    "on-click": "alacritty -t adguard-tui -e bash -c 'docker run -e 'ADGUARD_IP=local' -e 'ADGUARD_PORT=3000' -e 'ADGUARD_USERNAME=admin' -e 'ADGUARD_PASSWORD=REDACTED' -it obaraelijah/adguard-tui'",
+    "on-click": "foot --title adguard-tui bash -c 'docker run -e 'ADGUARD_IP=local' -e 'ADGUARD_PORT=3000' -e 'ADGUARD_USERNAME=admin' -e 'ADGUARD_PASSWORD=REDACTED002' -it obaraelijah/adguard-tui'",
     "interval": 5,
     "return-type": "json",
     "class": "button"
   },
   "custom/network": {
     "exec": "~/.bash_scripts/waybar/network.sh",
-    "on-click": "alacritty -t bandwhich -e sudo bandwhich",
+    "on-click": "foot --title bandwhich sudo bandwhich",
     "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/ping": {
     "exec": "~/.bash_scripts/waybar/ping.sh",
-    "on-click": "alacritty -t trippy -e sudo trip --mode tui www.google.com",
+    "on-click": "foot --title trippy -e bash -c ~/.bash_scripts/trippy-wrapper.sh",
     "interval": 1,
     "return-type": "json",
     "class": "button"
@@ -191,28 +191,28 @@
   },
   "custom/mem": {
     "exec": "~/.bash_scripts/waybar/mem.sh",
-    "on-click": "alacritty -t bitwise -e bitwise",
+    "on-click": "foot --title bitwise bitwise",
     "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/cpu": {
     "exec": "~/.bash_scripts/waybar/cpu.sh",
-    "on-click": "alacritty -t trippy -e htop",
+    "on-click": "foot --title trippy htop",
     "interval": 1,
     "return-type": "json",
     "class": "button"
   },
   "custom/disk": {
     "exec": "~/.bash_scripts/waybar/disk.sh",
-    "on-click": "alacritty -t dua -e dua interactive",
+    "on-click": "foot --title dua dua interactive",
     "interval": 10,
     "return-type": "json",
     "class": "button"
   },
   "custom/iface": {
     "exec": "~/.bash_scripts/waybar/iface.sh",
-    "on-click": "alacritty -t nmtui -e nmtui",
+    "on-click": "foot --title nmtui nmtui",
     "interval": 1,
     "return-type": "json",
     "class": "button"
@@ -226,7 +226,7 @@
   },
   "custom/bt": {
     "exec": "~/.bash_scripts/waybar/bt.sh",
-    "on-click": "alacritty -t bluetuith -e bluetuith",
+    "on-click": "foot --title bluetuith bluetuith",
     "interval": 1,
     "return-type": "json",
     "class": "button"
@@ -240,7 +240,7 @@
   },
   "custom/date": {
     "exec": "~/.bash_scripts/waybar/date.sh",
-    "on-click": "alacritty -t calcure -e calcure",
+    "on-click": "foot --title calcure calcure",
     "interval": 1,
     "return-type": "json",
     "class": "button"

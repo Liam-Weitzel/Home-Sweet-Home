@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Network;
-Exec=alacritty -t chess-tui -e "chess-tui"
+Exec=foot --title chess-tui chess-tui
 GenericName=Chess terminal application
-Icon=Alacritty
+Icon=foot
 Keywords=chess;games;tui
 Name=chess-tui
 StartupWMClass=chess-tui
