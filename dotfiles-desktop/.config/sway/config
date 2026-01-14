@@ -397,8 +397,10 @@ bindcode 415 workspace next_on_output
 bindcode 420 workspace prev_on_output
 bindcode $Super_L+415 exec swaymsg workspace $(seq $(swaymsg -t get_workspaces | jq -r 'map(select(.focused == true)) | .[0].name') 100 | grep -vFf <(swaymsg -t get_workspaces | jq -r '.[].name') | head -n 1)
 bindcode $Super_L+420 exec swaymsg workspace $(seq $(swaymsg -t get_workspaces | jq -r 'map(select(.focused == true)) | .[0].name') -1 1 | grep -vFf <(swaymsg -t get_workspaces | jq -r '.[].name') | head -n 1)
-bindcode $Super_L+Shift+415 move workspace next_on_output; workspace next_on_output
-bindcode $Super_L+Shift+420 move workspace prev_on_output; workspace prev_on_output
+bindcode Shift+415 move workspace next_on_output; workspace next_on_output
+bindcode Shift+420 move workspace prev_on_output; workspace prev_on_output
+bindcode $Super_L+Shift+415 exec bash -c 'ws=$(seq $(swaymsg -t get_workspaces | jq -r "map(select(.focused))[0].name") 100 | grep -vFf <(swaymsg -t get_workspaces | jq -r ".[].name") | head -n 1); swaymsg "move container to workspace $ws, workspace $ws"'
+bindcode $Super_L+Shift+420 exec bash -c 'ws=$(seq $(swaymsg -t get_workspaces | jq -r "map(select(.focused))[0].name") -1 1 | grep -vFf <(swaymsg -t get_workspaces | jq -r ".[].name") | head -n 1); swaymsg "move container to workspace $ws, workspace $ws"'
 
 #core startup apps:
 exec foot

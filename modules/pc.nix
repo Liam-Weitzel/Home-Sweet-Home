@@ -5,6 +5,7 @@
     [
       ./nvidia.nix
       # ./amd.nix
+      # ./intel-mac-webcam.nix
       ./firefox.nix
       ./cursor.nix
       ./sway.nix
@@ -24,7 +25,7 @@
 
   services.libinput.enable = true;
 
-  users.users.liam-w.extraGroups = [ "input" "video" ];
+  users.users.liam-w.extraGroups = [ "input" "video" "wireshark" ];
 
   environment.systemPackages = with pkgs; [
     foot
@@ -58,6 +59,7 @@
     gamescope
     gpu-viewer
     rpi-imager
+    dbeaver-bin
 
     #GAMEDEV
     aseprite
@@ -82,6 +84,7 @@
     #REVERSE ENGINEERING
     ghidra
     frida-tools
+    wireshark
   ];
 
   programs.steam.enable = true;

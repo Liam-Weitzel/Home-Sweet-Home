@@ -74,7 +74,7 @@
   },
   "custom/cpu": {
     "exec": "~/.bash_scripts/waybar/cpu.sh",
-    "on-click": "foot --title trippy htop",
+    "on-click": "foot --title htop htop",
     "interval": 1,
     "return-type": "json",
     "class": "button"
@@ -170,7 +170,7 @@
   },
   "custom/network": {
     "exec": "~/.bash_scripts/waybar/network.sh",
-    "on-click": "foot --title bandwhich sudo bandwhich",
+    "on-click": "foot --title bandwhich sudo bandwhich -s",
     "interval": 1,
     "return-type": "json",
     "class": "button"
@@ -198,7 +198,7 @@
   },
   "custom/cpu": {
     "exec": "~/.bash_scripts/waybar/cpu.sh",
-    "on-click": "foot --title trippy htop",
+    "on-click": "foot --title htop htop",
     "interval": 1,
     "return-type": "json",
     "class": "button"

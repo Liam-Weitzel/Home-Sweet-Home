@@ -341,7 +341,8 @@ require('lazy').setup({
 
       dap.adapters.lldb = {
         type = "executable",
-        command = codelldb_path,
+        command = "sudo",
+        arg = { codelldb_path },
         name = "codelldb"
       }
 

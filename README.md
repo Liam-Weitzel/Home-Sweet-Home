@@ -71,7 +71,6 @@ Create two Firefox profiles: `ssb` and `default`
 - Floccus (bookmark sync)
 - Nextcloud Passwords
 - OTP Manager
-- GitHub extension
 
 #### Link Hints Shortcuts
 | Action | Shortcut |
@@ -261,7 +260,7 @@ mkpasswd -m bcrypt 'your_admin_password'
    mullvadListenPort = 51820;                      # Usually 51820
    mullvadEndpointIP = "xxx.xxx.xxx.xxx";          # From Endpoint (IP only)
    mullvadPublicKey = "base64_public_key";         # From PublicKey
-   mullvadAllowedIPs = [ "REDACTED011" "REDACTED012" ];    # Route all traffic
+   mullvadAllowedIPs = [ "0.0.0.0/0" "::/0" ];    # Route all traffic
    ```
 
 3. **Create private key file**:

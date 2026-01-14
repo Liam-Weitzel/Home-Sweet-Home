@@ -46,7 +46,7 @@ let
   mullvadListenPort = 51820;
   mullvadEndpointIP = "REDACTED009";  # Mullvad server IP
   mullvadPublicKey = "REDACTED010"; # Server's public key
-  mullvadAllowedIPs = [ "REDACTED011" "REDACTED012" ];
+  mullvadAllowedIPs = [ "0.0.0.0/0" "::/0" ];
 in {
 
   #----=[ Mullvad VPN Configuration ]=----#
@@ -533,7 +533,7 @@ in {
         "netbios name" = sambaNetbiosName;
         "security" = "user";
         "hosts allow" = "${apNetworkPrefix} 127.0.0.1 localhost";
-        "hosts deny" = "REDACTED011";
+        "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";
 
