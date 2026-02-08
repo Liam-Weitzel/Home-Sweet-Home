@@ -1,4 +1,4 @@
-#!/run/current-system/sw/bin/bash
+#!/usr/bin/env bash
 echo "Enter hostname or IP address to trace:"
 read -r target
 if [ -z "$target" ]; then

@@ -3,9 +3,9 @@
 {
   imports =
     [
-      ./nvidia.nix
+      # ./nvidia.nix
       # ./amd.nix
-      # ./intel-mac-webcam.nix
+      ./intel-mac-webcam.nix
       ./firefox.nix
       ./cursor.nix
       ./sway.nix
@@ -47,7 +47,7 @@
     pavucontrol
     libreoffice
     gimp
-    postman
+    bruno #postman alternative
     google-chrome
     nextcloud-client
     xorg.xmodmap

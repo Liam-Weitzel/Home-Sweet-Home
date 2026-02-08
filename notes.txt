@@ -1,0 +1,5 @@
+Copy over hardware-configuration.nix
+Reconfigure waybar
+Export sideberry & flocus
+Sway config default size for floats 1200, 800
+Delete these notes

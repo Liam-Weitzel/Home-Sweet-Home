@@ -1,4 +1,4 @@
-#!/run/current-system/sw/bin/bash
+#!/usr/bin/env bash
 set -o emacs
 echo "Enter file path to view in hex editor:"
 echo "Use Tab for completion"

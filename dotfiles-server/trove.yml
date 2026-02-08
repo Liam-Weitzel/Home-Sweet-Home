@@ -16,11 +16,11 @@ command: memory read -s1 -c64 -f x 0x1000
 
 name: run docker interactively with mounted drive
 tags: [ docker, volume, storage, qsLAM, PCR ]
-command: sudo docker run --rm -it -v "$(pwd)/rawdata:/qsLAM-PCR-AIO/rawdata" -p 127.0.0.1:5000:5000 qslam_pcr_aio:latest
+command: sudo docker run --rm -it -v "$(pwd):/qsLAM-PCR-AIO" -p 127.0.0.1:5000:5000 qslam_pcr_aio:latest bash
 
 name: docker build image with tags
 tags: [ docker, qsLAM, PCR ]
-command: sudo docker build . -t qslam_pcr_aio:0.0.2 -t qslam_pcr_aio:latest
+command: sudo docker build . -t qslam_pcr_aio:0.0.7 -t qslam_pcr_aio:latest
 
 name: source mime types
 tags: [nchat, mime types, rice]

@@ -1,4 +1,4 @@
-#!/run/current-system/sw/bin/bash
+#!/usr/bin/env bash
 docker images
 echo "Enter Docker image name/tag to analyze:"
 read -r image

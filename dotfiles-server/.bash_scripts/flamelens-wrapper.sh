@@ -1,4 +1,4 @@
-#!/run/current-system/sw/bin/bash
+#!/usr/bin/env bash
 set -o emacs
 echo "Enter profile data filename to analyze:"
 echo "Use Tab for completion"

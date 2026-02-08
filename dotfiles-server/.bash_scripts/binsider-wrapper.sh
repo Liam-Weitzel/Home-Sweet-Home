@@ -1,4 +1,4 @@
-#!/run/current-system/sw/bin/bash
+#!/usr/bin/env bash
 set -o emacs
 echo "Enter binary/ELF file path to analyze:"
 echo "Use Tab for completion"

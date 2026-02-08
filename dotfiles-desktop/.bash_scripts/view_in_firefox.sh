@@ -29,7 +29,7 @@ fi
 
 ENCODED_URI=$(printf '%s' "$URI" | jq -s -R -r @uri)
 
-EXTENSION_URL="moz-extension://2356835a-b7f8-4bb0-8819-b2f336939d1c/ssb.html"
-FULL_URL="${EXTENSION_URL}?url=${ENCODED_URI}&name=&incognito=false"
+EXTENSION_URL="moz-extension://13edbc1c-e5f8-44f0-b1c0-fb89dd62038b/ssb.html"
+FULL_URL="${EXTENSION_URL}?url=${ENCODED_URI}&name=&incognito=false&alternative=false"
 
 firefox --name=ssb -P ssb --new-window "$FULL_URL" &

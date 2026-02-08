@@ -1,4 +1,4 @@
-#!/run/current-system/sw/bin/bash
+#!/usr/bin/env bash
 set -o emacs
 echo "Enter directory/file path to analyze (or press Enter for current directory):"
 echo "Use Tab for completion"

@@ -1,23 +1,23 @@
 [{
   "layer": "bottom",
   "position": "bottom",
-  "output": "DP-2",
+  "output": "eDP-1",
   "modules-left": [
     "sway/workspaces"
   ],
   "modules-center": [],
   "modules-right": [
-    "custom/network",
-    "custom/ping",
-    "custom/priv_ip",
-    "custom/pub_ip",
+    //"custom/network",
+    //"custom/ping",
+    //"custom/priv_ip",
+    //"custom/pub_ip",
     //"custom/vpn",
     //"custom/uptime",
     "custom/mem",
     "custom/cpu",
     "custom/disk",
     //"custom/iface",
-    //"custom/bat",
+    "custom/bat",
     //"custom/bt",
     "custom/vol",
     "custom/date"

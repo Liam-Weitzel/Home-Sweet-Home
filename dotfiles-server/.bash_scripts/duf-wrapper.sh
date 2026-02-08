@@ -1,4 +1,4 @@
-#!/run/current-system/sw/bin/bash
+#!/usr/bin/env bash
 set -o emacs
 echo "Enter directory path (or press Enter for current directory):"
 echo "Use Tab for completion"

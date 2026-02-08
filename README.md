@@ -11,7 +11,7 @@ My personal NixOS configuration with dotfiles, homelab setup, and application co
 3. Commit and push the redacted files
 4. Run `./redact.sh unredact` to restore tokens for local use
 
-The redaction system now uses 3-digit zero-padded placeholders (REDACTED001, REDACTED002, etc.) allowing up to 999 tokens and preventing substring collision issues. This ensures sensitive data never reaches the public repository.
+The redaction system now uses 3-digit zero-padded placeholders (REDACTED 997, REDACTED 998, etc.) allowing up to 999 tokens and preventing substring collision issues. This ensures sensitive data never reaches the public repository.
 
 ## Initial Setup
 
@@ -68,26 +68,15 @@ Create two Firefox profiles: `ssb` and `default`
   - Close popup after pasting credentials: OFF
 
 #### Extensions to Configure
-- Floccus (bookmark sync)
+- Floccus
 - Nextcloud Passwords
 - OTP Manager
 
 #### Link Hints Shortcuts
-| Action | Shortcut |
-|--------|----------|
-| Click | `Ctrl + E` |
-| Open in new tab | `Ctrl + I` |
-| Open in new tab & switch | `Ctrl + O` |
-| Click many | `Ctrl + Shift + E` |
-| Open many tabs | `Ctrl + Shift + I` |
-| Select element | `Ctrl + Shift + L` |
-| Swap selection end | `Ctrl + Shift + O` |
+Import from file
 
 #### Sidebery Configuration
-- Position: Right side, vertical
-- Tabs preview: ON
-- Disable: History and bookmarks panels
-- Unbind: `Ctrl + Space`
+Sync -> Import from file
 
 > Note: Get SSB hash from a random website and update `.bash_scripts/view_in_firefox.sh`
 

@@ -1,4 +1,4 @@
-#!/run/current-system/sw/bin/bash
+#!/usr/bin/env bash
 
 # Get current workspace
 current_ws=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused) | .name')

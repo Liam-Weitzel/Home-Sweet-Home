@@ -9,6 +9,8 @@
       ./modules/docker.nix
       ./modules/cppinsights.nix
       ./modules/cppman.nix
+      ./modules/get-shit-done.nix
+      ./modules/claude-code.nix
       # ./modules/homelab.nix
       ./hardware-configuration.nix
     ];
@@ -16,6 +18,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
   boot.kernel.sysctl."vm.swappiness" = 10;
   networking.hostName = "liam-w";
 
@@ -66,6 +69,7 @@
 
     #----=[ workflow ]=----#
     neovim
+    tree-sitter
     tmux
     git
     stow
@@ -89,7 +93,6 @@
     lazygit
     irssi
     timer
-    claude-code
     imagemagick
     vdirsyncer
     gh

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=foot --title claude-monitor claude-monitor
+GenericName=Claude monitor application
+Icon=foot
+Keywords=ai;claude;monitor;tui
+Name=claude-monitor
+StartupWMClass=claude-monitor
+Type=Application
+Version=1.0

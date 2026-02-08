@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/liam-w/.claude/notify-done.sh"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/liam-w/.claude/notify-done.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "/home/liam-w/.claude/statusline.sh"
+  },
+  "model": "sonnet"
+}

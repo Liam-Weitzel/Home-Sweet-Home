@@ -214,6 +214,7 @@ require('lazy').setup({
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
+    branch = 'master',
     build = ':TSUpdate',
   },
 
@@ -393,17 +394,6 @@ require('lazy').setup({
         ui.close()
       end
     end
-  },
-
-  {
-  "mbienkowsk/hush.nvim",
-    config = {},
-    keys = {
-        { "<leader>m", "<Cmd>Hush<CR>", desc = "Hush" },
-    },
-    cmd = {
-        "Hush", "HushAll"
-    },
   },
 
   {
@@ -1083,6 +1073,12 @@ vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
 vim.keymap.set('n', '<C-w>h', ':sp<CR> <C-w>j')
 vim.keymap.set('n', '<C-w>v', ':vsp<CR> <C-w>l')
 
+-- Move windows with Ctrl+W + Shift + Arrow keys
+vim.keymap.set('n', '<C-w><S-Left>', '<C-w>H')
+vim.keymap.set('n', '<C-w><S-Down>', '<C-w>J')
+vim.keymap.set('n', '<C-w><S-Up>', '<C-w>K')
+vim.keymap.set('n', '<C-w><S-Right>', '<C-w>L')
+
 -- Leetcode keymaps
 vim.keymap.set('n', '<leader>ll', cmd 'Leet')
 vim.keymap.set('n', '<leader>lc', cmd 'Leet console')
@@ -1363,7 +1359,7 @@ local function cppman_telescope()
 
     vim.cmd('vnew')
     local buf = vim.api.nvim_get_current_buf()
-    vim.api.nvim_buf_set_option(buf, 'buftype', 'cpp')
+    vim.api.nvim_buf_set_option(buf, 'buftype', 'nofile')
     vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
     vim.api.nvim_buf_set_option(buf, 'filetype', 'man')
     vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(output, '\n'))
@@ -1445,7 +1441,7 @@ local function cppman_prompt_telescope()
 
       vim.cmd('vnew')
       local buf = vim.api.nvim_get_current_buf()
-      vim.api.nvim_buf_set_option(buf, 'buftype', '')
+      vim.api.nvim_buf_set_option(buf, 'buftype', 'nofile')
       vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
       vim.api.nvim_buf_set_option(buf, 'filetype', 'man')
       vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(output, '\n'))
@@ -1736,7 +1732,7 @@ vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find exis
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'regex', 'html', 'css', 'json', 'markdown', 'markdown_inline' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,

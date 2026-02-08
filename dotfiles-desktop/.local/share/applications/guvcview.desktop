@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=foot --title guvcview guvcview
+GenericName=Guvcview
+Icon=foot
+Keywords=camera;guvcview;webcam
+Name=Guvcview
+StartupWMClass=Guvcview
+Type=Application
+Version=1.0
