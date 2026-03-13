@@ -94,3 +94,6 @@ fi
 eval "$(starship init bash)"
 
 fastfetch
+
+# uv
+export PATH="/home/liam-w/.local/bin:$PATH"

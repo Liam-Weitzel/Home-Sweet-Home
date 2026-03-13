@@ -32,7 +32,6 @@
     xfce.thunar
     xfce.thunar-volman
     bemoji
-    cliphist
     imagemagick
     bluetuith
     guvcview
@@ -43,10 +42,7 @@
     xdg-desktop-portal-gtk
     xdg-desktop-portal
     vesktop
-    runelite
     pavucontrol
-    libreoffice
-    gimp
     bruno #postman alternative
     google-chrome
     nextcloud-client
@@ -55,8 +51,6 @@
     brightnessctl
     playerctl
     ncspot
-    gfn-electron
-    gamescope
     gpu-viewer
     rpi-imager
     dbeaver-bin
@@ -69,13 +63,10 @@
     blender
 
     #VIDEO
-    obs-studio
     vlc
     mpv
 
     #WORK
-    citrix_workspace
-    zoom-us
     gromit-mpx
 
     #DRONE

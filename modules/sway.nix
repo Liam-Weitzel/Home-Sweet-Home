@@ -20,7 +20,6 @@
     wev #check what input is being sent to wayland
     wdisplays
     waybar
-    showmethekey
   ];
 
   environment.loginShellInit = lib.mkBefore ''

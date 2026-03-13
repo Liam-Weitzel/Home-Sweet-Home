@@ -1,0 +1,16 @@
+{
+  "normal.alt-shift-ArrowUp": null,
+  "normal.alt-j": null,
+  "normal.alt-k": null,
+  "normal.ctrl-i": "EnterHintsMode_BackgroundTab",
+  "normal.ctrl-o": "EnterHintsMode_ForegroundTab",
+  "normal.alt-l": null,
+  "normal.alt-J": null,
+  "normal.ctrl-e": "EnterHintsMode_Click",
+  "normal.ctrl-O": "ReverseSelection",
+  "normal.alt-K": null,
+  "normal.ctrl-L": "EnterHintsMode_Select",
+  "normal.alt-L": null,
+  "normal.ctrl-E": "EnterHintsMode_ManyClick",
+  "normal.ctrl-I": "EnterHintsMode_ManyTab"
+}

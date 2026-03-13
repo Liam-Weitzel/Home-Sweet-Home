@@ -1,4 +1,5 @@
 {
+  "model": "sonnet",
   "hooks": {
     "Stop": [
       {
@@ -25,5 +26,5 @@
     "type": "command",
     "command": "/home/liam-w/.claude/statusline.sh"
   },
-  "model": "sonnet"
+  "skipDangerousModePermissionPrompt": true
 }

@@ -37,7 +37,7 @@ The redaction system now uses 3-digit zero-padded placeholders (REDACTED 997, RE
    sudo mv /etc/nixos/hardware-configuration.nix ./
    ```
 
-3. **Initial build** (comment out citrix temporarily):
+3. **Initial build**
    ```bash
    sudo nixos-rebuild switch --flake .#liam-w
    ```
@@ -50,8 +50,6 @@ The redaction system now uses 3-digit zero-padded placeholders (REDACTED 997, RE
 5. **Restart and finalize**:
    ```bash
    sudo reboot
-   # After restart, uncomment citrix and rebuild
-   sudo nixos-rebuild switch --flake .#liam-w
    ```
 
 ## Application Configuration
@@ -86,7 +84,6 @@ Sync -> Import from file
 - **Nextcloud**: Login and choose sync folders
 - **ncspot**: Login to Spotify
 - **nchat**: Configure chat clients
-- **Citrix**: Enterprise login
 
 ### Additional Tools
 - **Trackpad-Color-Picker**: Follow its README.md

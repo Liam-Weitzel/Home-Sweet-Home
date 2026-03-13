@@ -9,7 +9,7 @@
     pass
     gettext
     gnupg
-    pinentry
+    pinentry-rofi
     cron
     lynx
     notmuch
@@ -21,8 +21,13 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+    settings = {
+      "pinentry-program" = lib.mkForce "${pkgs.pinentry-rofi}/bin/pinentry-rofi";
+    };
   };
+
   services.pcscd.enable = true;
+
   services.cron = {
     enable = true;
     systemCronJobs = [
