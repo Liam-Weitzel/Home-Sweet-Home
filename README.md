@@ -60,18 +60,8 @@ Create two Firefox profiles: `ssb` and `default`
 
 #### General Settings (both profiles)
 - Open previous windows and tabs
-- Configure Passwords extension:
-  - Preferences → Notifications: OFF
-  - Auto fill: OFF
-  - Close popup after pasting credentials: OFF
-
-#### Extensions to Configure
+- Link Hints Shortcuts (Import from file)
 - Floccus
-- Nextcloud Passwords
-- OTP Manager
-
-#### Link Hints Shortcuts
-Import from file
 
 > Note: Get SSB hash from a random website and update `.bash_scripts/view_in_firefox.sh`
 
@@ -80,7 +70,7 @@ Import from file
 - **Waybar**: Configure based on screen setup
 - **Nextcloud**: Login and choose sync folders
 - **ncspot**: Login to Spotify
-- **nchat**: Configure chat clients
+- **nchat**: Configure chat clients (this wipes your config, so reset from git after nchat -s)
 
 ### Additional Tools
 - **Trackpad-Color-Picker**: Follow its README.md

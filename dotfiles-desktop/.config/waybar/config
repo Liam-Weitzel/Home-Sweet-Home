@@ -1,14 +1,14 @@
 [{
   "layer": "bottom",
   "position": "bottom",
-  "output": "eDP-1",
+  "output": "DP-1",
   "modules-left": [
     "sway/workspaces"
   ],
   "modules-center": [],
   "modules-right": [
-    //"custom/network",
-    //"custom/ping",
+    "custom/network",
+    "custom/ping",
     //"custom/priv_ip",
     //"custom/pub_ip",
     //"custom/vpn",
@@ -17,7 +17,7 @@
     "custom/cpu",
     "custom/disk",
     //"custom/iface",
-    "custom/bat",
+    //"custom/bat",
     //"custom/bt",
     "custom/vol",
     "custom/date"
@@ -133,8 +133,8 @@
   "modules-right": [
     //"custom/network",
     //"custom/ping",
-    //"custom/priv_ip",
-    //"custom/pub_ip",
+    "custom/priv_ip",
+    "custom/pub_ip",
     "custom/uptime",
     "custom/vpn",
     //"custom/mem",

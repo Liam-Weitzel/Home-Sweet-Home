@@ -72,18 +72,6 @@ in
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/dracula-dark-colorscheme/latest.xpi";
           installation_mode = "force_installed";
         };
-        "{7bb1f5d8-56c8-4c72-a7b9-0f539a7feefd}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4581864/simple_otpmanager_browser-0.36.xpi";
-          installation_mode = "force_installed";
-        };
-        "ncpasswords@mdns.eu" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4373288/nextcloud_passwords-2.7.0.xpi";
-          installation_mode = "force_installed";
-        };
-        "css-override@scottco.co" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/3419738/css_override-1.0.xpi";
-          installation_mode = "force_installed";
-        };
         "floccus@handmadeideas.org" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4431645/floccus-5.4.4.xpi";
           installation_mode = "force_installed";
@@ -106,6 +94,10 @@ in
         };
         "sponsorBlocker@ajay.app" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4598130/sponsorblock-6.0.3.xpi";
+          installation_mode = "force_installed";
+        };
+        "kartik@lockedin.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4834295/lockedin_yt-1.1.8.xpi";
           installation_mode = "force_installed";
         };
       };
