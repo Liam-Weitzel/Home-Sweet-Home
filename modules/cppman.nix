@@ -3,13 +3,13 @@
 let
   cppman = pkgs.python3Packages.buildPythonPackage rec {
     pname = "cppman";
-    version = "0.6.0";
+    version = "0.6.1";
 
     src = pkgs.fetchFromGitHub {
       owner = "aitjcize";
       repo = "cppman";
       rev = "master";
-      sha256 = "sha256-G9nyhEnB7xGiNN+nEhDI632qKB4Q2dLcjuOyYOAS6XU=";
+      sha256 = "sha256-63U5n8ezlhiCIw/JHxSjcehbfKIlJaTfVpeqHlfh+o8=";
     };
 
     pyproject = true;

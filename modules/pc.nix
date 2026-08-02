@@ -43,8 +43,6 @@
     xdg-desktop-portal
     vesktop
     pavucontrol
-    bruno #postman alternative
-    google-chrome
     nextcloud-client
     xorg.xmodmap
     pulseaudio
@@ -53,24 +51,12 @@
     ncspot
     gpu-viewer
     rpi-imager
-    dbeaver-bin
-
-    #GAMEDEV
-    aseprite
-    tiled
-    sfxr
-    steam
-    blender
+    # ollama # ollama serve # ollama run gemma3:4b # google for when on airplane
+    libreoffice
 
     #VIDEO
     vlc
     mpv
-
-    #WORK
-    gromit-mpx
-
-    #DRONE
-    betaflight-configurator
 
     #REVERSE ENGINEERING
     ghidra

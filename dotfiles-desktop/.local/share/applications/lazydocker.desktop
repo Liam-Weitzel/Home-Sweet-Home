@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=foot --title lazydocker lazydocker
+GenericName=Lazydocker
+Icon=foot
+Keywords=docker;lazydocker;tui
+Name=lazydocker
+StartupWMClass=lazydocker
+Type=Application
+Version=1.0

@@ -21,7 +21,7 @@ The redaction system now uses 3-digit zero-padded placeholders (REDACTED 997, RE
    ```bash
    sudo nano /etc/nixos/configuration.nix
    ```
-3. Enable flakes and install essential tools (git, vim)
+3. Enable flakes and install essential tools (git, vim, stow)
 
 ### Installation Steps
 
@@ -72,9 +72,6 @@ Create two Firefox profiles: `ssb` and `default`
 
 #### Link Hints Shortcuts
 Import from file
-
-#### Sidebery Configuration
-Sync -> Import from file
 
 > Note: Get SSB hash from a random website and update `.bash_scripts/view_in_firefox.sh`
 

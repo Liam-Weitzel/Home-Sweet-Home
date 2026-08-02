@@ -269,8 +269,10 @@ bindcode $Shift_L+$Alt_L+200 exec sh ~/.bash_scripts/combo.sh "fortunate " 0 0 0
 bindcode $Shift_L+$Alt_L+201 exec sh ~/.bash_scripts/combo.sh "fortunately " 0 0 0 1 0
 bindcode $Shift_L+$Alt_L+202 exec sh ~/.bash_scripts/combo.sh "fortune " 0 0 0 1 0
 
-output HDMI-A-1 transform 90
-output HDMI-A-1 pos 0 0
+# output HDMI-A-1 transform 90
+# output HDMI-A-1 pos 0 0
+output HDMI-A-1 pos 1280 0
+output eDP-1 pos 1625 1081
 output * background #2C2D30 solid_color
 bindsym $Super_L+Plus exec sh ~/.bash_scripts/change_output_scale.sh up
 bindsym $Super_L+Minus exec sh ~/.bash_scripts/change_output_scale.sh down
@@ -314,46 +316,46 @@ bindsym print exec grim -g "$(slurp -d)" - | wl-copy
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
 for_window [class="steam"] floating enable 
-for_window [title="Volume Control"] floating enable 
+for_window [app_id="org.pulseaudio.pavucontrol" title="Volume Control"] floating enable 
 for_window [app_id="ssb"] floating enable; move position 0 px 0 px; 
-for_window [title="gpustat"] floating enable
-for_window [title="Guvcview"] floating enable
-for_window [title="Nextcloud"] floating enable
-for_window [title="wdisplays"] floating enable
+for_window [app_id="com.nextcloud.desktopclient.nextcloud" title="Nextcloud"] floating enable
+for_window [app_id="wdisplays" title="wdisplays"] floating enable
 for_window [instance="zoom"] floating enable 
-
-for_window [title="claude-monitor"] floating enable; resize set 800 700
-for_window [title="2048-in-terminal"] floating enable; resize set 800 700
-for_window [title="adguard-tui"] floating enable; resize set 800 700
-for_window [title="lazyjournal"] floating enable; resize set 800 700
-for_window [title="chess-tui"] floating enable; resize set 800 700
-for_window [title="calcure"] floating enable; resize set 800 700
-for_window [title="htop"] floating enable; resize set 800 700
-for_window [title="gtt"] floating enable; resize set 800 700
-for_window [title="mpv"] floating enable; resize set 800 700
-for_window [title="imv"] floating enable; resize set 800 700
-for_window [title="neomutt"] floating enable; resize set 800 700
-for_window [title="smassh"] floating enable; resize set 800 700
-for_window [title="nmtui"] floating enable; resize set 800 700
-for_window [title="bluetuith"] floating enable; resize set 800 700
-for_window [title="binsider"] floating enable; resize set 800 700
-for_window [title="ncspot"] floating enable; resize set 800 700
-for_window [title="irssi"] floating enable; resize set 800 700
-for_window [title="lazygit"] floating enable; resize set 800 700
-for_window [title="hoard"] floating enable; resize set 800 700
-for_window [title="lazysql"] floating enable; resize set 800 700
-for_window [title="bitwise"] floating enable; resize set 800 700
-for_window [title="dua"] floating enable; resize set 800 700
-for_window [title="gh-dash"] floating enable; resize set 800 700
-for_window [title="bandwhich"] floating enable; resize set 800 700
-for_window [title="trippy"] floating enable; resize set 800 700
-for_window [title="tui-deck"] floating enable; resize set 800 700
-for_window [title="duf"] floating enable; resize set 800 700
-for_window [title="cloc"] floating enable; resize set 800 700
-for_window [title="dive"] floating enable; resize set 800 700
-for_window [title="heh"] floating enable; resize set 800 700
-for_window [title="flamelens"] floating enable; resize set 800 700
-for_window [title="gh-enhance"] floating enable; resize set 800 700
+ 
+for_window [app_id="foot" title="claude-monitor"] floating enable; resize set 800 700
+for_window [app_id="foot" title="2048-in-terminal"] floating enable; resize set 800 700
+for_window [app_id="foot" title="adguard-tui"] floating enable; resize set 800 700
+for_window [app_id="foot" title="lazyjournal"] floating enable; resize set 800 700
+for_window [app_id="foot" title="chess-tui"] floating enable; resize set 800 700
+for_window [app_id="foot" title="calcure"] floating enable; resize set 800 700
+for_window [app_id="foot" title="htop"] floating enable; resize set 800 700
+for_window [app_id="foot" title="gtt"] floating enable; resize set 800 700
+for_window [app_id="foot" title="mpv"] floating enable; resize set 800 700
+for_window [app_id="foot" title="imv"] floating enable; resize set 800 700
+for_window [app_id="foot" title="neomutt"] floating enable; resize set 800 700
+for_window [app_id="foot" title="smassh"] floating enable; resize set 800 700
+for_window [app_id="foot" title="nmtui"] floating enable; resize set 800 700
+for_window [app_id="foot" title="bluetuith"] floating enable; resize set 800 700
+for_window [app_id="foot" title="binsider"] floating enable; resize set 800 700
+for_window [app_id="foot" title="ncspot"] floating enable; resize set 800 700
+for_window [app_id="foot" title="irssi"] floating enable; resize set 800 700
+for_window [app_id="foot" title="lazygit"] floating enable; resize set 800 700
+for_window [app_id="foot" title="hoard"] floating enable; resize set 800 700
+for_window [app_id="foot" title="lazysql"] floating enable; resize set 800 700
+for_window [app_id="foot" title="bitwise"] floating enable; resize set 800 700
+for_window [app_id="foot" title="dua"] floating enable; resize set 800 700
+for_window [app_id="foot" title="gh-dash"] floating enable; resize set 800 700
+for_window [app_id="foot" title="bandwhich"] floating enable; resize set 800 700
+for_window [app_id="foot" title="trippy"] floating enable; resize set 800 700
+for_window [app_id="foot" title="tui-deck"] floating enable; resize set 800 700
+for_window [app_id="foot" title="duf"] floating enable; resize set 800 700
+for_window [app_id="foot" title="cloc"] floating enable; resize set 800 700
+for_window [app_id="foot" title="dive"] floating enable; resize set 800 700
+for_window [app_id="foot" title="heh"] floating enable; resize set 800 700
+for_window [app_id="foot" title="flamelens"] floating enable; resize set 800 700
+for_window [app_id="foot" title="gh-enhance"] floating enable; resize set 800 700
+for_window [app_id="foot" title="posting"] floating enable; resize set 800 700
+for_window [app_id="foot" title="lazydocker"] floating enable; resize set 800 700
 
 floating_modifier $Super_L normal
 
@@ -407,6 +409,7 @@ exec firefox --name=default -P default
 exec nextcloud
 exec vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu --nosocket=wayland
 exec foot --title nchat nchat
+exec steam
 
 bindsym $Super_L+h splitv
 bindsym $Super_L+v splith
@@ -481,6 +484,10 @@ mode "resize" {
 bindsym $Super_L+r mode "resize"
 
 exec waybar
+exec ~/.bash_scripts/toggle_sleep.sh
+exec ~/.bash_scripts/toggle_sleep.sh --lock
+bindsym $Super_L+l exec ~/.bash_scripts/toggle_sleep.sh --lock
+
 default_border pixel
 default_floating_border pixel
 font IosevkaTerm Nerd Font Bold 14

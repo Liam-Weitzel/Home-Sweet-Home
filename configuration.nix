@@ -9,7 +9,6 @@
       ./modules/docker.nix
       ./modules/cppinsights.nix
       ./modules/cppman.nix
-      ./modules/get-shit-done.nix
       ./modules/claude-code.nix
       # ./modules/homelab.nix
       ./hardware-configuration.nix
@@ -58,12 +57,18 @@
   nixpkgs.config.permittedInsecurePackages = [
     "libxml2-2.13.8"
     "libsoup-2.74.3"
+    "pnpm-10.29.2"
   ];
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc
   ];
+
+  # Exclude "doc" outputs: python3.12's doc build is currently broken
+  # (sphinx/docutils incompatibility in this nixpkgs snapshot) and blocks
+  # the whole system build otherwise.
+  environment.extraOutputsToInstall = lib.mkForce [ "man" "info" ];
 
   environment.systemPackages = with pkgs; [
 
@@ -98,6 +103,8 @@
     gh
     openssl
     oath-toolkit
+    unixtools.ifconfig
+    unixtools.arp
 
     gtt
     calcurse
@@ -119,6 +126,8 @@
     dive
     heh
     flamelens
+    posting
+    lazydocker
 
     #----=[ AWS ]=----#
     awscli2
@@ -164,6 +173,11 @@
     EDITOR="nvim";
     GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01";
   };
+
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024; # 16GB
+  }];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

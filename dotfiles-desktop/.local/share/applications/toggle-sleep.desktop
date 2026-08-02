@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=foot sh /home/liam-w/.bash_scripts/toggle_sleep.sh
+GenericName=Toggle sleep
+Icon=foot
+Keywords=ts;workflow;notification;toggle_sleep;tui;dns;do-not-sleep
+Name=Toggle sleep
+StartupWMClass=Toggle sleep
+Type=Application
+Version=1.0

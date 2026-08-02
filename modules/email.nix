@@ -31,8 +31,8 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "* * * * * liam-w export XDG_RUNTIME_DIR=/run/user/$(id -u) && /run/current-system/sw/bin/mailsync"
-      "* * * * * liam-w /run/current-system/sw/bin/vdirsyncer sync"
+      "*/5 * * * * liam-w export XDG_RUNTIME_DIR=/run/user/$(id -u) && /run/current-system/sw/bin/mailsync"
+      "*/5 * * * * liam-w /run/current-system/sw/bin/vdirsyncer sync"
     ];
   };
 }

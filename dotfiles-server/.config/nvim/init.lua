@@ -684,6 +684,7 @@ require('lazy').setup({
         [','] = nil,  -- enhanced setup for ','
         ['|'] = nil,  -- enhanced setup for '|'
         [' '] = nil,  -- enhanced setup for ' '
+        ['/'] = nil,  -- enhanced setup for ' '
       },
 
       -- Default options

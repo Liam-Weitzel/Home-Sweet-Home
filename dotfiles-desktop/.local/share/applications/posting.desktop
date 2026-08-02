@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Network;
+Exec=foot --title posting -e bash -c ~/.bash_scripts/posting-wrapper.sh
+GenericName=API application
+Icon=foot
+Keywords=postman;bruno;posting;api;tui
+Name=posting
+StartupWMClass=posting
+Type=Application
+Version=1.0

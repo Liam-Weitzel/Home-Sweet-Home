@@ -104,10 +104,6 @@ in
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4346988/linkhints-1.3.3.xpi";
           installation_mode = "force_installed";
         };
-        "{3c078156-979c-498b-8990-85f7987dd929}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4442132/sidebery-5.3.3.xpi";
-          installation_mode = "force_installed";
-        };
         "sponsorBlocker@ajay.app" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4598130/sponsorblock-6.0.3.xpi";
           installation_mode = "force_installed";
@@ -143,36 +139,5 @@ in
         "browser.gesture.pinch.out" = { Value = "cmd_fullZoomReset"; Status = "locked"; };
       };
     };
-  };
-
-  # declarative injection of userChrome.css for Sidebery + no native tabs + padding for URL bar
-  system.userActivationScripts.firefoxChrome = {
-    text = ''
-      profile_dir=$(find ~/.mozilla/firefox -maxdepth 1 -type d -name "*.default*" | head -n1)
-      mkdir -p "$profile_dir/chrome"
-      cat > "$profile_dir/chrome/userChrome.css" <<'EOF'
-      /* hides the native tabs */
-      #TabsToolbar {
-        visibility: collapse;
-      }
-
-      /* hides the title bar */
-      #titlebar {
-        visibility: collapse;
-      }
-
-      /* hides the sidebar */
-      #sidebar-header {
-        visibility: collapse !important;
-      }
-
-      /* Optional cleaner window controls area */
-      #nav-bar {
-        margin-top: 12px;
-        margin-right: 0px;
-        margin-bottom: 12px;
-      }
-      EOF
-    '';
   };
 }
