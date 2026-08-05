@@ -269,10 +269,8 @@ bindcode $Shift_L+$Alt_L+200 exec sh ~/.bash_scripts/combo.sh "fortunate " 0 0 0
 bindcode $Shift_L+$Alt_L+201 exec sh ~/.bash_scripts/combo.sh "fortunately " 0 0 0 1 0
 bindcode $Shift_L+$Alt_L+202 exec sh ~/.bash_scripts/combo.sh "fortune " 0 0 0 1 0
 
-output HDMI-A-1 transform 90
-output HDMI-A-1 pos 0 0
-output HDMI-A-1 pos 1280 0
-output eDP-1 pos 1625 1081
+exec_always pkill -x -9 kanshi; exec kanshi 
+exec ~/.config/waybar/watch-outputs.sh
 output * background #2C2D30 solid_color
 bindsym $Super_L+Plus exec sh ~/.bash_scripts/change_output_scale.sh up
 bindsym $Super_L+Minus exec sh ~/.bash_scripts/change_output_scale.sh down
@@ -483,7 +481,6 @@ mode "resize" {
 }
 bindsym $Super_L+r mode "resize"
 
-exec waybar
 exec ~/.bash_scripts/toggle_sleep.sh
 exec ~/.bash_scripts/toggle_sleep.sh --lock
 bindsym $Super_L+l exec ~/.bash_scripts/toggle_sleep.sh --lock

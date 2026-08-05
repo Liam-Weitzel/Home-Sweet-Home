@@ -67,10 +67,11 @@ Create two Firefox profiles: `ssb` and `default`
 
 ### Media & Communication
 - **Vesktop**: Install NotificationVolume plugin → restart
-- **Waybar**: Configure based on screen setup
+- **Waybar**: Configure based on device type (battery or not)
+- **Kanshi**: Configure based on screen setup
 - **Nextcloud**: Login and choose sync folders
 - **ncspot**: Login to Spotify
-- **nchat**: Configure chat clients (this wipes your config, so reset from git after nchat -s)
+- **nchat**: Configure chat clients (this wipes your config, so reset from git after nchat -s and stow again)
 
 ### Additional Tools
 - **Trackpad-Color-Picker**: Follow its README.md

@@ -20,9 +20,10 @@
     wev #check what input is being sent to wayland
     wdisplays
     waybar
+    kanshi
   ];
 
-  environment.loginShellInit = lib.mkBefore ''
+  environment.loginShellInit = lib.mkAfter ''
     [[ "$(tty)" == /dev/tty1 ]] && sway
   '';
 

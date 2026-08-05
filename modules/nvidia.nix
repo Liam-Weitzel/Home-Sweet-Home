@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  environment.loginShellInit = lib.mkAfter ''
+  environment.loginShellInit = lib.mkBefore ''
     [[ "$(tty)" == /dev/tty1 ]] && sway --unsupported-gpu
   '';
 

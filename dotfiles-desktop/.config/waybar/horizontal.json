@@ -1,0 +1,115 @@
+{
+  "layer": "bottom",
+  "position": "bottom",
+  "modules-left": [
+    "sway/workspaces"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "custom/mem",
+    "custom/cpu",
+    "custom/disk",
+    "custom/bat",
+    "custom/vol",
+    "custom/date"
+  ],
+
+  "custom/priv_ip": {
+    "exec": "~/.bash_scripts/waybar/priv_ip.sh",
+    "on-click": "~/.bash_scripts/waybar/priv_ip.sh true",
+    "interval": 5,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/pub_ip": {
+    "exec": "~/.bash_scripts/waybar/pub_ip.sh",
+    "on-click": "~/.bash_scripts/waybar/pub_ip.sh true",
+    "interval": 5,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/vpn": {
+    "exec": "~/.bash_scripts/waybar/vpn.sh",
+    "on-click": "foot --title adguard-tui bash -c 'docker run -e 'ADGUARD_IP=local' -e 'ADGUARD_PORT=3000' -e 'ADGUARD_USERNAME=admin' -e 'ADGUARD_PASSWORD=REDACTED002' -it obaraelijah/adguard-tui'",
+    "interval": 5,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/network": {
+    "exec": "~/.bash_scripts/waybar/network.sh",
+    "on-click": "foot --title bandwhich sudo bandwhich -s",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/ping": {
+    "exec": "~/.bash_scripts/waybar/ping.sh",
+    "on-click": "foot --title trippy -e bash -c ~/.bash_scripts/trippy-wrapper.sh",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/uptime": {
+    "exec": "~/.bash_scripts/waybar/uptime.sh",
+    "on-click": "sudo shutdown -h now",
+    "interval": 60,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/mem": {
+    "exec": "~/.bash_scripts/waybar/mem.sh",
+    "on-click": "foot --title bitwise bitwise",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/cpu": {
+    "exec": "~/.bash_scripts/waybar/cpu.sh",
+    "on-click": "foot --title htop htop",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/disk": {
+    "exec": "~/.bash_scripts/waybar/disk.sh",
+    "on-click": "foot --title dua dua interactive",
+    "interval": 10,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/iface": {
+    "exec": "~/.bash_scripts/waybar/iface.sh",
+    "on-click": "foot --title nmtui nmtui",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/bat": {
+    "exec": "~/.bash_scripts/waybar/bat.sh",
+    "on-click": "~/.bash_scripts/waybar/bat.sh true",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/bt": {
+    "exec": "~/.bash_scripts/waybar/bt.sh",
+    "on-click": "foot --title bluetuith bluetuith",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/vol": {
+    "exec": "~/.bash_scripts/waybar/vol.sh",
+    "on-click": "pavucontrol",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  },
+  "custom/date": {
+    "exec": "~/.bash_scripts/waybar/date.sh",
+    "on-click": "foot --title calcure calcure",
+    "interval": 1,
+    "return-type": "json",
+    "class": "button"
+  }
+}

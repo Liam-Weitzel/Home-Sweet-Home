@@ -5,7 +5,7 @@
     [
       # ./nvidia.nix
       # ./amd.nix
-      ./intel-mac-webcam.nix
+      # ./intel-mac-webcam.nix
       ./firefox.nix
       ./cursor.nix
       ./sway.nix
