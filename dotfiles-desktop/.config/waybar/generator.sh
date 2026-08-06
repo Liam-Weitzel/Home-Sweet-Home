@@ -26,8 +26,28 @@ jq -n \
   ] | map(select(.output | length > 0))' \
   > "$OUT_FILE"
 
-pkill -9 -x waybar || true
-sleep 0.2
+# Match on the launched command line, not the process name: Nix wraps waybar
+# so its real comm is ".waybar-wrapped", not "waybar" — `pkill -x waybar`
+# never matched anything, so every regen left the old instance running and
+# just kept adding new ones.
+MATCH="waybar -c $OUT_FILE"
+
+# Wait for waybar to actually exit before relaunching — a fixed sleep after
+# pkill races the old process's (and Sway's) teardown of layer-shell surfaces,
+# which can leave a stale instance fighting the new one over an output.
+if pgrep -f "$MATCH" >/dev/null; then
+  pkill -f "$MATCH" || true
+  for _ in $(seq 1 50); do          # SIGTERM: up to 2.5s for a clean exit
+    pgrep -f "$MATCH" >/dev/null || break
+    sleep 0.05
+  done
+  pkill -9 -f "$MATCH" 2>/dev/null || true
+  for _ in $(seq 1 20); do          # SIGKILL: up to 1s for the kernel to reap it
+    pgrep -f "$MATCH" >/dev/null || break
+    sleep 0.05
+  done
+fi
+
 # 9>&- so waybar does not inherit the lock fd — otherwise it holds the flock
 # for its entire lifetime and every later run silently skips.
 waybar -c "$OUT_FILE" -s "$CONFIG_DIR/style.css" 9>&- &

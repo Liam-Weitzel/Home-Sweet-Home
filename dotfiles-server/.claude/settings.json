@@ -26,5 +26,7 @@
     "type": "command",
     "command": "/home/liam-w/.claude/statusline.sh"
   },
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "tui": "fullscreen"
 }
