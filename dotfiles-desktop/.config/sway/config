@@ -481,7 +481,7 @@ mode "resize" {
 }
 bindsym $Super_L+r mode "resize"
 
-exec ~/.bash_scripts/toggle_sleep.sh
+# exec ~/.bash_scripts/toggle_sleep.sh
 exec ~/.bash_scripts/toggle_sleep.sh --lock
 bindsym $Super_L+l exec ~/.bash_scripts/toggle_sleep.sh --lock
 
