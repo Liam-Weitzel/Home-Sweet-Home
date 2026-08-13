@@ -311,10 +311,18 @@ bindsym XF86BrightnessAuto exec bash -c 'pkill wluma || wluma'
 
 bindsym print exec grim -g "$(slurp -d)" - | wl-copy
 
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway && systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
-for_window [class="steam"] floating enable 
-for_window [app_id="org.pulseaudio.pavucontrol" title="Volume Control"] floating enable 
+# Start mako as a session child instead of leaving it to D-Bus activation.
+# Activated mako inherits the systemd user manager's environment, which only
+# gains WAYLAND_DISPLAY once the line above lands. That upload races every other
+# exec here, so an early notification could activate mako without a display,
+# mako would exit immediately, and notify-send would silently do nothing.
+# Launched from sway it inherits WAYLAND_DISPLAY directly and lives as long as
+# the session. D-Bus activation stays as a fallback if this ever dies.
+exec mako
+
+for_window [app_id="org.pulseaudio.pavucontrol" title="Volume Control"] floating enable
 for_window [app_id="ssb"] floating enable; move position 0 px 0 px; 
 for_window [app_id="com.nextcloud.desktopclient.nextcloud" title="Nextcloud"] floating enable
 for_window [app_id="wdisplays" title="wdisplays"] floating enable
@@ -401,13 +409,10 @@ bindcode Shift+420 move workspace prev_on_output; workspace prev_on_output
 bindcode $Super_L+Shift+415 exec bash -c 'ws=$(seq $(swaymsg -t get_workspaces | jq -r "map(select(.focused))[0].name") 100 | grep -vFf <(swaymsg -t get_workspaces | jq -r ".[].name") | head -n 1); swaymsg "move container to workspace $ws, workspace $ws"'
 bindcode $Super_L+Shift+420 exec bash -c 'ws=$(seq $(swaymsg -t get_workspaces | jq -r "map(select(.focused))[0].name") -1 1 | grep -vFf <(swaymsg -t get_workspaces | jq -r ".[].name") | head -n 1); swaymsg "move container to workspace $ws, workspace $ws"'
 
-#core startup apps:
-exec foot
-exec firefox --name=default -P default
-exec nextcloud
-exec vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --nosocket=wayland
-exec foot --title nchat nchat
-exec steam
+#startup apps:
+# --background syncs without ever creating a window. Run `nextcloud` again to
+# raise the UI of the already-running instance.
+exec nextcloud --background
 
 bindsym $Super_L+h splitv
 bindsym $Super_L+v splith
