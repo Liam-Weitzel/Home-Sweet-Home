@@ -3,15 +3,24 @@
 {
   imports =
     [
-      # ./nvidia.nix
-      # ./amd.nix
-      # ./intel-mac-webcam.nix
+      # GPU: exactly one of these. nvidia.nix on the desktop, intel.nix on the
+      # ThinkPad E14 Gen 7. Anything vendor-neutral belongs below, not in them.
+      ./nvidia.nix
+      # ./intel.nix
       ./firefox.nix
       ./cursor.nix
       ./sway.nix
     ];
 
   hardware = {
+    # Vendor-neutral: enable32Bit populates /run/opengl-driver-32 with the
+    # 32-bit half of whichever stack is active (nvidia_x11.lib32 on the desktop,
+    # Mesa iris on the ThinkPad). Steam's client bootstrap is 32-bit, so it
+    # falls back to llvmpipe without this regardless of GPU.
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
     bluetooth = {
       enable = true;
       powerOnBoot = true;

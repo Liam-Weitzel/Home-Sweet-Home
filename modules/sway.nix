@@ -28,6 +28,10 @@
   '';
 
   environment.sessionVariables = {
+    # Vulkan renderer for every GPU, not just NVIDIA: anv handles Arc fine and
+    # this keeps the sway session identical across both machines.
+    WLR_RENDERER = "vulkan";
+
     # General wayland stuffs for sway
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "sway";
