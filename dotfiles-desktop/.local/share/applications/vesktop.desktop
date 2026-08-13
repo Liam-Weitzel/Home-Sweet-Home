@@ -1,6 +1,6 @@
 [Desktop Entry]
 Categories=Network;InstantMessaging;Chat
-Exec=vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu --nosocket=wayland %U
+Exec=vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --nosocket=wayland %U
 GenericName=Internet Messenger
 Icon=vesktop
 Keywords=discord;vencord;electron;chat

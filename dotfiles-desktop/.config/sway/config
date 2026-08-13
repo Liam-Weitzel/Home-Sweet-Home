@@ -405,7 +405,7 @@ bindcode $Super_L+Shift+420 exec bash -c 'ws=$(seq $(swaymsg -t get_workspaces |
 exec foot
 exec firefox --name=default -P default
 exec nextcloud
-exec vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu --nosocket=wayland
+exec vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --nosocket=wayland
 exec foot --title nchat nchat
 exec steam
 
