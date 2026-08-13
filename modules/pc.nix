@@ -66,6 +66,13 @@
 
   programs.steam.enable = true;
 
+  # Run AppImages directly. binfmt registers a handler so ./foo.AppImage works
+  # without a wrapper, and pulls in the FUSE libs the AppImage runtime dlopen()s.
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
