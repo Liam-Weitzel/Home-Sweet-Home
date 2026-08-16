@@ -7,6 +7,7 @@
       # ThinkPad E14 Gen 7. Anything vendor-neutral belongs below, not in them.
       ./nvidia.nix
       # ./intel.nix
+      ./streaming.nix
       ./firefox.nix
       ./cursor.nix
       ./sway.nix
@@ -63,6 +64,8 @@
     # ollama # ollama serve # ollama run gemma3:4b # google for when on airplane
     libreoffice
 
+    runelite
+
     #VIDEO
     vlc
     mpv
@@ -79,6 +82,8 @@
     enable = true;
     binfmt = true;
   };
+
+  services.flatpak.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
