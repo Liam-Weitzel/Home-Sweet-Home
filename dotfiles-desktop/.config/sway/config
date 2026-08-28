@@ -309,7 +309,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym XF86BrightnessAuto exec bash -c 'pkill wluma || wluma'
 
-bindsym print exec grim -g "$(slurp -d)" - | wl-copy
+bindsym Print exec sh -c 'mkdir -p "$HOME/Screenshots" && grim -g "$(slurp -d)" - | tee "$HOME/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png" | wl-copy'
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway && systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
