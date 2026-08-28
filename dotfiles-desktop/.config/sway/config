@@ -414,6 +414,13 @@ bindcode $Super_L+Shift+420 exec bash -c 'ws=$(seq $(swaymsg -t get_workspaces |
 # raise the UI of the already-running instance.
 exec nextcloud --background
 
+# The daemon sits idle with no surface mapped until --daemon-toggle wakes it,
+# so the annotation overlay appears instantly instead of paying Rust startup
+# on every keypress. --no-tray because waybar carries no tray module here and
+# wayscriber would otherwise sit waiting on a StatusNotifier host that never
+# shows up.
+exec wayscriber --daemon --no-tray
+
 bindsym $Super_L+h splitv
 bindsym $Super_L+v splith
 
@@ -429,6 +436,9 @@ bindsym $Super_L+u focus parent
 
 bindsym $Super_L+p exec ~/.bash_scripts/ncpass-rofi.sh
 bindsym $Super_L+o exec ~/.bash_scripts/ncotp-rofi.sh
+
+# Toggle light draw mode on the wayscriber overlay.
+bindsym $Super_L+g exec wayscriber --light-draw-toggle
 
 bindsym $Super_L+m move scratchpad
 bindsym $Super_L+$Shift_L+m scratchpad show

@@ -14,6 +14,7 @@
     wtype
     xdg-desktop-portal-wlr
     wf-recorder #records a screen
+    wayscriber #draws on the screen, gromit-mpx for wayland
     imv #light-weight image viewer
     wlprop
     wluma
